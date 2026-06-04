@@ -898,9 +898,9 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* Layout (canvas 1080 × 760; percentages relative to it).
-   Orch card spans x: 24%–72%, center-x = 48%. Bottom row + heading center on 48%. */
-.orch2-llms     { left: 8%;   top: 0;    width: 20%; }
-.orch2-main     { left: 24%;  top: 22%;  width: 48%; }
+   Orch card spans x: 24%–72%, center-x = 48%. Everything aligns to 48%. */
+.orch2-llms     { left: 38%;  top: 0;    width: 20%; }   /* centered above orch */
+.orch2-main     { left: 24%;  top: 24%;  width: 48%; }
 .orch2-main img {
   filter:
     drop-shadow(0 0 28px rgba(96, 161, 235, 0.32))
@@ -910,13 +910,19 @@ html, body { margin: 0; padding: 0; }
 
 .orch2-systems-head {
   left: 48%; top: 62%;
-  transform: translateX(-50%);
+  /* Initial transform set by the head-specific keyframe below — keeps translateX(-50%) intact */
   font-family: var(--font-body);
   font-size: 24px; font-weight: 700; color: #EEF6FF;
   text-align: center;
   z-index: 2;
   white-space: nowrap;
   letter-spacing: -0.01em;
+  animation: orch2HeadIn 750ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes orch2HeadIn {
+  from { opacity: 0; transform: translate(-50%, 14px) scale(0.97); }
+  to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
 }
 
 /* Boxes centered horizontally under the orch card (center at 48%) */
@@ -938,14 +944,13 @@ html, body { margin: 0; padding: 0; }
   to   { opacity: 0.95; transform: translateY(0); }
 }
 
-/* LLMs (8–28%) → arrow exits right side, points down-right into orch top-left (24%, 22%) */
-.orch2-arrow-llm      { left: 26%; top: 11%; width: 8%;  height: 13%; }
+/* LLMs sits centered above orch (top:0–~13%), gap to orch top at 24% — arrow drops vertically with breathing room */
+.orch2-arrow-llm      { left: 46%; top: 14%; width: 4%;  height: 8%;  }
 /* Orch right edge (72%, mid-y ~40%) → students circle left edge (~78%) */
 .orch2-arrow-students { left: 71%; top: 36%; width: 8%;  height: 10%; }
-/* Orch bottom-left corner (24%, 58%) → core box top-center (~36%, 75%) */
-.orch2-arrow-core     { left: 24%; top: 56%; width: 12%; height: 19%; }
-/* Orch bottom-right corner (72%, 58%) → points box top-center (~60%, 75%) */
-.orch2-arrow-points   { left: 60%; top: 56%; width: 12%; height: 19%; }
+/* Bottom-row arrows on the OUTER flanks: core arrow LEFT of core box, points arrow RIGHT of points box */
+.orch2-arrow-core     { left: 14%; top: 60%; width: 11%; height: 18%; }
+.orch2-arrow-points   { left: 71%; top: 60%; width: 11%; height: 18%; }
 
 @media (max-width: 900px) {
   .orch2 { padding: 72px 0 88px; }
