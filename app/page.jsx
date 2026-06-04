@@ -65,6 +65,12 @@ const Hero = () => (
             </div>
           </div>
 
+          {/* === REAL PHONE PNG (active) === */}
+          <div className="mf-mock-phone-real">
+            <img src="/agent-interaction-hero.png" alt="Nia mobile chat — Academic agent helping a student plan around a low FIT101 grade"/>
+          </div>
+
+          {/* === FAKE PHONE MOCK (kept commented for easy revert; remove the JSX comment wrapper to restore) ===
           <div className="mf-mock-phone">
             <div className="mf-mock-phone-screen">
               <div className="mf-mock-phone-status">
@@ -84,6 +90,7 @@ const Hero = () => (
               </div>
             </div>
           </div>
+          === END FAKE PHONE MOCK === */}
 
           <div className="mf-anno" style={{ top: -22, left: 100 }}>
             <svg width="40" height="22" viewBox="0 0 40 22"><path d="M2 4 Q 20 24, 38 18 L 32 14 M 38 18 L 34 22"/></svg>
