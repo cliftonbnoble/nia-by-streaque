@@ -396,15 +396,6 @@ const TechPrivacy = () => (
         <p>Nia sits between your systems and the model — orchestrating governed nudges and workflows, never moving PII off your tenant.</p>
       </div>
 
-      <div className="mf-orch-scene" aria-label="Nia Orchestration Layer">
-        <img src="/orch/group-414.svg" alt="" className="mf-orch-piece mf-orch-trails-l"/>
-        <img src="/orch/group-570.svg" alt="" className="mf-orch-piece mf-orch-trails-r"/>
-        <img src="/orch/frame-948.svg" alt="" className="mf-orch-piece mf-orch-cards-top"/>
-        <img src="/orch/frame-942.svg" alt="" className="mf-orch-piece mf-orch-cards-bot"/>
-        <img src="/orch/group-594.svg" alt="" className="mf-orch-piece mf-orch-hub"/>
-        <div className="mf-orch-caption">The Nia Orchestration Layer · stays inside your tenant</div>
-      </div>
-
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 28 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 18 }}>
@@ -442,6 +433,60 @@ const TechPrivacy = () => (
   </section>
 );
 
+const HigherEdStack = () => (
+  <section className="orch2" aria-label="How Nia fits in your Higher Ed Stack">
+    <div className="orch2-head">
+      <h2>How Nia fits in your Higher Ed Stack</h2>
+      <p>Sits between your systems and AI models to orchestrate governed nudges and workflows.</p>
+    </div>
+
+    <div className="orch2-canvas">
+      <img src="/orch-v2/left-ribbon-stack.svg"  alt="" className="orch2-ribbon left"/>
+      <img src="/orch-v2/right-ribbon-stack.svg" alt="" className="orch2-ribbon right"/>
+
+      <div className="orch2-piece orch2-llms" style={{ "--d": "0ms" }}>
+        <img src="/orch-v2/campus-auth-llm-stack.svg" alt="Campus-authorized LLMs · Chat bots and Copilots"/>
+      </div>
+
+      <div className="orch2-arrow orch2-arrow-llm" style={{ "--d": "200ms" }}>
+        <img src="/orch-v2/campus-llm-arrow.svg" alt=""/>
+      </div>
+
+      <div className="orch2-piece orch2-main" style={{ "--d": "350ms" }}>
+        <img src="/orch-v2/nia-orchestration-layer-stack.svg" alt="Nia Orchestration Layer — Guardrails and routing, Coaching and nudges, Audit and governance"/>
+      </div>
+
+      <div className="orch2-arrow orch2-arrow-students" style={{ "--d": "650ms" }}>
+        <img src="/orch-v2/student-staff-arrow.svg" alt=""/>
+      </div>
+
+      <div className="orch2-piece orch2-students" style={{ "--d": "800ms" }}>
+        <img src="/orch-v2/student-and-staff-stack.svg" alt="Students and Staff"/>
+      </div>
+
+      <div className="orch2-systems-head orch2-piece" style={{ "--d": "1000ms" }}>
+        Campus Systems
+      </div>
+
+      <div className="orch2-arrow orch2-arrow-core" style={{ "--d": "1100ms" }}>
+        <img src="/orch-v2/core-system-arrow.svg" alt=""/>
+      </div>
+
+      <div className="orch2-arrow orch2-arrow-points" style={{ "--d": "1200ms" }}>
+        <img src="/orch-v2/point-solution-arrow.svg" alt=""/>
+      </div>
+
+      <div className="orch2-piece orch2-core" style={{ "--d": "1250ms" }}>
+        <img src="/orch-v2/core-system-record-stack.svg" alt="Core systems of record · LMS, SIS, CRM, Financial Aid"/>
+      </div>
+
+      <div className="orch2-piece orch2-points" style={{ "--d": "1350ms" }}>
+        <img src="/orch-v2/points-solution-stack.svg" alt="Point Solutions · Advising, career tools, early alert, basic needs, tutoring, mentoring"/>
+      </div>
+    </div>
+  </section>
+);
+
 const CTA = () => (
   <section style={{ background: "var(--primary)", color: "white", padding: "96px 0", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 70%)" }}/>
@@ -474,6 +519,7 @@ export default function Home() {
       <Stats/>
       <Team/>
       <TechPrivacy/>
+      <HigherEdStack/>
       <CTA/>
       <Footer/>
     </div>
