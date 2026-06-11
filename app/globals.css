@@ -127,6 +127,22 @@ html, body { margin: 0; padding: 0; }
 }
 .mf-trustbar .items svg { opacity: 0.7; }
 
+/* Security highlight — the one interactive, brighter badge in the trust bar */
+.mf-trustbar .trust-sec {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+.mf-trustbar .trust-sec svg { opacity: 1; }
+.mf-trustbar .trust-sec:hover { color: var(--brand-cyan); }
+.mf-trustbar .trust-sec-arrow { display: inline-block; transition: transform 120ms ease; }
+.mf-trustbar .trust-sec:hover .trust-sec-arrow { transform: translateX(3px); }
+
 .mf-nav {
   border-bottom: 1px solid var(--line);
   background: rgba(255,255,255,0.85);
@@ -160,6 +176,31 @@ html, body { margin: 0; padding: 0; }
   display: flex; gap: 32px;
   font-size: 14px; font-weight: 500;
   color: var(--ink-2);
+}
+.mf-nav-burger {
+  display: none;
+  width: 38px; height: 38px;
+  align-items: center; justify-content: center;
+  background: transparent; border: 1px solid var(--line);
+  border-radius: 9px; color: var(--ink); cursor: pointer;
+}
+.mf-nav-mobile {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 10px 20px 18px;
+  background: white; border-bottom: 1px solid var(--line);
+  box-shadow: 0 18px 30px -18px rgba(11,16,32,0.18);
+}
+.mf-nav-mobile a {
+  text-decoration: none; color: var(--ink-2);
+  font-size: 15px; font-weight: 500;
+  padding: 11px 6px; border-radius: 8px;
+}
+.mf-nav-mobile a.active { color: var(--primary); background: var(--bg-alt); }
+@media (max-width: 760px) {
+  .mf-nav-links { display: none; }
+  .mf-nav-burger { display: inline-flex; }
+  .mf-nav-inner { padding: 12px 20px; gap: 10px; }
+  .mf-nav-cta { margin-left: auto; }
 }
 .mf-nav-links a {
   color: var(--ink-2);
@@ -295,16 +336,35 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* ── hero ─────────────────────────────────────── */
+/* ── hero v1 — warm cream into cool periwinkle, lit from the product side ── */
 .mf-hero {
-  padding: 72px 0 96px;
+  padding: 84px 0 96px;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 57% 18%, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.45) 18%, rgba(255,255,255,0.12) 32%, transparent 48%),
+    radial-gradient(circle at 66% 52%, rgba(102, 208, 255, 0.30) 0%, rgba(102, 208, 255, 0.18) 20%, rgba(102, 208, 255, 0.09) 34%, transparent 54%),
+    radial-gradient(circle at 83% 70%, rgba(130, 104, 255, 0.22) 0%, rgba(130, 104, 255, 0.14) 18%, rgba(130, 104, 255, 0.08) 30%, transparent 52%),
+    linear-gradient(90deg, #fbf8f2 0%, #f7f4ee 38%, #eef5ff 72%, #f4efff 100%);
+}
+@media (max-width: 860px) {
+  .mf-hero {
+    background:
+      radial-gradient(circle at 70% 74%, rgba(102, 208, 255, 0.24) 0%, rgba(102, 208, 255, 0.10) 36%, transparent 64%),
+      radial-gradient(circle at 30% 88%, rgba(130, 104, 255, 0.18) 0%, rgba(130, 104, 255, 0.08) 42%, transparent 70%),
+      linear-gradient(135deg, #fbf8f2 0%, #f7f4ee 46%, #eef5ff 100%);
+  }
 }
 .mf-hero-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 56px;
   align-items: center;
+}
+@media (max-width: 860px) {
+  .mf-hero-grid { grid-template-columns: 1fr; gap: 8px; }
+  .mf-mock-stage { height: 460px; }
 }
 .mf-hero h1 strong {
   background: linear-gradient(135deg, var(--primary), #2a3aaa);
@@ -355,31 +415,95 @@ html, body { margin: 0; padding: 0; }
   overflow: hidden;
   z-index: 0;
 }
+/* concentric "intelligence layer" rings, centered on the phone fan */
 .mf-hero-bg::before {
   content: '';
   position: absolute;
-  width: 600px; height: 600px;
-  right: -200px; top: -200px;
-  background: radial-gradient(circle at center, rgba(6, 11, 97, 0.06), transparent 60%);
-  border-radius: 50%;
+  inset: -8% -10% -10% -8%;
+  background: radial-gradient(
+    circle at 63% 57%,
+    transparent 0%, transparent 34%,
+    rgba(255,255,255,0.34) 34.2%, transparent 34.7%,
+    transparent 46%,
+    rgba(255,255,255,0.18) 46.2%, transparent 46.7%,
+    transparent 58%,
+    rgba(255,255,255,0.12) 58.2%, transparent 58.7%
+  );
+  opacity: 0.9;
 }
+/* technical grid, heavier on the product side */
 .mf-hero-bg::after {
   content: '';
   position: absolute;
   width: 100%; height: 100%;
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(rgba(91, 116, 196, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 116, 196, 0.07) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 70% 50%, black, transparent);
-  opacity: 0.4;
+  opacity: 0.75;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 22%, rgba(0,0,0,0.18) 38%, rgba(0,0,0,0.55) 56%, rgba(0,0,0,0.92) 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 22%, rgba(0,0,0,0.18) 38%, rgba(0,0,0,0.55) 56%, rgba(0,0,0,0.92) 100%);
+}
+/* blue + purple glow behind the phones */
+.mf-hero-glow {
+  position: absolute;
+  right: 5%;
+  top: 18%;
+  width: min(760px, 52vw);
+  height: min(620px, 44vw);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 34% 44%, rgba(84, 201, 255, 0.62) 0%, rgba(84, 201, 255, 0.34) 22%, rgba(84, 201, 255, 0.14) 42%, transparent 66%),
+    radial-gradient(circle at 74% 74%, rgba(123, 103, 241, 0.52) 0%, rgba(123, 103, 241, 0.26) 20%, rgba(123, 103, 241, 0.10) 38%, transparent 60%);
+  filter: blur(48px);
+  opacity: 0.95;
+  transform: rotate(-4deg);
+}
+@media (max-width: 860px) {
+  .mf-hero-bg::before { display: none; }
+  .mf-hero-bg::after {
+    opacity: 0.5;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 36%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 36%, black 100%);
+  }
+  .mf-hero-glow {
+    right: -24%;
+    top: auto;
+    bottom: -4%;
+    width: 520px;
+    height: 420px;
+    opacity: 0.85;
+    filter: blur(52px);
+  }
 }
 .mf-hero-inner { position: relative; z-index: 1; }
+
+/* hero v1 typography & controls */
+.mf-hero .mf-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #2c83e8; }
+.mf-hero h1 { font-size: clamp(50px, 5.6vw, 80px); line-height: 0.97; letter-spacing: -0.04em; color: #0b1330; }
+.mf-hero .mf-grad-text {
+  background: linear-gradient(90deg, #3AB6EF 0%, #4B8AE8 52%, #6659D9 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.mf-hero-sub { font-size: 21px; color: #4d556c; }
+.mf-hero-actions .mf-btn-lg { min-height: 54px; border-radius: 14px; font-size: 17px; padding: 0 26px; }
+.mf-hero-actions .mf-btn-ghost {
+  background: rgba(255,255,255,0.66);
+  border-color: rgba(20,33,64,0.14);
+  color: #0f1735;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.mf-hero-meta { margin-top: 38px; padding-top: 26px; gap: 22px; max-width: 520px; border-top-color: rgba(45,67,126,0.10); }
+.mf-hero-meta-stat .num { font-size: 24px; }
+.mf-hero-meta-stat .lbl { font-size: 14px; color: #697188; }
+.mf-hero-meta-divider { background: rgba(45,67,126,0.10); }
 
 /* ── product mock — advisor desktop ─────────────── */
 .mf-mock-stage {
   position: relative;
-  height: 480px;
+  height: 590px;
 }
 .mf-mock-desktop {
   position: absolute;
@@ -551,6 +675,9 @@ html, body { margin: 0; padding: 0; }
   font-style: italic;
   pointer-events: none;
   white-space: nowrap;
+}
+@media (max-width: 860px) {
+  .mf-mock-stage .mf-anno { display: none !important; }
 }
 .mf-anno svg { stroke: var(--ink-4); fill: none; stroke-width: 1.2; stroke-linecap: round; }
 
@@ -739,17 +866,7 @@ html, body { margin: 0; padding: 0; }
   margin-top: 4px;
 }
 
-/* ── mascot accent ─────────────────────── */
-.mf-mascot {
-  position: absolute;
-  width: 64px; height: 64px;
-  background-image: url('/welcome-thinking-nia.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none;
-  filter: drop-shadow(0 8px 20px rgba(43, 179, 223, 0.25));
-}
+/* (mascot accent removed — class was unused and its asset archived) */
 
 /* ── orchestration scene ─────────────────────── */
 .mf-orch-scene {
@@ -829,7 +946,59 @@ html, body { margin: 0; padding: 0; }
   .mf-orch-hub { width: 38%; }
 }
 
-/* ── Real iPhone PNG (replaces .mf-mock-phone in hero) ─────── */
+/* (Hero phones now live entirely in components/home/HeroPhone.jsx) */
+
+/* ── Stats band (Quiet outcomes) ─────────────────────────── */
+.mf-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.mf-stats-cell { padding: 40px 32px; }
+.mf-stats-cell:not(:last-child) { border-right: 1px solid var(--line); }
+.mf-stats-cell .num { font-size: clamp(56px, 7vw, 96px); }
+@media (max-width: 760px) {
+  .mf-stats-grid { grid-template-columns: 1fr; }
+  .mf-stats-cell { padding: 28px 8px; }
+  .mf-stats-cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--line); }
+}
+
+/* generic: stack any inline two/three-column grid on small screens */
+@media (max-width: 760px) {
+  .mf-stack-sm { grid-template-columns: 1fr !important; }
+  .mf-stack-sm-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .mf-two-grid { grid-template-columns: 1fr; }
+  .mf-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+}
+
+/* ── footer ─────────────────────────────────────────── */
+.mf-foot-link {
+  color: rgba(255,255,255,0.72);
+  text-decoration: none;
+  transition: color 140ms ease;
+  width: fit-content;
+}
+.mf-foot-link:hover { color: #ffffff; }
+
+.mf-social {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+.mf-social:hover {
+  color: #fff;
+  background: var(--social);
+  border-color: var(--social);
+  transform: translateY(-2px);
+}
+
+/* ── Real iPhone PNG (kept for easy revert; markup commented in page.jsx) ── */
 .mf-mock-phone-real {
   position: absolute;
   bottom: -28px;
@@ -880,9 +1049,22 @@ html, body { margin: 0; padding: 0; }
   padding: 0 24px;
 }
 
-.orch2-ribbon { position: absolute; opacity: 0.55; pointer-events: none; user-select: none; z-index: 0; }
-.orch2-ribbon.left  { left: -4%;  top: -6%;     height: 62%; width: auto; }
-.orch2-ribbon.right { right: -8%; bottom: -14%; height: 72%; width: auto; }
+/* edge-anchored framing ribbons — flush to the section sides, clipped by them,
+   fanning nearly top-to-bottom. Height tracks the viewport so they scale
+   smoothly from desktop to mobile without ever detaching from the edge. */
+.orch2-ribbon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: clamp(300px, 60vw, 860px);
+  width: auto;
+  opacity: 0.55;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.orch2-ribbon.left  { left: 0; }
+.orch2-ribbon.right { right: 0; }
 
 .orch2-piece {
   position: absolute;
@@ -968,5 +1150,5 @@ html, body { margin: 0; padding: 0; }
   .orch2-piece.orch2-main { max-width: 100%; }
   .orch2-systems-head { position: static; transform: none; margin-top: 16px; }
   .orch2-arrow { display: none; }
-  .orch2-ribbon { display: none; }
+  .orch2-ribbon { height: clamp(260px, 90vw, 420px); opacity: 0.3; }
 }

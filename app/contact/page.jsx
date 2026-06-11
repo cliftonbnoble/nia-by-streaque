@@ -5,11 +5,17 @@ import { ArrowRight, Dot } from "@/components/icons";
 import ContactForm from "./ContactForm";
 import DirectLines from "./DirectLines";
 
+export const metadata = {
+  title: "Contact · Streaque",
+  description:
+    "Start a pilot conversation, book time with the founders, or request the investor brief. Real responses from real people, within one business day.",
+};
+
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 80 }}>
     <div className="mf-hero-bg"/>
     <div className="mf-container mf-hero-inner">
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
         <div>
           <span className="mf-eyebrow">Contact</span>
           <h1 style={{ marginTop: 18, fontSize: 60, lineHeight: 1.05 }}>
@@ -17,7 +23,7 @@ const Hero = () => (
           </h1>
           <p className="mf-hero-sub" style={{ marginTop: 22, maxWidth: 520 }}>
             Whether you're piloting Nia at your institution, exploring a partnership, or just curious how
-            it works in practice — we'd love to hear from you. Real responses from real people, usually within one business day.
+            it works in practice, we'd love to hear from you. Real responses from real people, usually within one business day.
           </p>
           <div style={{ marginTop: 28, display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a href="#form" className="mf-btn mf-btn-primary" style={{ textDecoration: "none" }}>
@@ -32,7 +38,7 @@ const Hero = () => (
               <Dot color="var(--success)"/> Replies within 1 business day
             </span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-              <Dot color="var(--brand-cyan)"/> No sales scripts — just answers
+              <Dot color="var(--brand-cyan)"/> No sales scripts, just answers
             </span>
           </div>
         </div>
@@ -70,7 +76,7 @@ const Hero = () => (
             <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               <Dot color="var(--success)"/> Replied · 16:08
             </div>
-            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it — Luke will be in touch tomorrow with a Calendar invite."</div>
+            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. Luke will be in touch tomorrow with a Calendar invite."</div>
           </div>
         </div>
       </div>
@@ -81,7 +87,7 @@ const Hero = () => (
 const Paths = () => {
   const paths = [
     { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", icon: "pilot", accent: "var(--brand-cyan)" },
-    { eyebrow: "For founders", title: "Talk directly", body: "Skip the form — book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Book with founders", href: "#founders", icon: "founders", accent: "var(--brand-blue)" },
+    { eyebrow: "For founders", title: "Talk directly", body: "Skip the form and book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Book with founders", href: "#founders", icon: "founders", accent: "var(--brand-blue)" },
     { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, ARR/runway snapshot, and pilot-pipeline overview. We send a fresh brief every Friday.", cta: "Request brief", href: "mailto:info@streaque.com?subject=Investor%20brief%20request", icon: "investor", accent: "#7c3aed" },
   ];
 
@@ -118,7 +124,7 @@ const Paths = () => {
           <h2 style={{ marginTop: 14 }}>Pick the conversation <span className="mf-grad-text">you need.</span></h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {paths.map((p) => (
             <a key={p.title} href={p.href} className="contact-path-card" style={{ textDecoration: "none", color: "inherit" }}>
               <div style={{
@@ -154,12 +160,12 @@ const Paths = () => {
 
 const Founders = () => {
   const founders = [
-    { name: "Luke", role: "CEO & Co-founder", img: "/team-luke.jpg",
+    { name: "Luke", role: "CEO & Co-founder", img: "/team/luke.jpg",
       blurb: "Higher-ed strategy, partnerships, pilots. Best for institutional leaders, RFPs, and partnership conversations.",
       email: "info@streaque.com", phone: "(707) 742-3090" },
-    { name: "Clifton", role: "CTO & Co-founder", img: "/team-clifton.jpg",
+    { name: "Clifton", role: "CTO & Co-founder", img: "/team/clifton.jpg",
       blurb: "Technology, integrations, security. Best for IT leadership, security questions, and architecture deep-dives.",
-      email: "cliftonbnoble@gmail.com", phone: null },
+      email: "info@streaque.com", phone: null },
   ];
   return (
     <section id="founders" style={{ padding: "120px 0", background: "var(--bg-alt)" }}>
@@ -167,17 +173,17 @@ const Founders = () => {
         <div className="mf-section-head" style={{ marginBottom: 56 }}>
           <span className="mf-eyebrow">Talk to founders</span>
           <h2 style={{ marginTop: 14 }}>Skip the form. <span className="mf-grad-text">Talk directly.</span></h2>
-          <p>For peer founders, institutional leaders, and partnership conversations — reach us directly.</p>
+          <p>For peer founders, institutional leaders, and partnership conversations, reach us directly.</p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
           {founders.map((f) => (
             <div key={f.name} style={{
               background: "white", borderRadius: 16, padding: 32, border: "1px solid var(--line)",
               display: "grid", gridTemplateColumns: "120px 1fr", gap: 24, alignItems: "start",
             }}>
               <div style={{ width: 120, height: 120, borderRadius: 16, overflow: "hidden", background: "var(--bg-alt)" }}>
-                <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}/>
+                <img src={f.img} alt={f.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="lazy" decoding="async"/>
               </div>
               <div>
                 <div style={{ fontSize: 22, fontWeight: 700, fontFamily: "var(--font-display)" }}>{f.name}</div>
@@ -208,7 +214,7 @@ const FAQ = () => {
   const faqs = [
     { q: "How fast will you respond?", a: "Within one business day, from a real person on our team. Most replies come same-day." },
     { q: "What happens after I submit the form?", a: "A founder or success lead will email you to schedule a 30-minute discovery call. No demos before we understand your goals." },
-    { q: "Do I need to commit to anything?", a: "No. The first call is purely exploratory — we learn about your institution, you see Nia in action, and we both decide if there's a fit." },
+    { q: "Do I need to commit to anything?", a: "No. The first call is purely exploratory. We learn about your institution, you see Nia in action, and we both decide if there's a fit." },
     { q: "Can I try Nia myself first?", a: "Yes. The student app is live and we're happy to set you up with a sandbox account before any institutional conversation." },
     { q: "How do you handle student data?", a: "FERPA-aligned by design. All institutional data stays on your tenant, never trains models, and is governed by your IT policies." },
     { q: "Are you fundraising?", a: "We're always open to talking with mission-aligned investors. Email info@streaque.com for our current brief." },
@@ -220,7 +226,7 @@ const FAQ = () => {
           <span className="mf-eyebrow">Common questions</span>
           <h2 style={{ marginTop: 14 }}>What to expect <span className="mf-grad-text">when you reach out.</span></h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
           {faqs.map((f) => (
             <div key={f.q} style={{ borderTop: "1px solid var(--line)", paddingTop: 24 }}>
               <div style={{ fontSize: 17, fontWeight: 600, fontFamily: "var(--font-display)" }}>{f.q}</div>

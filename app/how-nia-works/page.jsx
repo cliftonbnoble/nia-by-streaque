@@ -3,6 +3,13 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
+import { SecArchitecture, SecCoaches } from "@/components/home/CampaignSections";
+
+export const metadata = {
+  title: "How Nia Works · Streaque",
+  description:
+    "Two coordinated platforms, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
+};
 
 const SentimentMock = () => (
   <div style={{ height: 130, padding: 12, background: "linear-gradient(180deg, var(--bg-alt), white)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 8 }}>
@@ -83,15 +90,15 @@ const Hero = () => (
           <span className="mf-grad-text">one mission:</span> transform student success.
         </h1>
         <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated platforms transforming student data into nudges, alerts, and next steps —
+          Two coordinated platforms transforming student data into nudges, alerts, and next steps.
           on one governance layer your institution owns.
         </p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginTop: 56 }}>
-        <CapabilityCard tag="01 · Sentiment" title="Real-time sentiment tracking" body="Every conversation carries signal. Nia reads tone, frustration, and momentum — quietly, on every interaction." mock={<SentimentMock/>}/>
-        <CapabilityCard tag="02 · Alerts" title="Proactive intervention alerts" body="The right person hears about the right student at the right moment — before a missed deadline becomes a missed term." mock={<AlertMock/>}/>
-        <CapabilityCard tag="03 · Journeys" title="Personalized student journeys" body="Plans that adapt to schedule, course load, and how each student actually studies — not a one-size-fits-all template." mock={<JourneyMock/>}/>
+      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginTop: 56 }}>
+        <CapabilityCard tag="01 · Sentiment" title="Real-time sentiment tracking" body="Every conversation carries signal. Nia reads tone, frustration, and momentum, quietly, on every interaction." mock={<SentimentMock/>}/>
+        <CapabilityCard tag="02 · Alerts" title="Proactive intervention alerts" body="The right person hears about the right student at the right moment, before a missed deadline becomes a missed term." mock={<AlertMock/>}/>
+        <CapabilityCard tag="03 · Journeys" title="Personalized student journeys" body="Plans that adapt to schedule, course load, and how each student actually studies, not a one-size-fits-all template." mock={<JourneyMock/>}/>
       </div>
     </div>
   </section>
@@ -125,17 +132,18 @@ const ConnectionDiagram = () => (
       <div style={{ marginTop: 8, fontSize: 10, padding: "3px 8px", background: "var(--primary-50)", color: "var(--brand-blue)", borderRadius: 4, display: "inline-block", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>1-click send</div>
     </div>
 
-    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}>
+    {/* viewBox is a 100×100 grid stretched to fill; percentages are not valid in path data */}
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}>
       <defs>
         <linearGradient id="sig1" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#2BB3DF" stopOpacity="0.7"/>
           <stop offset="100%" stopColor="#3841B1" stopOpacity="0.3"/>
         </linearGradient>
       </defs>
-      <path d="M 22% 28% Q 40% 35%, 50% 50%" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4">
+      <path d="M 22 28 Q 40 35, 50 50" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke">
         <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.5s" repeatCount="indefinite"/>
       </path>
-      <path d="M 50% 50% Q 65% 60%, 80% 78%" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4">
+      <path d="M 50 50 Q 65 60, 80 78" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke">
         <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
       </path>
     </svg>
@@ -145,7 +153,7 @@ const ConnectionDiagram = () => (
 const Connection = () => (
   <section className="mf-section alt" style={{ padding: "88px 0" }}>
     <div className="mf-container">
-      <div style={{ display: "grid", gridTemplateColumns: "0.95fr 1.05fr", gap: 64, alignItems: "center" }}>
+      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.95fr 1.05fr", gap: 64, alignItems: "center" }}>
         <div>
           <span className="mf-eyebrow">The connection</span>
           <h2 style={{ marginTop: 14 }}>The power is in <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>the connection.</em></h2>
@@ -197,7 +205,7 @@ function NudgesMock() {
       {[
         { i: "🌅", t: "Pset 3 due 11:59pm", s: "Want a 25-min session at 4?", tag: "in 6h", kind: "warn" },
         { i: "✦", t: "New: Career fair Thursday", s: "3 employers match your major", tag: "tap", kind: "info" },
-        { i: "✓", t: "Quiz reset complete", s: "Nice — back on track", tag: "done", kind: "ok" },
+        { i: "✓", t: "Quiz reset complete", s: "Nice, back on track", tag: "done", kind: "ok" },
       ].map((n, i) => (
         <div key={i} style={{ display: "flex", gap: 10, padding: 10, background: "white", border: "1px solid var(--line)", borderRadius: 10, alignItems: "flex-start" }}>
           <span style={{ fontSize: 16 }}>{n.i}</span>
@@ -277,14 +285,14 @@ function WarningMock() {
         <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--success)" }}>● live</span>
       </div>
       {[
-        { i: "M", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", sev: "high" },
-        { i: "J", n: "Jonas Kim", s: "GPA dip · 3 weeks", sev: "med" },
-        { i: "A", n: "Anya Patel", s: "Low engagement · CS 110", sev: "med" },
-        { i: "R", n: "Ravi Shah", s: "Aid form overdue", sev: "low" },
+        { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", sev: "high" },
+        { img: "/students/jonas.png", n: "Jonas Kim", s: "GPA dip · 3 weeks", sev: "med" },
+        { img: "/students/anya.png", n: "Anya Patel", s: "Low engagement · CS 110", sev: "med" },
+        { img: "/students/ravi.png", n: "Ravi Shah", s: "Aid form overdue", sev: "low" },
       ].map((r, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 4px", borderTop: i ? "1px solid var(--line)" : "none" }}>
           <span style={{ width: 4, height: 24, borderRadius: 2, background: r.sev === "high" ? "#c43d3d" : r.sev === "med" ? "var(--inprogress)" : "var(--ink-4)" }}/>
-          <span className="mf-mock-avatar" style={{ width: 22, height: 22, fontSize: 10 }}>{r.i}</span>
+          <img src={r.img} alt="" width="22" height="22" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 11 }}>{r.n}</div>
             <div style={{ fontSize: 10, color: "var(--ink-3)" }}>{r.s}</div>
@@ -329,7 +337,7 @@ function InsightsMock() {
       <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>INSIGHT · 3 NEW</div>
       <div style={{ padding: 12, background: "var(--brand-gradient-soft)", border: "1px solid rgba(56,65,177,0.18)", borderRadius: 10 }}>
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>14 students in BIO 201 are stalling at ch. 4</div>
-        <div style={{ fontSize: 11, color: "var(--ink-2)", marginTop: 4, lineHeight: 1.4 }}>Recommended: schedule a group review session — pattern matches Spring '25 cohort.</div>
+        <div style={{ fontSize: 11, color: "var(--ink-2)", marginTop: 4, lineHeight: 1.4 }}>Recommended: schedule a group review session. Pattern matches Spring '25 cohort.</div>
         <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
           <span style={{ fontSize: 10, padding: "4px 8px", background: "var(--brand-gradient)", color: "white", borderRadius: 6 }}>Schedule</span>
           <span style={{ fontSize: 10, padding: "4px 8px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 6 }}>Dismiss</span>
@@ -352,12 +360,12 @@ function InterventionMock() {
     <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>DRAFT REPLY · MAYA REYES</div>
       <div style={{ flex: 1, padding: 12, background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 6 }}>
-        <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 12 }}>Hi Maya —</div>
+        <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 12 }}>Hi Maya,</div>
         <div style={{ fontSize: 11, lineHeight: 1.5, color: "var(--ink-2)" }}>
           Saw the BIO 201 quiz didn't go as planned. Totally normal at ch. 4.
           <span style={{ background: "rgba(43,179,223,0.15)", padding: "0 3px" }}> Want to grab 15 min Thursday?</span> I have 2pm or 4pm open.
         </div>
-        <div style={{ fontSize: 11, color: "var(--ink-3)" }}>— Dr. Chen</div>
+        <div style={{ fontSize: 11, color: "var(--ink-3)" }}>Best, Dr. Chen</div>
       </div>
       <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
         <span style={{ flex: 1, fontSize: 10, padding: "6px 10px", background: "var(--brand-gradient)", color: "white", borderRadius: 6, textAlign: "center", fontWeight: 500 }}>Send · in your voice</span>
@@ -406,13 +414,13 @@ function PredictiveMock() {
 }
 
 const STUDENT_FEATURES = [
-  { n: "01", t: "Intelligent Chat Assistant", b: "Personalized to your schedule, courses, and goals — grounded in the real data your institution already trusts.",
-    bullets: ["Access to all university resources — handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
-  { n: "02", t: "Proactive Coaching & Nudges", b: "Quiet, well-timed reminders that meet you where you are — not another inbox to check.",
+  { n: "01", t: "Intelligent Chat Assistant", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
+    bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
+  { n: "02", t: "Proactive Coaching & Nudges", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
     bullets: ["24/7 AI agents monitoring your academic progress", "Smart reminders for assignments, deadlines, events", "Job fair alerts and career opportunities", "Personalized study recommendations"], Mock: NudgesMock },
-  { n: "03", t: "Learns Your Preferences", b: "Builds a private, FERPA-scoped model of how you study best — and adapts everything to fit.",
+  { n: "03", t: "Learns Your Preferences", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
     bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: PrefsMock },
-  { n: "04", t: "Comprehensive Integration", b: "One brain across every campus system — not a stitched-together set of point tools.",
+  { n: "04", t: "Comprehensive Integration", b: "One brain across every campus system, not a stitched-together set of point tools.",
     bullets: ["Connected to your LMS for assignment tracking", "SIS integration for academic records", "CRM-aware for advising context", "All your university resources in one place"], Mock: IntegrationMock },
 ];
 
@@ -421,13 +429,13 @@ const STAFF_FEATURES = [
   { n: "02", t: "Comprehensive dashboards", bullets: ["Sentiment trends over time", "Engagement metrics and patterns", "LMS performance data integration", "Identify at-risk students instantly"], Mock: DashboardMock },
   { n: "03", t: "AI-powered insights", bullets: ["Same powerful AI as the student tool", "Access to documents, calendars, policies", "Student LMS, SIS, and CRM data visibility", "Context-aware recommendations"], Mock: InsightsMock },
   { n: "04", t: "Intervention & recognition", bullets: ["Reach out to struggling students proactively", "Identify high performers for recognition", "Track intervention effectiveness", "Close the loop on student support"], Mock: InterventionMock },
-  { n: "05", t: "Predictive analysis", bullets: ["Know when students are overwhelmed — before they do", "Trend analysis across cohorts", "Success-pattern identification", "Data-driven decision making"], Mock: PredictiveMock },
+  { n: "05", t: "Predictive analysis", bullets: ["Know when students are overwhelmed, before they do", "Trend analysis across cohorts", "Success-pattern identification", "Data-driven decision making"], Mock: PredictiveMock },
 ];
 
 const FeatureRow = ({ f, flip }) => {
   const Mock = f.Mock;
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", padding: "32px 0", borderTop: "1px solid var(--line)" }}>
+    <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", padding: "32px 0", borderTop: "1px solid var(--line)" }}>
       <div style={{ order: flip ? 2 : 1 }}>
         <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--ink-4)" }}>{f.n}</span>
         <h3 style={{ fontSize: 28, marginTop: 8 }}>{f.t}</h3>
@@ -462,7 +470,7 @@ const ForStudents = () => (
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Students</span>
         <h2 style={{ marginTop: 14 }}>An <span className="mf-grad-text">AI-powered</span> success partner.</h2>
-        <p>Personalized AI deeply integrated with your LMS, SIS, and CRM — coaching, specialized agents, reminders, and insights tailored to every student.</p>
+        <p>Personalized AI deeply integrated with your LMS, SIS, and CRM: coaching, specialized agents, reminders, and insights tailored to every student.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STUDENT_FEATURES.map((f, i) => (
@@ -480,7 +488,7 @@ const ForStaff = () => (
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Staff</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>Powered by the same AI, the staff platform turns every student interaction into actionable intelligence — identify at-risk students early, recognize high performers, and intervene with precision.</p>
+        <p>Powered by the same AI, the staff platform turns every student interaction into actionable intelligence: identify at-risk students early, recognize high performers, and intervene with precision.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (
@@ -498,9 +506,9 @@ const CompletePicture = () => (
       <div className="mf-section-head" style={{ marginBottom: 64 }}>
         <span className="mf-eyebrow">The complete picture</span>
         <h2 style={{ marginTop: 14 }}>One closed loop. <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>Every week.</em></h2>
-        <p>Student action becomes data intelligence becomes staff action — and the loop keeps tightening.</p>
+        <p>Student action becomes data intelligence becomes staff action, and the loop keeps tightening.</p>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28, position: "relative" }}>
+      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28, position: "relative" }}>
         {[
           { n: "01", t: "Student engages", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
           { n: "02", t: "Data flows", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
@@ -536,7 +544,7 @@ const Outcome = () => (
         Better data. <span className="mf-grad-text">Earlier intervention.</span><br/>Stronger outcomes.
       </h2>
       <p style={{ color: "rgba(255,255,255,0.78)", maxWidth: 620, margin: "0 auto 36px", fontSize: 17 }}>
-        Most tools only report what already happened. Nia turns real-time student activity and staff insights into early alerts and next-step recommendations — so institutions can intervene sooner and improve student success.
+        Most tools only report what already happened. Nia turns real-time student activity and staff insights into early alerts and next-step recommendations, so institutions can intervene sooner and improve student success.
       </p>
       <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
         <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Schedule a demo <ArrowR/></Link>
@@ -552,7 +560,9 @@ export default function HowNiaWorks() {
       <TrustBar/>
       <Nav active="how"/>
       <Hero/>
+      <SecArchitecture/>
       <Connection/>
+      <SecCoaches bg="white"/>
       <ForStudents/>
       <ForStaff/>
       <CompletePicture/>

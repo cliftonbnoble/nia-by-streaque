@@ -9,7 +9,22 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
-  const onSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const subject = `Pilot inquiry from ${data.institution || data.name}`;
+    const body = [
+      `Name: ${data.name}`,
+      `Email: ${data.email}`,
+      `Institution: ${data.institution}`,
+      `Role: ${data.role}`,
+      `Students served: ${data.students || "n/a"}`,
+      `Interested in: ${data.interest}`,
+      "",
+      data.message,
+    ].join("\n");
+    window.location.href = `mailto:info@streaque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
+  };
 
   const inputStyle = {
     width: "100%", padding: "12px 14px", border: "1px solid var(--line)", borderRadius: 8,
@@ -24,7 +39,7 @@ export default function ContactForm() {
   return (
     <section id="form" style={{ padding: "120px 0", background: "white", position: "relative" }}>
       <div className="mf-container">
-        <div style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
+        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 100 }}>
             <span className="mf-eyebrow">Pilot inquiry</span>
             <h2 style={{ marginTop: 14, fontSize: 44, lineHeight: 1.1 }}>
@@ -32,14 +47,14 @@ export default function ContactForm() {
             </h2>
             <p style={{ marginTop: 18, fontSize: 16, color: "var(--ink-2)", lineHeight: 1.55 }}>
               The more you share, the better we can tailor the demo. We never share your information,
-              and you'll only hear from a real person on our team — not a sales sequence.
+              and you'll only hear from a real person on our team, not a sales sequence.
             </p>
 
             <div style={{ marginTop: 36, display: "grid", gap: 16 }}>
               {[
                 { t: "You'll hear back", d: "Within one business day, from a founder or success lead." },
                 { t: "First call is 30 min", d: "Discovery only. We learn your goals, you see the platform." },
-                { t: "No pressure", d: "Pilots are mutual — we only proceed if there's a real fit." },
+                { t: "No pressure", d: "Pilots are mutual, so we only proceed if there's a real fit." },
               ].map((s) => (
                 <div key={s.t} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                   <div style={{ width: 24, height: 24, borderRadius: 6, background: "var(--primary-50)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
@@ -150,9 +165,10 @@ export default function ContactForm() {
                 <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
                   <Check s={36} color="var(--brand-cyan)"/>
                 </div>
-                <h3 style={{ marginTop: 24, fontSize: 28 }}>Got it, {data.name.split(" ")[0] || "thanks"}.</h3>
+                <h3 style={{ marginTop: 24, fontSize: 28 }}>Almost done, {data.name.split(" ")[0] || "thanks"}.</h3>
                 <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
-                  We'll be in touch within one business day. If it's urgent, you can also reach Luke directly at the number below.
+                  We've opened a pre-filled email to info@streaque.com in your mail app. Just hit send.
+                  We'll reply within one business day. If it's urgent, you can also reach Luke directly at the number below.
                 </p>
                 <button onClick={() => { setSubmitted(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>

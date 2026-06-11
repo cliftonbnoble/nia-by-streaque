@@ -3,15 +3,15 @@
 const channels = [
   { icon: "/mail-nia-icon.png", label: "General", value: "info@streaque.com", href: "mailto:info@streaque.com", accent: "var(--brand-cyan)" },
   { icon: "/call-nia-icon.png", label: "Phone", value: "(707) 742-3090", href: "tel:7077423090", accent: "var(--brand-blue)" },
-  { icon: "/linkedin-nia-icon.png", label: "LinkedIn", value: "Streaque", href: "#", accent: "#0a66c2" },
-  { icon: "/yt-nia-icon.png", label: "YouTube", value: "Watch demos", href: "#", accent: "#dc2626" },
+  { icon: "/linkedin-nia-icon.png", label: "LinkedIn", value: "Streaque", href: "/linkedin", accent: "#0a66c2" },
+  { icon: "/yt-nia-icon.png", label: "YouTube", value: "Watch demos", href: "/youtube", accent: "#dc2626" },
 ];
 
 export default function DirectLines() {
   return (
     <section style={{ padding: "100px 0", background: "white" }}>
       <div className="mf-container">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
           <div>
             <span className="mf-eyebrow">Direct lines</span>
             <h2 style={{ marginTop: 14 }}>Reach us <span className="mf-grad-text">how you prefer.</span></h2>
