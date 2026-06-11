@@ -39,3 +39,22 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# any nested node_modules (e.g. tooling sub-projects)
+**/node_modules/
+
+# ── design & reference material (kept local, not shipped to the repo) ──
+# Figma exports, archived/legacy assets, original source SVGs, comps
+/design-refs/
+# old static HTML wireframes / handoff exports
+/streaque-v2/
+# Remotion video source project (heavy; the site recreates these natively)
+/agent-process-video/
+
+# editor / OS cruft
+.vscode/
+.idea/
+*.swp
+*~
+._*
+Thumbs.db
