@@ -1,4 +1,11 @@
+import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+/* self-hosted variable fonts: one file per family covers every weight,
+   no render-blocking request to Google */
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbmono", display: "swap" });
 
 export const metadata = {
   title: "Streaque — The Higher Education AI platform",
@@ -16,7 +23,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${geist.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

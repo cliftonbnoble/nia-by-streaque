@@ -43,21 +43,21 @@ function CountUp({ to, run, dur = 1400 }) {
 
 const NUDGES = [
   {
-    cat: "Reminder", time: "now", icon: "/app-ui/reminder-nudge.png",
+    cat: "Reminder", time: "now", icon: "/app-ui/reminder-nudge.webp",
     t: "BIO 201 quiz opens tomorrow at 9 AM",
     s: "You scored 71% on ch. 3. A 20-minute review tonight locks in ch. 4 before the quiz.",
     chip: "Best window: 7–9 PM, your peak focus",
     btn: "Start review", ghost: "Tonight at 7",
   },
   {
-    cat: "Recommendation", time: "2m ago", icon: "/app-ui/recommendation-nudge.png",
+    cat: "Recommendation", time: "2m ago", icon: "/app-ui/recommendation-nudge.webp",
     t: "3 employers at Thursday's fair match your résumé",
     s: "Two of them close applications Friday. Your résumé is synced and ready to share.",
     chip: "Matches: UX research, product, data",
     btn: "View matches", ghost: "Add to calendar",
   },
   {
-    cat: "Recap", time: "8 AM", icon: "/app-ui/recap-nudge.png",
+    cat: "Recap", time: "8 AM", icon: "/app-ui/recap-nudge.webp",
     t: "Week 6 recap: two wins, one watch-out",
     s: "Pset streak intact and your essay went in early. The BIO 201 quiz needs a reset.",
     chip: "Momentum +12% vs week 5",
@@ -150,10 +150,10 @@ export function NudgesCarousel() {
 /* ── learning-style screen ────────────────────────────────────── */
 
 const STYLES = [
-  { n: "Visual", char: "/app-ui/nia-onboarding-visual.png", icon: "/app-ui/visual-learning-style.png" },
-  { n: "Auditory", char: "/app-ui/nia-onboarding-auditory.png" },
-  { n: "Kinesthetic", char: "/app-ui/nia-onboarding-kinesthetic.png" },
-  { n: "Reading/Writing", char: "/app-ui/nia-onboarding-reading.png" },
+  { n: "Visual", char: "/app-ui/nia-onboarding-visual.webp", icon: "/app-ui/visual-learning-style.webp" },
+  { n: "Auditory", char: "/app-ui/nia-onboarding-auditory.webp" },
+  { n: "Kinesthetic", char: "/app-ui/nia-onboarding-kinesthetic.webp" },
+  { n: "Reading/Writing", char: "/app-ui/nia-onboarding-reading.webp" },
 ];
 
 const CYCLE_MS = 3000;

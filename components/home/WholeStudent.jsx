@@ -8,14 +8,14 @@
 import { useEffect, useRef, useState } from "react";
 
 const SHOTS = [
-  { src: "/app-shots/onboard-a.png", alt: "Help and feedback screen in the Nia app" },
-  { src: "/app-shots/checkin.png",   alt: "Quick check-in asking when a student is most active" },
-  { src: "/app-shots/reminders.png", alt: "Exam registration reminder with Check with Nia actions" },
-  { src: "/app-shots/onboard-b.png", alt: "Student profile spanning academics, career, wellness, and finances" },
-  { src: "/app-shots/resume.png",    alt: "Résumé PDF with education, experience, and skills extracted into the profile" },
-  { src: "/app-shots/chat-a.png",    alt: "Student overview with a live Canvas LMS integration" },
-  { src: "/app-shots/chat-b.png",    alt: "Progress overview with purpose statement and productivity trend" },
-  { src: "/app-shots/prompt.png",    alt: "Check-in asking whether the student plans to apply for financial aid" },
+  { src: "/app-shots/onboard-a.webp", alt: "Help and feedback screen in the Nia app" },
+  { src: "/app-shots/checkin.webp",   alt: "Quick check-in asking when a student is most active" },
+  { src: "/app-shots/reminders.webp", alt: "Exam registration reminder with Check with Nia actions" },
+  { src: "/app-shots/onboard-b.webp", alt: "Student profile spanning academics, career, wellness, and finances" },
+  { src: "/app-shots/resume.webp",    alt: "Résumé PDF with education, experience, and skills extracted into the profile" },
+  { src: "/app-shots/chat-a.webp",    alt: "Student overview with a live Canvas LMS integration" },
+  { src: "/app-shots/chat-b.webp",    alt: "Progress overview with purpose statement and productivity trend" },
+  { src: "/app-shots/prompt.webp",    alt: "Check-in asking whether the student plans to apply for financial aid" },
 ];
 
 const Chevron = ({ flip }) => (

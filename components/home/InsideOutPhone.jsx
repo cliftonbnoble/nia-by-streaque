@@ -42,7 +42,7 @@ const IcBell = (p) => <I {...p}><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3
    counter-rotation, so they can never fall out of sync. */
 const TILTS = [-4, 3, -2, 5, -5, 2, -3, 4, -4, 3];
 const ring = (names, offset) =>
-  names.map((t, i) => ({ t, src: `/inside-out/${t.toLowerCase()}.png`, a: offset + i * 36, tilt: TILTS[i] }));
+  names.map((t, i) => ({ t, src: `/inside-out/${t.toLowerCase()}.webp`, a: offset + i * 36, tilt: TILTS[i] }));
 
 const RING_A = ring(
   ["Goals", "Profile", "CRM data", "Calendar", "Interests", "Resume", "Deadlines", "Applications", "LMS data", "SIS data"],

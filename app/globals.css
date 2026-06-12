@@ -1,7 +1,8 @@
 /* Streaque — mid-fi visual language
    Geist (display) + Inter (body) · navy #060b61 · warm-cool off-white */
 
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* fonts are self-hosted via next/font in app/layout.js; the CSS
+   variables below resolve to those loaded families */
 
 :root {
   /* color — Streaque brand palette */
@@ -26,9 +27,9 @@
   --success: #0d8a5a;
   --inprogress: #c98a1a;            /* "in development" amber */
 
-  --font-display: 'Geist', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: var(--font-geist), 'Geist', system-ui, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), 'JetBrains Mono', ui-monospace, monospace;
 
   --radius-sm: 6px;
   --radius: 10px;

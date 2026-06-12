@@ -114,7 +114,7 @@ function IntegrationMock() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8 }}>
               <span style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(160,121,235,0.1)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <img src="/app-ui/daily-streak-fire.png" alt="" width="345" height="300" style={{ width: 34, height: "auto" }} loading="lazy" decoding="async"/>
+                <img src="/app-ui/daily-streak-fire.webp" alt="" width="345" height="300" style={{ width: 34, height: "auto" }} loading="lazy" decoding="async"/>
               </span>
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 19, color: "#111827", letterSpacing: "-0.02em" }}>62 Days</span>
             </div>
