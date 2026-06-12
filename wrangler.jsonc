@@ -1,0 +1,19 @@
+{
+  // Static-assets-only Worker: no server code, just the prerendered out/
+  // directory served off Cloudflare's edge. `wrangler deploy` reads this
+  // file, so it serves out/ directly instead of bootstrapping OpenNext.
+  //
+  // Deploy command (Cloudflare project):  npx wrangler deploy
+  // Build command:                        npm run build   (emits out/)
+  //
+  // `name` must match the Worker in your Cloudflare account (the build log
+  // detected "nia"). Change it here if your project uses a different name.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nia",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./out",
+    // missing routes fall through to the styled 404 page Next exports
+    "not_found_handling": "404-page"
+  }
+}

@@ -17,6 +17,11 @@
 /.next/
 /out/
 
+# cloudflare build artifacts (config wrangler.jsonc IS committed)
+/.wrangler/
+/.open-next/
+.dev.vars
+
 # production
 /build
 
