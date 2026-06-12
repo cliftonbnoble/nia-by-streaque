@@ -1,20 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Pure static export → Cloudflare Pages serves out/ directly off the CDN.
+  // No server runtime, no OpenNext/Workers needed (every route is static).
+  output: "export",
+  // The site uses plain <img> tags; this also keeps next/image export-safe.
+  images: { unoptimized: true },
   poweredByHeader: false,
-  async headers() {
-    return [
-      {
-        source: "/:path*",
-        headers: [
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-          { key: "Strict-Transport-Security", value: "max-age=31536000" },
-        ],
-      },
-    ];
-  },
+  // Security headers live in public/_headers — Cloudflare Pages applies them at
+  // the edge (headers() isn't available in a static export).
 };
 
 export default nextConfig;
