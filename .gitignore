@@ -50,6 +50,8 @@ next-env.d.ts
 /streaque-v2/
 # Remotion video source project (heavy; the site recreates these natively)
 /agent-process-video/
+# the Nia app source, dropped in for UI reference only
+/NiaCoach-main/
 
 # editor / OS cruft
 .vscode/

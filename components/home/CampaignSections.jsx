@@ -2,8 +2,9 @@
    Ported from the Claude Design bundle (new-sections.jsx / new-sections-2.jsx).
    Pure presentational components — no hooks — so they render on the server. */
 import CoachCards from "./CoachCards";
-import ProblemCards from "./ProblemCards";
+import OfficeCards from "./OfficeCards";
 import AdvisorBars from "./AdvisorBars";
+import InsideOutPhone from "./InsideOutPhone";
 
 // ── line icons (1.8 stroke, matches the existing set) ───────────
 const Ico = ({ d, s = 20, fill = false }) => (
@@ -18,31 +19,24 @@ const IcoHeart = (p) => <Ico {...p} d={<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.
 const IcoClipboard = (p) => <Ico {...p} d={<><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4"/></>}/>;
 const IcoArrowR = (p) => <Ico {...p} d={<path d="M5 12h14M13 5l7 7-7 7"/>}/>;
 const IcoArrowDown = (p) => <Ico {...p} d={<path d="M12 5v14M5 12l7 7 7-7"/>}/>;
-const IcoX = ({ s = 12 }) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>;
-const IcoCheck = ({ s = 12 }) => <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>;
-const IcoEye = (p) => <Ico {...p} d={<><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></>}/>;
 
 // =====================================================================
 // 1 · THE PROBLEM
 // =====================================================================
 export const SecProblem = () => {
   return (
-    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "var(--ink)" }}>
-      {/* vault-room backdrop — same language as the security page */}
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "52px 52px", maskImage: "radial-gradient(ellipse at 40% 30%, black 20%, transparent 75%)" }}/>
-      <div style={{ position: "absolute", width: 600, height: 600, left: -240, top: -280, background: "radial-gradient(circle, rgba(56,65,177,0.24), transparent 60%)", borderRadius: "50%", pointerEvents: "none" }}/>
-      <div style={{ position: "absolute", width: 560, height: 560, right: -220, bottom: -260, background: "radial-gradient(circle, rgba(43,179,223,0.12), transparent 60%)", borderRadius: "50%", pointerEvents: "none" }}/>
+    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FBF8F2 0%, #F7F4EE 100%)" }}>
       <div className="mf-container" style={{ position: "relative" }}>
-        <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 760 }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(143,224,247,0.85)" }}>The problem</span>
-          <h2 style={{ marginTop: 14, color: "white" }}>Each office holds a piece. <em style={{ fontStyle: "italic", color: "rgba(255,255,255,0.55)" }}>No one holds the whole.</em></h2>
-          <p style={{ marginTop: 16, maxWidth: 600, color: "rgba(255,255,255,0.65)" }}>Every team sees the student through the one window they own. The student falls through the gaps between the windows.</p>
+        <div className="mf-section-head">
+          <span className="mf-eyebrow">The problem</span>
+          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic" }}>No one holds the whole.</em></h2>
+          <p style={{ marginTop: 16 }}>Every team sees the student through the one window they own. The student falls through the gaps between the windows.</p>
         </div>
 
-        <ProblemCards/>
+        <OfficeCards/>
 
-        <figure style={{ margin: "52px 0 0", maxWidth: 1000 }}>
-          <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 42, lineHeight: 1.16, letterSpacing: "-0.025em", color: "white", margin: 0 }}>
+        <figure style={{ margin: "72px auto 0", maxWidth: 1000 }}>
+          <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 42, lineHeight: 1.16, letterSpacing: "-0.025em", color: "var(--ink)", margin: 0 }}>
             Students don't leave because they fail. They leave because systems fail to <span className="mf-grad-text">see them whole.</span>
           </blockquote>
         </figure>
@@ -54,135 +48,41 @@ export const SecProblem = () => {
 // =====================================================================
 // 2 · OUTSIDE-IN vs INSIDE-OUT
 // =====================================================================
-const ArchDirIcon = ({ dir, s = 14 }) => (
-  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
-    {dir === "in"
-      ? <><path d="M4 5v14"/><path d="M8 12h11M15 8l4 4-4 4"/></>
-      : <><path d="M20 5v14"/><path d="M4 12h11M11 8l4 4-4 4"/></>}
-  </svg>
-);
-
-const ArchColumn = ({ tone, mode, modeLabel, title, caption, steps, takeaway, takeaIcon }) => {
-  const brand = tone === "brand";
-  return (
-    <div style={{ position: "relative", display: "flex", flexDirection: "column", overflow: "hidden",
-      background: brand ? "linear-gradient(180deg, #f3f6ff 0%, #ffffff 58%)" : "var(--bg-alt)",
-      border: "1px solid " + (brand ? "rgba(72,67,193,0.22)" : "var(--line)"),
-      borderRadius: "var(--radius-xl)", padding: 30,
-      boxShadow: brand ? "0 26px 64px -30px rgba(45,53,167,0.40)" : "none" }}>
-      {brand && <div style={{ position: "absolute", top: -70, right: -50, width: 260, height: 260, background: "radial-gradient(circle, rgba(43,179,223,0.20), transparent 65%)", pointerEvents: "none" }}/>}
-
-      <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 13px", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600,
-          ...(brand ? { background: "var(--brand-gradient)", color: "white" } : { background: "white", color: "var(--ink-3)", border: "1px solid var(--line-2)" }) }}>
-          <ArchDirIcon dir={mode} s={14}/> {modeLabel}
-        </span>
-        <span style={{ width: 28, height: 28, borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-          ...(brand ? { background: "rgba(13,138,90,0.12)", color: "var(--success)" } : { background: "rgba(160,74,44,0.10)", color: "#a14a2c" }) }}>
-          {brand ? <IcoCheck s={14}/> : <IcoX s={14}/>}
-        </span>
-      </div>
-
-      <h3 style={{ position: "relative", fontSize: 21, letterSpacing: "-0.02em" }}>{title}</h3>
-      <p style={{ position: "relative", fontSize: 13.5, color: "var(--ink-3)", marginTop: 8, lineHeight: 1.5 }}>{caption}</p>
-
-      <div style={{ position: "relative", marginTop: 24 }}>
-        {steps.map((s, i) => {
-          const last = i === steps.length - 1;
-          return (
-            <div key={i} style={{ display: "flex", gap: 16, alignItems: "stretch" }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: 30, flexShrink: 0 }}>
-                <span style={{ width: 30, height: 30, borderRadius: "50%", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontFamily: "var(--font-mono)", fontSize: 12.5, fontWeight: 600,
-                  ...(brand
-                      ? (s.dim ? { background: "white", color: "rgb(72,67,193)", border: "1.5px dashed rgba(72,67,193,0.5)" } : { background: "var(--brand-gradient)", color: "white", boxShadow: "0 6px 16px -4px rgba(45,53,167,0.5)" })
-                      : { background: "white", color: "var(--ink-3)", border: "1.5px solid var(--line-2)" }) }}>{i + 1}</span>
-                {!last && <span style={{ flex: 1, width: 2, marginTop: 5, borderRadius: 2, background: brand ? "linear-gradient(rgba(72,67,193,0.55), rgba(72,67,193,0.12))" : "var(--line-2)" }}/>}
-              </div>
-              <div style={{ flex: 1, paddingBottom: last ? 0 : 22, opacity: s.dim ? 0.9 : 1 }}>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 15, color: "var(--ink)", display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                  {s.label}
-                  {s.tag && <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)", border: "1px solid var(--line-2)", borderRadius: 5, padding: "1px 6px" }}>{s.tag}</span>}
-                </div>
-                <div style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 3, lineHeight: 1.45 }}>{s.sub}</div>
-                {s.detail}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div style={{ position: "relative", marginTop: "auto", paddingTop: 22 }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-mono)", fontSize: 12, borderRadius: 999, padding: "7px 14px",
-          ...(brand ? { background: "var(--brand-gradient)", color: "white" } : { background: "rgba(160,74,44,0.08)", color: "#a14a2c", border: "1px solid rgba(160,74,44,0.18)" }) }}>
-          {takeaIcon} {takeaway}
-        </span>
-      </div>
-    </div>
-  );
-};
-
-export const SecArchitecture = () => {
-  const genericAnswer = (
-    <div style={{ marginTop: 12, background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: "11px 13px" }}>
-      <div style={{ fontSize: 12.5, color: "var(--ink-2)", lineHeight: 1.45, fontStyle: "italic" }}>“Generally, students should reach out to their academic advisor and check the course catalog…”</div>
-      <div style={{ marginTop: 8, display: "flex", gap: 6, flexWrap: "wrap" }}>
-        {["generic", "no campus context", "sometimes wrong"].map((t) => (
-          <span key={t} style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 5, color: "var(--ink-4)" }}>{t}</span>
-        ))}
-      </div>
-    </div>
-  );
-  const realData = (
-    <div style={{ marginTop: 12, display: "flex", gap: 6, flexWrap: "wrap" }}>
-      {["Maya · BIO 201", "Aid hold · cleared", "Prefers evening nudges", "FERPA-scoped"].map((t) => (
-        <span key={t} style={{ fontFamily: "var(--font-mono)", fontSize: 10, padding: "3px 9px", background: "white", border: "1px solid rgba(72,67,193,0.2)", borderRadius: 999, color: "var(--primary)" }}>{t}</span>
-      ))}
-    </div>
-  );
-  const outSteps = [
-    { label: "Student asks", sub: "A blank box. Phrase it well, or get nothing back." },
-    { label: "Model searches training data", sub: "Web-scale knowledge with no idea who, or where, you are." },
-    { label: "Returns a plausible answer", sub: "Confident and generic, so the student has to sanity-check it.", detail: genericAnswer },
-  ];
-  const inSteps = [
-    { label: "The student's live data", sub: "Who this student is, here, right now, already in hand.", detail: realData },
-    { label: "Your campus context", sub: "Your policies, deadlines, resources, and escalation paths." },
-    { label: "Global model", tag: "last resort", dim: true, sub: "Reached only when the answer isn’t already known, and still filtered through who the student is." },
-  ];
-  return (
-    <section className="mf-section" style={{ background: "white" }}>
-      <div className="mf-container">
-        <div className="mf-section-head" style={{ marginBottom: 44 }}>
+export const SecArchitecture = () => (
+  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FAFBFE 0%, #EFF5FE 55%, #F3F0FC 100%)", paddingBottom: 0 }}>
+    <div className="mf-container">
+      <div className="mf-stack-sm ioa-grid" style={{ display: "grid", gridTemplateColumns: "1.08fr 0.92fr", gap: 48, alignItems: "center" }}>
+        <div className="ioa-stagecell"><InsideOutPhone/></div>
+        <div className="ioa-textcell">
           <span className="mf-eyebrow">Two architectures</span>
-          <h2 style={{ marginTop: 14 }}>Most AI works outside-in. <span className="mf-grad-text">Nia works inside-out.</span></h2>
-          <p>The same question reaches the student two completely different ways. One makes them do the work. One already knows their story.</p>
-        </div>
-
-        <div className="mf-stack-sm" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28, alignItems: "stretch" }}>
-          <ArchColumn tone="muted" mode="out" modeLabel="Generic AI · Outside-in"
-            title="It starts from the outside world."
-            caption="Built from the outside in: generic knowledge first, your student last."
-            steps={outSteps} takeaway="You become the prompt engineer." takeaIcon={<IcoEye s={14}/>}/>
-          <ArchColumn tone="brand" mode="in" modeLabel="Nia · Inside-out"
-            title="It starts from the student's truth."
-            caption="Built from the inside out: your student first, the global model last."
-            steps={inSteps} takeaway="The system already knows your story." takeaIcon={<IcoCheck s={13}/>}/>
-          <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", zIndex: 3, width: 48, height: 48, borderRadius: "50%", background: "white", border: "1px solid var(--line)", boxShadow: "var(--shadow)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 13, color: "var(--ink-3)" }}>vs</div>
-        </div>
-
-        <div style={{ marginTop: 28, background: "var(--ink)", borderRadius: "var(--radius-lg)", padding: "28px 32px", display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", width: 360, height: 360, right: -120, top: -160, background: "radial-gradient(circle, rgba(43,179,223,0.16), transparent 62%)", pointerEvents: "none" }}/>
-          <span style={{ position: "relative", fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 23, color: "white", letterSpacing: "-0.02em", flex: 1, minWidth: 280 }}>
-            This isn't a better chatbot. <span style={{ color: "rgba(255,255,255,0.55)" }}>It's a different architecture.</span>
-          </span>
-          <span style={{ position: "relative", fontSize: 14.5, color: "rgba(255,255,255,0.66)", maxWidth: 380, lineHeight: 1.5 }}>
-            And architecture, once built, is expensive to copy, which is exactly why it's the moat.
-          </span>
+          <h2 style={{ marginTop: 16 }}>Nia works <span className="mf-grad-text" style={{ fontStyle: "italic" }}>inside-out.</span></h2>
+          <p style={{ marginTop: 18, fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 480 }}>
+            Most AI works outside-in: web-scale knowledge first, your student last. Nia starts from the student's truth. Live LMS, SIS, and CRM data, campus resources, and the student's own profile are already in hand before a single answer is written.
+          </p>
+          <p style={{ marginTop: 14, fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", maxWidth: 480 }}>
+            The global model is the last resort, not the first answer. The student never re-explains, and an architecture like this is expensive to copy. That's the moat.
+          </p>
+          <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
+            {["Student data first", "Campus context second", "Global model last"].map((t, i) => (
+              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.04em", padding: "6px 12px", borderRadius: 999, background: "white", border: "1px solid rgba(61,78,216,0.18)", color: "var(--ink-2)", boxShadow: "0 2px 8px -3px rgba(31,52,128,0.12)" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: i === 2 ? "var(--ink-4)" : "var(--brand-gradient)", flexShrink: 0 }}/>
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+    <style>{`
+      .ioa-stagecell { order: -1; align-self: end; }
+      .ioa-textcell { padding: 48px 0; }
+      @media (max-width: 760px) {
+        .ioa-stagecell { order: 1; }
+        .ioa-textcell { padding: 8px 0 0; }
+      }
+    `}</style>
+  </section>
+);
 
 // =====================================================================
 // 3 · FIVE COACHES, ONE PROFILE
@@ -246,7 +146,7 @@ export const SecAdvisors = () => {
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.92fr 1.08fr", gap: 56, alignItems: "center" }}>
           <div>
             <span className="mf-eyebrow">For advisors</span>
-            <h2 style={{ marginTop: 14 }}>Advisors don't want AI to replace them. <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>They want their time back.</em></h2>
+            <h2 style={{ marginTop: 14 }}>Advisors don't want AI to replace them. <em className="mf-grad-text" style={{ fontStyle: "normal" }}>They want their time back.</em></h2>
             <p style={{ marginTop: 18, fontSize: 16, lineHeight: 1.6 }}>
               Advisors don't spend their day mentoring. They spend it retrieving fragmented data and triaging crises they could have seen coming. Nia reclaims that capacity, so they can do the work only humans can do: build trust, offer perspective, hold space.
             </p>

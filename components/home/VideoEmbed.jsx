@@ -30,7 +30,7 @@ export default function VideoEmbed() {
           <span className="mf-video-play" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 72, height: 72, borderRadius: "50%", background: "white", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 32px rgba(0,0,0,0.3)" }}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--primary)"><path d="M5 3.5v17l15-8.5z"/></svg>
           </span>
-          <span style={{ position: "absolute", bottom: 16, left: 16, color: "white", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.7 }}>▶ watch · governance walkthrough</span>
+          <span style={{ position: "absolute", bottom: 16, left: 16, color: "white", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.7 }}>▶ watch · from noise to momentum</span>
           <style>{`
             .mf-video-cover .mf-video-play { transition: transform 180ms ease, box-shadow 180ms ease; }
             .mf-video-cover:hover .mf-video-play { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }

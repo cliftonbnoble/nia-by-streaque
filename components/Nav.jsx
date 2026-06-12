@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "./icons";
 
@@ -18,11 +18,19 @@ const DropItem = ({ href, t, d, active }) => (
 export default function Nav({ active = "home" }) {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [condensed, setCondensed] = useState(false);
   const cls = (k) => (active === k ? "active" : undefined);
   const productActive = active === "how" || active === "security";
 
+  useEffect(() => {
+    const onScroll = () => setCondensed(window.scrollY > 64);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="mf-nav">
+    <div className={`mf-nav${condensed ? " is-condensed" : ""}`}>
       <div className="mf-nav-inner">
         <Link href="/" className="mf-logo" style={{ textDecoration: "none" }}>
           <img src="/nia-opt-web-logo.png" alt="Nia by Streaque" style={{ height: 30, display: "block" }}/>
@@ -58,8 +66,13 @@ export default function Nav({ active = "home" }) {
 
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
-        <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm mf-nav-cta" style={{ textDecoration: "none" }}>
-          Book a demo <ArrowRight s={12}/>
+        <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm mf-nav-cta mf-cta-fx" style={{ textDecoration: "none" }}>
+          Book a demo
+          <span className="mf-cta-arr" aria-hidden="true">
+            <ArrowRight s={12}/>
+            <ArrowRight s={12}/>
+          </span>
+          <span className="mf-cta-cap" aria-hidden="true">🎓</span>
         </Link>
         <button
           className="mf-nav-burger"

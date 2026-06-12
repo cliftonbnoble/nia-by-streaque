@@ -1,6 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Check } from "@/components/icons";
+
+/* the path cards deep-link here: the hash picks the interest chip */
+const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor" };
 
 export default function ContactForm() {
   const [data, setData] = useState({
@@ -9,6 +12,16 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
+
+  useEffect(() => {
+    const apply = () => {
+      const interest = HASH_INTEREST[window.location.hash];
+      if (interest) update("interest", interest);
+    };
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
+  }, []);
   const onSubmit = (e) => {
     e.preventDefault();
     const subject = `Pilot inquiry from ${data.institution || data.name}`;
@@ -38,6 +51,9 @@ export default function ContactForm() {
 
   return (
     <section id="form" style={{ padding: "120px 0", background: "white", position: "relative" }}>
+      {/* extra scroll targets so the path cards can land here with intent */}
+      <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
+      <span id="form-investor" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 100 }}>
@@ -67,13 +83,6 @@ export default function ContactForm() {
                 </div>
               ))}
             </div>
-
-            <div style={{ marginTop: 36, padding: 20, background: "var(--bg-alt)", borderRadius: 12, borderLeft: "3px solid var(--brand-cyan)" }}>
-              <div className="mf-eyebrow" style={{ fontSize: 10 }}>Privacy note</div>
-              <div style={{ fontSize: 13, color: "var(--ink-2)", marginTop: 8, lineHeight: 1.5 }}>
-                This form sends to our team only. No tracking, no third-party CRMs. FERPA & GDPR aligned by default.
-              </div>
-            </div>
           </div>
 
           <div>
@@ -82,11 +91,11 @@ export default function ContactForm() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
                     <label style={labelStyle}>Your name *</label>
-                    <input required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Dr. Maria Chen"/>
+                    <input required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
                   </div>
                   <div>
                     <label style={labelStyle}>Work email *</label>
-                    <input required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="m.chen@university.edu"/>
+                    <input required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
                   </div>
                 </div>
 
@@ -127,6 +136,7 @@ export default function ContactForm() {
                     {[
                       { v: "pilot", l: "Running a pilot" },
                       { v: "demo", l: "Just a demo" },
+                      { v: "founders", l: "Talking to founders" },
                       { v: "partnership", l: "Partnership" },
                       { v: "investor", l: "Investor info" },
                       { v: "other", l: "Something else" },
@@ -168,7 +178,7 @@ export default function ContactForm() {
                 <h3 style={{ marginTop: 24, fontSize: 28 }}>Almost done, {data.name.split(" ")[0] || "thanks"}.</h3>
                 <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
                   We've opened a pre-filled email to info@streaque.com in your mail app. Just hit send.
-                  We'll reply within one business day. If it's urgent, you can also reach Luke directly at the number below.
+                  We'll reply within one business day.
                 </p>
                 <button onClick={() => { setSubmitted(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>

@@ -134,7 +134,9 @@ export default function StaffQueueDemo() {
         .sq-sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 6px rgba(13,138,90,0.5); animation: sq-breathe 2.4s ease-in-out infinite; }
         @keyframes sq-breathe { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
 
-        .sq-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 7px; min-height: 312px; box-sizing: border-box; }
+        /* fixed height: the draft popover floats inside, so the panel never
+           resizes and the card bottoms stay aligned with the student demo */
+        .sq-body { position: relative; padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 7px; height: 326px; box-sizing: border-box; }
         .sq-row {
           display: flex; align-items: center; gap: 9px;
           background: white; border: 1px solid rgba(15,23,42,0.07);
@@ -185,17 +187,23 @@ export default function StaffQueueDemo() {
         .sq-tagswap-b { position: absolute; right: 0; top: 0; opacity: 0; animation: sq-pop 340ms cubic-bezier(0.2, 1.4, 0.4, 1) both; }
         @keyframes sq-gone { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
 
-        /* the issue detail — expands after the arrival, tucks away once sent */
-        .sq-strip { overflow: hidden; animation: sq-strip ${LOOP_MS}ms linear both; max-height: 0; opacity: 0; }
+        /* the issue detail — pops over the queue after the arrival, tucks away
+           once sent; floats so it never pushes the rows or grows the panel */
+        .sq-strip {
+          position: absolute; left: 12px; right: 12px; top: 62px; z-index: 3;
+          pointer-events: none; opacity: 0;
+          animation: sq-strip ${LOOP_MS}ms linear both;
+        }
         @keyframes sq-strip {
-          0%, 26% { max-height: 0; opacity: 0; }
-          30%, 46% { max-height: 96px; opacity: 1; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
-          51%, 100% { max-height: 0; opacity: 0; }
+          0%, 26% { opacity: 0; transform: translateY(-7px) scale(0.98); }
+          30%, 46% { opacity: 1; transform: none; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+          51%, 100% { opacity: 0; transform: translateY(-7px) scale(0.98); }
         }
         .sq-strip-inner {
           margin: 0 2px; padding: 10px 12px;
           background: linear-gradient(135deg, #ffffff 0%, #f8fafc 52%, #eef2ff 100%);
           border: 1px solid #c7d2fe; border-radius: 10px;
+          box-shadow: 0 16px 32px -14px rgba(31,52,128,0.35);
           display: grid; gap: 8px;
         }
         .sq-signals { display: flex; gap: 5px; flex-wrap: wrap; }

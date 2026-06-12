@@ -20,22 +20,22 @@ export const LogoStrip = () => (
             Live with one of the country's largest research universities.
           </div>
           <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 8, lineHeight: 1.5 }}>
-            Cohort A launched Fall '25. Findings publish Q2 2026.
+            Cohort A launched Spring 2026. Findings publish Q3 2026.
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 28, padding: "24px 28px", background: "linear-gradient(135deg, #EEF6FF 0%, #ffffff 60%)", border: "1px solid rgba(35,86,201,0.15)", borderRadius: "var(--radius-lg)" }}>
           <div style={{ flexShrink: 0, width: 64, height: 64, borderRadius: 12, background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 28, color: "var(--ink)", letterSpacing: "-0.04em" }}>N</div>
           <div style={{ flex: 1 }}>
             <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22, color: "var(--ink)", letterSpacing: "-0.015em" }}>Northeastern University</div>
-            <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 4 }}>R1 research · multi-campus · Canvas + Banner integration</div>
+            <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 4 }}>R1 research · multi-campus · Canvas + SIS integration</div>
           </div>
           <div style={{ display: "flex", gap: 20, paddingLeft: 24, borderLeft: "1px solid rgba(35,86,201,0.15)" }}>
             <div>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, color: "var(--primary)", letterSpacing: "-0.02em" }}>4–6 wks</div>
-              <div style={{ fontSize: 10.5, fontFamily: "var(--font-mono)", letterSpacing: "0.06em", color: "var(--ink-3)", marginTop: 3, textTransform: "uppercase" }}>to live pilot</div>
+              <div style={{ fontSize: 10.5, fontFamily: "var(--font-mono)", letterSpacing: "0.06em", color: "var(--ink-3)", marginTop: 3, textTransform: "uppercase" }}>live pilot</div>
             </div>
             <div>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, color: "var(--primary)", letterSpacing: "-0.02em" }}>Q2 '26</div>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, color: "var(--primary)", letterSpacing: "-0.02em" }}>Q3 '26</div>
               <div style={{ fontSize: 10.5, fontFamily: "var(--font-mono)", letterSpacing: "0.06em", color: "var(--ink-3)", marginTop: 3, textTransform: "uppercase" }}>findings public</div>
             </div>
           </div>

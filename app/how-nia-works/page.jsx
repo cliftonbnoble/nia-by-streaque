@@ -4,80 +4,16 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import { SecArchitecture, SecCoaches } from "@/components/home/CampaignSections";
+import WholeStudent from "@/components/home/WholeStudent";
+import CapabilityCards from "./CapabilityCards";
+import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
+import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 
 export const metadata = {
   title: "How Nia Works · Streaque",
   description:
     "Two coordinated platforms, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
 };
-
-const SentimentMock = () => (
-  <div style={{ height: 130, padding: 12, background: "linear-gradient(180deg, var(--bg-alt), white)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 8 }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.1em", color: "var(--ink-4)", textTransform: "uppercase" }}>SENTIMENT · 14d</span>
-      <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 11, color: "var(--inprogress)" }}>shifting ↓</span>
-    </div>
-    <svg viewBox="0 0 200 60" style={{ width: "100%", height: 60 }} preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="sm-fill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgba(43,179,223,0.25)"/>
-          <stop offset="100%" stopColor="rgba(43,179,223,0)"/>
-        </linearGradient>
-      </defs>
-      <path d="M0 18 L20 14 L40 22 L60 16 L80 24 L100 28 L120 26 L140 38 L160 42 L180 50 L200 52 L200 60 L0 60 Z" fill="url(#sm-fill)"/>
-      <path d="M0 18 L20 14 L40 22 L60 16 L80 24 L100 28 L120 26 L140 38 L160 42 L180 50 L200 52" fill="none" stroke="var(--brand-blue)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="200" cy="52" r="3" fill="var(--inprogress)"/>
-    </svg>
-    <div style={{ display: "flex", gap: 4, fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)" }}>
-      <span style={{ padding: "2px 6px", background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 4 }}>tone</span>
-      <span style={{ padding: "2px 6px", background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 4 }}>cadence</span>
-      <span style={{ padding: "2px 6px", background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 4 }}>topics</span>
-    </div>
-  </div>
-);
-
-const AlertMock = () => (
-  <div style={{ height: 130, padding: 12, background: "linear-gradient(180deg, var(--bg-alt), white)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 6 }}>
-    <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.1em", color: "var(--ink-4)", textTransform: "uppercase" }}>NEW ALERT · 2 MIN AGO</div>
-    <div style={{ display: "flex", alignItems: "center", gap: 8, padding: 8, background: "white", border: "1px solid var(--line)", borderRadius: 8 }}>
-      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--inprogress)", flexShrink: 0 }}/>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 600 }}>Maya Reyes · BIO 201</div>
-        <div style={{ fontSize: 10, color: "var(--ink-3)", marginTop: 1 }}>Missed quiz · sentiment dip</div>
-      </div>
-    </div>
-    <div style={{ display: "flex", gap: 6, marginTop: "auto" }}>
-      <span style={{ flex: 1, fontSize: 10, padding: "5px 8px", background: "var(--brand-gradient)", color: "white", borderRadius: 6, textAlign: "center", fontWeight: 500 }}>Send nudge</span>
-      <span style={{ fontSize: 10, padding: "5px 8px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 6 }}>Snooze</span>
-    </div>
-  </div>
-);
-
-const JourneyMock = () => (
-  <div style={{ height: 130, padding: 12, background: "linear-gradient(180deg, var(--bg-alt), white)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 6 }}>
-    <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.1em", color: "var(--ink-4)", textTransform: "uppercase" }}>TODAY FOR MAYA</div>
-    {[
-      { t: "9:00", l: "BIO 201 · ch. 4 reset", d: "10 min" },
-      { t: "14:00", l: "CS 110 · pset checkpoint", d: "15 min" },
-      { t: "17:00", l: "Career fair · 3 matches", d: "tap" },
-    ].map((r, i) => (
-      <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10 }}>
-        <span style={{ fontFamily: "var(--font-mono)", color: "var(--ink-4)", width: 36 }}>{r.t}</span>
-        <span style={{ flex: 1, fontFamily: "var(--font-display)", fontWeight: 500, color: "var(--ink)" }}>{r.l}</span>
-        <span style={{ fontFamily: "var(--font-mono)", color: "var(--brand-blue)", fontSize: 9, padding: "1px 6px", background: "var(--primary-50)", borderRadius: 4 }}>{r.d}</span>
-      </div>
-    ))}
-  </div>
-);
-
-const CapabilityCard = ({ tag, title, body, mock }) => (
-  <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 22, boxShadow: "var(--shadow-card)", display: "flex", flexDirection: "column", gap: 14 }}>
-    <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--ink-4)" }}>{tag}</span>
-    <div>{mock}</div>
-    <h3 style={{ fontSize: 19, lineHeight: 1.2 }}>{title}</h3>
-    <p style={{ fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>{body}</p>
-  </div>
-);
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 64 }}>
@@ -90,299 +26,222 @@ const Hero = () => (
           <span className="mf-grad-text">one mission:</span> transform student success.
         </h1>
         <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated platforms transforming student data into nudges, alerts, and next steps.
+          Two coordinated platforms transforming student data into nudges, alerts, and next steps,
           on one governance layer your institution owns.
         </p>
       </div>
 
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginTop: 56 }}>
-        <CapabilityCard tag="01 · Sentiment" title="Real-time sentiment tracking" body="Every conversation carries signal. Nia reads tone, frustration, and momentum, quietly, on every interaction." mock={<SentimentMock/>}/>
-        <CapabilityCard tag="02 · Alerts" title="Proactive intervention alerts" body="The right person hears about the right student at the right moment, before a missed deadline becomes a missed term." mock={<AlertMock/>}/>
-        <CapabilityCard tag="03 · Journeys" title="Personalized student journeys" body="Plans that adapt to schedule, course load, and how each student actually studies, not a one-size-fits-all template." mock={<JourneyMock/>}/>
-      </div>
+      <CapabilityCards/>
     </div>
   </section>
 );
 
-const ConnectionDiagram = () => (
-  <div style={{ position: "relative", aspectRatio: "5/4", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-card)", overflow: "hidden", padding: 24 }}>
-    <div style={{ position: "absolute", top: "20%", left: "10%", width: 140, padding: 14, background: "white", border: "1px solid var(--line-2)", borderRadius: 12, boxShadow: "var(--shadow-sm)" }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-4)" }}>STUDENT</div>
-      <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 14, marginTop: 4 }}>Maya · BIO 201</div>
-      <div style={{ fontSize: 11, color: "var(--ink-3)", marginTop: 4 }}>"I'm stuck on ch. 4."</div>
-      <div style={{ marginTop: 8, height: 4, background: "var(--bg-alt)", borderRadius: 2, overflow: "hidden" }}>
-        <div style={{ width: "40%", height: "100%", background: "var(--brand-gradient)" }}/>
-      </div>
-    </div>
-
-    <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 130, height: 130, borderRadius: "50%", background: "var(--brand-gradient)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontFamily: "var(--font-display)", fontWeight: 600, textAlign: "center", boxShadow: "0 20px 50px -10px rgba(56,65,177,0.4)" }}>
-      <div>
-        <div style={{ fontSize: 11, fontFamily: "var(--font-mono)", fontWeight: 500, letterSpacing: "0.1em", opacity: 0.85 }}>NIA</div>
-        <div style={{ fontSize: 13, marginTop: 2, lineHeight: 1.2 }}>Orchestration<br/>Layer</div>
-      </div>
-    </div>
-
-    <div style={{ position: "absolute", bottom: "14%", right: "8%", width: 160, padding: 14, background: "white", border: "1px solid var(--line-2)", borderRadius: 12, boxShadow: "var(--shadow-sm)" }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-4)" }}>STAFF · DR. CHEN</div>
-      <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 13, marginTop: 4, display: "flex", alignItems: "center", gap: 6 }}>
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--inprogress)" }}/>
-        Alert: Maya needs help
-      </div>
-      <div style={{ fontSize: 11, color: "var(--ink-3)", marginTop: 4 }}>Draft reply ready</div>
-      <div style={{ marginTop: 8, fontSize: 10, padding: "3px 8px", background: "var(--primary-50)", color: "var(--brand-blue)", borderRadius: 4, display: "inline-block", fontFamily: "var(--font-mono)", whiteSpace: "nowrap" }}>1-click send</div>
-    </div>
-
-    {/* viewBox is a 100×100 grid stretched to fill; percentages are not valid in path data */}
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}>
-      <defs>
-        <linearGradient id="sig1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#2BB3DF" stopOpacity="0.7"/>
-          <stop offset="100%" stopColor="#3841B1" stopOpacity="0.3"/>
-        </linearGradient>
-      </defs>
-      <path d="M 22 28 Q 40 35, 50 50" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke">
-        <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.5s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 50 50 Q 65 60, 80 78" fill="none" stroke="url(#sig1)" strokeWidth="2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke">
-        <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
-      </path>
-    </svg>
-  </div>
-);
-
-const Connection = () => (
-  <section className="mf-section alt" style={{ padding: "88px 0" }}>
-    <div className="mf-container">
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.95fr 1.05fr", gap: 64, alignItems: "center" }}>
-        <div>
-          <span className="mf-eyebrow">The connection</span>
-          <h2 style={{ marginTop: 14 }}>The power is in <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>the connection.</em></h2>
-          <p style={{ marginTop: 18, fontSize: 16 }}>
-            Our ecosystem works because the platforms talk to each other. Every question asked,
-            every assignment tracked, every sentiment shift becomes actionable insight for staff.
-          </p>
-          <p style={{ marginTop: 12, fontSize: 16 }}>
-            It's not just two tools. It's a complete early-intervention system that learns,
-            adapts, and alerts in real time.
-          </p>
-        </div>
-        <ConnectionDiagram/>
-      </div>
-    </div>
-  </section>
-);
+/* ── student feature mocks — illustrated cards in the contact-page
+     language: light stock, accent glow cropped by the card, real app UI ── */
 
 function ChatMock() {
   return (
-    <div style={{ height: 240, background: "var(--bg-warm)", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 6 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--ink-3)" }}>
-        <span>9:41</span>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--success)" }}/>
-          Nia
+    <FmCard accent="43,179,223">
+      <FmEyebrow right={<FmLive>Always on</FmLive>}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
+          <span style={{ width: 24, height: 24, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.12)" }}><ConnGlyph s={18} gid="fmc"/></span>
+          Nia · course-aware
         </span>
+      </FmEyebrow>
+      <div style={{ marginLeft: "auto", width: "fit-content", maxWidth: "78%", background: "var(--brand-gradient)", color: "white", fontSize: 13, lineHeight: 1.5, padding: "9px 13px", borderRadius: "15px 15px 4px 15px", boxShadow: "0 4px 12px -5px rgba(56,65,177,0.4)" }}>
+        What&apos;s the late policy for HIST 240?
       </div>
-      <div style={{ alignSelf: "flex-start", padding: "8px 12px", background: "white", border: "1px solid var(--line)", borderRadius: "14px 14px 14px 4px", fontSize: 12, maxWidth: "85%" }}>What's the late policy for HIST 240?</div>
-      <div style={{ alignSelf: "flex-start", padding: "8px 12px", background: "var(--brand-gradient)", color: "white", borderRadius: "14px 14px 4px 14px", fontSize: 12, maxWidth: "90%", marginLeft: "auto" }}>
-        From your syllabus: 10% off per day, capped at 5 days. Your next due-date is Thursday 11:59pm.
+      <div style={{ display: "flex", gap: 8, alignItems: "flex-end", marginTop: 10 }}>
+        <span style={{ width: 20, height: 20, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><ConnGlyph s={15} gid="fmc2"/></span>
+        <div style={{ maxWidth: "82%", background: "white", border: "1px solid var(--line)", color: "var(--ink-2)", fontSize: 13, lineHeight: 1.55, padding: "10px 13px", borderRadius: "15px 15px 15px 4px", boxShadow: "0 6px 16px -10px rgba(11,16,32,0.16)" }}>
+          From your syllabus: 10% off per day, capped at 5 days. Your next due date is Thursday 11:59 PM.
+        </div>
       </div>
-      <div style={{ alignSelf: "flex-start", maxWidth: "85%", padding: 8, background: "white", border: "1px solid var(--line)", borderRadius: 10, marginTop: 4 }}>
-        <div style={{ fontSize: 9, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)" }}>SOURCES</div>
-        <div style={{ display: "flex", gap: 4, marginTop: 4, flexWrap: "wrap" }}>
-          {["HIST 240 syllabus", "Course catalog"].map((s) => (
-            <span key={s} style={{ fontSize: 10, padding: "2px 6px", background: "var(--bg-alt)", borderRadius: 4, fontFamily: "var(--font-mono)" }}>{s}</span>
+      <div className="fm-bob" style={{ marginLeft: 28, marginTop: 10, width: "fit-content", background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: "9px 12px", boxShadow: "0 10px 24px -14px rgba(31,52,128,0.3)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ fontSize: 8.5, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)" }}>Sources</span>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <div style={{ display: "flex", gap: 5, marginTop: 6, flexWrap: "wrap" }}>
+          {["HIST 240 syllabus", "Course catalog", "LMS data"].map((s) => (
+            <span key={s} style={{ fontSize: 10.5, fontWeight: 600, padding: "3.5px 9px", background: "var(--primary-50)", color: "var(--brand-blue)", borderRadius: 999 }}>{s}</span>
           ))}
         </div>
       </div>
-    </div>
+    </FmCard>
   );
 }
 
-function NudgesMock() {
-  return (
-    <div style={{ height: 240, background: "var(--bg-warm)", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>TODAY · TUESDAY</div>
-      {[
-        { i: "🌅", t: "Pset 3 due 11:59pm", s: "Want a 25-min session at 4?", tag: "in 6h", kind: "warn" },
-        { i: "✦", t: "New: Career fair Thursday", s: "3 employers match your major", tag: "tap", kind: "info" },
-        { i: "✓", t: "Quiz reset complete", s: "Nice, back on track", tag: "done", kind: "ok" },
-      ].map((n, i) => (
-        <div key={i} style={{ display: "flex", gap: 10, padding: 10, background: "white", border: "1px solid var(--line)", borderRadius: 10, alignItems: "flex-start" }}>
-          <span style={{ fontSize: 16 }}>{n.i}</span>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>{n.t}</div>
-            <div style={{ fontSize: 11, color: "var(--ink-3)", marginTop: 2 }}>{n.s}</div>
-          </div>
-          <span style={{ fontSize: 9, fontFamily: "var(--font-mono)", padding: "2px 6px", borderRadius: 4, background: n.kind === "warn" ? "rgba(201,138,26,0.10)" : n.kind === "ok" ? "rgba(13,138,90,0.08)" : "var(--primary-50)", color: n.kind === "warn" ? "var(--inprogress)" : n.kind === "ok" ? "var(--success)" : "var(--brand-blue)" }}>{n.tag}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
-function PrefsMock() {
-  return (
-    <div style={{ height: 240, background: "var(--bg-warm)", border: "1px solid var(--line)", borderRadius: 12, padding: 16, display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>YOUR LEARNING PROFILE</div>
-      <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: 12, display: "grid", gap: 10 }}>
-        {[
-          { l: "Peak focus", v: "7–9 PM", w: 78 },
-          { l: "Session length", v: "~25 min", w: 62 },
-          { l: "Tone", v: "Direct + warm", w: 84 },
-        ].map((r, i) => (
-          <div key={i}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, fontSize: 11 }}>
-              <span style={{ color: "var(--ink-3)", whiteSpace: "nowrap" }}>{r.l}</span>
-              <span style={{ fontFamily: "var(--font-display)", fontWeight: 500, whiteSpace: "nowrap" }}>{r.v}</span>
-            </div>
-            <div style={{ marginTop: 5, height: 4, background: "var(--bg-alt)", borderRadius: 2, overflow: "hidden" }}>
-              <div style={{ width: r.w + "%", height: "100%", background: "var(--brand-gradient)" }}/>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 10, color: "var(--ink-3)", marginTop: "auto" }}>
-        <span style={{ width: 14, height: 14, borderRadius: "50%", background: "var(--primary-50)", color: "var(--brand-blue)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </span>
-        Stays on your tenant. Never leaves.
-      </div>
-    </div>
-  );
-}
+/* a pipeline stat card from the app's Canvas dashboard: big number,
+   trend badge, purple gradient sparkline */
+const Sparkline = ({ d, gid, w = 96 }) => (
+  <svg width={w} height={w * 0.44} viewBox="0 0 112 50" style={{ display: "block" }} preserveAspectRatio="none">
+    <defs>
+      <linearGradient id={`${gid}f`} x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="rgba(105,91,215,0.2)"/><stop offset="1" stopColor="rgba(66,77,211,0.2)"/></linearGradient>
+      <linearGradient id={`${gid}s`} x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#695BD7"/><stop offset="1" stopColor="#424DD3"/></linearGradient>
+    </defs>
+    <path d={`${d} L112 50 L2 50 Z`} fill={`url(#${gid}f)`}/>
+    <path d={d} fill="none" stroke={`url(#${gid}s)`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const StatCard = ({ value, label, change, spark, gid }) => (
+  <div style={{ position: "relative", background: "#FDFDFD", border: "1px solid #F1F1F1", borderRadius: 10, padding: "11px 12px", minHeight: 84, overflow: "hidden" }}>
+    <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 20, color: "#222222", letterSpacing: "0.01em", lineHeight: 1 }}>{value}</div>
+    <div style={{ fontSize: 10.5, fontWeight: 600, color: "#111827", marginTop: 7 }}>{label}</div>
+    <div style={{ fontSize: 9, color: "#6b7280", marginTop: 2 }}>vs last semester</div>
+    <span style={{ position: "absolute", right: 10, top: 11, display: "inline-flex", alignItems: "center", gap: 2, fontSize: 9, fontWeight: 600, color: "#666666" }}>
+      <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      {change}
+    </span>
+    <span style={{ position: "absolute", right: 6, bottom: 4 }}><Sparkline d={spark} gid={gid} w={168}/></span>
+  </div>
+);
 
 function IntegrationMock() {
+  const days = ["M", "T", "W", "T", "F", "S", "S"];
   return (
-    <div style={{ height: 240, background: "var(--bg-warm)", border: "1px solid var(--line)", borderRadius: 12, padding: 16, display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>CONNECTED SYSTEMS</div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 6 }}>
-        {[
-          { l: "Canvas LMS", s: "live", kind: "ok" },
-          { l: "Banner SIS", s: "live", kind: "ok" },
-          { l: "Salesforce", s: "live", kind: "ok" },
-          { l: "Workday Aid", s: "syncing", kind: "info" },
-        ].map((c, i) => (
-          <div key={i} style={{ padding: 8, background: "white", border: "1px solid var(--line)", borderRadius: 8, display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: c.kind === "ok" ? "var(--success)" : "var(--brand-blue)", flexShrink: 0 }}/>
-            <span style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 11, flex: 1 }}>{c.l}</span>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)" }}>{c.s}</span>
+    <FmCard accent="56,65,177">
+      <FmEyebrow right={<FmLive>Synced</FmLive>}>Canvas dashboard · from the app</FmEyebrow>
+      <div style={{ display: "grid", gap: 10 }}>
+        {/* the headliners: streak + projected GPA, floating like the dashboard */}
+        <div className="fm-integ" style={{ alignItems: "stretch" }}>
+          <div className="fm-bob" style={{ background: "white", borderRadius: 12, padding: "12px 14px", boxShadow: "0 14px 30px -16px rgba(31,52,128,0.35)", border: "1px solid var(--line)" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 12.5, color: "#111827" }}>Daily Streak</span>
+              <span style={{ fontSize: 9.5, fontWeight: 600, background: "linear-gradient(90deg, #0ea5e9, #3d4ed8)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>See all</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8 }}>
+              <span style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(160,121,235,0.1)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <img src="/app-ui/daily-streak-fire.png" alt="" width="345" height="300" style={{ width: 34, height: "auto" }} loading="lazy" decoding="async"/>
+              </span>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 19, color: "#111827", letterSpacing: "-0.02em" }}>62 Days</span>
+            </div>
+            <div style={{ display: "flex", gap: 5, marginTop: 9 }}>
+              {days.map((d, i) => (
+                <span key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3, flex: 1 }}>
+                  <span style={{ width: 13, height: 13, borderRadius: "50%", background: "#4E51D4", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                    <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
+                  <span style={{ fontSize: 7.5, fontWeight: 600, color: "#111827" }}>{d}</span>
+                </span>
+              ))}
+            </div>
           </div>
-        ))}
+          <div className="fm-bob" style={{ animationDelay: "1.7s", background: "white", borderRadius: 12, padding: "12px 14px", boxShadow: "0 14px 30px -16px rgba(31,52,128,0.35)", border: "1px solid var(--line)" }}>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 12.5, color: "#111827" }}>Projected GPA</span>
+              <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 17, letterSpacing: "-0.02em", background: "linear-gradient(92.81deg, #695bd7 -4.09%, #424dd3 109.24%)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>3.8</span>
+            </div>
+            <div style={{ marginTop: 7, height: 6, background: "#EEF0F6", borderRadius: 3, overflow: "hidden" }}>
+              <div style={{ width: "95%", height: "100%", borderRadius: 3, background: "linear-gradient(90deg, #695BD7, #424DD3)" }}/>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: 8, color: "#6b7280", marginTop: 3 }}>
+              <span>now</span><span>4.0 goal</span>
+            </div>
+            <div style={{ fontSize: 9.5, color: "#374151", lineHeight: 1.45, marginTop: 7 }}>
+              Stay consistent in &ldquo;Advanced Data Structures&rdquo; to hit your 4.0 goal this semester.
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8 }}>
+              <span style={{ fontSize: 9.5, fontWeight: 600, color: "#111827" }}>Top Percentile</span>
+              <span style={{ fontSize: 9, padding: "2.5px 6px", color: "#3642B3", border: "1px solid #CAD0F2", borderRadius: 4 }}>Top 5%</span>
+            </div>
+          </div>
+        </div>
+
+        {/* small pipeline stat tiles below */}
+        <div className="fm-integ">
+          <StatCard value="3.6" label="GPA This Semester" change="5.2%" gid="fmg" spark="M2 46 L20 36 L39 26 L57 16 L75 16 L94 6 L112 6"/>
+          <StatCard value="128" label="Total Credit Hours" change="8.5%" gid="fmc" spark="M2 46 L20 41 L39 36 L57 31 L75 26 L94 16 L112 6"/>
+        </div>
       </div>
-      <div style={{ marginTop: "auto", padding: 10, background: "white", border: "1px dashed var(--line-2)", borderRadius: 8, display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)" }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10 }}>+</span>
-        Add another system · 12 connectors available
-      </div>
-    </div>
+    </FmCard>
   );
 }
 
 function WarningMock() {
   return (
-    <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>EARLY-ALERT QUEUE</span>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--success)" }}>● live</span>
-      </div>
-      {[
-        { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", sev: "high" },
-        { img: "/students/jonas.png", n: "Jonas Kim", s: "GPA dip · 3 weeks", sev: "med" },
-        { img: "/students/anya.png", n: "Anya Patel", s: "Low engagement · CS 110", sev: "med" },
-        { img: "/students/ravi.png", n: "Ravi Shah", s: "Aid form overdue", sev: "low" },
-      ].map((r, i) => (
-        <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 4px", borderTop: i ? "1px solid var(--line)" : "none" }}>
-          <span style={{ width: 4, height: 24, borderRadius: 2, background: r.sev === "high" ? "#c43d3d" : r.sev === "med" ? "var(--inprogress)" : "var(--ink-4)" }}/>
-          <img src={r.img} alt="" width="22" height="22" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 11 }}>{r.n}</div>
-            <div style={{ fontSize: 10, color: "var(--ink-3)" }}>{r.s}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function DashboardMock() {
-  return (
-    <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+    <FmCard accent="43,179,223">
+      <FmEyebrow right={<FmLive>Live</FmLive>}>Early-alert queue</FmEyebrow>
+      <div style={{ display: "grid", gap: 8 }}>
         {[
-          { n: "93%", l: "momentum" },
-          { n: "75%", l: "engaged" },
-          { n: "63%", l: "completed" },
-        ].map((s, i) => (
-          <div key={i} style={{ padding: 10, background: "var(--bg-alt)", borderRadius: 8, border: "1px solid var(--line)" }}>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 18, letterSpacing: "-0.02em", background: "var(--brand-gradient)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{s.n}</div>
-            <div style={{ fontSize: 9, color: "var(--ink-3)", marginTop: 2 }}>{s.l}</div>
+          { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "#1", hot: true },
+          { img: "/students/jonas.png", n: "Jonas Kim", s: "GPA dip · 3 weeks", tag: "Draft" },
+          { img: "/students/anya.png", n: "Anya Patel", s: "Low engagement · CS 110", tag: "Meeting" },
+          { img: "/students/ravi.png", n: "Ravi Shah", s: "Aid form overdue", tag: "Routed" },
+        ].map((r) => (
+          <div key={r.n} className={r.hot ? "fm-glowbob" : undefined} style={{ display: "flex", alignItems: "center", gap: 9, padding: "9px 11px", background: "white", borderRadius: 12, border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid var(--line)", boxShadow: r.hot ? undefined : "0 6px 16px -10px rgba(11,16,32,0.16)" }}>
+            <img src={r.img} alt="" width="24" height="24" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>{r.n}</div>
+              <div style={{ fontSize: 10.5, color: "var(--ink-3)", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{r.s}</div>
+            </div>
+            <span style={{ fontSize: 9, fontFamily: "var(--font-mono)", fontWeight: 700, padding: "3px 8px", borderRadius: 999, flexShrink: 0, color: r.hot ? "#B45309" : "var(--ink-3)", background: r.hot ? "rgba(217,119,6,0.12)" : "var(--bg-alt)", border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid var(--line)" }}>{r.tag}</span>
           </div>
         ))}
       </div>
-      <div style={{ flex: 1, padding: 10, background: "var(--bg-alt)", borderRadius: 8, border: "1px solid var(--line)", display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-          <span>SENTIMENT · COHORT B</span>
-          <span style={{ color: "var(--success)" }}>+12%</span>
-        </div>
-        <svg viewBox="0 0 200 60" style={{ width: "100%", height: 60, marginTop: 6 }} preserveAspectRatio="none">
-          <path d="M0 40 L20 38 L40 42 L60 35 L80 30 L100 28 L120 22 L140 24 L160 18 L180 14 L200 12" fill="none" stroke="var(--brand-blue)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
-    </div>
+    </FmCard>
   );
 }
 
 function InsightsMock() {
   return (
-    <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>INSIGHT · 3 NEW</div>
-      <div style={{ padding: 12, background: "var(--brand-gradient-soft)", border: "1px solid rgba(56,65,177,0.18)", borderRadius: 10 }}>
-        <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>14 students in BIO 201 are stalling at ch. 4</div>
-        <div style={{ fontSize: 11, color: "var(--ink-2)", marginTop: 4, lineHeight: 1.4 }}>Recommended: schedule a group review session. Pattern matches Spring '25 cohort.</div>
-        <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
-          <span style={{ fontSize: 10, padding: "4px 8px", background: "var(--brand-gradient)", color: "white", borderRadius: 6 }}>Schedule</span>
-          <span style={{ fontSize: 10, padding: "4px 8px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 6 }}>Dismiss</span>
+    <FmCard accent="124,58,237">
+      <FmEyebrow right={<FmLive>3 new</FmLive>}>AI insights</FmEyebrow>
+      <div className="fm-bob" style={{ padding: "13px 14px", background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 52%, #eef2ff 100%)", border: "1px solid #c7d2fe", borderRadius: 14, boxShadow: "0 14px 30px -16px rgba(56,65,177,0.4)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <svg className="fm-pulse" width="11" height="11" viewBox="0 0 20 20"><path d="M10 1l2 5.4L17.4 8 12 10l-2 5.4L8 10 2.6 8 8 6.4z" fill="#5E56E0"/></svg>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)" }}>14 students in BIO 201 are stalling at ch. 4</span>
+        </div>
+        <div style={{ fontSize: 11, color: "var(--ink-2)", marginTop: 5, lineHeight: 1.5 }}>Recommended: schedule a group review session. Pattern matches Spring '25 cohort.</div>
+        <div style={{ display: "flex", gap: 7, marginTop: 10 }}>
+          <span style={{ fontSize: 10.5, fontWeight: 600, padding: "5px 11px", background: "var(--brand-gradient)", color: "white", borderRadius: 7, boxShadow: "0 3px 8px -3px rgba(56,65,177,0.5)" }}>Schedule</span>
+          <span style={{ fontSize: 10.5, fontWeight: 600, padding: "5px 11px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 7 }}>Dismiss</span>
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: "auto" }}>
-        {["Cohort B engagement +12%", "Career fair RSVPs spiking"].map((i) => (
-          <div key={i} style={{ fontSize: 11, color: "var(--ink-3)", display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--brand-blue)" }}/>
-            {i}
+      <div style={{ display: "grid", gap: 7, marginTop: 12 }}>
+        {[["Cohort B engagement +12%", "#15803D"], ["Career fair RSVPs spiking", "var(--brand-blue)"]].map(([t, c], i) => (
+          <div key={t} className="fm-bob" style={{ animationDelay: `${0.5 + i * 0.8}s`, display: "flex", alignItems: "center", gap: 8, padding: "8px 11px", background: "white", border: "1px solid var(--line)", borderRadius: 10, boxShadow: "0 5px 14px -10px rgba(11,16,32,0.2)", fontSize: 11, color: "var(--ink-2)", fontWeight: 500 }}>
+            <span style={{ width: 5, height: 5, borderRadius: "50%", background: c }}/>
+            {t}
           </div>
         ))}
       </div>
-    </div>
+    </FmCard>
   );
 }
 
 function InterventionMock() {
   return (
-    <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>DRAFT REPLY · MAYA REYES</div>
-      <div style={{ flex: 1, padding: 12, background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: 10, display: "flex", flexDirection: "column", gap: 6 }}>
-        <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 12 }}>Hi Maya,</div>
-        <div style={{ fontSize: 11, lineHeight: 1.5, color: "var(--ink-2)" }}>
+    <FmCard accent="43,179,223">
+      <FmEyebrow right={<FmLive>Draft ready</FmLive>}>Draft reply · Maya Reyes</FmEyebrow>
+      <div style={{ padding: "13px 14px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
+        <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>Hi Maya,</div>
+        <div style={{ fontSize: 11.5, lineHeight: 1.55, color: "var(--ink-2)", marginTop: 5 }}>
           Saw the BIO 201 quiz didn't go as planned. Totally normal at ch. 4.
-          <span style={{ background: "rgba(43,179,223,0.15)", padding: "0 3px" }}> Want to grab 15 min Thursday?</span> I have 2pm or 4pm open.
+          <span className="fm-hl" style={{ padding: "0 3px", borderRadius: 3 }}> Want to grab 15 min Thursday?</span> I have 2pm or 4pm open.
         </div>
-        <div style={{ fontSize: 11, color: "var(--ink-3)" }}>Best, Dr. Chen</div>
+        <div style={{ fontSize: 11, color: "var(--ink-3)", marginTop: 5 }}>Best, Dr. Chen<span className="fm-caret" aria-hidden="true"/></div>
       </div>
-      <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <span style={{ flex: 1, fontSize: 10, padding: "6px 10px", background: "var(--brand-gradient)", color: "white", borderRadius: 6, textAlign: "center", fontWeight: 500 }}>Send · in your voice</span>
-        <span style={{ fontSize: 10, padding: "6px 10px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 6 }}>Edit</span>
+      <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 12 }}>
+        <span className="fm-bob" style={{ flex: 1, fontSize: 11, padding: "8px 12px", background: "var(--brand-gradient)", color: "white", borderRadius: 8, textAlign: "center", fontWeight: 600, boxShadow: "0 6px 16px -6px rgba(56,65,177,0.55)" }}>Send · in your voice</span>
+        <span style={{ fontSize: 11, fontWeight: 600, padding: "8px 14px", background: "white", color: "var(--ink-2)", border: "1px solid var(--line)", borderRadius: 8, boxShadow: "0 4px 10px -7px rgba(11,16,32,0.25)" }}>Edit</span>
       </div>
-    </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 11, fontSize: 10, color: "var(--ink-3)" }}>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Tuned to your tone from 40+ past replies
+      </div>
+    </FmCard>
   );
 }
 
 function PredictiveMock() {
   return (
-    <div style={{ height: 240, background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: 14, display: "flex", flexDirection: "column", gap: 8 }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>OVERLOAD FORECAST · NEXT 14D</span>
-      </div>
-      <div style={{ flex: 1, position: "relative" }}>
-        <svg viewBox="0 0 240 110" style={{ width: "100%", height: "100%" }} preserveAspectRatio="none">
+    <FmCard accent="217,119,6">
+      <FmEyebrow right={<FmLive>Updating</FmLive>}>Overload forecast · next 14 days</FmEyebrow>
+      <div style={{ padding: "13px 14px 10px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
+        <svg viewBox="0 0 240 110" style={{ width: "100%", height: 132 }} preserveAspectRatio="none">
           <defs>
             <linearGradient id="pred-now" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="rgba(43,179,223,0.3)"/>
@@ -393,23 +252,29 @@ function PredictiveMock() {
               <stop offset="100%" stopColor="rgba(201,138,26,0)"/>
             </linearGradient>
           </defs>
+          {[28, 56, 84].map((y) => <line key={y} x1="0" y1={y} x2="240" y2={y} stroke="#EEF0F6" strokeWidth="1"/>)}
           <path d="M0 70 L30 65 L60 60 L90 55 L120 50 L120 110 L0 110 Z" fill="url(#pred-now)"/>
           <path d="M0 70 L30 65 L60 60 L90 55 L120 50" fill="none" stroke="var(--brand-blue)" strokeWidth="1.8"/>
-          <path d="M120 50 L150 35 L180 22 L210 18 L240 28 L240 110 L120 110 Z" fill="url(#pred-fwd)"/>
-          <path d="M120 50 L150 35 L180 22 L210 18 L240 28" fill="none" stroke="var(--inprogress)" strokeWidth="1.8" strokeDasharray="3 3"/>
+          {/* the prediction draws itself in, holds, and re-draws */}
+          <g className="fm-clipdraw">
+            <path d="M120 50 L150 35 L180 22 L210 18 L240 28 L240 110 L120 110 Z" fill="url(#pred-fwd)"/>
+            <path d="M120 50 L150 35 L180 22 L210 18 L240 28" fill="none" stroke="var(--inprogress)" strokeWidth="1.8" strokeDasharray="3 3"/>
+            <circle cx="210" cy="18" r="3.5" fill="var(--inprogress)" stroke="white" strokeWidth="1.5"/>
+          </g>
           <line x1="120" y1="0" x2="120" y2="110" stroke="var(--ink-4)" strokeWidth="0.5" strokeDasharray="2 2"/>
           <text x="124" y="12" fontSize="8" fontFamily="var(--font-mono)" fill="var(--ink-3)">NOW</text>
         </svg>
       </div>
-      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)" }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+      <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 11 }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)" }}>
           <span style={{ width: 12, height: 2, background: "var(--brand-blue)", borderRadius: 1 }}/> observed
         </span>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--ink-3)" }}>
           <span style={{ width: 12, height: 2, background: "var(--inprogress)", borderRadius: 1 }}/> predicted · midterms
         </span>
+        <span className="fm-pulse" style={{ marginLeft: "auto", fontSize: 9.5, fontWeight: 600, color: "#B45309", background: "#FFF4DE", padding: "3px 9px", borderRadius: 999 }}>peak in 9 days</span>
       </div>
-    </div>
+    </FmCard>
   );
 }
 
@@ -417,16 +282,16 @@ const STUDENT_FEATURES = [
   { n: "01", t: "Intelligent Chat Assistant", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
     bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
   { n: "02", t: "Proactive Coaching & Nudges", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
-    bullets: ["24/7 AI agents monitoring your academic progress", "Smart reminders for assignments, deadlines, events", "Job fair alerts and career opportunities", "Personalized study recommendations"], Mock: NudgesMock },
+    bullets: ["24/7 AI agents monitoring your academic progress", "Smart reminders for assignments, deadlines, events", "Job fair alerts and career opportunities", "Personalized study recommendations"], Mock: NudgesCarousel },
   { n: "03", t: "Learns Your Preferences", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
-    bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: PrefsMock },
+    bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: LearningStyleDemo },
   { n: "04", t: "Comprehensive Integration", b: "One brain across every campus system, not a stitched-together set of point tools.",
     bullets: ["Connected to your LMS for assignment tracking", "SIS integration for academic records", "CRM-aware for advising context", "All your university resources in one place"], Mock: IntegrationMock },
 ];
 
 const STAFF_FEATURES = [
   { n: "01", t: "Early-warning system", bullets: ["Real-time sentiment analysis", "Automated alerts for engagement drops", "AI agents scanning for warning signs", "Track assignment trends, attendance, participation"], Mock: WarningMock },
-  { n: "02", t: "Comprehensive dashboards", bullets: ["Sentiment trends over time", "Engagement metrics and patterns", "LMS performance data integration", "Identify at-risk students instantly"], Mock: DashboardMock },
+  { n: "02", t: "Comprehensive dashboards", bullets: ["Sentiment trends over time", "Engagement metrics and patterns", "LMS performance data integration", "Identify at-risk students instantly"], Mock: StaffDashboard },
   { n: "03", t: "AI-powered insights", bullets: ["Same powerful AI as the student tool", "Access to documents, calendars, policies", "Student LMS, SIS, and CRM data visibility", "Context-aware recommendations"], Mock: InsightsMock },
   { n: "04", t: "Intervention & recognition", bullets: ["Reach out to struggling students proactively", "Identify high performers for recognition", "Track intervention effectiveness", "Close the loop on student support"], Mock: InterventionMock },
   { n: "05", t: "Predictive analysis", bullets: ["Know when students are overwhelmed, before they do", "Trend analysis across cohorts", "Success-pattern identification", "Data-driven decision making"], Mock: PredictiveMock },
@@ -479,6 +344,84 @@ const ForStudents = () => (
       </div>
       <PullQuote quote="Not just answers. A partner in your success." sub="Real-time data flows from student interactions to staff dashboards →"/>
     </div>
+    <style>{`
+      .fm-card{
+        position: relative;
+        overflow: hidden;
+        background: #FBFCFE;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        box-shadow: 0 24px 48px -28px rgba(15,23,42,0.18);
+      }
+      .fm-glow{
+        position: absolute;
+        width: 420px; height: 420px;
+        left: 50%; top: -240px;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .fm-bob{ animation: fm-bob 3.4s ease-in-out infinite; }
+      @keyframes fm-bob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-4px); } }
+      .fm-pulse{ animation: fm-pulse 2.4s ease-in-out infinite; }
+      @keyframes fm-pulse{ 0%,100%{ opacity: 0.55; } 50%{ opacity: 1; } }
+      /* carousel arrows: minimal circles, match the whole-student nav */
+      .fm-arr{
+        width: 30px; height: 30px; border-radius: 50%;
+        border: 1px solid rgba(11,16,32,0.12);
+        background: white; color: var(--ink-2);
+        display: inline-flex; align-items: center; justify-content: center;
+        cursor: pointer; padding: 0;
+        box-shadow: 0 4px 10px -6px rgba(11,16,32,0.25);
+        transition: color 150ms ease, border-color 150ms ease;
+      }
+      .fm-arr:hover{ color: var(--ink); border-color: rgba(11,16,32,0.24); }
+      /* responsive interiors: large fixed paddings shrink on small screens */
+      .mf-stack-sm > *{ min-width: 0; }
+      .fm-nc-content{ padding: 16px 130px 92px 18px; }
+      .fm-nudgeicon{ width: 126px; }
+      .fm-nc-blob{ width: 88px; height: 88px; }
+      .fm-prefs{ padding: 28px 28px 30px; }
+      .fm-mascot{ height: 158px; width: auto; }
+      .fm-integ{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      /* staff demos: the hot queue row breathes, the highlight glows,
+         the forecast draws itself in and holds */
+      .fm-glowpulse{ animation: fm-glowpulse 2.8s ease-in-out infinite; }
+      .fm-glowbob{ animation: fm-glowpulse 2.8s ease-in-out infinite, fm-bob 3.4s ease-in-out infinite; }
+      @keyframes fm-glowpulse{
+        0%, 100%{ box-shadow: 0 6px 16px -10px rgba(217,119,6,0.35); }
+        50%{ box-shadow: 0 10px 26px -8px rgba(217,119,6,0.6); }
+      }
+      .fm-caret{
+        display: inline-block; width: 1.5px; height: 11px;
+        background: var(--ink-2); margin-left: 2px; vertical-align: -1px;
+        animation: fm-caret 1.1s steps(2) infinite;
+      }
+      @keyframes fm-caret{ 0%{ opacity: 1; } 100%{ opacity: 0; } }
+      .fm-hl{ animation: fm-hl 3s ease-in-out infinite; }
+      @keyframes fm-hl{
+        0%, 100%{ background: rgba(43,179,223,0.14); }
+        50%{ background: rgba(43,179,223,0.34); }
+      }
+      .fm-clipdraw{ animation: fm-clipdraw 7s ease-in-out infinite; }
+      @keyframes fm-clipdraw{
+        0%{ clip-path: inset(0 100% 0 0); opacity: 1; }
+        26%{ clip-path: inset(0 0 0 0); }
+        82%{ clip-path: inset(0 0 0 0); opacity: 1; }
+        94%, 100%{ clip-path: inset(0 0 0 0); opacity: 0; }
+      }
+      @media (max-width: 560px){
+        .fm-nc-content{ padding: 14px 92px 88px 14px; }
+        .fm-nudgeicon{ width: 84px; }
+        .fm-nc-blob{ width: 60px; height: 60px; }
+        .fm-prefs{ padding: 16px 16px 18px; }
+        .fm-mascot{ height: 96px; }
+        .fm-integ{ grid-template-columns: 1fr; }
+      }
+      @media (prefers-reduced-motion: reduce){
+        .fm-bob, .fm-pulse, .fm-glowpulse, .fm-glowbob, .fm-hl, .fm-clipdraw, .fm-caret{ animation: none; }
+      }
+    `}</style>
   </section>
 );
 
@@ -510,18 +453,26 @@ const CompletePicture = () => (
       </div>
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28, position: "relative" }}>
         {[
-          { n: "01", t: "Student engages", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
-          { n: "02", t: "Data flows", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
-          { n: "03", t: "Staff acts", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
+          { n: "01", t: "Student engages", accent: "43,179,223", color: "var(--brand-cyan)", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
+          { n: "02", t: "Data flows", accent: "56,65,177", color: "var(--brand-blue)", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
+          { n: "03", t: "Staff acts", accent: "124,58,237", color: "#7c3aed", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
         ].map((s, i) => (
-          <div key={s.n} style={{ position: "relative", padding: 28, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-card)" }}>
-            <div style={{ position: "absolute", top: -16, left: 28, padding: "6px 12px", background: "var(--brand-gradient)", color: "white", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", fontWeight: 600 }}>{s.n}</div>
-            <h3 style={{ marginTop: 8, fontSize: 24 }}>{s.t}</h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 10 }}>
-              {s.items.map((it) => (
-                <li key={it} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-2)" }}><Tick/>{it}</li>
-              ))}
-            </ul>
+          <div key={s.n} style={{ position: "relative" }}>
+            <div style={{ position: "relative", overflow: "hidden", height: "100%", padding: 28, background: "#FBFCFE", border: "1px solid var(--line)", borderRadius: 18, boxShadow: "0 24px 48px -28px rgba(15,23,42,0.16)", boxSizing: "border-box" }}>
+              <span style={{ position: "absolute", width: 380, height: 380, left: "50%", top: -210, transform: "translateX(-50%)", borderRadius: "50%", background: `radial-gradient(circle closest-side, rgba(${s.accent},0.13), transparent 100%)`, pointerEvents: "none" }} aria-hidden="true"/>
+              <div style={{ position: "relative" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ padding: "5px 11px", background: "var(--brand-gradient)", color: "white", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", fontWeight: 600 }}>{s.n}</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: s.color, fontWeight: 600 }}>step {i + 1} of 3</span>
+                </div>
+                <h3 style={{ marginTop: 14, fontSize: 24 }}>{s.t}</h3>
+                <ul style={{ listStyle: "none", padding: 0, margin: "18px 0 0", display: "grid", gap: 10 }}>
+                  {s.items.map((it) => (
+                    <li key={it} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--ink-2)" }}><Tick/>{it}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             {i < 2 && (
               <div style={{ position: "absolute", right: -22, top: "50%", transform: "translateY(-50%)", width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--brand-blue)", boxShadow: "var(--shadow-sm)", zIndex: 2 }}>
                 <ArrowR s={18}/>
@@ -561,7 +512,7 @@ export default function HowNiaWorks() {
       <Nav active="how"/>
       <Hero/>
       <SecArchitecture/>
-      <Connection/>
+      <WholeStudent/>
       <SecCoaches bg="white"/>
       <ForStudents/>
       <ForStaff/>

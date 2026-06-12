@@ -4,16 +4,23 @@
    enter the viewport and are complete once fully in view. */
 import { useEffect, useRef } from "react";
 
+const GRAY_MID = "#AEB4C0";
+const GRAY_LIGHT = "#D7DBE2";
+
 const CARDS = [
   {
     title: "An advisor's week · today",
     chip: { t: "before", cls: "mf-chip-neutral" },
     fillPct: 20,
     notches: [20, 66],
+    segs: [
+      { from: 20, to: 66, c: GRAY_MID },
+      { from: 66, to: 100, c: GRAY_LIGHT },
+    ],
     rows: [
       { label: "Actual mentoring", pct: 20, brand: true },
-      { label: "Retrieving fragmented data", pct: 46 },
-      { label: "Triaging avoidable crises", pct: 34 },
+      { label: "Retrieving fragmented data", pct: 46, c: GRAY_MID },
+      { label: "Triaging avoidable crises", pct: 34, c: GRAY_LIGHT },
     ],
   },
   {
@@ -21,10 +28,14 @@ const CARDS = [
     chip: { t: "after", cls: "mf-chip-success" },
     fillPct: 62,
     notches: [62, 80],
+    segs: [
+      { from: 62, to: 80, c: GRAY_MID },
+      { from: 80, to: 100, c: GRAY_LIGHT },
+    ],
     rows: [
       { label: "Mentoring & perspective", pct: 62, brand: true },
-      { label: "Triage (now pre-empted)", pct: 18 },
-      { label: "Retrieval (now automated)", pct: 20 },
+      { label: "Triage (now pre-empted)", pct: 18, c: GRAY_MID },
+      { label: "Retrieval (now automated)", pct: 20, c: GRAY_LIGHT },
     ],
   },
 ];
@@ -75,13 +86,14 @@ export default function AdvisorBars() {
             <span className={`mf-chip ${c.chip.cls}`} style={{ fontSize: 10 }}>{c.chip.t}</span>
           </div>
           <div className="ab-track">
+            {c.segs.map((s) => <span key={s.from} className="ab-seg" style={{ left: `${s.from}%`, width: `${s.to - s.from}%`, background: s.c }}/>)}
             <span className="ab-fill" style={{ width: `calc(var(--p${i === 1 ? "2" : ""}, 1) * ${c.fillPct}%)` }}/>
             {c.notches.map((x) => <span key={x} className="ab-notch" style={{ left: `${x}%` }}/>)}
           </div>
           <div className="ab-legend">
             {c.rows.map((r) => (
               <div key={r.label} className="ab-row">
-                <span className={`ab-dot${r.brand ? " brand" : ""}`}/>
+                <span className={`ab-dot${r.brand ? " brand" : ""}`} style={r.brand ? undefined : { background: r.c, border: "none" }}/>
                 <span className="ab-label">{r.label}</span>
                 <span className={`ab-pct${r.brand ? " brand" : ""}`}>{r.pct}%</span>
               </div>
@@ -101,13 +113,16 @@ export default function AdvisorBars() {
         .ab-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
         .ab-track {
           position: relative; height: 12px; border-radius: 999px;
-          background: #E9ECFA; overflow: hidden;
+          background: #EEF0F4; overflow: hidden;
+        }
+        .ab-seg {
+          position: absolute; top: 0; bottom: 0;
         }
         .ab-fill {
           position: absolute; left: 2px; top: 2px; bottom: 2px;
           border-radius: 999px; min-width: 8px;
-          background: linear-gradient(90deg, #5B63E8 0%, #3D4ED8 100%);
-          box-shadow: 0 1px 4px -1px rgba(61, 78, 216, 0.45);
+          background: var(--brand-gradient);
+          box-shadow: 0 1px 4px -1px rgba(43, 121, 191, 0.5);
         }
         .ab-notch {
           position: absolute; top: 0; bottom: 0; width: 3px;
@@ -115,11 +130,11 @@ export default function AdvisorBars() {
         }
         .ab-legend { display: grid; gap: 9px; margin-top: 16px; }
         .ab-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--ink-2); }
-        .ab-dot { width: 9px; height: 9px; border-radius: 999px; flex-shrink: 0; background: #E9ECFA; border: 1px solid #D6DBF2; box-sizing: border-box; }
-        .ab-dot.brand { background: linear-gradient(135deg, #5B63E8, #3D4ED8); border: none; }
+        .ab-dot { width: 9px; height: 9px; border-radius: 999px; flex-shrink: 0; background: #D7DBE2; box-sizing: border-box; }
+        .ab-dot.brand { background: var(--brand-gradient); border: none; }
         .ab-label { flex: 1; }
         .ab-pct { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); font-weight: 600; }
-        .ab-pct.brand { color: #3D4ED8; }
+        .ab-pct.brand { color: var(--primary); }
       `}</style>
     </div>
   );

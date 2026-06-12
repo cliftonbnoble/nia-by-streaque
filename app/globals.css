@@ -147,13 +147,46 @@ html, body { margin: 0; padding: 0; }
   border-bottom: 1px solid var(--line);
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   position: sticky; top: 0; z-index: 20;
+  transition: background 280ms ease, border-color 280ms ease;
 }
 .mf-nav-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px 32px;
   display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: max-width 320ms cubic-bezier(0.4, 0, 0.2, 1), margin 320ms cubic-bezier(0.4, 0, 0.2, 1),
+              padding 320ms cubic-bezier(0.4, 0, 0.2, 1), background 280ms ease,
+              border-color 280ms ease, box-shadow 280ms ease;
+}
+/* condensed on scroll: the bar fades away, the inner row becomes a floating pill */
+.mf-nav.is-condensed {
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: none;
+  padding-top: 10px;
+}
+.mf-nav.is-condensed .mf-nav-inner,
+.mf-nav.is-condensed .mf-nav-mobile {
+  pointer-events: auto;
+}
+.mf-nav.is-condensed .mf-nav-inner {
+  max-width: 880px;
+  padding: 8px 10px 8px 20px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow:
+    0 1px 3px rgba(17,17,17,0.05),
+    0 6px 6px rgba(17,17,17,0.04),
+    0 13px 8px rgba(17,17,17,0.03),
+    0 24px 9px rgba(17,17,17,0.01);
 }
 .mf-logo {
   display: inline-flex; align-items: center; gap: 10px;
@@ -173,8 +206,11 @@ html, body { margin: 0; padding: 0; }
 }
 
 .mf-nav-links {
-  display: flex; gap: 32px;
+  display: flex; gap: 6px;
+  align-items: center;
+  font-family: var(--font-display);
   font-size: 14px; font-weight: 500;
+  letter-spacing: -0.008em;
   color: var(--ink-2);
 }
 .mf-nav-burger {
@@ -201,16 +237,76 @@ html, body { margin: 0; padding: 0; }
   .mf-nav-burger { display: inline-flex; }
   .mf-nav-inner { padding: 12px 20px; gap: 10px; }
   .mf-nav-cta { margin-left: auto; }
+  .mf-nav.is-condensed .mf-nav-inner { margin: 8px 12px 0; padding: 8px 10px 8px 16px; }
 }
 .mf-nav-links a {
   color: var(--ink-2);
   text-decoration: none;
   cursor: pointer;
-  transition: color 120ms ease;
+  padding: 7px 12px;
+  border-radius: 8px;
+  transition: color 140ms ease, background 140ms ease;
 }
-.mf-nav-links a:hover { color: var(--ink); }
+.mf-nav-links a:hover { color: var(--ink); background: #F1F4FA; }
 .mf-nav-links a:visited { color: var(--ink-2); }
-.mf-nav-links .active { color: var(--ink); font-weight: 600; }
+.mf-nav-links a.active:visited,
+.mf-nav-links .active { color: var(--ink); font-weight: 600; background: #F1F4FA; }
+
+/* nav CTA: tighter chrome */
+.mf-nav-cta {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: -0.005em;
+  border-radius: 8px;
+  gap: 7px;
+}
+
+/* shared CTA effects: glow on hover, fly-through arrow, cap launch */
+.mf-cta-fx { position: relative; }
+.mf-cta-fx:hover {
+  filter: none;
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.25),
+    inset 0 6px 12px rgba(255,255,255,0.16),
+    0 1px 1px rgba(17,17,17,0.09),
+    0 4px 10px -2px rgba(31,52,128,0.35);
+}
+.mf-cta-arr {
+  position: relative;
+  width: 12px; height: 12px;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.mf-cta-arr svg {
+  position: absolute;
+  inset: 0;
+  transition: transform 240ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease;
+}
+.mf-cta-arr svg:last-child { transform: translateX(-16px); opacity: 0; }
+.mf-cta-fx:hover .mf-cta-arr svg:first-child { transform: translateX(16px); opacity: 0; }
+.mf-cta-fx:hover .mf-cta-arr svg:last-child { transform: translateX(0); opacity: 1; }
+/* the graduation cap launches out and perches on the button's corner */
+.mf-cta-cap {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  font-size: 28px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(12px) scale(0.3) rotate(-10deg);
+  transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 220ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.mf-cta-fx:hover .mf-cta-cap {
+  opacity: 1;
+  transform: translate(14px, -18px) scale(1) rotate(12deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mf-cta-arr svg, .mf-cta-cap { transition: none; }
+}
 
 /* ── buttons ─────────────────────────────────────── */
 .mf-btn {
