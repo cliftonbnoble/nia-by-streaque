@@ -252,7 +252,7 @@ const SceneNotify = () => (
       </div>
 
       <div className="hp-banner">
-        <NiaAppIcon s={30} gid="ban" r="8px"/>
+        <NiaMark s={30} gid="ban"/>
         <div className="hp-banner-body">
           <div className="hp-banner-top"><span className="hp-banner-app">NIA</span><span className="hp-banner-now">now</span></div>
           <div className="hp-banner-title">Financial aid deadline in 2 days</div>
@@ -273,7 +273,7 @@ const SceneNotify = () => (
         <div className="hp-drawer-back"/>
         <div className="hp-drawer-card">
           <span className="hp-drawer-x"><IcX s={11} sw={2.2}/></span>
-          <div className="hp-drawer-kicker"><NiaAppIcon s={15} gid="dk" r="4px"/> Nia · Reminder</div>
+          <div className="hp-drawer-kicker"><NiaMark s={16} gid="dk"/> Nia · Reminder</div>
           <div className="hp-drawer-h">Don&apos;t forget to submit your FAFSA for Financial Aid.</div>
           <div className="hp-drawer-p">Your financial aid priority deadline is in 2 days. Submit the FAFSA now so your aid package stays on track.</div>
           <div className="hp-drawer-actions">
@@ -538,7 +538,7 @@ export default function HeroPhones() {
         .hp-banner {
           position: absolute; top: 40px; left: 10px; right: 10px; z-index: 20;
           display: flex; align-items: flex-start; gap: 9px; padding: 10px 11px;
-          background: rgba(244,246,251,0.82); border: 1px solid rgba(255,255,255,0.5);
+          background: rgba(249,250,253,0.97); border: 1px solid rgba(255,255,255,0.6);
           border-radius: 18px; box-shadow: 0 16px 34px rgba(0,0,0,0.40);
           backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
           opacity: 0; transform-origin: top center;

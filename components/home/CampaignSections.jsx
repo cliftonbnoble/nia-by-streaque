@@ -5,6 +5,7 @@ import CoachCards from "./CoachCards";
 import OfficeCards from "./OfficeCards";
 import AdvisorBars from "./AdvisorBars";
 import InsideOutPhone from "./InsideOutPhone";
+import OutsideInPhone from "./OutsideInPhone";
 
 // ── line icons (1.8 stroke, matches the existing set) ───────────
 const Ico = ({ d, s = 20, fill = false }) => (
@@ -79,6 +80,48 @@ export const SecArchitecture = () => (
       @media (max-width: 760px) {
         .ioa-stagecell { order: 1; }
         .ioa-textcell { padding: 8px 0 0; }
+      }
+    `}</style>
+  </section>
+);
+
+// =====================================================================
+// 2b · THE COLORLESS MIRROR — generic chatbots work outside-in
+// =====================================================================
+export const SecOutsideIn = () => (
+  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FBFBFC 0%, #F2F3F5 55%, #ECEDF0 100%)", paddingBottom: 0 }}>
+    <div className="mf-container">
+      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.92fr 1.08fr", gap: 48, alignItems: "center" }}>
+        <div className="oia-textcell">
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)", fontWeight: 600 }}>Generic chatbots</span>
+          <h2 style={{ marginTop: 16 }}>Other AIs work <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>outside-in.</em></h2>
+          <p style={{ marginTop: 18, fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 480 }}>
+            A generic chatbot starts from the open internet and never gets closer. No LMS, no
+            calendar, no degree audit, no sense of who's asking. Every conversation begins
+            with a stranger.
+          </p>
+          <p style={{ marginTop: 14, fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", maxWidth: 480 }}>
+            And on the open web, everything weighs the same: your homework question gets the
+            same treatment as a question about a toaster. That's not a partner in a college
+            journey. That's a search box with manners.
+          </p>
+          <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
+            {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
+              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.04em", padding: "6px 12px", borderRadius: 999, background: "white", border: "1px dashed #C9CDD7", color: "var(--ink-3)" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#B6BBC8", flexShrink: 0 }}/>
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="oia-stagecell"><OutsideInPhone/></div>
+      </div>
+    </div>
+    <style>{`
+      .oia-stagecell { align-self: end; }
+      .oia-textcell { padding: 48px 0; }
+      @media (max-width: 760px) {
+        .oia-textcell { padding: 8px 0 0; }
       }
     `}</style>
   </section>

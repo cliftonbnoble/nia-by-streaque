@@ -766,8 +766,9 @@ html, body { margin: 0; padding: 0; }
 .mf-anno {
   position: absolute;
   display: flex; align-items: center; gap: 8px;
-  font-size: 12px;
-  color: var(--ink-3);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-2);
   font-family: var(--font-body);
   font-style: italic;
   pointer-events: none;
@@ -776,7 +777,7 @@ html, body { margin: 0; padding: 0; }
 @media (max-width: 860px) {
   .mf-mock-stage .mf-anno { display: none !important; }
 }
-.mf-anno svg { stroke: var(--ink-4); fill: none; stroke-width: 1.2; stroke-linecap: round; }
+.mf-anno svg { stroke: var(--ink-2); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ── sections ─────────────────────────────────────── */
 .mf-section {

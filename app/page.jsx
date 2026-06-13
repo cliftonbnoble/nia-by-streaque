@@ -3,12 +3,11 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
-import { SecProblem, SecArchitecture, SecCoaches, SecProof, SecCTA } from "@/components/home/CampaignSections";
+import { SecProblem, SecArchitecture, SecOutsideIn, SecCoaches, SecProof, SecCTA } from "@/components/home/CampaignSections";
 import { LogoStrip, FAQ, Resources, LeadForm, CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
-import VideoEmbed from "@/components/home/VideoEmbed";
-import StudentChatDemo from "@/components/home/StudentChatDemo";
-import StaffQueueDemo from "@/components/home/StaffQueueDemo";
+import VideoSection from "@/components/home/VideoEmbed";
+import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
 import WholeStudent from "@/components/home/WholeStudent";
 
@@ -60,19 +59,21 @@ const Hero = () => (
           </div>
           === END COMMENTED MOCKS === */}
 
-          <div className="mf-anno" style={{ top: -20, left: 4, width: 96, whiteSpace: "normal", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
+          {/* label above the left phone, arrow dropping to its top edge */}
+          <div className="mf-anno" style={{ top: -64, left: 0, width: 110, whiteSpace: "normal", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
             <span>Specialized<br/>Agents</span>
-            <svg width="36" height="34" viewBox="0 0 36 34" style={{ marginLeft: 26 }}>
-              <path d="M6 3 Q 24 6, 29 27"/>
-              <path d="M29 27 L 23.5 22.5 M 29 27 L 31.5 20.5"/>
+            <svg width="44" height="30" viewBox="0 0 44 30" style={{ marginLeft: 30 }}>
+              <path d="M6 2 Q 28 4, 36 24"/>
+              <path d="M36 24 L 29.5 21 M 36 24 L 37.5 17"/>
             </svg>
           </div>
-          <div className="mf-anno" style={{ bottom: 110, right: -84, width: 92, whiteSpace: "normal", textAlign: "left", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
-            <svg width="48" height="26" viewBox="0 0 48 26" style={{ marginLeft: -6 }}>
-              <path d="M46 5 Q 24 -1, 6 17"/>
-              <path d="M6 17 L 12.5 16.2 M 6 17 L 10 10.8"/>
-            </svg>
+          {/* label above the right phone, arrow dropping to its top edge */}
+          <div className="mf-anno" style={{ top: -58, right: -6, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 2 }}>
             <span>Proactive AI</span>
+            <svg width="46" height="34" viewBox="0 0 46 34" style={{ marginRight: 52 }}>
+              <path d="M40 2 Q 18 5, 9 28"/>
+              <path d="M9 28 L 15.5 24.5 M 9 28 L 9.5 20.5"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -88,29 +89,7 @@ const TwoExperiences = () => (
         <h2>Same data model. Same governance. <em className="mf-grad-text" style={{ fontStyle: "normal" }}>Two front doors.</em></h2>
         <p>Tuned to who's holding the device, never who pays the bill.</p>
       </div>
-      <div className="mf-two-grid">
-        <div className="mf-experience-card">
-          <div className="head">
-            <span className="mf-chip mf-chip-grad">Nia for Students</span>
-            <span className="mf-status-pill mf-status-live"><span className="dot"/> Available now</span>
-          </div>
-          <h3>A coach in the pocket.</h3>
-          <p className="lede">Personalized momentum plans, course-aware tutoring, and quiet nudges that actually land.</p>
-
-          <StudentChatDemo/>
-        </div>
-
-        <div className="mf-experience-card">
-          <div className="head">
-            <span className="mf-chip mf-chip-warm">Nia for Staff</span>
-            <span className="mf-status-pill mf-status-dev"><span className="dot"/> In development · Pilot 2026</span>
-          </div>
-          <h3>A co-pilot at the desk.</h3>
-          <p className="lede">Conversation summaries, draft replies, and the receipt trail behind every nudge.</p>
-
-          <StaffQueueDemo/>
-        </div>
-      </div>
+      <FrontDoorsShowcase/>
     </div>
   </section>
 );
@@ -129,23 +108,6 @@ const Features = () => (
         <p style={{ color: "rgba(255,255,255,0.65)" }}>Four design choices that separate governed coaching from a generic chatbot.</p>
       </div>
       <FeatureCards/>
-    </div>
-  </section>
-);
-
-const Video = () => (
-  <section className="mf-section alt">
-    <div className="mf-container">
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 56, alignItems: "center" }}>
-        <div>
-          <h2>A complete story<br/>with Nia.</h2>
-          <p style={{ marginTop: 18, fontSize: 16 }}>90 seconds, no filler. Watch scattered higher-ed data transform into proactive coaching, reclaiming advisor hours and keeping students on track.</p>
-          <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
-            <span className="mf-btn mf-btn-primary">▶  Watch the walkthrough</span>
-          </div>
-        </div>
-        <VideoEmbed/>
-      </div>
     </div>
   </section>
 );
@@ -394,12 +356,12 @@ export default function Home() {
       <Nav active="home"/>
       <Hero/>
       <SecProblem/>
-      <Video/>
-      <LogoStrip/>
+      <VideoSection/>
+      <SecArchitecture/>
+      <SecOutsideIn/>
       <WholeStudent/>
       <TwoExperiences/>
       <Features/>
-      <SecArchitecture/>
       <SecCoaches/>
       <Stats/>
       <SecProof/>
@@ -407,6 +369,7 @@ export default function Home() {
       <TechPrivacy/>
       <FAQ/>
       <Resources/>
+      <LogoStrip/>
       <LeadForm/>
       {/* <CTA/> — removed: redundant with SecCTA directly below (two stacked full-bleed CTAs) */}
       <SecCTA/>
