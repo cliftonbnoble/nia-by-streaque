@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="mf-container">
         <div className="mf-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1.2fr", gap: 40, marginBottom: 48 }}>
           <div>
-            <img src="/nia-opt-web-logo.png" alt="Nia by Streaque" style={{ height: 34, display: "block" }}/>
+            <img loading="lazy" decoding="async" src="/nia-opt-web-logo.png" alt="Nia by Streaque" style={{ height: 34, display: "block" }}/>
             <p style={{ marginTop: 16, fontSize: 14, color: "rgba(255,255,255,0.55)", maxWidth: 320, lineHeight: 1.55 }}>
               The Higher Education AI platform. Institution-governed, student-first.
             </p>

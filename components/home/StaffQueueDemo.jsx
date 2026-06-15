@@ -51,7 +51,7 @@ export default function StaffQueueDemo() {
       <div className="sq-body">
         {/* the new arrival */}
         <div className="sq-row sq-arrive" style={{ animationDelay: "2000ms" }}>
-          <img className="sq-av" src="/students/maya.png" alt="" width="24" height="24"/>
+          <img loading="lazy" decoding="async" className="sq-av" src="/students/maya.png" alt="" width="24" height="24"/>
           <span className="sq-row-main">
             <span className="sq-row-name">Maya Reyes</span>
             <span className="sq-row-sig sq-fadein" style={{ animationDelay: "2700ms" }}>missed BIO 201 quiz · 2nd signal this month</span>
@@ -80,7 +80,7 @@ export default function StaffQueueDemo() {
         {/* settled queue */}
         {SETTLED.map((r, i) => (
           <div key={r.n} className="sq-row sq-rise" style={{ animationDelay: `${500 + i * 180}ms` }}>
-            <img className="sq-av" src={r.img} alt="" width="24" height="24"/>
+            <img loading="lazy" decoding="async" className="sq-av" src={r.img} alt="" width="24" height="24"/>
             <span className="sq-row-main">
               <span className="sq-row-name">{r.n}</span>
               <span className="sq-row-sig">{r.s}</span>
@@ -91,7 +91,7 @@ export default function StaffQueueDemo() {
 
         {/* Ravi — handled autonomously mid-loop */}
         <div className="sq-row sq-rise" style={{ animationDelay: "860ms" }}>
-          <img className="sq-av" src="/students/ravi.png" alt="" width="24" height="24"/>
+          <img loading="lazy" decoding="async" className="sq-av" src="/students/ravi.png" alt="" width="24" height="24"/>
           <span className="sq-row-main">
             <span className="sq-row-name">Ravi Shah</span>
             <span className="sq-row-sig">aid form overdue</span>

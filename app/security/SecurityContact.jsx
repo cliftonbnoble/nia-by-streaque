@@ -48,7 +48,7 @@ export default function SecurityContact() {
               Security reviews, questionnaires, architecture deep-dives, sent straight to the person who built the platform, not a shared inbox. Expect a reply within one business day.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 26 }}>
-              <img src="/team/clifton.jpg" alt="" width="44" height="44" style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(255,255,255,0.15)" }}/>
+              <img loading="lazy" decoding="async" src="/team/clifton.jpg" alt="" width="44" height="44" style={{ borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(255,255,255,0.15)" }}/>
               <div>
                 <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 15, color: "white" }}>Clifton Noble · <span style={{ color: "rgba(255,255,255,0.6)", fontWeight: 500 }}>CTO</span></div>
                 <a href={`mailto:${CTO_EMAIL}`} style={{ fontSize: 13.5, color: "#8fe0f7", textDecoration: "none" }}>{CTO_EMAIL}</a>

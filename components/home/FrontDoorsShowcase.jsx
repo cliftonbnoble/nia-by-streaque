@@ -78,7 +78,7 @@ const SideNav = ({ items, footer, gid }) => (
 /* ── 1: the student coach, in the browser ─────────────────────── */
 const StudentScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fds1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
+    <SideNav gid="fds1" footer={<><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat", null, true], ["Reminders", "3"], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main">
       <div className="fdw-feed">
@@ -156,7 +156,7 @@ const StaffScreen = () => (
       <div className="fdw-queue">
         {QUEUE.map((q) => (
           <div key={q.n} className={`fdw-row fdw-rise${q.hot ? " hot" : ""}`} style={{ animationDelay: `${q.at}ms` }}>
-            <img src={q.img} alt="" width="22" height="22"/>
+            <img loading="lazy" decoding="async" src={q.img} alt="" width="22" height="22"/>
             <span className="fdw-row-main"><strong>{q.n}</strong><span>{q.s}</span></span>
             {q.hot ? (
               <span className="fdw-swap">
@@ -191,7 +191,7 @@ const StaffScreen = () => (
 /* ── 3: proactive nudging — signal in, rich notification out ──── */
 const NudgeScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fdn1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
+    <SideNav gid="fdn1" footer={<><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat"], ["Reminders", "3", true], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main fdw-main-pad">
       <div className="fdw-staff-head fdw-rise" style={{ animationDelay: "200ms" }}>
@@ -242,7 +242,7 @@ const NudgeScreen = () => (
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20.9A8 8 0 1 1 19.5 13"/><path d="M12 8v4.5l2.6 1.5"/><path d="M16.5 17.5h3.5l-3.5 3.5h3.5"/></svg>
               </span>
             </div>
-            <img src="/notif-clock.png" alt="" className="fdw-ncard-cal" width="64" height="91"/>
+            <img loading="lazy" decoding="async" src="/notif-clock.png" alt="" className="fdw-ncard-cal" width="64" height="91"/>
           </div>
         </div>
         {/* notification-drawer carousel chrome */}
@@ -281,7 +281,7 @@ const WinRow = ({ n, t, m, at, doneAt }) => (
 
 const EvidenceScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fde1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
+    <SideNav gid="fde1" footer={<><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat", null, true], ["Reminders", "3"], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main fdw-main-evidence">
       <div className="fdw-ethread">
@@ -364,11 +364,11 @@ const SmartScreen = () => (
             style={{ left: `${p.x}%`, top: `${p.y}%`, animationDelay: `${p.at}ms` }}>
             {p.k === "resume" ? (
               <span className="fdw-ptile-doc">
-                <img src="/app-shots/resume.webp" alt=""/>
+                <img loading="lazy" decoding="async" src="/app-shots/resume.webp" alt=""/>
                 <em className="fdw-pdf">PDF</em>
               </span>
             ) : (
-              <span className="fdw-ptile-ic"><img src={`/inside-out/${p.k}.webp`} alt="" width="30" height="30"/></span>
+              <span className="fdw-ptile-ic"><img loading="lazy" decoding="async" src={`/inside-out/${p.k}.webp`} alt="" width="30" height="30"/></span>
             )}
             <span className="fdw-ptile-l">{p.label}</span>
           </div>
@@ -376,7 +376,7 @@ const SmartScreen = () => (
         {/* Maya at the center, the sun */}
         <div className="fdw-centre">
           <span className="fdw-centre-halo"/>
-          <img src="/students/maya.png" alt=""/>
+          <img loading="lazy" decoding="async" src="/students/maya.png" alt=""/>
           <span className="fdw-centre-n">Maya Reyes</span>
         </div>
         {/* and Nia's understanding rises over time */}
@@ -428,7 +428,7 @@ const MultiScreen = () => (
       <div className="fdw-arail">
         {AGENTS.map((a) => (
           <span key={a.id} className={`fdw-agent${a.star ? " star" : ""}`}>
-            <img src={`/agents/${a.id}-badge.svg`} alt="" width="26" height="26"/>
+            <img loading="lazy" decoding="async" src={`/agents/${a.id}-badge.svg`} alt="" width="26" height="26"/>
             <span>{a.n}</span>
             {a.star ? (
               <em className="fdw-ag-route fdw-pop" style={{ animationDelay: "5400ms" }}>routing</em>
@@ -449,7 +449,7 @@ const MultiScreen = () => (
           {AGENTS.map((a, i) => (
             <span key={a.id} className={`fdw-aen${a.star ? " star" : ""}`}
               style={{ animation: `fdw-pop 360ms cubic-bezier(0.2,1.4,0.4,1) ${1400 + i * 180}ms both, ${a.star ? "fdw-aen-lift" : "fdw-aen-dim"} 460ms cubic-bezier(0.2,1.2,0.4,1) 5400ms forwards` }}>
-              <span className="fdw-aen-img"><img src={`/agents/${a.id}-badge.svg`} alt="" width="46" height="46"/></span>
+              <span className="fdw-aen-img"><img loading="lazy" decoding="async" src={`/agents/${a.id}-badge.svg`} alt="" width="46" height="46"/></span>
               <span className="fdw-aen-l">{a.n}</span>
             </span>
           ))}

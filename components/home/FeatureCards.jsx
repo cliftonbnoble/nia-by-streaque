@@ -59,7 +59,7 @@ const NudgeDemo = ({ k }) => (
 
     <span className="fn-node fn-canvas"><CanvasMark s={34}/></span>
     <span className="fn-node fn-nia"><span className="fn-nia-glow"/><NiaGlyph s={30} gid={`fnn-${k}`}/></span>
-    <span className="fn-node fn-maya"><img src="/students/maya.png" alt="" width="40" height="40"/></span>
+    <span className="fn-node fn-maya"><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="40" height="40"/></span>
 
     <span className="fn-label" style={{ left: "16%" }}>SIGNAL</span>
     <span className="fn-label" style={{ left: "50%" }}>NIA</span>
@@ -80,7 +80,7 @@ const NudgeDemo = ({ k }) => (
           <button className="fn-card-cta">Start now <IcExtern s={10} sw={2.2}/></button>
           <span className="fn-card-snz"><IcSnooze s={13} sw={1.9} c="rgba(255,255,255,0.9)"/></span>
         </div>
-        <img src="/notif-cal.png" alt="" className="fn-card-cal" width="52" height="78"/>
+        <img loading="lazy" decoding="async" src="/notif-cal.png" alt="" className="fn-card-cal" width="52" height="78"/>
       </div>
     </div>
   </div>
@@ -186,7 +186,7 @@ const MultiDemo = () => (
     <div className="fm-row">
       {AGENTS.map((a) => (
         <span key={a.id} className={`fm-agent ${a.id === "career" ? "fm-star" : "fm-rest"}`} style={{ animationDelay: `${a.at}ms, 5500ms` }}>
-          <span className="fm-crop"><img src={`/agents/${a.id}-badge.svg`} alt={`${a.id} agent`} width="46" height="46"/></span>
+          <span className="fm-crop"><img loading="lazy" decoding="async" src={`/agents/${a.id}-badge.svg`} alt={`${a.id} agent`} width="46" height="46"/></span>
           <span className="fm-l">{a.id}</span>
         </span>
       ))}

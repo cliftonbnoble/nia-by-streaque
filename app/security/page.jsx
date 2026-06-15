@@ -109,7 +109,7 @@ const HeroVault = () => (
     <div style={{ position: "absolute", top: 10, left: "50%", transform: "translateX(-50%)", width: 268, zIndex: 2, textAlign: "center" }}>
       <div style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.16em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", marginBottom: 7 }}>What your campus sees</div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "white", borderRadius: 12, boxShadow: "0 14px 36px -10px rgba(0,0,0,0.5)", textAlign: "left" }}>
-        <img src="/students/maya.png" alt="" width="30" height="30" style={{ borderRadius: "50%", flexShrink: 0 }}/>
+        <img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="30" height="30" style={{ borderRadius: "50%", flexShrink: 0 }}/>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)", whiteSpace: "nowrap" }}>Maya Reyes · BIO 201</div>
           <div style={{ fontSize: 10.5, color: "var(--ink-3)", marginTop: 1, whiteSpace: "nowrap" }}>Advisor note · back on track</div>
@@ -267,7 +267,7 @@ const DataArt = () => (
   <div className="sg-stage">
     <div className="sg-panel sg-rec2">
       <span className="sg-rec2-top">
-        <span className="sg-rec2-av"><img src="/students/maya.png" alt=""/></span>
+        <span className="sg-rec2-av"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/></span>
         <span className="sg-rec2-id"><b>Maya Reyes</b><i>Student record</i></span>
         <span className="sg-pill-ok">FERPA</span>
       </span>
