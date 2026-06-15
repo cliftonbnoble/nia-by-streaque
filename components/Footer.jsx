@@ -63,6 +63,7 @@ export default function Footer() {
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <Link href="/privacy" className="mf-foot-link">Privacy Policy</Link>
               <Link href="/terms" className="mf-foot-link">Terms &amp; Conditions</Link>
+              <Link href="/accessibility" className="mf-foot-link">Accessibility</Link>
             </div>
           </div>
 

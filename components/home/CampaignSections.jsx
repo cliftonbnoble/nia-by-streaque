@@ -6,6 +6,7 @@ import OfficeCards from "./OfficeCards";
 import AdvisorBars from "./AdvisorBars";
 import InsideOutPhone from "./InsideOutPhone";
 import OutsideInPhone from "./OutsideInPhone";
+import PauseOffscreen from "@/components/PauseOffscreen";
 
 // ── line icons (1.8 stroke, matches the existing set) ───────────
 const Ico = ({ d, s = 20, fill = false }) => (
@@ -63,7 +64,7 @@ export const SecArchitecture = () => (
         {/* Nia — inside-out */}
         <div className="ioc-card">
           <span className="mf-chip">Nia · inside-out</span>
-          <div className="ioc-stage"><InsideOutPhone/></div>
+          <div className="ioc-stage"><PauseOffscreen><InsideOutPhone/></PauseOffscreen></div>
           <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)" }}>
             Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
             <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
@@ -78,7 +79,7 @@ export const SecArchitecture = () => (
         {/* Generic — outside-in */}
         <div className="ioc-card ghost">
           <span className="mf-chip mf-chip-neutral">Generic chatbot · outside-in</span>
-          <div className="ioc-stage"><OutsideInPhone/></div>
+          <div className="ioc-stage"><PauseOffscreen><OutsideInPhone/></PauseOffscreen></div>
           <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
             Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
             <strong> Every conversation begins with a stranger</strong> — a search box with manners.

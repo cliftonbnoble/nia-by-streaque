@@ -1265,3 +1265,24 @@ html, body { margin: 0; padding: 0; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Accessibility: visible keyboard focus ─────────────────────────
+   The custom CTA + FAQ buttons restyle away the UA outline; restore a
+   clear, on-brand ring for keyboard users only (:focus-visible), so
+   pointer clicks stay clean. */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+/* Solid brand on a blue/gradient CTA blends in — use a light ring + halo. */
+.mf-btn-primary:focus-visible,
+.mf-nav-cta:focus-visible {
+  outline-color: #fff;
+  box-shadow: 0 0 0 4px rgba(35, 86, 201, 0.55);
+}
+
+/* Performance: PauseOffscreen halts descendant animation while off-screen. */
+.pof-paused,
+.pof-paused * {
+  animation-play-state: paused !important;
+}
