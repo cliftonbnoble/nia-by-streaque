@@ -3,13 +3,11 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
-import { SecProblem, SecArchitecture, SecOutsideIn, SecCoaches, SecProof, SecCTA } from "@/components/home/CampaignSections";
-import { LogoStrip, FAQ, Resources, LeadForm, CookieBanner } from "@/components/home/GapSections";
+import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
+import { LogoStrip, LeadForm, CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
-import VideoSection from "@/components/home/VideoEmbed";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
-import WholeStudent from "@/components/home/WholeStudent";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -113,38 +111,24 @@ const Features = () => (
 );
 
 
-const Team = () => {
-  const team = [
-    { name: "Luke", role: "CEO", img: "/team/luke.jpg" },
-    { name: "Clifton", role: "CTO", img: "/team/clifton.jpg" },
-    { name: "Amit", role: "AI Lead", img: "/team/amit.jpg" },
-    { name: "Bhavadeep", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
-    { name: "Sunil", role: "Engineering", img: "/team/sunil.jpg" },
-    { name: "Pundlik", role: "DBA", img: "/team/pundlik.jpg" },
-  ];
-  return (
-    <section className="mf-section alt" id="about">
-      <div className="mf-container">
-        <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720, marginBottom: 48 }}>
-          <span className="mf-eyebrow">The team</span>
-          <h2 style={{ marginTop: 14 }}>Higher-ed veterans, <span className="mf-grad-text">AI engineers,</span> and student advocates.</h2>
-          <p>Built by people who've sat on both sides of the desk: registrars, advisors, ML engineers, and the students they serve.</p>
-        </div>
-        <div className="mf-team-grid">
-          {team.map((m) => (
-            <div key={m.name} className="mf-team-card">
-              <img src={m.img} alt={`${m.name}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
-              <div className="mf-team-overlay">
-                <div className="mf-team-name">{m.name}</div>
-                <div className="mf-team-role">{m.role}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+/* Slim mid-page CTA — one clear "book a pilot demo" between Features and the
+   five-coaches section, so a conversion point appears before the footer form. */
+const MidCTA = () => (
+  <section style={{ background: "linear-gradient(120deg, #1b2a6b 0%, #2356c9 100%)", color: "white", padding: "56px 0", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", width: 480, height: 480, right: -160, top: -200, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
+    <div className="mf-container" style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+      <div>
+        <h2 style={{ color: "white", fontSize: 30, lineHeight: 1.15, letterSpacing: "-0.02em", margin: 0 }}>
+          See it on <span style={{ color: "rgba(255,255,255,0.72)" }}>your</span> data.
+        </h2>
+        <p style={{ color: "rgba(255,255,255,0.82)", margin: "8px 0 0", fontSize: 15 }}>Twenty minutes, your early-alert queue, no slides.</p>
       </div>
-    </section>
-  );
-};
+      <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+        Book a pilot demo <ArrowRight/>
+      </Link>
+    </div>
+  </section>
+);
 
 /* ── Tech & Privacy — three illustrated cards in the contact-page
      language, each a quick highlight that pushes to /security ── */
@@ -333,21 +317,16 @@ export default function Home() {
       <Nav active="home"/>
       <Hero/>
       <SecProblem/>
-      <VideoSection/>
-      <SecArchitecture/>
-      <SecOutsideIn/>
-      <WholeStudent/>
+      <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
+      <MidCTA/>
       <SecCoaches/>
+      {/* Proof — real pilot strip + the illustrative quote */}
+      <LogoStrip/>
       <SecProof/>
       <TechPrivacy/>
-      <FAQ/>
-      <Resources/>
-      <LogoStrip/>
       <LeadForm/>
-      {/* <CTA/> — removed: redundant with SecCTA directly below (two stacked full-bleed CTAs) */}
-      <SecCTA/>
       <Footer/>
       <CookieBanner/>
     </div>

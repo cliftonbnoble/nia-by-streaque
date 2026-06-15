@@ -47,82 +47,60 @@ export const SecProblem = () => {
 };
 
 // =====================================================================
-// 2 · OUTSIDE-IN vs INSIDE-OUT
+// 2 · TWO ARCHITECTURES — inside-out vs outside-in, side by side
+//     (merged from the former SecArchitecture + SecOutsideIn)
 // =====================================================================
 export const SecArchitecture = () => (
-  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FAFBFE 0%, #EFF5FE 55%, #F3F0FC 100%)", paddingBottom: 0 }}>
+  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FAFBFE 0%, #EFF5FE 55%, #F3F0FC 100%)" }}>
     <div className="mf-container">
-      <div className="mf-stack-sm ioa-grid" style={{ display: "grid", gridTemplateColumns: "1.08fr 0.92fr", gap: 48, alignItems: "center" }}>
-        <div className="ioa-stagecell"><InsideOutPhone/></div>
-        <div className="ioa-textcell">
-          <span className="mf-eyebrow">Two architectures</span>
-          <h2 style={{ marginTop: 16 }}>Nia works <span className="mf-grad-text" style={{ fontStyle: "italic" }}>inside-out.</span></h2>
-          <p style={{ marginTop: 18, fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 480 }}>
-            Most AI works outside-in: web-scale knowledge first, your student last. Nia starts from the student's truth. Live LMS, SIS, and CRM data, campus resources, and the student's own profile are already in hand before a single answer is written.
-          </p>
-          <p style={{ marginTop: 14, fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", maxWidth: 480 }}>
-            The global model is the last resort, not the first answer. The student never re-explains, and an architecture like this is expensive to copy. That's the moat.
-          </p>
-          <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
-            {["Student data first", "Campus context second", "Global model last"].map((t, i) => (
-              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.04em", padding: "6px 12px", borderRadius: 999, background: "white", border: "1px solid rgba(61,78,216,0.18)", color: "var(--ink-2)", boxShadow: "0 2px 8px -3px rgba(31,52,128,0.12)" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: i === 2 ? "var(--ink-4)" : "var(--brand-gradient)", flexShrink: 0 }}/>
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
+      <div className="mf-section-head">
+        <span className="mf-eyebrow">Two architectures</span>
+        <h2>Most AI works <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>outside-in.</em> Nia works <span className="mf-grad-text" style={{ fontStyle: "italic" }}>inside-out.</span></h2>
+        <p>Same question, opposite starting point — and the starting point is the moat.</p>
       </div>
-    </div>
-    <style>{`
-      .ioa-stagecell { order: -1; align-self: end; }
-      .ioa-textcell { padding: 48px 0; }
-      @media (max-width: 760px) {
-        .ioa-stagecell { order: 1; }
-        .ioa-textcell { padding: 8px 0 0; }
-      }
-    `}</style>
-  </section>
-);
 
-// =====================================================================
-// 2b · THE COLORLESS MIRROR — generic chatbots work outside-in
-// =====================================================================
-export const SecOutsideIn = () => (
-  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FBFBFC 0%, #F2F3F5 55%, #ECEDF0 100%)", paddingBottom: 0 }}>
-    <div className="mf-container">
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.92fr 1.08fr", gap: 48, alignItems: "center" }}>
-        <div className="oia-textcell">
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)", fontWeight: 600 }}>Generic chatbots</span>
-          <h2 style={{ marginTop: 16 }}>Other AIs work <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>outside-in.</em></h2>
-          <p style={{ marginTop: 18, fontSize: 17, lineHeight: 1.65, color: "var(--ink-2)", maxWidth: 480 }}>
-            A generic chatbot starts from the open internet and never gets closer. No LMS, no
-            calendar, no degree audit, no sense of who's asking. Every conversation begins
-            with a stranger.
+      <div className="ioc-grid">
+        {/* Nia — inside-out */}
+        <div className="ioc-card">
+          <span className="mf-chip">Nia · inside-out</span>
+          <div className="ioc-stage"><InsideOutPhone/></div>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)" }}>
+            Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
+            <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
           </p>
-          <p style={{ marginTop: 14, fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", maxWidth: 480 }}>
-            And on the open web, everything weighs the same: your homework question gets the
-            same treatment as a question about a toaster. That's not a partner in a college
-            journey. That's a search box with manners.
-          </p>
-          <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
-            {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
-              <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.04em", padding: "6px 12px", borderRadius: 999, background: "white", border: "1px dashed #C9CDD7", color: "var(--ink-3)" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#B6BBC8", flexShrink: 0 }}/>
-                {t}
-              </span>
+          <div className="ioc-chips">
+            {["Student data first", "Campus context second", "Global model last"].map((t) => (
+              <span key={t} className="ioc-chip">{t}</span>
             ))}
           </div>
         </div>
-        <div className="oia-stagecell"><OutsideInPhone/></div>
+
+        {/* Generic — outside-in */}
+        <div className="ioc-card ghost">
+          <span className="mf-chip mf-chip-neutral">Generic chatbot · outside-in</span>
+          <div className="ioc-stage"><OutsideInPhone/></div>
+          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
+            Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
+            <strong> Every conversation begins with a stranger</strong> — a search box with manners.
+          </p>
+          <div className="ioc-chips">
+            {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
+              <span key={t} className="ioc-chip ghost">{t}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
     <style>{`
-      .oia-stagecell { align-self: end; }
-      .oia-textcell { padding: 48px 0; }
-      @media (max-width: 760px) {
-        .oia-textcell { padding: 8px 0 0; }
-      }
+      .ioc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
+      .ioc-card{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
+      .ioc-card.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
+      .ioc-stage{ margin:8px -24px 18px; }
+      .ioc-card p{ flex:1; }
+      .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+      .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
+      .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
+      @media (max-width:860px){ .ioc-grid{ grid-template-columns:1fr; } }
     `}</style>
   </section>
 );
