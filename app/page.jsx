@@ -341,7 +341,6 @@ export default function Home() {
       <Features/>
       <SecCoaches/>
       <SecProof/>
-      <Team/>
       <TechPrivacy/>
       <FAQ/>
       <Resources/>

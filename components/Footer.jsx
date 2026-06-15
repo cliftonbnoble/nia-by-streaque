@@ -51,7 +51,7 @@ export default function Footer() {
             <div style={colLabel}>Site</div>
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <Link href="/" className="mf-foot-link">Home</Link>
-              <Link href="/#about" className="mf-foot-link">About</Link>
+              <Link href="/about" className="mf-foot-link">About</Link>
               <Link href="/how-nia-works" className="mf-foot-link">How Nia Works</Link>
               <Link href="/security" className="mf-foot-link">Security</Link>
               <Link href="/contact" className="mf-foot-link">Contact</Link>
