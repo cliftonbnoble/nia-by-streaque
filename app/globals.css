@@ -1250,3 +1250,18 @@ html, body { margin: 0; padding: 0; }
   .orch2-arrow { display: none; }
   .orch2-ribbon { height: clamp(260px, 90vw, 420px); opacity: 0.3; }
 }
+
+/* ── Accessibility: honor reduced-motion globally ──────────────────
+   Site-wide catch-all on top of the component-level guards, so any
+   animation or transition (orbit stages, bob, reveals, CTA flourishes)
+   is neutralized for visitors who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

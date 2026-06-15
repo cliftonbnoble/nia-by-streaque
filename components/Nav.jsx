@@ -73,7 +73,6 @@ export default function Nav({ active = "home" }) {
             <ArrowRight s={12}/>
             <ArrowRight s={12}/>
           </span>
-          <span className="mf-cta-cap" aria-hidden="true">🎓</span>
         </Link>
         <button
           className="mf-nav-burger"

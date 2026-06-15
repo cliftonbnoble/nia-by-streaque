@@ -16,31 +16,35 @@ const Hero = () => (
     <div className="mf-container mf-hero-inner">
       <div className="mf-hero-grid">
         <div>
-          <span className="mf-eyebrow">Nia by Streaque</span>
+          <span className="mf-eyebrow">Nia · the higher-ed AI platform</span>
           <h1 style={{ marginTop: 18 }}>
             Every signal,<br/>
             <span className="mf-grad-text">every student,</span><br/>
             answered.
           </h1>
+          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 500, color: "var(--ink-2)", maxWidth: 540 }}>
+            Student-success coaching your institution governs end to end — built on your LMS, SIS, and CRM.
+          </p>
           <p className="mf-hero-sub">
-            The institution-governed AI layer that turns LMS, SIS, and CRM data
-            into warm, evidence-based coaching for every student, every week.
+            Nia spots the student who&apos;s quietly slipping and opens the conversation first —
+            warm, evidence-based, and grounded in the data you already trust. Your institution owns every byte.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
-              Book a demo
+              Book a pilot demo
               <span className="mf-cta-arr" aria-hidden="true" style={{ width: 16, height: 16 }}>
                 <ArrowRight/>
                 <ArrowRight/>
               </span>
-              <span className="mf-cta-cap" aria-hidden="true" style={{ fontSize: 34 }}>🎓</span>
             </Link>
-            <a href="mailto:info@streaque.com?subject=Investor%20brief" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>Investor brief</a>
+            <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
+              Investors → request the brief
+            </Link>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">1</span><span className="lbl">R1 university pilot, live</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching for students</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
