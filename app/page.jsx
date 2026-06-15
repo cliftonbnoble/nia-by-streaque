@@ -40,7 +40,7 @@ const Hero = () => (
             <a href="mailto:info@streaque.com?subject=Investor%20brief" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>Investor brief</a>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">R1</span><span className="lbl">research university pilot, live</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching for students</span></div>
             <div className="mf-hero-meta-divider"/>
@@ -202,14 +202,14 @@ const ComplianceArt = () => (
     <rect x="118" y="96" width="72" height="5" rx="2.5" fill="#EDF0F8"/>
     <rect x="118" y="108" width="78" height="5" rx="2.5" fill="#EDF0F8"/>
     <g className="tp-bob">
-      <rect x="196" y="100" width="96" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="210" cy="112" r="3.5" fill="#2BB3DF"/>
-      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">Pen test live</text>
+      <rect x="196" y="100" width="110" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <circle cx="210" cy="112" r="3.5" fill="#8A90A5"/>
+      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">Pen test · planned</text>
     </g>
     <g className="tp-bob" style={{ animationDelay: "1.1s" }}>
-      <rect x="36" y="34" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <rect x="36" y="34" width="104" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="50" cy="46" r="3.5" fill="#8A90A5"/>
-      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">SOC 2 · sched.</text>
+      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">SOC 2 · planned</text>
     </g>
   </svg>
 );
@@ -218,7 +218,7 @@ const TechPrivacy = () => {
   const cards = [
     { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", accent: "43,179,223", color: "var(--brand-cyan)", Art: PromiseArt },
     { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", accent: "220,38,38", color: "#B91C1C", Art: NeverArt },
-    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. Penetration testing in flight, SOC 2 Type II scheduled.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
+    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
     <section className="mf-section alt">

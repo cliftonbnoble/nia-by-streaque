@@ -445,19 +445,17 @@ const Promises = () => (
    Timeline runs 2025 → 2027 with "today" at mid-2026. */
 const RM_GROUPS = [
   { label: "Shipped", items: [
-    { t: "FERPA-aligned architecture", s: "done", from: 0, to: 50, tag: "renewed annually" },
+    { t: "FERPA-aligned architecture", s: "done", from: 0, to: 50, tag: "in production" },
     { t: "Zero Trust access controls", s: "done", from: 5, to: 50, tag: "NIST SP 800-207" },
-    { t: "OWASP ASVS Level 2 controls", s: "done", from: 11, to: 50, tag: "live" },
-    { t: "Secrets vault & monitoring", s: "done", from: 17, to: 50, tag: "live" },
+    { t: "OWASP ASVS Level 2 controls", s: "done", from: 11, to: 50, tag: "in production" },
+    { t: "Secrets vault & monitoring", s: "done", from: 17, to: 50, tag: "in production" },
   ]},
-  { label: "In flight", items: [
-    { t: "External penetration test", s: "progress", from: 44, to: 60, doneTo: 50, tag: "annual" },
-  ]},
-  { label: "Scheduled", items: [
-    { t: "SOC 2 Type I", s: "planned", from: 54, to: 74, tag: "scoped & scheduled" },
-    { t: "Customer trust portal", s: "planned", from: 58, to: 82, tag: "live status" },
-    { t: "SOC 2 Type II", s: "planned", from: 74, to: 96, tag: "≤12 mo after Type I" },
-    { t: "Public bug bounty", s: "planned", from: 82, to: 100, tag: "after Type II" },
+  { label: "Planned", items: [
+    { t: "External penetration test", s: "planned", from: 54, to: 72, tag: "planned" },
+    { t: "SOC 2 Type I", s: "planned", from: 60, to: 82, tag: "planned" },
+    { t: "Customer trust portal", s: "planned", from: 64, to: 86, tag: "planned" },
+    { t: "SOC 2 Type II", s: "planned", from: 82, to: 100, tag: "after Type I" },
+    { t: "Public bug bounty", s: "planned", from: 86, to: 100, tag: "after Type II" },
   ]},
 ];
 
@@ -505,15 +503,14 @@ const Roadmap = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.78fr 1.22fr", gap: 56, alignItems: "start" }}>
         <div style={{ position: "sticky", top: 24 }}>
           <span className="mf-eyebrow">Compliance & roadmap</span>
-          <h2 style={{ marginTop: 14 }}>Already built. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
-            The right answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet, but we've already built every control, and here's our timeline.</em>" That's more honest than rushing a checkbox.
+            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet — it's on our roadmap. Here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
           <div style={{ marginTop: 26, display: "grid", gap: 11 }}>
             {[
               { s: "done", l: "Shipped, running in production today" },
-              { s: "progress", l: "In flight, underway right now" },
-              { s: "planned", l: "Scheduled, committed and dated" },
+              { s: "planned", l: "Planned — on the roadmap, not yet started" },
             ].map((x) => (
               <div key={x.s} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "var(--ink-2)" }}>
                 <RmStatus s={x.s}/> {x.l}
@@ -571,7 +568,7 @@ const Roadmap = () => (
 
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 live · 1 in flight · 4 scheduled</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 in production · 5 planned</span>
             <a href="mailto:info@streaque.com?subject=Security%20packet" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
           </div>
         </div>

@@ -212,16 +212,18 @@ export const SecProof = () => (
     <div className="mf-container">
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 48, alignItems: "start" }}>
         <figure style={{ margin: 0, position: "relative", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "34px 36px" }}>
-          <span className="mf-eyebrow" style={{ display: "block", marginBottom: 18 }}>The proof</span>
+          <span className="mf-eyebrow" style={{ display: "block", marginBottom: 18 }}>Illustrative</span>
           <span style={{ fontFamily: "var(--font-display)", fontSize: 60, lineHeight: 0.6, color: "var(--line-2)" }}>“</span>
           <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 34, lineHeight: 1.2, letterSpacing: "-0.022em", color: "var(--ink)", margin: "6px 0 0" }}>
             It's like having an advisor who's already read my file.
           </blockquote>
           <figcaption style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px solid var(--line)" }}/>
+            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-3)" }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 21v-4h4v4"/></svg>
+            </span>
             <span style={{ fontSize: 13, color: "var(--ink-3)" }}>
-              <span style={{ display: "block", fontWeight: 600, color: "var(--ink-2)" }}>Pilot student, name on approval</span>
-              <span>Graduate student-success cohort</span>
+              <span style={{ display: "block", fontWeight: 600, color: "var(--ink-2)" }}>The experience Nia is built to deliver</span>
+              <span>Representative example, not a specific student</span>
             </span>
           </figcaption>
         </figure>
