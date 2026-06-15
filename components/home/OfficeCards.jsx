@@ -244,7 +244,7 @@ const ResumePop = () => (
       <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#16A34A"/><path d="M4.2 7l2 2.1 3.6-4.2" stroke="white" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>
       <span style={{ fontFamily: "var(--font-display)", fontSize: 15, fontWeight: 700, color: "#15803D" }}>Synced</span>
     </div>
-    <div style={{ fontSize: 7.5, color: "#8A90A5", marginTop: 4, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Maya_Jordan_Resume.pdf</div>
+    <div style={{ fontSize: 7.5, color: "#8A90A5", marginTop: 4, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Maya_Reyes_Resume.pdf</div>
   </div>
 );
 
@@ -254,7 +254,7 @@ const PdfPop = () => (
     <svg width="96" height="118" viewBox="0 0 96 118" fill="none">
       <path d="M8 14 a8 8 0 0 1 8 -8 H66 L88 28 V104 a8 8 0 0 1 -8 8 H16 a8 8 0 0 1 -8 -8 Z" fill="white" stroke="#E6E8F0"/>
       <path d="M66 6 L88 28 H74 a8 8 0 0 1 -8 -8 Z" fill="#EEF0F6" stroke="#E6E8F0" strokeLinejoin="round"/>
-      <text x="17" y="29" fontSize="7.5" fontWeight="700" fill="#1A1D2B" fontFamily="var(--font-display)">Maya Jordan</text>
+      <text x="17" y="29" fontSize="7.5" fontWeight="700" fill="#1A1D2B" fontFamily="var(--font-display)">Maya Reyes</text>
       <rect x="17" y="34" width="42" height="2.5" rx="1.25" fill="#D8DBE4"/>
       <rect x="17" y="45" width="62" height="2.5" rx="1.25" fill="#E9EBF1"/>
       <rect x="17" y="51" width="55" height="2.5" rx="1.25" fill="#E9EBF1"/>

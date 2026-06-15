@@ -3,7 +3,7 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
-import { SecArchitecture, SecCoaches } from "@/components/home/CampaignSections";
+import { SecArchitecture, SecOutsideIn, SecCoaches } from "@/components/home/CampaignSections";
 import WholeStudent from "@/components/home/WholeStudent";
 import CapabilityCards from "./CapabilityCards";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
@@ -512,6 +512,7 @@ export default function HowNiaWorks() {
       <Nav active="how"/>
       <Hero/>
       <SecArchitecture/>
+      <SecOutsideIn/>
       <WholeStudent/>
       <SecCoaches bg="white"/>
       <ForStudents/>

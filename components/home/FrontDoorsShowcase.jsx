@@ -78,7 +78,7 @@ const SideNav = ({ items, footer, gid }) => (
 /* ── 1: the student coach, in the browser ─────────────────────── */
 const StudentScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fds1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Jordan</span></>}
+    <SideNav gid="fds1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat", null, true], ["Reminders", "3"], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main">
       <div className="fdw-feed">
@@ -191,7 +191,7 @@ const StaffScreen = () => (
 /* ── 3: proactive nudging — signal in, rich notification out ──── */
 const NudgeScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fdn1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Jordan</span></>}
+    <SideNav gid="fdn1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat"], ["Reminders", "3", true], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main fdw-main-pad">
       <div className="fdw-staff-head fdw-rise" style={{ animationDelay: "200ms" }}>
@@ -281,7 +281,7 @@ const WinRow = ({ n, t, m, at, doneAt }) => (
 
 const EvidenceScreen = () => (
   <div className="fdw-app">
-    <SideNav gid="fde1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Jordan</span></>}
+    <SideNav gid="fde1" footer={<><img src="/students/maya.png" alt="" width="20" height="20"/><span>Maya Reyes</span></>}
       items={[["New chat", null, true], ["Reminders", "3"], ["Goals"], ["Canvas dashboard"]]}/>
     <main className="fdw-main fdw-main-evidence">
       <div className="fdw-ethread">
@@ -377,7 +377,7 @@ const SmartScreen = () => (
         <div className="fdw-centre">
           <span className="fdw-centre-halo"/>
           <img src="/students/maya.png" alt=""/>
-          <span className="fdw-centre-n">Maya Jordan</span>
+          <span className="fdw-centre-n">Maya Reyes</span>
         </div>
         {/* and Nia's understanding rises over time */}
         <div className="fdw-grow">
@@ -501,11 +501,20 @@ export default function FrontDoorsShowcase() {
     }
   };
 
+  /* the list holds still — the active door highlights in place. The top and
+     bottom edges stay slightly transparent, but the fade lifts off whichever
+     edge currently holds the active door so it always reads in full. */
+  const LAST = ITEMS.length - 1;
+  const fadeStyle = {
+    "--ft": active === 0 ? "0px" : "34px",
+    "--fb": active === LAST ? "0px" : "34px",
+  };
+
   const Screen = SCREENS[active];
 
   return (
     <div className="fdw-grid">
-      <div className="fdw-list" onMouseLeave={() => { setPaused(false); setRun((r) => r + 1); }}>
+      <div className="fdw-list" style={fadeStyle} onMouseLeave={() => { setPaused(false); setRun((r) => r + 1); }}>
         {ITEMS.map((it, i) => (
           <button
             key={it.t}
@@ -514,8 +523,13 @@ export default function FrontDoorsShowcase() {
             onMouseEnter={() => { setPaused(true); select(i); }}
             onClick={() => select(i)}
           >
-            <span className="fdw-item-t">{it.t}</span>
-            <span className="fdw-item-sub"><span className="fdw-item-s">{it.s}</span></span>
+            <span className="fdw-item-body">
+              <span className="fdw-item-t">{it.t}</span>
+              <span className="fdw-item-sub"><span className="fdw-item-s">{it.s}</span></span>
+            </span>
+            <span className="fdw-item-arrow" aria-hidden>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
             {i === active && (
               <span className="fdw-prog">
                 <span key={`${active}-${run}`} style={{ animationDuration: `${DUR[active]}ms`, animationPlayState: paused ? "paused" : "running" }}/>
@@ -556,25 +570,39 @@ export default function FrontDoorsShowcase() {
           align-items: center;
         }
         .fdw-grid > *{ min-width: 0; }
-        /* ── the accordion list ── */
-        .fdw-list{ display: grid; gap: 10px; }
+        /* ── the accordion list — holds still; the active door highlights in
+              place; only the very top and bottom edges stay slightly transparent.
+              --ft / --fb are set inline and drop to 0 on the edge the active door
+              occupies, so it never fades. @property lets that lift animate. ── */
+        @property --ft{ syntax: '<length>'; inherits: false; initial-value: 34px; }
+        @property --fb{ syntax: '<length>'; inherits: false; initial-value: 34px; }
+        .fdw-list{
+          display: grid; gap: 12px;
+          padding: 20px 2px;
+          --ft: 34px; --fb: 34px;
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
+          transition: --ft 280ms ease, --fb 280ms ease;
+        }
         .fdw-item{
           position: relative; overflow: hidden;
+          display: flex; align-items: center; gap: 14px;
           text-align: left; cursor: pointer;
           font-family: inherit;
-          background: rgba(105,91,215,0.06);
-          border: 1px solid rgba(105,91,215,0.09);
-          border-radius: 16px;
-          padding: 15px 22px 17px;
+          background: #ECEDF6;
+          border: 1px solid rgba(105,91,215,0.10);
+          border-radius: 18px;
+          padding: 15px 16px 16px 22px;
           transition: background 220ms ease, box-shadow 220ms ease, border-color 220ms ease, padding 280ms ease;
         }
-        .fdw-item:hover{ background: rgba(105,91,215,0.11); }
+        .fdw-item:hover{ background: #E4E6F2; }
         .fdw-item.on{
           background: white;
           border-color: var(--line);
           box-shadow: 0 22px 44px -24px rgba(15,23,42,0.22);
-          padding: 18px 22px 21px;
+          padding: 17px 16px 19px 22px;
         }
+        .fdw-item-body{ flex: 1; min-width: 0; }
         .fdw-item-t{
           display: block;
           font-family: var(--font-display); font-weight: 600; font-size: 20px;
@@ -589,6 +617,24 @@ export default function FrontDoorsShowcase() {
         .fdw-item-sub > span{ overflow: hidden; min-height: 0; }
         .fdw-item.on .fdw-item-sub{ grid-template-rows: 1fr; }
         .fdw-item-s{ display: block; padding-top: 6px; font-size: 13.5px; line-height: 1.55; color: var(--ink-3); }
+        /* the circular cue, Bevel-style — soft on rest, branded when active */
+        .fdw-item-arrow{
+          flex: 0 0 auto;
+          width: 34px; height: 34px; border-radius: 50%;
+          display: inline-flex; align-items: center; justify-content: center;
+          border: 1px solid rgba(99,88,182,0.22);
+          background: rgba(255,255,255,0.55);
+          color: var(--ink-3);
+          transition: background 240ms ease, border-color 240ms ease, color 240ms ease, box-shadow 240ms ease, transform 240ms ease;
+        }
+        .fdw-item:hover .fdw-item-arrow{ border-color: rgba(99,88,182,0.4); color: var(--ink-2); }
+        .fdw-item-arrow svg{ transition: transform 240ms ease; }
+        .fdw-item.on .fdw-item-arrow{
+          border-color: transparent; color: #fff;
+          background: var(--brand-gradient);
+          box-shadow: 0 8px 18px -8px rgba(66,77,211,0.6);
+        }
+        .fdw-item.on .fdw-item-arrow svg{ transform: translateX(1.5px); }
         .fdw-prog{
           position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
           background: rgba(11,16,32,0.06);
@@ -1187,6 +1233,8 @@ export default function FrontDoorsShowcase() {
           .fdw-grid{ grid-template-columns: 1fr; gap: 28px; }
           .fdw-stage{ order: -1; }
           .fdw-screen-body{ height: 400px; }
+          /* no edge fade needed on stacked layouts */
+          .fdw-list{ -webkit-mask-image: none; mask-image: none; padding: 0; }
         }
         @media (max-width: 600px){
           .fdw-side{ display: none; }

@@ -112,29 +112,6 @@ const Features = () => (
   </section>
 );
 
-const Stats = () => (
-  <section className="mf-section">
-    <div className="mf-container">
-      <div style={{ marginBottom: 56 }}>
-        <span className="mf-eyebrow">Momentum, measured</span>
-        <h2 style={{ marginTop: 14, maxWidth: 720 }}>Quiet outcomes,<br/><em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>compounded.</em></h2>
-      </div>
-      <div className="mf-stats-grid">
-        {[
-          { n: "93%", l: "of students with active momentum plans", d: "Up from 41% pre-rollout, measured across our pilot cohort." },
-          { n: "75%", l: "engaged with critical nudges within 24h", d: "Versus 22% for static email outreach in the same cohort." },
-          { n: "63%", l: "of recommendations completed by students", d: "Includes course actions, advisor meetings, and aid-form completion." },
-        ].map((s) => (
-          <div key={s.n} className="mf-stats-cell">
-            <div className="num" style={{ fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 0.95, letterSpacing: "-0.04em", background: "var(--brand-gradient)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>{s.n}</div>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 18, marginTop: 12, color: "var(--ink)", letterSpacing: "-0.015em" }}>{s.l}</div>
-            <p style={{ fontSize: 13, marginTop: 8, color: "var(--ink-3)" }}>{s.d}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const Team = () => {
   const team = [
@@ -363,7 +340,6 @@ export default function Home() {
       <TwoExperiences/>
       <Features/>
       <SecCoaches/>
-      <Stats/>
       <SecProof/>
       <Team/>
       <TechPrivacy/>

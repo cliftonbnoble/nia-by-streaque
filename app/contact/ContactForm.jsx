@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 
 /* the path cards deep-link here: the hash picks the interest chip */
-const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor" };
+const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership" };
 
 export default function ContactForm() {
   const [data, setData] = useState({
@@ -54,6 +54,7 @@ export default function ContactForm() {
       {/* extra scroll targets so the path cards can land here with intent */}
       <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-investor" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
+      <span id="form-partnership" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 100 }}>

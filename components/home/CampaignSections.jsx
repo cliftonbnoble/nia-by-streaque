@@ -158,7 +158,7 @@ export const SecCoaches = () => {
             <p style={{ marginTop: 10, fontSize: 15.5, color: "var(--ink-2)", lineHeight: 1.55 }}>and the academic coach already knows to ease the week, the wellness coach already knows to check in, and no one asks the student to say it twice.</p>
           </div>
           <div style={{ background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 18 }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 12 }}>Shared context · Maya R.</div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 12 }}>Shared context · Maya Reyes</div>
             <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: "11px 13px", fontSize: 13, color: "var(--ink-2)", boxShadow: "var(--shadow-sm)" }}>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "var(--primary-50)", color: "var(--primary)", borderRadius: 5, marginRight: 8 }}>FINANCE</span>
               “my dad just lost his job”
@@ -211,17 +211,14 @@ export const SecProof = () => (
   <section className="mf-section" style={{ background: "var(--bg-alt)" }}>
     <div className="mf-container">
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 48, alignItems: "start" }}>
-        <figure style={{ margin: 0, position: "relative", background: "white", border: "1.5px dashed var(--line-2)", borderRadius: "var(--radius-xl)", padding: "34px 36px" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18, flexWrap: "wrap", gap: 8 }}>
-            <span className="mf-eyebrow">The proof</span>
-            <span className="mf-status-pill mf-status-dev" style={{ whiteSpace: "normal" }}><span className="dot"/> Placeholder · pending approved quote</span>
-          </div>
+        <figure style={{ margin: 0, position: "relative", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "34px 36px" }}>
+          <span className="mf-eyebrow" style={{ display: "block", marginBottom: 18 }}>The proof</span>
           <span style={{ fontFamily: "var(--font-display)", fontSize: 60, lineHeight: 0.6, color: "var(--line-2)" }}>“</span>
           <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 34, lineHeight: 1.2, letterSpacing: "-0.022em", color: "var(--ink)", margin: "6px 0 0" }}>
             It's like having an advisor who's already read my file.
           </blockquote>
           <figcaption style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px dashed var(--line-2)" }}/>
+            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px solid var(--line)" }}/>
             <span style={{ fontSize: 13, color: "var(--ink-3)" }}>
               <span style={{ display: "block", fontWeight: 600, color: "var(--ink-2)" }}>Pilot student, name on approval</span>
               <span>Graduate student-success cohort</span>
@@ -241,10 +238,6 @@ export const SecProof = () => (
               We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
             </p>
           </div>
-          <div style={{ marginTop: 20, display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.04em", color: "var(--ink-3)", background: "white", border: "1px solid var(--line)", borderRadius: 999, padding: "6px 12px" }}>
-            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--inprogress)" }}/>
-            Swap in a verified, attributed quote before publishing
-          </div>
         </div>
       </div>
     </div>
@@ -257,8 +250,8 @@ export const SecProof = () => (
 export const SecCTA = () => {
   const doors = [
     { tag: "Provost · VP of Student Success", title: "Book a pilot conversation", body: "See Nia inside your own data, governed by your own policies.", cta: "Book a pilot", href: "/contact#form", primary: true },
-    { tag: "Investor", title: "Request the investor brief", body: "The architecture, the moat, and the market, sent on request.", cta: "Request brief", href: "mailto:info@streaque.com?subject=Investor%20brief", primary: false },
-    { tag: "Partner · Champion", title: "Make an introduction", body: "Know a campus that should see students whole? Connect us.", cta: "Make an intro", href: "mailto:info@streaque.com?subject=Introduction", primary: false },
+    { tag: "Investor", title: "Request the investor brief", body: "The architecture, the moat, and the market, sent on request.", cta: "Request brief", href: "/contact#form-investor", primary: false },
+    { tag: "Partner · Champion", title: "Make an introduction", body: "Know a campus that should see students whole? Connect us.", cta: "Make an intro", href: "/contact#form-partnership", primary: false },
   ];
   return (
     <section style={{ background: "linear-gradient(160deg, #161a5e 0%, #25278a 52%, #3a37ad 100%)", color: "white", padding: "92px 0", position: "relative", overflow: "hidden" }}>

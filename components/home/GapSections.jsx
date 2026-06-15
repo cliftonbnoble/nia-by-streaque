@@ -136,7 +136,7 @@ export const CaseStudy = () => (
             </div>
           </div>
           <div style={{ marginTop: 8, padding: 14, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius)", display: "flex", flexDirection: "column", gap: 8 }}>
-            <div style={{ fontSize: 10, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>Sample event chain · Maya R.</div>
+            <div style={{ fontSize: 10, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>Sample event chain · Maya Reyes</div>
             {[
               { t: "T+0", e: "BIO 201 quiz missed (Canvas)", kind: "sig" },
               { t: "T+4h", e: "Nia drafts nudge · advisor approves", kind: "act" },
@@ -305,23 +305,6 @@ export const Resources = () => (
             </div>
           </a>
         ))}
-      </div>
-      <div style={{ marginTop: 56, padding: 32, background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
-        <div style={{ flex: 1, minWidth: 280 }}>
-          <h3 style={{ fontSize: 20 }}>Field notes, monthly.</h3>
-          <p style={{ marginTop: 6, fontSize: 14 }}>One short email a month: pilot findings, what's shipping, no fluff. For staff and CIOs.</p>
-        </div>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            const email = new FormData(e.currentTarget).get("email");
-            window.location.href = `mailto:info@streaque.com?subject=${encodeURIComponent("Field notes subscription")}&body=${encodeURIComponent(`Please subscribe ${email} to the monthly field notes.`)}`;
-          }}
-          style={{ display: "flex", gap: 8, flex: "1 1 280px", flexWrap: "wrap", minWidth: 0 }}
-        >
-          <input type="email" name="email" required placeholder="you@institution.edu" style={{ flex: "1 1 180px", minWidth: 0, maxWidth: 320, padding: "12px 14px", border: "1px solid var(--line-2)", borderRadius: "var(--radius)", fontSize: 14, fontFamily: "var(--font-body)", background: "white" }}/>
-          <button type="submit" className="mf-btn mf-btn-primary">Subscribe</button>
-        </form>
       </div>
     </div>
   </section>

@@ -12,11 +12,10 @@ const LinkedInIcon = ({ s = 19 }) => (
   </svg>
 );
 
-/* External profiles. YouTube points to the published walkthrough; LinkedIn is a
-   placeholder company URL — swap for the real handle when it's live. */
+/* External profiles — the Nia by Streaque channel and company page. */
 const SOCIAL = [
-  { id: "youtube", href: "https://www.youtube.com/watch?v=ZwRa_kVMAS8", label: "Streaque on YouTube", color: "#FF0000", Icon: YouTubeIcon },
-  { id: "linkedin", href: "https://www.linkedin.com/company/streaque", label: "Streaque on LinkedIn", color: "#0A66C2", Icon: LinkedInIcon },
+  { id: "youtube", href: "https://www.youtube.com/@NiabyStreaque", label: "Streaque on YouTube", color: "#FF0000", Icon: YouTubeIcon },
+  { id: "linkedin", href: "https://www.linkedin.com/company/streaque/", label: "Streaque on LinkedIn", color: "#0A66C2", Icon: LinkedInIcon },
 ];
 
 const colLabel = { fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: 16 };
@@ -71,7 +70,7 @@ export default function Footer() {
             <div style={colLabel}>Contact</div>
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <a href="mailto:info@streaque.com" className="mf-foot-link">info@streaque.com</a>
-              <a href="https://www.linkedin.com/company/streaque" target="_blank" rel="noopener noreferrer" className="mf-foot-link">LinkedIn</a>
+              <a href="https://www.linkedin.com/company/streaque/" target="_blank" rel="noopener noreferrer" className="mf-foot-link">LinkedIn</a>
             </div>
           </div>
         </div>
