@@ -180,8 +180,7 @@ const Hero = () => (
           </span>
           <h1 style={{ color: "white", marginTop: 22, fontSize: "clamp(40px, 4.8vw, 60px)", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Built like a bank.<br/>
-            <span className="mf-grad-text">Designed for the campus</span><br/>
-            that just got hacked.
+            <span className="mf-grad-text">Designed for your campus.</span>
           </h1>
           <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: 560 }}>
             Higher education is the single most-attacked sector in America. We built Nia knowing it, with the same architectural patterns used by Fortune 500 banks, federal agencies, and the largest cloud platforms in the world.
