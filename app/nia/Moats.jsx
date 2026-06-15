@@ -105,13 +105,13 @@ const MemoryVisual = () => (
         </svg>
         <div className="np-hub">
           <span className="np-hub-halo"/>
-          <img src="/students/maya.png" alt=""/>
+          <img loading="lazy" decoding="async" src="/students/maya.png" alt=""/>
           <span className="np-hub-n">Maya Reyes</span>
           <span className="np-chip np-chip-grad np-hub-pill">one state object</span>
         </div>
         {DOMAINS.map((d, i) => (
           <span key={d.id} className="np-node np-nodepop" style={{ left: `${d.x}%`, top: `${d.y}%`, animationDelay: `${1000 + i * 200}ms` }}>
-            <img src={`/agents/${d.id}-badge.svg`} alt="" width="30" height="30"/>
+            <img loading="lazy" decoding="async" src={`/agents/${d.id}-badge.svg`} alt="" width="30" height="30"/>
             <em>{d.n}</em>
           </span>
         ))}
@@ -155,7 +155,7 @@ const CareVisual = () => (
   <div className="np-vis-wrap">
     <div className="np-care">
       <div className="np-care-side np-rise" style={{ animationDelay: "300ms" }}>
-        <div className="np-care-head"><span className="np-care-role">Student</span><span className="np-care-who"><img src="/students/maya.png" alt=""/> Maya</span></div>
+        <div className="np-care-head"><span className="np-care-role">Student</span><span className="np-care-who"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/> Maya</span></div>
         <div className="np-care-bub">
           <NiaMark s={22} gid="m4m"/>
           <span>This one deserves a person. I&apos;m connecting you to <b>Dana in Financial Aid</b>{" "}— she&apos;ll already have your full history.</span>
@@ -192,7 +192,7 @@ const EngineVisual = () => (
   <div className="np-vis-wrap">
     <div className="np-engine">
       <div className="np-eng-q np-rise" style={{ animationDelay: "300ms" }}>
-        <span className="np-eng-ava"><img src="/students/maya.png" alt=""/></span>
+        <span className="np-eng-ava"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/></span>
         &ldquo;How much aid do I have left this term?&rdquo;
       </div>
 

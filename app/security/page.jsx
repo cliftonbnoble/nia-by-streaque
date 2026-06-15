@@ -4,12 +4,13 @@ import Footer from "@/components/Footer";
 import Pillars from "./Pillars";
 import Architecture from "./ArchScroll";
 import SecurityContact from "./SecurityContact";
+import { FAQ } from "@/components/home/GapSections";
 import { ArrowRight as ArrowR, ShieldCheck as Shield, Tick, Lock } from "@/components/icons";
 
 export const metadata = {
-  title: "Security · Streaque",
+  title: "Security · Nia by Streaque",
   description:
-    "Built like a bank. Bank-grade encryption, Zero Trust, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
+    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
 };
 
 /* Hero animation — the story in one loop:
@@ -108,7 +109,7 @@ const HeroVault = () => (
     <div style={{ position: "absolute", top: 10, left: "50%", transform: "translateX(-50%)", width: 268, zIndex: 2, textAlign: "center" }}>
       <div style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.16em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", marginBottom: 7 }}>What your campus sees</div>
       <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "white", borderRadius: 12, boxShadow: "0 14px 36px -10px rgba(0,0,0,0.5)", textAlign: "left" }}>
-        <img src="/students/maya.png" alt="" width="30" height="30" style={{ borderRadius: "50%", flexShrink: 0 }}/>
+        <img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="30" height="30" style={{ borderRadius: "50%", flexShrink: 0 }}/>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, color: "var(--ink)", whiteSpace: "nowrap" }}>Maya Reyes · BIO 201</div>
           <div style={{ fontSize: 10.5, color: "var(--ink-3)", marginTop: 1, whiteSpace: "nowrap" }}>Advisor note · back on track</div>
@@ -179,8 +180,7 @@ const Hero = () => (
           </span>
           <h1 style={{ color: "white", marginTop: 22, fontSize: "clamp(40px, 4.8vw, 60px)", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
             Built like a bank.<br/>
-            <span className="mf-grad-text">Designed for the campus</span><br/>
-            that just got hacked.
+            <span className="mf-grad-text">Designed for your campus.</span>
           </h1>
           <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: 560 }}>
             Higher education is the single most-attacked sector in America. We built Nia knowing it, with the same architectural patterns used by Fortune 500 banks, federal agencies, and the largest cloud platforms in the world.
@@ -267,7 +267,7 @@ const DataArt = () => (
   <div className="sg-stage">
     <div className="sg-panel sg-rec2">
       <span className="sg-rec2-top">
-        <span className="sg-rec2-av"><img src="/students/maya.png" alt=""/></span>
+        <span className="sg-rec2-av"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/></span>
         <span className="sg-rec2-id"><b>Maya Reyes</b><i>Student record</i></span>
         <span className="sg-pill-ok">FERPA</span>
       </span>
@@ -445,19 +445,17 @@ const Promises = () => (
    Timeline runs 2025 → 2027 with "today" at mid-2026. */
 const RM_GROUPS = [
   { label: "Shipped", items: [
-    { t: "FERPA-aligned architecture", s: "done", from: 0, to: 50, tag: "renewed annually" },
+    { t: "FERPA-aligned architecture", s: "done", from: 0, to: 50, tag: "in production" },
     { t: "Zero Trust access controls", s: "done", from: 5, to: 50, tag: "NIST SP 800-207" },
-    { t: "OWASP ASVS Level 2 controls", s: "done", from: 11, to: 50, tag: "live" },
-    { t: "Secrets vault & monitoring", s: "done", from: 17, to: 50, tag: "live" },
+    { t: "OWASP ASVS Level 2 controls", s: "done", from: 11, to: 50, tag: "in production" },
+    { t: "Secrets vault & monitoring", s: "done", from: 17, to: 50, tag: "in production" },
   ]},
-  { label: "In flight", items: [
-    { t: "External penetration test", s: "progress", from: 44, to: 60, doneTo: 50, tag: "annual" },
-  ]},
-  { label: "Scheduled", items: [
-    { t: "SOC 2 Type I", s: "planned", from: 54, to: 74, tag: "scoped & scheduled" },
-    { t: "Customer trust portal", s: "planned", from: 58, to: 82, tag: "live status" },
-    { t: "SOC 2 Type II", s: "planned", from: 74, to: 96, tag: "≤12 mo after Type I" },
-    { t: "Public bug bounty", s: "planned", from: 82, to: 100, tag: "after Type II" },
+  { label: "Planned", items: [
+    { t: "External penetration test", s: "planned", from: 54, to: 72, tag: "planned" },
+    { t: "SOC 2 Type I", s: "planned", from: 60, to: 82, tag: "planned" },
+    { t: "Customer trust portal", s: "planned", from: 64, to: 86, tag: "planned" },
+    { t: "SOC 2 Type II", s: "planned", from: 82, to: 100, tag: "after Type I" },
+    { t: "Public bug bounty", s: "planned", from: 86, to: 100, tag: "after Type II" },
   ]},
 ];
 
@@ -505,15 +503,14 @@ const Roadmap = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.78fr 1.22fr", gap: 56, alignItems: "start" }}>
         <div style={{ position: "sticky", top: 24 }}>
           <span className="mf-eyebrow">Compliance & roadmap</span>
-          <h2 style={{ marginTop: 14 }}>Already built. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
-            The right answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet, but we've already built every control, and here's our timeline.</em>" That's more honest than rushing a checkbox.
+            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet — it's on our roadmap. Here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
           <div style={{ marginTop: 26, display: "grid", gap: 11 }}>
             {[
               { s: "done", l: "Shipped, running in production today" },
-              { s: "progress", l: "In flight, underway right now" },
-              { s: "planned", l: "Scheduled, committed and dated" },
+              { s: "planned", l: "Planned — on the roadmap, not yet started" },
             ].map((x) => (
               <div key={x.s} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "var(--ink-2)" }}>
                 <RmStatus s={x.s}/> {x.l}
@@ -571,7 +568,7 @@ const Roadmap = () => (
 
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 live · 1 in flight · 4 scheduled</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 in production · 5 planned</span>
             <a href="mailto:info@streaque.com?subject=Security%20packet" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
           </div>
         </div>
@@ -632,6 +629,7 @@ export default function SecurityPage() {
       <Architecture/>
       <Roadmap/>
       <Ask/>
+      <FAQ alt={false}/>
       <SecurityContact/>
       <Footer/>
     </div>

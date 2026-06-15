@@ -3,13 +3,11 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
-import { SecProblem, SecArchitecture, SecOutsideIn, SecCoaches, SecProof, SecCTA } from "@/components/home/CampaignSections";
-import { LogoStrip, FAQ, Resources, LeadForm, CookieBanner } from "@/components/home/GapSections";
+import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
+import { LogoStrip, LeadForm, CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
-import VideoSection from "@/components/home/VideoEmbed";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
-import WholeStudent from "@/components/home/WholeStudent";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -18,31 +16,35 @@ const Hero = () => (
     <div className="mf-container mf-hero-inner">
       <div className="mf-hero-grid">
         <div>
-          <span className="mf-eyebrow">Nia by Streaque</span>
+          <span className="mf-eyebrow">Nia · the higher-ed AI platform</span>
           <h1 style={{ marginTop: 18 }}>
             Every signal,<br/>
             <span className="mf-grad-text">every student,</span><br/>
             answered.
           </h1>
+          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 500, color: "var(--ink-2)", maxWidth: 540 }}>
+            Student-success coaching your institution governs end to end — built on your LMS, SIS, and CRM.
+          </p>
           <p className="mf-hero-sub">
-            The institution-governed AI layer that turns LMS, SIS, and CRM data
-            into warm, evidence-based coaching for every student, every week.
+            Nia spots the student who&apos;s quietly slipping and opens the conversation first —
+            warm, evidence-based, and grounded in the data you already trust. Your institution owns every byte.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
-              Book a demo
+              Book a pilot demo
               <span className="mf-cta-arr" aria-hidden="true" style={{ width: 16, height: 16 }}>
                 <ArrowRight/>
                 <ArrowRight/>
               </span>
-              <span className="mf-cta-cap" aria-hidden="true" style={{ fontSize: 34 }}>🎓</span>
             </Link>
-            <a href="mailto:info@streaque.com?subject=Investor%20brief" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>Investor brief</a>
+            <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
+              Investors → request the brief
+            </Link>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">R1</span><span className="lbl">research university pilot, live</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">1</span><span className="lbl">R1 university pilot, live</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching for students</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
@@ -113,38 +115,24 @@ const Features = () => (
 );
 
 
-const Team = () => {
-  const team = [
-    { name: "Luke", role: "CEO", img: "/team/luke.jpg" },
-    { name: "Clifton", role: "CTO", img: "/team/clifton.jpg" },
-    { name: "Amit", role: "AI Lead", img: "/team/amit.jpg" },
-    { name: "Bhavadeep", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
-    { name: "Sunil", role: "Engineering", img: "/team/sunil.jpg" },
-    { name: "Pundlik", role: "DBA", img: "/team/pundlik.jpg" },
-  ];
-  return (
-    <section className="mf-section alt" id="about">
-      <div className="mf-container">
-        <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720, marginBottom: 48 }}>
-          <span className="mf-eyebrow">The team</span>
-          <h2 style={{ marginTop: 14 }}>Higher-ed veterans, <span className="mf-grad-text">AI engineers,</span> and student advocates.</h2>
-          <p>Built by people who've sat on both sides of the desk: registrars, advisors, ML engineers, and the students they serve.</p>
-        </div>
-        <div className="mf-team-grid">
-          {team.map((m) => (
-            <div key={m.name} className="mf-team-card">
-              <img src={m.img} alt={`${m.name}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
-              <div className="mf-team-overlay">
-                <div className="mf-team-name">{m.name}</div>
-                <div className="mf-team-role">{m.role}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+/* Slim mid-page CTA — one clear "book a pilot demo" between Features and the
+   five-coaches section, so a conversion point appears before the footer form. */
+const MidCTA = () => (
+  <section style={{ background: "linear-gradient(120deg, #1b2a6b 0%, #2356c9 100%)", color: "white", padding: "56px 0", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", width: 480, height: 480, right: -160, top: -200, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
+    <div className="mf-container" style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
+      <div>
+        <h2 style={{ color: "white", fontSize: 30, lineHeight: 1.15, letterSpacing: "-0.02em", margin: 0 }}>
+          See it on <span style={{ color: "rgba(255,255,255,0.72)" }}>your</span> data.
+        </h2>
+        <p style={{ color: "rgba(255,255,255,0.82)", margin: "8px 0 0", fontSize: 15 }}>Twenty minutes, your early-alert queue, no slides.</p>
       </div>
-    </section>
-  );
-};
+      <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
+        Book a pilot demo <ArrowRight/>
+      </Link>
+    </div>
+  </section>
+);
 
 /* ── Tech & Privacy — three illustrated cards in the contact-page
      language, each a quick highlight that pushes to /security ── */
@@ -202,14 +190,14 @@ const ComplianceArt = () => (
     <rect x="118" y="96" width="72" height="5" rx="2.5" fill="#EDF0F8"/>
     <rect x="118" y="108" width="78" height="5" rx="2.5" fill="#EDF0F8"/>
     <g className="tp-bob">
-      <rect x="196" y="100" width="96" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="210" cy="112" r="3.5" fill="#2BB3DF"/>
-      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">Pen test live</text>
+      <rect x="196" y="100" width="110" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <circle cx="210" cy="112" r="3.5" fill="#8A90A5"/>
+      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">Pen test · planned</text>
     </g>
     <g className="tp-bob" style={{ animationDelay: "1.1s" }}>
-      <rect x="36" y="34" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <rect x="36" y="34" width="104" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="50" cy="46" r="3.5" fill="#8A90A5"/>
-      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">SOC 2 · sched.</text>
+      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">SOC 2 · planned</text>
     </g>
   </svg>
 );
@@ -218,7 +206,7 @@ const TechPrivacy = () => {
   const cards = [
     { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", accent: "43,179,223", color: "var(--brand-cyan)", Art: PromiseArt },
     { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", accent: "220,38,38", color: "#B91C1C", Art: NeverArt },
-    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. Penetration testing in flight, SOC 2 Type II scheduled.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
+    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
     <section className="mf-section alt">
@@ -333,22 +321,16 @@ export default function Home() {
       <Nav active="home"/>
       <Hero/>
       <SecProblem/>
-      <VideoSection/>
-      <SecArchitecture/>
-      <SecOutsideIn/>
-      <WholeStudent/>
+      <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
+      <MidCTA/>
       <SecCoaches/>
-      <SecProof/>
-      <Team/>
-      <TechPrivacy/>
-      <FAQ/>
-      <Resources/>
+      {/* Proof — real pilot strip + the illustrative quote */}
       <LogoStrip/>
+      <SecProof/>
+      <TechPrivacy/>
       <LeadForm/>
-      {/* <CTA/> — removed: redundant with SecCTA directly below (two stacked full-bleed CTAs) */}
-      <SecCTA/>
       <Footer/>
       <CookieBanner/>
     </div>

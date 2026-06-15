@@ -20,7 +20,7 @@ export default function Nav({ active = "home" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [condensed, setCondensed] = useState(false);
   const cls = (k) => (active === k ? "active" : undefined);
-  const productActive = active === "how" || active === "security" || active === "nia";
+  const productActive = active === "how" || active === "nia";
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 64);
@@ -37,7 +37,7 @@ export default function Nav({ active = "home" }) {
         </Link>
         <div className="mf-nav-links">
           <Link className={cls("home")} href="/">Home</Link>
-          <Link className={cls("about")} href="/#about">About</Link>
+          <Link className={cls("about")} href="/about">About</Link>
 
           <span
             onMouseEnter={() => setOpen(true)}
@@ -58,13 +58,13 @@ export default function Nav({ active = "home" }) {
               <div style={{ position: "absolute", top: "100%", left: -16, paddingTop: 12, zIndex: 30 }}>
                 <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 8, minWidth: 280 }}>
                   <DropItem href="/how-nia-works" t="Product Overview" d="The two platforms, the connection, the loop" active={active === "how"}/>
-                  <DropItem href="/security" t="Security" d="Bank-grade encryption, Zero Trust, FERPA" active={active === "security"}/>
                   <DropItem href="/nia" t="Nia" d="An ongoing relationship, not a 1-minute chat" active={active === "nia"}/>
                 </div>
               </div>
             )}
           </span>
 
+          <Link className={cls("security")} href="/security">Security</Link>
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
         <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm mf-nav-cta mf-cta-fx" style={{ textDecoration: "none" }}>
@@ -73,7 +73,6 @@ export default function Nav({ active = "home" }) {
             <ArrowRight s={12}/>
             <ArrowRight s={12}/>
           </span>
-          <span className="mf-cta-cap" aria-hidden="true">🎓</span>
         </Link>
         <button
           className="mf-nav-burger"
@@ -93,7 +92,7 @@ export default function Nav({ active = "home" }) {
         <div className="mf-nav-mobile">
           {[
             { href: "/", t: "Home", k: "home" },
-            { href: "/#about", t: "About", k: "about" },
+            { href: "/about", t: "About", k: "about" },
             { href: "/how-nia-works", t: "How Nia Works", k: "how" },
             { href: "/security", t: "Security", k: "security" },
             { href: "/nia", t: "Nia", k: "nia" },

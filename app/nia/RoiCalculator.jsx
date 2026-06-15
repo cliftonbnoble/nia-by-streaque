@@ -1,36 +1,37 @@
 "use client";
-/* Section III — ROI calculator. Two sliders (enrollment + average tuition).
-   Output: the tuition revenue Nia protects by retaining a handful of students
-   who would otherwise have stalled — proving it pays for itself quickly.
-   Assumptions are conservative and shown in plain sight. */
+/* Section III — ROI calculator. Four inputs the visitor controls:
+   enrollment, average tuition, the retention lift they want to assume, and
+   Nia's per-student cost. Everything downstream is a hypothetical illustration
+   to size the opportunity — not a forecast — and is labeled as such. */
 import { useState } from "react";
-
-const RETENTION_LIFT = 0.001;   // ~0.1% of enrollment retained — deliberately modest
-const NIA_PER_STUDENT = 4;      // illustrative platform cost per student / year
 
 const usd = (n) => "$" + Math.round(n).toLocaleString("en-US");
 
 export default function RoiCalculator() {
   const [enroll, setEnroll] = useState(8000);
   const [tuition, setTuition] = useState(24000);
+  const [lift, setLift] = useState(0.1);   // % of enrollment retained — editable
+  const [cost, setCost] = useState(4);     // $ per student / year — editable
 
-  const retained = Math.max(4, Math.round(enroll * RETENTION_LIFT));
+  const retained = Math.max(1, Math.round(enroll * (lift / 100)));
   const revenue = retained * tuition;          // one conservative year per retained student
-  const niaCost = enroll * NIA_PER_STUDENT;
+  const niaCost = enroll * cost;
   const roi = revenue / niaCost;
   const payback = Math.max(1, Math.round(12 / roi));
   const costPct = Math.max(4, Math.min(100, (niaCost / revenue) * 100));
 
   const ePct = ((enroll - 1000) / (50000 - 1000)) * 100;
   const tPct = ((tuition - 6000) / (60000 - 6000)) * 100;
+  const lPct = ((lift - 0.05) / (0.5 - 0.05)) * 100;
+  const cPct = ((cost - 2) / (12 - 2)) * 100;
 
   return (
     <section className="mf-section alt">
       <div className="mf-container">
         <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 44px" }}>
-          <span className="mf-eyebrow">The math</span>
-          <h2 style={{ marginTop: 14 }}>Retain a handful of students. <span className="mf-grad-text">Watch it pay for itself.</span></h2>
-          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Keep just a few more students enrolled and the tuition they bring back dwarfs the cost of the software.</p>
+          <span className="mf-eyebrow">The math · illustrative</span>
+          <h2 style={{ marginTop: 14 }}>Set the assumptions. <span className="mf-grad-text">See how the math could work.</span></h2>
+          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own numbers — this is a hypothetical illustration to size the opportunity, not a forecast of results at your institution.</p>
         </div>
 
         <div className="np-roi">
@@ -49,14 +50,28 @@ export default function RoiCalculator() {
                 style={{ "--pct": `${tPct}%` }} aria-label="Average annual tuition"/>
               <div className="np-roi-scale"><span>$6k</span><span>$60k</span></div>
             </div>
+            <div className="np-roi-field">
+              <div className="np-roi-label"><span>Assumed retention lift</span><strong>{lift.toFixed(2)}%</strong></div>
+              <input type="range" min="0.05" max="0.5" step="0.05" value={lift}
+                onChange={(e) => setLift(+e.target.value)}
+                style={{ "--pct": `${lPct}%` }} aria-label="Assumed retention lift, percent of enrollment"/>
+              <div className="np-roi-scale"><span>0.05%</span><span>0.5%</span></div>
+            </div>
+            <div className="np-roi-field">
+              <div className="np-roi-label"><span>Nia cost / student / year</span><strong>{usd(cost)}</strong></div>
+              <input type="range" min="2" max="12" step="1" value={cost}
+                onChange={(e) => setCost(+e.target.value)}
+                style={{ "--pct": `${cPct}%` }} aria-label="Nia cost per student per year"/>
+              <div className="np-roi-scale"><span>$2</span><span>$12</span></div>
+            </div>
             <p className="np-roi-assume">
-              Assumes a conservative ~0.1% retention lift ({retained} student{retained === 1 ? "" : "s"} a year) and a single year of
-              tuition per student. Real institutions keep them enrolled for years.
+              At {lift.toFixed(2)}% that&apos;s about {retained} student{retained === 1 ? "" : "s"} a year, counted as a single
+              year of tuition each. Figures are a hypothetical illustration, not a promise of results.
             </p>
           </div>
 
           <div className="np-roi-result">
-            <span className="np-roi-eyebrow">Tuition protected every year</span>
+            <span className="np-roi-eyebrow">Illustrative · tuition protected / year</span>
             <div className="np-roi-big">{usd(revenue)}</div>
             <p className="np-roi-by">by retaining <strong>~{retained} more students</strong> who would have slipped away.</p>
 

@@ -6,6 +6,9 @@ export const metadata = {
   title: "Resources · Nia by Streaque",
   description:
     "Field notes and guides for advisors, CIOs, and student-success leaders moving from chatbots to governed coaching. Launching 2026.",
+  // Placeholder page (all "coming soon") — keep it out of the index until
+  // real content ships, but let crawlers follow the links it does have.
+  robots: { index: false, follow: true },
 };
 
 const ITEMS = [

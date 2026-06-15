@@ -24,9 +24,11 @@ export const LogoStrip = () => (
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 28, padding: "24px 28px", background: "linear-gradient(135deg, #EEF6FF 0%, #ffffff 60%)", border: "1px solid rgba(35,86,201,0.15)", borderRadius: "var(--radius-lg)" }}>
-          <div style={{ flexShrink: 0, width: 64, height: 64, borderRadius: 12, background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 28, color: "var(--ink)", letterSpacing: "-0.04em" }}>N</div>
+          <div style={{ flexShrink: 0, width: 64, height: 64, borderRadius: 12, background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-2)" }}>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M12 3 3 8v1h18V8l-9-5zM5 21V10M9 21V10M15 21V10M19 21V10"/></svg>
+          </div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22, color: "var(--ink)", letterSpacing: "-0.015em" }}>Northeastern University</div>
+            <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22, color: "var(--ink)", letterSpacing: "-0.015em" }}>A top-tier R1 research university</div>
             <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 4 }}>R1 research · multi-campus · Canvas + SIS integration</div>
           </div>
           <div style={{ display: "flex", gap: 20, paddingLeft: 24, borderLeft: "1px solid rgba(35,86,201,0.15)" }}>
@@ -162,14 +164,14 @@ const FAQ_ITEMS = [
   { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance. Most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant." },
   { q: "How long does integration take?", a: "Typical Canvas + SIS pilot is live in 4–6 weeks. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
   { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console. Audit logs reflect the change immediately." },
-  { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 Type II is in progress." },
+  { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway — we're glad to share our current controls and the plan." },
   { q: "How is pricing structured?", a: "Per-FTE annual licensing with pilot-pricing for the first year. Implementation, SSO, and three integrations are included. Talk to us for a quote tied to your enrollment band." },
 ];
 
-export const FAQ = () => {
+export const FAQ = ({ alt = true }) => {
   const [open, setOpen] = useState(0);
   return (
-    <section className="mf-section alt">
+    <section className={`mf-section${alt ? " alt" : ""}`}>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 56, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 24 }}>
@@ -280,9 +282,9 @@ export const Resources = () => (
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720, marginBottom: 40, display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 24, flexWrap: "wrap" }}>
         <div style={{ maxWidth: 520 }}>
-          <span className="mf-eyebrow">Resources · launching Q2</span>
+          <span className="mf-eyebrow">Resources · coming soon</span>
           <h2 style={{ marginTop: 14 }}>The <span className="mf-grad-text">orchestration</span> playbook.</h2>
-          <p style={{ marginTop: 14 }}>Field notes for advisors, CIOs, and student-success leaders making the move from chatbots to governed coaching.</p>
+          <p style={{ marginTop: 14 }}>Field notes for advisors, CIOs, and student-success leaders making the move from chatbots to governed coaching. We&apos;re putting the first pieces together now.</p>
         </div>
         <a href="/resources" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 14, color: "var(--primary)", textDecoration: "none", cursor: "pointer" }}>
           All resources <ArrowR/>
@@ -290,9 +292,9 @@ export const Resources = () => (
       </div>
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
         {[
-          { tag: "Guide", t: "The CIO's short list for AI in higher ed", meta: "12-min read · Q2 2026", art: "cio" },
-          { tag: "Webinar", t: "Replacing the early-alert spreadsheet", meta: "Recorded · 38 min", art: "sheet" },
-          { tag: "Field note", t: 'What "warm" actually means in a nudge', meta: "6-min read · pilot diary", art: "warm" },
+          { tag: "Guide", t: "The CIO's short list for AI in higher ed", meta: "Coming soon", art: "cio" },
+          { tag: "Webinar", t: "Replacing the early-alert spreadsheet", meta: "Coming soon", art: "sheet" },
+          { tag: "Field note", t: 'What "warm" actually means in a nudge', meta: "Coming soon", art: "warm" },
         ].map((r) => (
           <a key={r.t} href="/resources" style={{ display: "flex", flexDirection: "column", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", overflow: "hidden", textDecoration: "none", color: "inherit", boxShadow: "var(--shadow-sm)", cursor: "pointer" }}>
             <div style={{ aspectRatio: "16/9", borderBottom: "1px solid var(--line)", position: "relative", overflow: "hidden" }}>

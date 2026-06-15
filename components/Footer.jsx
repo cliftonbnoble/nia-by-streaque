@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="mf-container">
         <div className="mf-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1.2fr", gap: 40, marginBottom: 48 }}>
           <div>
-            <img src="/nia-opt-web-logo.png" alt="Nia by Streaque" style={{ height: 34, display: "block" }}/>
+            <img loading="lazy" decoding="async" src="/nia-opt-web-logo.png" alt="Nia by Streaque" style={{ height: 34, display: "block" }}/>
             <p style={{ marginTop: 16, fontSize: 14, color: "rgba(255,255,255,0.55)", maxWidth: 320, lineHeight: 1.55 }}>
               The Higher Education AI platform. Institution-governed, student-first.
             </p>
@@ -51,7 +51,7 @@ export default function Footer() {
             <div style={colLabel}>Site</div>
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <Link href="/" className="mf-foot-link">Home</Link>
-              <Link href="/#about" className="mf-foot-link">About</Link>
+              <Link href="/about" className="mf-foot-link">About</Link>
               <Link href="/how-nia-works" className="mf-foot-link">How Nia Works</Link>
               <Link href="/security" className="mf-foot-link">Security</Link>
               <Link href="/contact" className="mf-foot-link">Contact</Link>
@@ -63,6 +63,7 @@ export default function Footer() {
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <Link href="/privacy" className="mf-foot-link">Privacy Policy</Link>
               <Link href="/terms" className="mf-foot-link">Terms &amp; Conditions</Link>
+              <Link href="/accessibility" className="mf-foot-link">Accessibility</Link>
             </div>
           </div>
 

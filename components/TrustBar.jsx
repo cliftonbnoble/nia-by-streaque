@@ -18,7 +18,7 @@ export default function TrustBar() {
           <span><ShieldCheck/> SSO Ready</span>
           <span><Phone/> Mobile-First</span>
           <Link href="/security" className="trust-sec">
-            <Lock s={12}/> Bank-Grade Security
+            <Lock s={12}/> Security &amp; privacy
             <span className="trust-sec-arrow" aria-hidden="true">→</span>
           </Link>
         </div>
