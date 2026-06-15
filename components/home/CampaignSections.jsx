@@ -52,7 +52,7 @@ export const SecProblem = () => {
 //     (merged from the former SecArchitecture + SecOutsideIn)
 // =====================================================================
 export const SecArchitecture = () => (
-  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FAFBFE 0%, #EFF5FE 55%, #F3F0FC 100%)" }}>
+  <section id="architecture" className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(150deg, #FAFBFE 0%, #EFF5FE 55%, #F3F0FC 100%)" }}>
     <div className="mf-container">
       <div className="mf-section-head">
         <span className="mf-eyebrow">Two architectures</span>

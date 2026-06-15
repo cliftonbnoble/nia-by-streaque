@@ -3,14 +3,13 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
-import { SecArchitecture, SecCoaches } from "@/components/home/CampaignSections";
 import WholeStudent from "@/components/home/WholeStudent";
 import CapabilityCards from "./CapabilityCards";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 
 export const metadata = {
-  title: "How Nia Works · Streaque",
+  title: "How Nia Works · Nia by Streaque",
   description:
     "Two coordinated platforms, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
 };
@@ -32,6 +31,21 @@ const Hero = () => (
       </div>
 
       <CapabilityCards/>
+    </div>
+  </section>
+);
+
+/* Slim cross-link to the inside-out vs outside-in story, which lives on the
+   home page — this page stays focused on the workflow itself. */
+const ArchLink = () => (
+  <section style={{ background: "var(--bg-alt)", padding: "26px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+    <div className="mf-container" style={{ textAlign: "center" }}>
+      <span style={{ fontSize: 15, color: "var(--ink-2)" }}>
+        Want the architecture behind it — why Nia works inside-out, not outside-in?{" "}
+        <Link href="/#architecture" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
+          See the two architectures <ArrowR s={14}/>
+        </Link>
+      </span>
     </div>
   </section>
 );
@@ -511,9 +525,8 @@ export default function HowNiaWorks() {
       <TrustBar/>
       <Nav active="how"/>
       <Hero/>
-      <SecArchitecture/>
+      <ArchLink/>
       <WholeStudent/>
-      <SecCoaches bg="white"/>
       <ForStudents/>
       <ForStaff/>
       <CompletePicture/>
