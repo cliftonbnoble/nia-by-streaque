@@ -12,9 +12,11 @@ const LinkedInIcon = ({ s = 19 }) => (
   </svg>
 );
 
+/* External profiles. YouTube points to the published walkthrough; LinkedIn is a
+   placeholder company URL — swap for the real handle when it's live. */
 const SOCIAL = [
-  { id: "youtube", href: "/youtube", label: "Streaque on YouTube", color: "#FF0000", Icon: YouTubeIcon },
-  { id: "linkedin", href: "/linkedin", label: "Streaque on LinkedIn", color: "#0A66C2", Icon: LinkedInIcon },
+  { id: "youtube", href: "https://www.youtube.com/watch?v=ZwRa_kVMAS8", label: "Streaque on YouTube", color: "#FF0000", Icon: YouTubeIcon },
+  { id: "linkedin", href: "https://www.linkedin.com/company/streaque", label: "Streaque on LinkedIn", color: "#0A66C2", Icon: LinkedInIcon },
 ];
 
 const colLabel = { fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: 16 };
@@ -31,15 +33,17 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 22 }}>
               {SOCIAL.map(({ id, href, label, color, Icon }) => (
-                <Link
+                <a
                   key={id}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="mf-social"
                   style={{ "--social": color }}
                 >
                   <Icon/>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -67,7 +71,7 @@ export default function Footer() {
             <div style={colLabel}>Contact</div>
             <div style={{ display: "grid", gap: 11, fontSize: 14 }}>
               <a href="mailto:info@streaque.com" className="mf-foot-link">info@streaque.com</a>
-              <Link href="/linkedin" className="mf-foot-link">LinkedIn</Link>
+              <a href="https://www.linkedin.com/company/streaque" target="_blank" rel="noopener noreferrer" className="mf-foot-link">LinkedIn</a>
             </div>
           </div>
         </div>

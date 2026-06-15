@@ -121,7 +121,7 @@ const Stats = () => (
       </div>
       <div className="mf-stats-grid">
         {[
-          { n: "93%", l: "of students with active momentum plans", d: "Up from 41% pre-rollout. Measured across 12 institutions over 8 months." },
+          { n: "93%", l: "of students with active momentum plans", d: "Up from 41% pre-rollout, measured across our pilot cohort." },
           { n: "75%", l: "engaged with critical nudges within 24h", d: "Versus 22% for static email outreach in the same cohort." },
           { n: "63%", l: "of recommendations completed by students", d: "Includes course actions, advisor meetings, and aid-form completion." },
         ].map((s) => (

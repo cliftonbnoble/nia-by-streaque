@@ -58,6 +58,7 @@ export default function VideoSection() {
                 src={EMBED_URL}
                 title="A complete story with Nia"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
               />
