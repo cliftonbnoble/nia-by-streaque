@@ -168,10 +168,10 @@ const FAQ_ITEMS = [
   { q: "How is pricing structured?", a: "Per-FTE annual licensing with pilot-pricing for the first year. Implementation, SSO, and three integrations are included. Talk to us for a quote tied to your enrollment band." },
 ];
 
-export const FAQ = () => {
+export const FAQ = ({ alt = true }) => {
   const [open, setOpen] = useState(0);
   return (
-    <section className="mf-section alt">
+    <section className={`mf-section${alt ? " alt" : ""}`}>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 56, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 24 }}>

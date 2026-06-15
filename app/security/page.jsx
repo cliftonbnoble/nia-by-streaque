@@ -4,12 +4,13 @@ import Footer from "@/components/Footer";
 import Pillars from "./Pillars";
 import Architecture from "./ArchScroll";
 import SecurityContact from "./SecurityContact";
+import { FAQ } from "@/components/home/GapSections";
 import { ArrowRight as ArrowR, ShieldCheck as Shield, Tick, Lock } from "@/components/icons";
 
 export const metadata = {
-  title: "Security · Streaque",
+  title: "Security · Nia by Streaque",
   description:
-    "Built like a bank. Bank-grade encryption, Zero Trust, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
+    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
 };
 
 /* Hero animation — the story in one loop:
@@ -629,6 +630,7 @@ export default function SecurityPage() {
       <Architecture/>
       <Roadmap/>
       <Ask/>
+      <FAQ alt={false}/>
       <SecurityContact/>
       <Footer/>
     </div>
