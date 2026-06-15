@@ -62,46 +62,67 @@ export const SecArchitecture = () => (
 
       <div className="ioc-grid">
         {/* Nia — inside-out */}
-        <div className="ioc-card">
-          <span className="mf-chip">Nia · inside-out</span>
+        <div className="ioc-col">
+          <span className="mf-chip ioc-label">Nia · inside-out</span>
           <div className="ioc-stage"><PauseOffscreen><InsideOutPhone/></PauseOffscreen></div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)" }}>
-            Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
-            <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
-          </p>
-          <div className="ioc-chips">
-            {["Student data first", "Campus context second", "Global model last"].map((t) => (
-              <span key={t} className="ioc-chip">{t}</span>
-            ))}
+          <div className="ioc-text">
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: 0 }}>
+              Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
+              <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
+            </p>
+            <div className="ioc-chips">
+              {["Student data first", "Campus context second", "Global model last"].map((t) => (
+                <span key={t} className="ioc-chip">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Generic — outside-in */}
-        <div className="ioc-card ghost">
-          <span className="mf-chip mf-chip-neutral">Generic chatbot · outside-in</span>
+        <div className="ioc-col ghost">
+          <span className="mf-chip mf-chip-neutral ioc-label">Generic chatbot · outside-in</span>
           <div className="ioc-stage"><PauseOffscreen><OutsideInPhone/></PauseOffscreen></div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
-            Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
-            <strong> Every conversation begins with a stranger</strong> — a search box with manners.
-          </p>
-          <div className="ioc-chips">
-            {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
-              <span key={t} className="ioc-chip ghost">{t}</span>
-            ))}
+          <div className="ioc-text">
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", margin: 0 }}>
+              Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
+              <strong> Every conversation begins with a stranger</strong> — a search box with manners.
+            </p>
+            <div className="ioc-chips">
+              {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
+                <span key={t} className="ioc-chip ghost">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <style>{`
       .ioc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
-      .ioc-card{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
-      .ioc-card.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
+      .ioc-col{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
+      .ioc-col.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
       .ioc-stage{ margin:8px -24px 18px; }
-      .ioc-card p{ flex:1; }
+      .ioc-text{ display:flex; flex-direction:column; flex:1; }
+      .ioc-text p{ flex:1; }
       .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
       .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
       .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
-      @media (max-width:860px){ .ioc-grid{ grid-template-columns:1fr; } }
+      @media (max-width:760px){ .ioc-grid{ grid-template-columns:1fr; } }
+
+      /* desktop: drop the boxes — let the two stages breathe and overlap
+         organically in the middle, crop the phone + orbit cleanly at the
+         bottom (clip-path), and set the copy in a clean block below each. */
+      @media (min-width:1024px){
+        .ioc-grid{ gap:0; align-items:start; }
+        .ioc-col{ background:none; border:none; box-shadow:none; padding:0; overflow:visible; }
+        .ioc-col.ghost{ background:none; border:none; }
+        .ioc-label{ align-self:center; position:relative; z-index:6; margin-bottom:-6px; }
+        /* shrink ~10% for breathing room; transform-origin top + negative
+           bottom margin reclaim the layout space the scale frees up. */
+        .ioc-stage{ margin:0 0 -60px; clip-path:inset(-36px -100px 0 -100px); transform:scale(0.9); transform-origin:top center; }
+        .ioc-text{ position:relative; z-index:6; max-width:440px; margin:18px auto 0; text-align:center; }
+        .ioc-text p{ flex:none; }
+        .ioc-chips{ justify-content:center; }
+      }
     `}</style>
   </section>
 );
