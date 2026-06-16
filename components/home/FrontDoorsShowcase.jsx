@@ -4,7 +4,7 @@
    animation plays through, then the showcase advances to the next;
    hovering an item pins it. Every screen is the Nia web app:
    sidebar + content, app indigo, our drawn chrome. */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const DUR = [12500, 11000, 10500, 13000, 9000, 11500];
 
@@ -500,35 +500,72 @@ export default function FrontDoorsShowcase() {
       setRun((r) => r + 1);
     }
   };
-
-  /* the list holds still — the active door highlights in place. The top and
-     bottom edges stay slightly transparent, but the fade lifts off whichever
-     edge currently holds the active door so it always reads in full. */
-  const LAST = ITEMS.length - 1;
-  const fadeStyle = {
-    "--ft": active === 0 ? "0px" : "34px",
-    "--fb": active === LAST ? "0px" : "34px",
+  // Debounce hover so sweeping the cursor across items doesn't swap the panel
+  // on every one — the MacBook only changes when the cursor settles on an item.
+  // That, not a layout shift, is what made the section feel jerky.
+  const hoverTimer = useRef(null);
+  useEffect(() => () => clearTimeout(hoverTimer.current), []);
+  const hoverSelect = (i) => {
+    setPaused(true);
+    clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => select(i), 110);
   };
+  const clickSelect = (i) => {
+    clearTimeout(hoverTimer.current);
+    select(i);
+  };
+  const leaveList = () => {
+    clearTimeout(hoverTimer.current);
+    setPaused(false);
+    setRun((r) => r + 1);
+  };
+
+  // Lock the list's settled height as a min-height floor (measured at runtime,
+  // so it's correct at any width). One door is always expanded, so the resting
+  // height is constant; the floor stops the brief shrink-dip mid-transition
+  // from moving anything below the section — it becomes invisible faded slack
+  // at the list's bottom instead of a page jiggle.
+  // IMPORTANT: measure only after the web fonts have loaded and the first door
+  // has settled. Measuring synchronously on mount reads the fallback font (which
+  // wraps the text taller) and would lock too much height.
+  const listRef = useRef(null);
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    let raf = 0;
+    const measure = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.minHeight = "0px";
+        el.style.minHeight = `${el.offsetHeight}px`;
+      });
+    };
+    const ready = document.fonts && document.fonts.ready;
+    if (ready) ready.then(() => setTimeout(measure, 60));
+    else setTimeout(measure, 450);
+    window.addEventListener("resize", measure);
+    return () => { window.removeEventListener("resize", measure); cancelAnimationFrame(raf); };
+  }, []);
 
   const Screen = SCREENS[active];
 
   return (
     <div className="fdw-grid">
-      <div className="fdw-list" style={fadeStyle} onMouseLeave={() => { setPaused(false); setRun((r) => r + 1); }}>
+      <div className="fdw-list" ref={listRef} onMouseLeave={leaveList}>
         {ITEMS.map((it, i) => (
           <button
             key={it.t}
             type="button"
             className={`fdw-item${i === active ? " on" : ""}`}
-            onMouseEnter={() => { setPaused(true); select(i); }}
-            onClick={() => select(i)}
+            onMouseEnter={() => hoverSelect(i)}
+            onClick={() => clickSelect(i)}
           >
             <span className="fdw-item-body">
               <span className="fdw-item-t">{it.t}</span>
               <span className="fdw-item-sub"><span className="fdw-item-s">{it.s}</span></span>
             </span>
             <span className="fdw-item-arrow" aria-hidden>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             </span>
             {i === active && (
               <span className="fdw-prog">
@@ -548,7 +585,7 @@ export default function FrontDoorsShowcase() {
                 <span className="fdw-dots"><i/><i/><i/></span>
                 <span className="fdw-url">
                   <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#9aa0b4" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  nia.streaque.app
+                  niahub.ai
                 </span>
               </div>
               <div className="fdw-screen-body" key={`${active}-${run}`}>
@@ -567,60 +604,64 @@ export default function FrontDoorsShowcase() {
           display: grid;
           grid-template-columns: 0.42fr 0.58fr;
           gap: 44px;
-          align-items: center;
+          /* top-anchor both columns: the MacBook's vertical position must NOT
+             depend on the list's height, so the list can grow/shrink as a door
+             expands without ever re-centering (and bouncing) the laptop. */
+          align-items: start;
         }
         .fdw-grid > *{ min-width: 0; }
+        /* hold the laptop optically centered against the list's resting height
+           without coupling its position to live height changes */
+        .fdw-stage{ padding-top: 8px; }
         /* ── the accordion list — holds still; the active door highlights in
-              place; only the very top and bottom edges stay slightly transparent.
-              --ft / --fb are set inline and drop to 0 on the edge the active door
-              occupies, so it never fades. @property lets that lift animate. ── */
-        @property --ft{ syntax: '<length>'; inherits: false; initial-value: 34px; }
-        @property --fb{ syntax: '<length>'; inherits: false; initial-value: 34px; }
+              place. The top and bottom edges keep a constant soft fade so the
+              stack reads as a contained list that dissolves at both ends. ── */
         .fdw-list{
           display: grid; gap: 12px;
-          padding: 20px 2px;
-          --ft: 34px; --fb: 34px;
-          -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 var(--ft), #000 calc(100% - var(--fb)), transparent 100%);
-          transition: --ft 280ms ease, --fb 280ms ease;
+          padding: 26px 2px;
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 44px, #000 calc(100% - 44px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 44px, #000 calc(100% - 44px), transparent 100%);
         }
         .fdw-item{
           position: relative; overflow: hidden;
-          display: flex; align-items: center; gap: 14px;
+          display: flex; align-items: center; gap: 12px;
           text-align: left; cursor: pointer;
           font-family: inherit;
           background: #ECEDF6;
           border: 1px solid rgba(105,91,215,0.10);
-          border-radius: 18px;
-          padding: 15px 16px 16px 22px;
-          transition: background 220ms ease, box-shadow 220ms ease, border-color 220ms ease, padding 280ms ease;
+          border-radius: 16px;
+          padding: 13px 14px 14px 20px;
+          /* same curve + duration as the sub below, so expand and collapse
+             stay perfectly anti-symmetric and the list never twitches height */
+          transition: background 220ms ease, box-shadow 220ms ease, border-color 220ms ease,
+                      padding 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .fdw-item:hover{ background: #E4E6F2; }
         .fdw-item.on{
           background: white;
           border-color: var(--line);
           box-shadow: 0 22px 44px -24px rgba(15,23,42,0.22);
-          padding: 17px 16px 19px 22px;
+          padding: 15px 14px 17px 20px;
         }
         .fdw-item-body{ flex: 1; min-width: 0; }
         .fdw-item-t{
           display: block;
-          font-family: var(--font-display); font-weight: 600; font-size: 20px;
+          font-family: var(--font-display); font-weight: 600; font-size: 18px;
           letter-spacing: -0.02em; color: var(--ink-2);
           transition: color 220ms ease;
         }
         .fdw-item.on .fdw-item-t{ color: var(--ink); }
         .fdw-item-sub{
           display: grid; grid-template-rows: 0fr;
-          transition: grid-template-rows 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+          transition: grid-template-rows 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .fdw-item-sub > span{ overflow: hidden; min-height: 0; }
         .fdw-item.on .fdw-item-sub{ grid-template-rows: 1fr; }
-        .fdw-item-s{ display: block; padding-top: 6px; font-size: 13.5px; line-height: 1.55; color: var(--ink-3); }
+        .fdw-item-s{ display: block; padding-top: 5px; font-size: 13px; line-height: 1.5; color: var(--ink-3); }
         /* the circular cue, Bevel-style — soft on rest, branded when active */
         .fdw-item-arrow{
           flex: 0 0 auto;
-          width: 34px; height: 34px; border-radius: 50%;
+          width: 30px; height: 30px; border-radius: 50%;
           display: inline-flex; align-items: center; justify-content: center;
           border: 1px solid rgba(99,88,182,0.22);
           background: rgba(255,255,255,0.55);

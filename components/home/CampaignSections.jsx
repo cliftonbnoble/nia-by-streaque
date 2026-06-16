@@ -62,46 +62,67 @@ export const SecArchitecture = () => (
 
       <div className="ioc-grid">
         {/* Nia — inside-out */}
-        <div className="ioc-card">
-          <span className="mf-chip">Nia · inside-out</span>
+        <div className="ioc-col">
+          <span className="mf-chip ioc-label">Nia · inside-out</span>
           <div className="ioc-stage"><PauseOffscreen><InsideOutPhone/></PauseOffscreen></div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)" }}>
-            Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
-            <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
-          </p>
-          <div className="ioc-chips">
-            {["Student data first", "Campus context second", "Global model last"].map((t) => (
-              <span key={t} className="ioc-chip">{t}</span>
-            ))}
+          <div className="ioc-text">
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: 0 }}>
+              Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
+              <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
+            </p>
+            <div className="ioc-chips">
+              {["Student data first", "Campus context second", "Global model last"].map((t) => (
+                <span key={t} className="ioc-chip">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Generic — outside-in */}
-        <div className="ioc-card ghost">
-          <span className="mf-chip mf-chip-neutral">Generic chatbot · outside-in</span>
+        <div className="ioc-col ghost">
+          <span className="mf-chip mf-chip-neutral ioc-label">Generic chatbot · outside-in</span>
           <div className="ioc-stage"><PauseOffscreen><OutsideInPhone/></PauseOffscreen></div>
-          <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)" }}>
-            Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
-            <strong> Every conversation begins with a stranger</strong> — a search box with manners.
-          </p>
-          <div className="ioc-chips">
-            {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
-              <span key={t} className="ioc-chip ghost">{t}</span>
-            ))}
+          <div className="ioc-text">
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", margin: 0 }}>
+              Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
+              <strong> Every conversation begins with a stranger</strong> — a search box with manners.
+            </p>
+            <div className="ioc-chips">
+              {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
+                <span key={t} className="ioc-chip ghost">{t}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <style>{`
       .ioc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
-      .ioc-card{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
-      .ioc-card.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
+      .ioc-col{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
+      .ioc-col.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
       .ioc-stage{ margin:8px -24px 18px; }
-      .ioc-card p{ flex:1; }
+      .ioc-text{ display:flex; flex-direction:column; flex:1; }
+      .ioc-text p{ flex:1; }
       .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
       .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
       .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
-      @media (max-width:860px){ .ioc-grid{ grid-template-columns:1fr; } }
+      @media (max-width:760px){ .ioc-grid{ grid-template-columns:1fr; } }
+
+      /* desktop: drop the boxes — let the two stages breathe and overlap
+         organically in the middle, crop the phone + orbit cleanly at the
+         bottom (clip-path), and set the copy in a clean block below each. */
+      @media (min-width:1024px){
+        .ioc-grid{ gap:0; align-items:start; }
+        .ioc-col{ background:none; border:none; box-shadow:none; padding:0; overflow:visible; }
+        .ioc-col.ghost{ background:none; border:none; }
+        .ioc-label{ align-self:center; position:relative; z-index:6; margin-bottom:-6px; }
+        /* shrink ~10% for breathing room; transform-origin top + negative
+           bottom margin reclaim the layout space the scale frees up. */
+        .ioc-stage{ margin:0 0 -60px; clip-path:inset(-36px -100px 0 -100px); transform:scale(0.9); transform-origin:top center; }
+        .ioc-text{ position:relative; z-index:6; max-width:440px; margin:18px auto 0; text-align:center; }
+        .ioc-text p{ flex:none; }
+        .ioc-chips{ justify-content:center; }
+      }
     `}</style>
   </section>
 );
@@ -184,43 +205,22 @@ export const SecAdvisors = () => {
 };
 
 // =====================================================================
-// 5 · THE PROOF (placeholder quote — swap before publishing)
+// 5 · WHY WE BUILT IT — the real grad-cohort origin story
 // =====================================================================
 export const SecProof = () => (
   <section className="mf-section" style={{ background: "var(--bg-alt)" }}>
-    <div className="mf-container">
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 48, alignItems: "start" }}>
-        <figure style={{ margin: 0, position: "relative", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "34px 36px" }}>
-          <span className="mf-eyebrow" style={{ display: "block", marginBottom: 18 }}>Illustrative</span>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: 60, lineHeight: 0.6, color: "var(--line-2)" }}>“</span>
-          <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 34, lineHeight: 1.2, letterSpacing: "-0.022em", color: "var(--ink)", margin: "6px 0 0" }}>
-            It's like having an advisor who's already read my file.
-          </blockquote>
-          <figcaption style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-3)" }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 21v-4h4v4"/></svg>
-            </span>
-            <span style={{ fontSize: 13, color: "var(--ink-3)" }}>
-              <span style={{ display: "block", fontWeight: 600, color: "var(--ink-2)" }}>The experience Nia is built to deliver</span>
-              <span>Representative example, not a specific student</span>
-            </span>
-          </figcaption>
-        </figure>
-
-        <div>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)" }}>
-            We built Nia for the students least likely to ask for help. Then a cohort of graduate students studying student success tested it, and pushed back, nearly in unison:
-          </p>
-          <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.6, color: "var(--ink)", fontStyle: "italic" }}>
-            “Why are you building this only for marginalized students? <span style={{ fontStyle: "normal", fontWeight: 600 }}>All</span> students need this.”
-          </p>
-          <div style={{ marginTop: 24, paddingTop: 22, borderTop: "1px solid var(--line)" }}>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 21, lineHeight: 1.3, letterSpacing: "-0.02em", color: "var(--ink)" }}>
-              We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="mf-container" style={{ maxWidth: 820, textAlign: "center" }}>
+      <span className="mf-eyebrow">Why we built it</span>
+      <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
+        We built Nia for the students least likely to ask for help. Then a cohort of graduate students
+        studying student success tested it, and pushed back, nearly in unison:
+      </p>
+      <p style={{ marginTop: 16, fontSize: 18, lineHeight: 1.6, color: "var(--ink)", fontStyle: "italic" }}>
+        “Why are you building this only for marginalized students? <span style={{ fontStyle: "normal", fontWeight: 600 }}>All</span> students need this.”
+      </p>
+      <p style={{ marginTop: 28, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 32, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
+        We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
+      </p>
     </div>
   </section>
 );

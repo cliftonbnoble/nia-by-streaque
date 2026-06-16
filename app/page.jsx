@@ -4,10 +4,11 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
 import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
-import { LogoStrip, LeadForm, CookieBanner } from "@/components/home/GapSections";
+import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
+import RoiCalculator from "@/components/RoiCalculator";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -41,10 +42,22 @@ const Hero = () => (
               Investors → request the brief
             </Link>
           </div>
+          {/* live pilot lockup — Northeastern University, Bay Area campus */}
+          <div style={{ marginTop: 26 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.72)", whiteSpace: "nowrap" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--success)", boxShadow: "0 0 0 3px rgba(13,138,90,0.25)" }}/>
+                Live pilot
+              </span>
+              <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.18)" }}/>
+              <img src="/northeastern-wordmark-white.png" alt="Northeastern University" style={{ height: 13, width: "auto", display: "block" }}/>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)", whiteSpace: "nowrap" }}>Bay Area campus</span>
+            </span>
+          </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">1</span><span className="lbl">R1 university pilot, live</span></div>
-            <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
+            <div className="mf-hero-meta-divider"/>
+            <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
@@ -294,21 +307,27 @@ const TechPrivacy = () => {
   );
 };
 
-const CTA = () => (
-  <section style={{ background: "var(--primary)", color: "white", padding: "96px 0", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 70%)" }}/>
-    <div style={{ position: "absolute", width: 600, height: 600, right: -200, top: -200, background: "radial-gradient(circle, rgba(217,119,87,0.15), transparent 60%)", borderRadius: "50%" }}/>
-    <div className="mf-container" style={{ position: "relative", textAlign: "center" }}>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>Find your fit</span>
-      <h2 style={{ color: "white", margin: "20px 0 18px", fontSize: 56, lineHeight: 1.05 }}>
-        Pilot with us. <em style={{ fontStyle: "normal", color: "rgba(255,255,255,0.6)" }}>Or invest with us.</em>
+/* Closing CTA — the single conversion point on the home page. The full lead
+   form was removed (it duplicated /contact); everything routes to that one form. */
+const ClosingCTA = () => (
+  <section style={{ background: "linear-gradient(160deg, #161a5e 0%, #25278a 52%, #3a37ad 100%)", color: "white", padding: "96px 0", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 72%)" }}/>
+    <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
+    <div className="mf-container" style={{ position: "relative", textAlign: "center", maxWidth: 720 }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>See it on your campus</span>
+      <h2 style={{ color: "white", margin: "20px 0 0", fontSize: 48, lineHeight: 1.08 }}>
+        Ready to see students <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>whole?</span>
       </h2>
-      <p style={{ color: "rgba(255,255,255,0.8)", maxWidth: 540, margin: "0 auto 32px", fontSize: 17 }}>
-        Customized workflows. Shared roadmap. Preferred pricing. Dedicated support.
+      <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 560, margin: "18px auto 0", fontSize: 17, lineHeight: 1.6 }}>
+        Book a pilot demo — 20 minutes, your early-alert queue, no slides. Real answers from the people who built it.
       </p>
-      <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--primary)", fontWeight: 500, fontSize: 15 }}>Start a pilot <ArrowRight/></Link>
-        <a href="mailto:info@streaque.com?subject=Investor%20brief" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>Investor brief</a>
+      <div style={{ marginTop: 32, display: "flex", gap: 22, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
+        <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8 }}>
+          Book a pilot demo <ArrowRight/>
+        </Link>
+        <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
+          Investors → request the brief
+        </Link>
       </div>
     </div>
   </section>
@@ -326,11 +345,10 @@ export default function Home() {
       <Features/>
       <MidCTA/>
       <SecCoaches/>
-      {/* Proof — real pilot strip + the illustrative quote */}
-      <LogoStrip/>
+      <RoiCalculator/>
       <SecProof/>
       <TechPrivacy/>
-      <LeadForm/>
+      <ClosingCTA/>
       <Footer/>
       <CookieBanner/>
     </div>

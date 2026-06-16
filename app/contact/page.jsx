@@ -281,6 +281,42 @@ const FAQ = () => {
   );
 };
 
+/* ── The team — moved here from the former /about page ── */
+const TEAM = [
+  { name: "Luke", role: "CEO", img: "/team/luke.jpg" },
+  { name: "Clifton", role: "CTO", img: "/team/clifton.jpg" },
+  { name: "Amit", role: "AI Lead", img: "/team/amit.jpg" },
+  { name: "Bhavadeep", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
+  { name: "Sunil", role: "Engineering", img: "/team/sunil.jpg" },
+  { name: "Pundlik", role: "DBA", img: "/team/pundlik.jpg" },
+];
+
+const Team = () => (
+  <section className="mf-section" id="team">
+    <div className="mf-container">
+      <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
+        <span className="mf-eyebrow">The team</span>
+        <h2 style={{ marginTop: 14 }}>Built by people who&apos;ve sat on <span className="mf-grad-text">both sides of the desk.</span></h2>
+        <p style={{ marginTop: 14 }}>
+          Higher-ed veterans, ML engineers, and student advocates — registrars, advisors, and the
+          students they serve — building the AI layer institutions actually own.
+        </p>
+      </div>
+      <div className="mf-team-grid" style={{ marginTop: 40 }}>
+        {TEAM.map((m) => (
+          <div key={m.name} className="mf-team-card">
+            <img src={m.img} alt={`${m.name}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
+            <div className="mf-team-overlay">
+              <div className="mf-team-name">{m.name}</div>
+              <div className="mf-team-role">{m.role}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 export default function Contact() {
   return (
     <div className="mf">
@@ -290,6 +326,7 @@ export default function Contact() {
       <Paths/>
       <ContactForm/>
       <FAQ/>
+      <Team/>
       <Footer/>
     </div>
   );

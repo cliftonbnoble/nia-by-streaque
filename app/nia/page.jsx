@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import NpStyles from "./styles";
 import NiaHero from "./Hero";
 import Moats from "./Moats";
-import RoiCalculator from "./RoiCalculator";
+import RoiCalculator from "@/components/RoiCalculator";
 import Qa from "./Qa";
 import { SecCTA } from "@/components/home/CampaignSections";
 
