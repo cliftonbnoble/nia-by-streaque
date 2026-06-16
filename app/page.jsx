@@ -44,12 +44,7 @@ const Hero = () => (
           </div>
           {/* live pilot lockup — Northeastern University, Bay Area campus */}
           <div style={{ marginTop: 26 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.72)", whiteSpace: "nowrap" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--success)", boxShadow: "0 0 0 3px rgba(13,138,90,0.25)" }}/>
-                Live pilot
-              </span>
-              <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.18)" }}/>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
               <img src="/northeastern-wordmark-white.png" alt="Northeastern University" style={{ height: 13, width: "auto", display: "block" }}/>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)", whiteSpace: "nowrap" }}>Bay Area campus</span>
             </span>
