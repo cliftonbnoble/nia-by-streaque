@@ -11,7 +11,6 @@ const ROUTES = [
   { path: "/how-nia-works", priority: 0.8, changeFrequency: "monthly" },
   { path: "/nia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/about", priority: 0.6, changeFrequency: "monthly" },
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
   { path: "/accessibility", priority: 0.3, changeFrequency: "yearly" },

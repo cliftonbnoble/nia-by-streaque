@@ -23,7 +23,6 @@ export default function Nav({ active = "home" }) {
         </Link>
         <div className="mf-nav-links">
           <Link className={cls("home")} href="/">Home</Link>
-          <Link className={cls("about")} href="/about">About</Link>
           <Link className={cls("how")} href="/how-nia-works">How Nia Works</Link>
           <Link className={cls("nia")} href="/nia">Nia</Link>
           <Link className={cls("security")} href="/security">Security</Link>
@@ -54,7 +53,6 @@ export default function Nav({ active = "home" }) {
         <div className="mf-nav-mobile">
           {[
             { href: "/", t: "Home", k: "home" },
-            { href: "/about", t: "About", k: "about" },
             { href: "/how-nia-works", t: "How Nia Works", k: "how" },
             { href: "/nia", t: "Nia", k: "nia" },
             { href: "/security", t: "Security", k: "security" },
