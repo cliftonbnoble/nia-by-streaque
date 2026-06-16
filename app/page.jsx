@@ -294,26 +294,6 @@ const TechPrivacy = () => {
   );
 };
 
-const CTA = () => (
-  <section style={{ background: "var(--primary)", color: "white", padding: "96px 0", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 70%)" }}/>
-    <div style={{ position: "absolute", width: 600, height: 600, right: -200, top: -200, background: "radial-gradient(circle, rgba(217,119,87,0.15), transparent 60%)", borderRadius: "50%" }}/>
-    <div className="mf-container" style={{ position: "relative", textAlign: "center" }}>
-      <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>Find your fit</span>
-      <h2 style={{ color: "white", margin: "20px 0 18px", fontSize: 56, lineHeight: 1.05 }}>
-        Pilot with us. <em style={{ fontStyle: "normal", color: "rgba(255,255,255,0.6)" }}>Or invest with us.</em>
-      </h2>
-      <p style={{ color: "rgba(255,255,255,0.8)", maxWidth: 540, margin: "0 auto 32px", fontSize: 17 }}>
-        Customized workflows. Shared roadmap. Preferred pricing. Dedicated support.
-      </p>
-      <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--primary)", fontWeight: 500, fontSize: 15 }}>Start a pilot <ArrowRight/></Link>
-        <a href="mailto:info@streaque.com?subject=Investor%20brief" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>Investor brief</a>
-      </div>
-    </div>
-  </section>
-);
-
 export default function Home() {
   return (
     <div className="mf">
