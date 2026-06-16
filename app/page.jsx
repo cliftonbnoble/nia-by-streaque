@@ -8,6 +8,7 @@ import { LogoStrip, LeadForm, CookieBanner } from "@/components/home/GapSections
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
+import RoiCalculator from "@/components/RoiCalculator";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -306,6 +307,7 @@ export default function Home() {
       <Features/>
       <MidCTA/>
       <SecCoaches/>
+      <RoiCalculator/>
       {/* Proof — real pilot strip + the illustrative quote */}
       <LogoStrip/>
       <SecProof/>
