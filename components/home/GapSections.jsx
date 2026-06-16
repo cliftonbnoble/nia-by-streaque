@@ -6,6 +6,7 @@
    were removed in the dead-code cleanup. */
 import { useState, useEffect } from "react";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
+import { CONSENT_KEY } from "@/lib/consent";
 
 /* ── 1. Pilot spotlight ───────────────────────────────────────── */
 export const LogoStrip = () => (
@@ -201,23 +202,23 @@ export const LeadForm = () => {
 /* ── 7. Cookie consent banner ─────────────────────────────────── */
 export const CookieBanner = () => {
   // Render nothing until mounted so server and first client render match,
-  // then reveal only if the visitor hasn't already made a choice.
-  // The stored value ("accepted" | "rejected") is what any future analytics
-  // integration must check before setting non-essential cookies.
+  // then reveal only if the visitor hasn't already made a choice. The stored
+  // value ("accepted" | "rejected") is read via analyticsAllowed() in
+  // lib/consent.js — the gate any future analytics must check.
   const [show, setShow] = useState(false);
   useEffect(() => {
-    try { if (!localStorage.getItem("mf-cookie-consent")) setShow(true); } catch { setShow(true); }
+    try { if (!localStorage.getItem(CONSENT_KEY)) setShow(true); } catch { setShow(true); }
   }, []);
   if (!show) return null;
   const choose = (choice) => {
-    try { localStorage.setItem("mf-cookie-consent", choice); } catch {}
+    try { localStorage.setItem(CONSENT_KEY, choice); } catch {}
     setShow(false);
   };
   return (
     <div style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
       <div style={{ flex: 1, minWidth: 220, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
-        We use a small set of cookies to make this site work and to understand traffic. No tracking pixels, no ad networks.{" "}
-        <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Cookie preferences</a>
+        We use only the essential cookies needed to run this site and remember this choice — no tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
+        <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Privacy &amp; cookies</a>
       </div>
       <div style={{ display: "flex", gap: 8 }}>
         <button onClick={() => choose("rejected")} className="mf-btn mf-btn-ghost mf-btn-sm">Reject</button>

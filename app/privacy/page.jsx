@@ -65,7 +65,8 @@ const SECTIONS = [
   {
     h: "Cookies and analytics",
     body: [
-      "Our website uses a small set of cookies and similar technologies to operate the site and understand aggregate usage. You can control cookies through your browser settings. We aim to minimize tracking and avoid non-essential advertising trackers.",
+      "Our website uses a small set of essential cookies to operate the site and remember the choice you make in our cookie banner. We do not currently run third-party analytics or advertising trackers.",
+      "If we introduce analytics in the future, we will use a privacy-friendly tool, gate it behind your cookie-banner choice, and update this policy to describe it. You can also control cookies through your browser settings.",
     ],
   },
   {
