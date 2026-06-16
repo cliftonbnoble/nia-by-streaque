@@ -520,11 +520,38 @@ export default function FrontDoorsShowcase() {
     setRun((r) => r + 1);
   };
 
+  // Lock the list's settled height as a min-height floor (measured at runtime,
+  // so it's correct at any width). One door is always expanded, so the resting
+  // height is constant; the floor stops the brief shrink-dip mid-transition
+  // from moving anything below the section — it becomes invisible faded slack
+  // at the list's bottom instead of a page jiggle.
+  // IMPORTANT: measure only after the web fonts have loaded and the first door
+  // has settled. Measuring synchronously on mount reads the fallback font (which
+  // wraps the text taller) and would lock too much height.
+  const listRef = useRef(null);
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+    let raf = 0;
+    const measure = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        el.style.minHeight = "0px";
+        el.style.minHeight = `${el.offsetHeight}px`;
+      });
+    };
+    const ready = document.fonts && document.fonts.ready;
+    if (ready) ready.then(() => setTimeout(measure, 60));
+    else setTimeout(measure, 450);
+    window.addEventListener("resize", measure);
+    return () => { window.removeEventListener("resize", measure); cancelAnimationFrame(raf); };
+  }, []);
+
   const Screen = SCREENS[active];
 
   return (
     <div className="fdw-grid">
-      <div className="fdw-list" onMouseLeave={leaveList}>
+      <div className="fdw-list" ref={listRef} onMouseLeave={leaveList}>
         {ITEMS.map((it, i) => (
           <button
             key={it.t}
@@ -577,17 +604,23 @@ export default function FrontDoorsShowcase() {
           display: grid;
           grid-template-columns: 0.42fr 0.58fr;
           gap: 44px;
-          align-items: center;
+          /* top-anchor both columns: the MacBook's vertical position must NOT
+             depend on the list's height, so the list can grow/shrink as a door
+             expands without ever re-centering (and bouncing) the laptop. */
+          align-items: start;
         }
         .fdw-grid > *{ min-width: 0; }
+        /* hold the laptop optically centered against the list's resting height
+           without coupling its position to live height changes */
+        .fdw-stage{ padding-top: 8px; }
         /* ── the accordion list — holds still; the active door highlights in
               place. The top and bottom edges keep a constant soft fade so the
               stack reads as a contained list that dissolves at both ends. ── */
         .fdw-list{
           display: grid; gap: 12px;
-          padding: 20px 2px;
-          -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 26px, #000 calc(100% - 26px), transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0, #000 26px, #000 calc(100% - 26px), transparent 100%);
+          padding: 26px 2px;
+          -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 44px, #000 calc(100% - 44px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 44px, #000 calc(100% - 44px), transparent 100%);
         }
         .fdw-item{
           position: relative; overflow: hidden;
