@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
 import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
-import { LogoStrip, CookieBanner } from "@/components/home/GapSections";
+import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
@@ -42,10 +42,22 @@ const Hero = () => (
               Investors → request the brief
             </Link>
           </div>
+          {/* live pilot lockup — Northeastern University, Bay Area campus */}
+          <div style={{ marginTop: 26 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.72)", whiteSpace: "nowrap" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--success)", boxShadow: "0 0 0 3px rgba(13,138,90,0.25)" }}/>
+                Live pilot
+              </span>
+              <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.18)" }}/>
+              <img src="/northeastern-wordmark-white.png" alt="Northeastern University" style={{ height: 13, width: "auto", display: "block" }}/>
+              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)", whiteSpace: "nowrap" }}>Bay Area campus</span>
+            </span>
+          </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">1</span><span className="lbl">R1 university pilot, live</span></div>
-            <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
+            <div className="mf-hero-meta-divider"/>
+            <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
@@ -334,7 +346,6 @@ export default function Home() {
       <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>
-      <LogoStrip/>      {/* pilot strip — pending Northeastern naming decision */}
       <SecProof/>
       <TechPrivacy/>
       <ClosingCTA/>
