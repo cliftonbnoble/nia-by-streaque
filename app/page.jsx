@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
 import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
-import { LogoStrip, LeadForm, CookieBanner } from "@/components/home/GapSections";
+import { LogoStrip, CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
@@ -295,6 +295,32 @@ const TechPrivacy = () => {
   );
 };
 
+/* Closing CTA — the single conversion point on the home page. The full lead
+   form was removed (it duplicated /contact); everything routes to that one form. */
+const ClosingCTA = () => (
+  <section style={{ background: "linear-gradient(160deg, #161a5e 0%, #25278a 52%, #3a37ad 100%)", color: "white", padding: "96px 0", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 72%)" }}/>
+    <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
+    <div className="mf-container" style={{ position: "relative", textAlign: "center", maxWidth: 720 }}>
+      <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>See it on your campus</span>
+      <h2 style={{ color: "white", margin: "20px 0 0", fontSize: 48, lineHeight: 1.08 }}>
+        Ready to see students <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>whole?</span>
+      </h2>
+      <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 560, margin: "18px auto 0", fontSize: 17, lineHeight: 1.6 }}>
+        Book a pilot demo — 20 minutes, your early-alert queue, no slides. Real answers from the people who built it.
+      </p>
+      <div style={{ marginTop: 32, display: "flex", gap: 22, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
+        <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8 }}>
+          Book a pilot demo <ArrowRight/>
+        </Link>
+        <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
+          Investors → request the brief
+        </Link>
+      </div>
+    </div>
+  </section>
+);
+
 export default function Home() {
   return (
     <div className="mf">
@@ -308,11 +334,10 @@ export default function Home() {
       <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>
-      {/* Proof — real pilot strip + the illustrative quote */}
-      <LogoStrip/>
+      <LogoStrip/>      {/* pilot strip — pending Northeastern naming decision */}
       <SecProof/>
       <TechPrivacy/>
-      <LeadForm/>
+      <ClosingCTA/>
       <Footer/>
       <CookieBanner/>
     </div>

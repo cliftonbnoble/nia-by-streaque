@@ -205,43 +205,22 @@ export const SecAdvisors = () => {
 };
 
 // =====================================================================
-// 5 · THE PROOF (placeholder quote — swap before publishing)
+// 5 · WHY WE BUILT IT — the real grad-cohort origin story
 // =====================================================================
 export const SecProof = () => (
   <section className="mf-section" style={{ background: "var(--bg-alt)" }}>
-    <div className="mf-container">
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 48, alignItems: "start" }}>
-        <figure style={{ margin: 0, position: "relative", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "34px 36px" }}>
-          <span className="mf-eyebrow" style={{ display: "block", marginBottom: 18 }}>Illustrative</span>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: 60, lineHeight: 0.6, color: "var(--line-2)" }}>“</span>
-          <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 34, lineHeight: 1.2, letterSpacing: "-0.022em", color: "var(--ink)", margin: "6px 0 0" }}>
-            It's like having an advisor who's already read my file.
-          </blockquote>
-          <figcaption style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 40, height: 40, borderRadius: "50%", background: "var(--primary-50)", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--ink-3)" }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 9h.01M15 9h.01M9 13h.01M15 13h.01M10 21v-4h4v4"/></svg>
-            </span>
-            <span style={{ fontSize: 13, color: "var(--ink-3)" }}>
-              <span style={{ display: "block", fontWeight: 600, color: "var(--ink-2)" }}>The experience Nia is built to deliver</span>
-              <span>Representative example, not a specific student</span>
-            </span>
-          </figcaption>
-        </figure>
-
-        <div>
-          <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)" }}>
-            We built Nia for the students least likely to ask for help. Then a cohort of graduate students studying student success tested it, and pushed back, nearly in unison:
-          </p>
-          <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.6, color: "var(--ink)", fontStyle: "italic" }}>
-            “Why are you building this only for marginalized students? <span style={{ fontStyle: "normal", fontWeight: 600 }}>All</span> students need this.”
-          </p>
-          <div style={{ marginTop: 24, paddingTop: 22, borderTop: "1px solid var(--line)" }}>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 21, lineHeight: 1.3, letterSpacing: "-0.02em", color: "var(--ink)" }}>
-              We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="mf-container" style={{ maxWidth: 820, textAlign: "center" }}>
+      <span className="mf-eyebrow">Why we built it</span>
+      <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
+        We built Nia for the students least likely to ask for help. Then a cohort of graduate students
+        studying student success tested it, and pushed back, nearly in unison:
+      </p>
+      <p style={{ marginTop: 16, fontSize: 18, lineHeight: 1.6, color: "var(--ink)", fontStyle: "italic" }}>
+        “Why are you building this only for marginalized students? <span style={{ fontStyle: "normal", fontWeight: 600 }}>All</span> students need this.”
+      </p>
+      <p style={{ marginTop: 28, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 32, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
+        We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
+      </p>
     </div>
   </section>
 );
