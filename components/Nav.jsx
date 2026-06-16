@@ -3,24 +3,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "./icons";
 
-const DropItem = ({ href, t, d, active }) => (
-  <Link
-    href={href}
-    style={{ display: "block", padding: "12px 14px", borderRadius: "var(--radius)", textDecoration: "none", background: active ? "var(--bg-alt)" : "transparent", transition: "background 100ms" }}
-    onMouseEnter={(e) => (e.currentTarget.style.background = "var(--bg-alt)")}
-    onMouseLeave={(e) => (e.currentTarget.style.background = active ? "var(--bg-alt)" : "transparent")}
-  >
-    <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 14, color: "var(--ink)" }}>{t}</div>
-    <div style={{ fontSize: 12, color: "var(--ink-3)", marginTop: 2 }}>{d}</div>
-  </Link>
-);
-
 export default function Nav({ active = "home" }) {
-  const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [condensed, setCondensed] = useState(false);
   const cls = (k) => (active === k ? "active" : undefined);
-  const productActive = active === "how" || active === "nia";
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 64);
@@ -38,32 +24,8 @@ export default function Nav({ active = "home" }) {
         <div className="mf-nav-links">
           <Link className={cls("home")} href="/">Home</Link>
           <Link className={cls("about")} href="/about">About</Link>
-
-          <span
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-            onFocus={() => setOpen(true)}
-            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false); }}
-            style={{ position: "relative", cursor: "pointer" }}
-          >
-            <Link
-              href="/how-nia-works"
-              className={productActive ? "active" : undefined}
-              style={{ display: "inline-flex", alignItems: "center", gap: 4 }}
-            >
-              How Nia Works
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="m6 9 6 6 6-6"/></svg>
-            </Link>
-            {open && (
-              <div style={{ position: "absolute", top: "100%", left: -16, paddingTop: 12, zIndex: 30 }}>
-                <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 8, minWidth: 280 }}>
-                  <DropItem href="/how-nia-works" t="Product Overview" d="The two platforms, the connection, the loop" active={active === "how"}/>
-                  <DropItem href="/nia" t="Nia" d="An ongoing relationship, not a 1-minute chat" active={active === "nia"}/>
-                </div>
-              </div>
-            )}
-          </span>
-
+          <Link className={cls("how")} href="/how-nia-works">How Nia Works</Link>
+          <Link className={cls("nia")} href="/nia">Nia</Link>
           <Link className={cls("security")} href="/security">Security</Link>
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
@@ -94,8 +56,8 @@ export default function Nav({ active = "home" }) {
             { href: "/", t: "Home", k: "home" },
             { href: "/about", t: "About", k: "about" },
             { href: "/how-nia-works", t: "How Nia Works", k: "how" },
-            { href: "/security", t: "Security", k: "security" },
             { href: "/nia", t: "Nia", k: "nia" },
+            { href: "/security", t: "Security", k: "security" },
             { href: "/contact", t: "Contact", k: "contact" },
           ].map((l) => (
             <Link key={l.href} href={l.href} className={active === l.k ? "active" : undefined} onClick={() => setMobileOpen(false)}>
