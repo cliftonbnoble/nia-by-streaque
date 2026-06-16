@@ -1,15 +1,12 @@
 import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 /* self-hosted variable fonts: one file per family covers every weight,
    no render-blocking request to Google */
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbmono", display: "swap" });
-
-// NOTE: confirm the production domain — used to resolve OG/Twitter image URLs
-// to absolute paths. Update if the site ships on a different host.
-const SITE_URL = "https://streaque.com";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,10 +40,33 @@ export const viewport = {
   themeColor: "#ffffff",
 };
 
+/* Organization JSON-LD — helps search engines + LinkedIn/X render the brand
+   (name, logo, profiles) for the site as a whole. */
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Streaque",
+  alternateName: "Nia by Streaque",
+  url: SITE_URL,
+  logo: `${SITE_URL}/nia-opt-web-logo.png`,
+  description:
+    "Institution-governed AI that turns LMS, SIS, and CRM signals into warm, evidence-based coaching for every student.",
+  sameAs: [
+    "https://www.linkedin.com/company/streaque/",
+    "https://www.youtube.com/@NiabyStreaque",
+  ],
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
