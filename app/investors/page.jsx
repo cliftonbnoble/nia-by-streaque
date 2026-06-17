@@ -86,8 +86,57 @@ export default function InvestorsPage() {
         </div>
       </section>
 
-      {/* traction */}
+      {/* the problem, in their words — real discovery-interview quotes,
+          attributed with the interviewees' consent (per the user). These prove
+          the problem + the need for institution-integrated AI; they are NOT
+          product testimonials (no one here used Nia). */}
       <section className="mf-section alt">
+        <div className="mf-container">
+          <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 760 }}>
+            <span className="mf-eyebrow">The problem, in their words</span>
+            <h2 style={{ marginTop: 14 }}>We heard it firsthand.</h2>
+            <p>From our discovery interviews — real students at Northeastern, NYU, and CUNY describing the navigational friction Nia is built to remove.</p>
+          </div>
+          <div className="inv-quotes">
+            {[
+              { q: "They told me 4 to 6 weeks. I filed in late December and got the reply May 15th — about five months. I had to have a friend hold my classes for me.", who: "Ryan Wang", ctx: "Northeastern University" },
+              { q: "I'd give it a solid 8 — which means I actually spend more time thinking about the logistics than actually learning at school.", who: "Crystal Tran", ctx: "NYU Stern" },
+              { q: "I feel like they just give you different places to go around in school and never get to the point.", who: "Alison", ctx: "CUNY · BMCC → John Jay" },
+              { q: "The class wasn't offered at the Oakland campus, so I had to talk to three people to fight for it to get added. It took weeks.", who: "Ashsmith Khayrul", ctx: "Northeastern University · Oakland (Bay Area)" },
+            ].map((x) => (
+              <figure key={x.who} className="inv-quote">
+                <blockquote>&ldquo;{x.q}&rdquo;</blockquote>
+                <figcaption><strong>{x.who}</strong><span>{x.ctx}</span></figcaption>
+              </figure>
+            ))}
+          </div>
+
+          {/* moat capstone — the ChatGPT-fails-on-institutional-tasks quote */}
+          <figure className="inv-moatquote">
+            <span className="mf-eyebrow" style={{ color: "var(--brand-blue)" }}>Why generic AI can&apos;t do this</span>
+            <blockquote>&ldquo;I emailed the contact ChatGPT gave me, and she said she&apos;s not in charge of this and I should go talk to my academic advisor. I realized only the financial aid office could fix the error.&rdquo;</blockquote>
+            <figcaption><strong>Crystal Tran</strong> · NYU Stern</figcaption>
+            <p>Generic chatbots don&apos;t sit inside an institution&apos;s systems, so they send students in circles. Closing that loop — governed, institution-integrated — is exactly Nia&apos;s wedge.</p>
+          </figure>
+        </div>
+        <style>{`
+          .inv-quotes{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 36px; }
+          .inv-quote{ margin: 0; background: white; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px 26px; box-shadow: var(--shadow-sm); }
+          .inv-quote blockquote{ margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.45; letter-spacing: -0.015em; color: var(--ink); }
+          .inv-quote figcaption{ margin-top: 16px; display: flex; flex-direction: column; }
+          .inv-quote figcaption strong{ font-size: 13.5px; color: var(--ink-2); }
+          .inv-quote figcaption span{ font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
+          .inv-moatquote{ margin: 18px 0 0; background: white; border: 1px solid rgba(61,78,216,0.22); border-left: 3px solid var(--brand-blue); border-radius: var(--radius-lg); padding: 26px 28px; box-shadow: 0 18px 40px -28px rgba(31,52,128,0.22); }
+          .inv-moatquote blockquote{ margin: 12px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.35; letter-spacing: -0.02em; color: var(--ink); max-width: 820px; }
+          .inv-moatquote figcaption{ margin-top: 14px; font-size: 13.5px; color: var(--ink-2); }
+          .inv-moatquote figcaption strong{ color: var(--ink); }
+          .inv-moatquote p{ margin: 14px 0 0; font-size: 14px; line-height: 1.6; color: var(--ink-3); max-width: 760px; }
+          @media (max-width: 760px){ .inv-quotes{ grid-template-columns: 1fr; } }
+        `}</style>
+      </section>
+
+      {/* traction */}
+      <section className="mf-section">
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Traction</span>
@@ -107,7 +156,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* market / why now */}
-      <section className="mf-section">
+      <section className="mf-section alt">
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Market · why now</span>
@@ -127,7 +176,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* why we win */}
-      <section className="mf-section alt">
+      <section className="mf-section">
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Why we win</span>
