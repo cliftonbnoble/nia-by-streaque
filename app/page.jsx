@@ -38,8 +38,8 @@ const Hero = () => (
                 <ArrowRight/>
               </span>
             </Link>
-            <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
-              Investors → request the brief
+            <Link href="/investors" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
+              For investors →
             </Link>
           </div>
           {/* live pilot lockup — Northeastern University, Bay Area campus */}
@@ -320,8 +320,8 @@ const ClosingCTA = () => (
         <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8 }}>
           Book a pilot demo <ArrowRight/>
         </Link>
-        <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
-          Investors → request the brief
+        <Link href="/investors" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
+          For investors →
         </Link>
       </div>
     </div>
