@@ -6,10 +6,7 @@
    sidebar + content, app indigo, our drawn chrome. */
 import { useEffect, useRef, useState } from "react";
 
-// Just the two front doors — the four differentiators (nudging, evidence-based,
-// gets-smarter, multi-agent) live once on the home page, in the "Built different"
-// cards below, instead of being repeated here. (Audit III, FIX 1.)
-const DUR = [12500, 11000];
+const DUR = [12500, 11000, 10500, 13000, 9000, 11500];
 
 const ITEMS = [
   {
@@ -19,6 +16,22 @@ const ITEMS = [
   {
     t: "A co-pilot at the desk",
     s: "An early-alert queue, live cohort signals, and outreach drafted in your advisor's voice.",
+  },
+  {
+    t: "Proactive nudging",
+    s: "Turns LMS, SIS, and CRM signals into timely, evidence-based nudges, not noise.",
+  },
+  {
+    t: "Evidence-based coaching",
+    s: "Motivational, scaffolded conversations grounded in growth-mindset and self-determination research.",
+  },
+  {
+    t: "Gets smarter over time",
+    s: "Every document, signal, and outcome deepens the context Nia coaches from.",
+  },
+  {
+    t: "Multi-agent orchestration",
+    s: "Academic, career, and finance agents hand off mid-conversation. The student never sees the seam.",
   },
 ];
 
@@ -465,10 +478,7 @@ const MultiScreen = () => (
   </div>
 );
 
-// Only the two front-door screens are shown now (see ITEMS). The Nudge/Evidence/
-// Smart/Multi screens stay defined but unmounted — those ideas live in the
-// "Built different" cards below, not repeated here.
-const SCREENS = [StudentScreen, StaffScreen];
+const SCREENS = [StudentScreen, StaffScreen, NudgeScreen, EvidenceScreen, SmartScreen, MultiScreen];
 
 export default function FrontDoorsShowcase() {
   const [active, setActive] = useState(0);
