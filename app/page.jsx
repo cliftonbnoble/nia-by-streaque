@@ -3,7 +3,7 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
-import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
+import { SecProblem, SecArchitecture, SecAdvisors, SecCoaches, SecProof } from "@/components/home/CampaignSections";
 import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
@@ -338,6 +338,7 @@ export default function Home() {
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
+      <SecAdvisors/>      {/* the advisor moment — "they want their time back" */}
       <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>
