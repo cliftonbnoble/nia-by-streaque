@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import NpStyles from "./styles";
 import NiaHero from "./Hero";
 import Moats from "./Moats";
-import RoiCalculator from "@/components/RoiCalculator";
 import Qa from "./Qa";
 import { SecCTA } from "@/components/home/CampaignSections";
 
@@ -22,7 +21,6 @@ export default function NiaPage() {
       <NpStyles/>
       <NiaHero/>
       <Moats/>
-      <RoiCalculator/>
       <Qa/>
       <SecCTA/>
       <Footer/>
