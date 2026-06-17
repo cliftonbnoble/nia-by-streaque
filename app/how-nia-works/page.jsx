@@ -11,7 +11,7 @@ import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 export const metadata = {
   title: "How Nia Works · Nia by Streaque",
   description:
-    "Two coordinated platforms, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
+    "Two coordinated front doors — a student coach and a staff co-pilot — turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
 };
 
 const Hero = () => (
@@ -21,12 +21,12 @@ const Hero = () => (
       <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto" }}>
         <span className="mf-eyebrow">How Nia Works</span>
         <h1 style={{ marginTop: 18, fontSize: 60 }}>
-          Two platforms,<br/>
+          Two front doors,<br/>
           <span className="mf-grad-text">one mission:</span> transform student success.
         </h1>
         <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated platforms transforming student data into nudges, alerts, and next steps,
-          on one governance layer your institution owns.
+          Two coordinated front doors turning student data into nudges, alerts, and next steps —
+          on one governed layer your institution owns.
         </p>
       </div>
 
@@ -445,7 +445,7 @@ const ForStaff = () => (
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Staff</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>Powered by the same AI, the staff platform turns every student interaction into actionable intelligence: identify at-risk students early, recognize high performers, and intervene with precision.</p>
+        <p>Powered by the same AI, the staff co-pilot turns every student interaction into actionable intelligence: identify at-risk students early, recognize high performers, and intervene with precision.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (

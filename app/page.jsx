@@ -3,7 +3,7 @@ import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
-import { SecProblem, SecArchitecture, SecCoaches, SecProof } from "@/components/home/CampaignSections";
+import { SecProblem, SecArchitecture, SecAdvisors, SecCoaches, SecProof } from "@/components/home/CampaignSections";
 import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
@@ -38,18 +38,13 @@ const Hero = () => (
                 <ArrowRight/>
               </span>
             </Link>
-            <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
-              Investors → request the brief
+            <Link href="/investors" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
+              For investors →
             </Link>
           </div>
           {/* live pilot lockup — Northeastern University, Bay Area campus */}
           <div style={{ marginTop: 26 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 12, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: 7, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.72)", whiteSpace: "nowrap" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--success)", boxShadow: "0 0 0 3px rgba(13,138,90,0.25)" }}/>
-                Live pilot
-              </span>
-              <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.18)" }}/>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
               <img src="/northeastern-wordmark-white.png" alt="Northeastern University" style={{ height: 13, width: "auto", display: "block" }}/>
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)", whiteSpace: "nowrap" }}>Bay Area campus</span>
             </span>
@@ -325,8 +320,8 @@ const ClosingCTA = () => (
         <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8 }}>
           Book a pilot demo <ArrowRight/>
         </Link>
-        <Link href="/contact#form-investor" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
-          Investors → request the brief
+        <Link href="/investors" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "rgba(255,255,255,0.78)", textDecoration: "none" }}>
+          For investors →
         </Link>
       </div>
     </div>
@@ -343,6 +338,7 @@ export default function Home() {
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
+      <SecAdvisors/>      {/* the advisor moment — "they want their time back" */}
       <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>

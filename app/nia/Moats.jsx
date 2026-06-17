@@ -317,7 +317,7 @@ export default function Moats() {
 
       <Moat
         n="05"
-        eyebrow="Near-zero hallucinations"
+        eyebrow="Governed, source-linked answers"
         title="Answers from your data,"
         grad="not a guess."
         body="Generic AI paraphrases and hopes. Nia translates the student's question into a real query against actual rows in your systems — so &ldquo;how much aid is left?&rdquo; returns a number that is mathematically true and source-linked, every time."
