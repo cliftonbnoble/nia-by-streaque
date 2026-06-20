@@ -202,7 +202,7 @@ export default function Architecture() {
             <div key={g.id} className="arch-card" style={{
               flex: "0 0 360px", scrollSnapAlign: "start", overflow: "hidden",
               background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.10)",
-              borderRadius: "var(--radius-lg)", backdropFilter: "blur(6px)",
+              borderRadius: "var(--radius-lg)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)",
               display: "flex", flexDirection: "column",
             }}>
               <div style={{ height: 196, background: "radial-gradient(58% 78% at 50% 46%, rgba(43,179,223,0.17), rgba(43,179,223,0.05) 52%, transparent 72%)", maskImage: "linear-gradient(180deg, black 62%, transparent 99%)", WebkitMaskImage: "linear-gradient(180deg, black 62%, transparent 99%)" }}>

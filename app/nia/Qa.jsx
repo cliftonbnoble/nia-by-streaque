@@ -11,7 +11,7 @@ const QA = [
   },
   {
     q: "How do you keep our institutional data safe?",
-    a: "Cross-tenant data movement is architecturally impossible. Nia runs in a per-tenant, isolated instance with FERPA-aligned handling and AES-256-GCM encryption at rest and in transit. Your data trains nothing beyond your walls, and your administrators control, field by field, exactly what Nia is allowed to ingest.",
+    a: "Cross-tenant data movement is blocked by design. Nia runs in a per-tenant, isolated instance with FERPA-aligned handling and AES-256-GCM encryption at rest and in transit. Your data trains nothing beyond your walls, and your administrators control, field by field, exactly what Nia is allowed to ingest.",
   },
   {
     q: "Isn't this just another ChatGPT wrapper?",

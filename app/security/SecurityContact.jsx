@@ -59,7 +59,7 @@ export default function SecurityContact() {
           <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "var(--radius-lg)", padding: 28 }}>
             {!sent ? (
               <form onSubmit={onSubmit} style={{ display: "grid", gap: 16 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+                <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
                   <div>
                     <label style={label}>Name</label>
                     <input required style={field} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>

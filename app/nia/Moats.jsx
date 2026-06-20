@@ -379,7 +379,7 @@ export default function Moats() {
         title="Your instance,"
         grad="your rules."
         body="Nia runs in a protected, per-tenant instance, never a shared brain. Administrators tune what Nia ingests and how it speaks, down to the field level, so it reflects your institution's templates, SOPs, voice, and values."
-        points={["Per-tenant isolation: cross-tenant movement is impossible", "Field-level control over what data Nia may use", "Tone calibrated to your brand, not a generic assistant"]}
+        points={["Per-tenant isolation: cross-tenant movement is blocked by design", "Field-level control over what data Nia may use", "Tone calibrated to your brand, not a generic assistant"]}
         alt
       >
         <GovernanceVisual/>

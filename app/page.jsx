@@ -51,15 +51,6 @@ const Hero = () => (
               <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>
             </span>
           </div>
-          {/* live pilot lockup — partner anonymized: a top-tier R1 university,
-              Bay Area campus. Name/logo withheld pending a signed naming agreement. */}
-          <div style={{ marginTop: 26 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 9, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
-              <span aria-hidden="true" style={{ width: 7, height: 7, borderRadius: "50%", background: "#3ddc97", boxShadow: "0 0 0 3px rgba(61,220,151,0.22)" }}/>
-              <span style={{ fontSize: 12.5, fontWeight: 600, color: "rgba(255,255,255,0.92)", whiteSpace: "nowrap" }}>Live university pilot</span>
-              <span style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", whiteSpace: "nowrap" }}>· top-tier R1</span>
-            </span>
-          </div>
           <div className="mf-hero-meta">
             <div className="mf-hero-meta-stat"><span className="num">16</span><span className="lbl">students in the pilot</span></div>
             <div className="mf-hero-meta-divider"/>
@@ -159,61 +150,6 @@ const TwoExperiences = () => (
   </section>
 );
 
-/* ── Proof beat — the buyer's "does it actually work?" answered honestly. Leads
-   with the engagement signal we have (a leading indicator), never an outcome we
-   can't defend yet. Quote slot is ready for a consented pilot quote. ── */
-const PilotProof = () => (
-  <section className="mf-section" style={{ paddingTop: 60, paddingBottom: 60, position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FFFFFF 0%, #F4F7FD 100%)" }}>
-    <div aria-hidden="true" style={{ position: "absolute", width: 760, height: 480, top: -200, right: -160, background: "radial-gradient(ellipse, rgba(102,128,255,0.10), transparent 60%)", pointerEvents: "none" }}/>
-    <div className="mf-container" style={{ position: "relative" }}>
-      <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 700 }}>
-        <span className="mf-eyebrow">From the pilot</span>
-        <h2 style={{ marginTop: 14 }}>Not a concept. A <span className="mf-grad-text">live pilot</span>, right now.</h2>
-        <p>Real students using Nia every week. Sustained engagement is the early signal; term-to-term retention results publish after this semester.</p>
-      </div>
-      <div className="pp-stats">
-        <div className="pp-stat">
-          <span className="pp-stat-glow" aria-hidden="true"/>
-          <span className="pp-n"><span className="mf-grad-text">16</span></span>
-          <span className="pp-l">students in the active pilot cohort</span>
-        </div>
-        <div className="pp-stat">
-          <span className="pp-stat-glow" aria-hidden="true"/>
-          <span className="pp-n"><span className="mf-grad-text">6–8</span><span className="pp-u"> wks</span></span>
-          <span className="pp-l">of sustained engagement, and counting</span>
-        </div>
-        <div className="pp-stat">
-          <span className="pp-stat-glow" aria-hidden="true"/>
-          <span className="pp-n">1<span className="pp-u"> · R1</span></span>
-          <span className="pp-l">top-tier research university, Bay Area</span>
-        </div>
-      </div>
-      {/* PILOT QUOTE SLOT — the highest-leverage proof you can add. Uncomment and
-          fill once you have a consented quote from a real pilot student or advisor:
-      <figure className="pp-quote">
-        <span className="pp-quote-mark" aria-hidden="true">&ldquo;</span>
-        <blockquote>It reached out before I even knew I was behind.</blockquote>
-        <figcaption>A first-gen sophomore in the pilot</figcaption>
-      </figure>
-      */}
-    </div>
-    <style>{`
-      .pp-stats{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 34px; max-width: 980px; }
-      .pp-stat{ position: relative; overflow: hidden; background: #FBFCFE; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px 26px; transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease; }
-      .pp-stat:hover{ transform: translateY(-3px); box-shadow: 0 22px 44px -22px rgba(15,23,42,0.16); border-color: #D8DEF0; }
-      .pp-stat-glow{ position: absolute; width: 240px; height: 240px; left: -70px; top: -150px; border-radius: 50%; background: radial-gradient(circle closest-side, rgba(43,179,223,0.13), transparent 100%); opacity: 0; transition: opacity 240ms ease; pointer-events: none; }
-      .pp-stat:hover .pp-stat-glow{ opacity: 1; }
-      .pp-n{ position: relative; display: block; font-family: var(--font-display); font-weight: 700; font-size: 38px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
-      .pp-u{ font-size: 18px; font-weight: 600; color: var(--ink-3); letter-spacing: -0.01em; }
-      .pp-l{ position: relative; display: block; margin-top: 12px; font-size: 13.5px; color: var(--ink-3); line-height: 1.5; }
-      .pp-quote{ position: relative; margin: 30px 0 0; max-width: 760px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 30px 34px 26px; box-shadow: 0 24px 50px -28px rgba(31,52,128,0.22); }
-      .pp-quote-mark{ position: absolute; top: -8px; left: 24px; font-family: var(--font-display); font-weight: 700; font-size: 80px; line-height: 1; background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; opacity: 0.16; }
-      .pp-quote blockquote{ position: relative; margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; line-height: 1.4; letter-spacing: -0.02em; color: var(--ink); }
-      .pp-quote figcaption{ margin-top: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
-      @media (max-width: 760px){ .pp-stats{ grid-template-columns: 1fr; } }
-    `}</style>
-  </section>
-);
 
 /* Feature demos moved to components/home/FeatureCards.jsx */
 
@@ -234,24 +170,6 @@ const Features = () => (
 );
 
 
-/* Slim mid-page CTA — one clear "book a pilot demo" between Features and the
-   five-coaches section, so a conversion point appears before the footer form. */
-const MidCTA = () => (
-  <section style={{ background: "linear-gradient(120deg, #1b2a6b 0%, var(--primary) 100%)", color: "white", padding: "56px 0", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", width: 480, height: 480, right: -160, top: -200, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
-    <div className="mf-container" style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
-      <div>
-        <h2 style={{ color: "white", fontSize: 30, lineHeight: 1.15, letterSpacing: "-0.02em", margin: 0 }}>
-          See it on <span style={{ color: "rgba(255,255,255,0.72)" }}>your</span> data.
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.82)", margin: "8px 0 0", fontSize: 15 }}>Twenty minutes, your early-alert queue, no slides.</p>
-      </div>
-      <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-        Book a pilot demo <ArrowRight/>
-      </Link>
-    </div>
-  </section>
-);
 
 /* ── Tech & Privacy — three illustrated cards in the contact-page
      language, each a quick highlight that pushes to /security ── */
@@ -454,13 +372,11 @@ export default function Home() {
       <Nav active="home"/>
       <main id="main">
       <Hero/>
-      {/* <PilotProof/> retired — pilot proof now lives in the hero meta. Re-add this line to bring the standalone section back. */}
       <SecProblem/>
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
       <SecAdvisors/>      {/* the advisor moment — "they want their time back" */}
-      <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>
       <TechPrivacy/>

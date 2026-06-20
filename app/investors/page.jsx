@@ -380,7 +380,7 @@ export default function InvestorsPage() {
           </div>
           <div className="iv-statgrid three">
             <Stat value={<><span className="mf-grad-text">$52B</span><span className="iv-stat-u"> est.</span></>} label="US higher-ed student-success and advising software: the market Nia sells into."/>
-            <Stat value={<span className="mf-grad-text">5,800+</span>} label="Title IV institutions in the US, from degree to certificate to online. Each one an enterprise buyer."/>
+            <Stat value={<span className="mf-grad-text">5,819</span>} label="Title IV institutions in the US, from degree to certificate to online. Each one an enterprise buyer."/>
             <Stat value={<><span className="mf-grad-text">$26B</span><span className="iv-stat-u"> est.</span></>} label="Tuition revenue lost to attrition each year, roughly early departures times one year of tuition: the budget Nia is built to protect."/>
           </div>
           <p style={{ marginTop: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.7, maxWidth: 760 }}>

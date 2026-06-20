@@ -186,7 +186,7 @@ function FerpaVisual() {
           })}
         </div>
       </div>
-      <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+      <div className="mf-stack-sm" style={{ marginTop: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
         {["No data trains AI models", "Email hashed per-tenant", "PII detected & classified", "Tenant-scoped lookups"].map((l, i) => (
           <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 12, color: "var(--ink-2)" }}>
             <Tick/> {l}
@@ -208,7 +208,7 @@ const PillarIcon = ({ kind, color, s = 20 }) => {
 };
 
 const PILLARS = [
-  { id: "encryption", n: "01", t: "Bank-grade encryption", sub: "AES-256-GCM · per-tenant keys · AAD binding",
+  { id: "encryption", n: "01", t: "Per-tenant encryption", sub: "AES-256-GCM · per-tenant keys · AAD binding",
     accent: "#2BB3DF", icon: "lock",
     headline: "Every university gets its own key.",
     body: [
@@ -286,7 +286,7 @@ export default function Pillars() {
                   background: isActive ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.03)",
                   border: "1px solid " + (isActive ? x.accent : "rgba(255,255,255,0.10)"),
                   boxShadow: isActive ? `0 0 0 1px ${x.accent}55, 0 22px 54px -18px ${x.accent}66` : "none",
-                  fontFamily: "var(--font-body)", backdropFilter: "blur(6px)",
+                  fontFamily: "var(--font-body)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)",
                 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
                   <span style={{ width: 40, height: 40, borderRadius: 11, background: `${x.accent}1f`, border: `1px solid ${x.accent}45`, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
