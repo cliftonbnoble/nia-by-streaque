@@ -128,7 +128,7 @@ const DOMAINS = [
   { id: "career", n: "Career", x: 82, y: 32, ex: 62, ey: 38 },
   { id: "finance", n: "Finance", x: 70, y: 70, ex: 58, ey: 53 },
   { id: "wellness", n: "Wellness", x: 30, y: 70, ex: 42, ey: 53 },
-  { id: "admin", n: "Records", x: 18, y: 32, ex: 38, ey: 38 },
+  { id: "admin", n: "Admin", x: 18, y: 32, ex: 38, ey: 38 },
 ];
 
 const MemoryVisual = () => (

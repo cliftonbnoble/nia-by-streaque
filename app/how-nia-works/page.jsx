@@ -100,7 +100,9 @@ const TwoPaths = () => (
       </div>
     </div>
     <style>{`
-      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; }
+      /* the MacBook base + device bleeds extend past the cards; clip horizontally
+         so they never trigger page-level horizontal scroll on tight desktop widths */
+      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; overflow-x: clip; }
       .hnw-paths{ display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 30px; align-items: center; max-width: 1080px; margin: 0 auto; }
       .hnw-dev{ display: block; text-decoration: none; transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1); }
       .hnw-dev:hover{ transform: translateY(-7px); }
@@ -630,7 +632,7 @@ const Outcome = () => (
         Most tools only report what already happened. Nia turns real-time student activity and staff insights into early alerts and next-step recommendations, so institutions can intervene sooner and improve student success.
       </p>
       <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Schedule a demo <ArrowR/></Link>
+        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Book a pilot demo <ArrowR/></Link>
         <Link href="/security" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>See how it&apos;s secured →</Link>
       </div>
     </div>
