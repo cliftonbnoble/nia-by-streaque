@@ -419,11 +419,11 @@ const STUDENT_FEATURES = [
 ];
 
 const STAFF_FEATURES = [
-  { n: "01", t: "Early-warning system", bullets: ["Notices a shift in tone before it shows up in grades", "Flags the student whose engagement is quietly slipping", "Watches the early signs you'd want to catch", "Reads assignments, attendance, and participation together"], Mock: WarningMock },
-  { n: "02", t: "The cohort at a glance", bullets: ["How the cohort's momentum is trending, week over week", "Where engagement is rising, and where it's dropping", "Pulled straight from your LMS, no new data entry", "The students who need attention, surfaced first"], Mock: StaffDashboard },
-  { n: "03", t: "The same brain, your side of the desk", bullets: ["The same model the student sees, from your side of the desk", "Knows your documents, calendars, and policies", "Sees the student's LMS, SIS, and CRM record in context", "Suggests the next step that fits this student"], Mock: InsightsMock },
-  { n: "04", t: "Step in early, recognize the wins", bullets: ["Reach the struggling student before they fall behind", "Catch the high performer worth recognizing", "See whether your outreach actually landed", "Know what happened after you stepped in"], Mock: InterventionMock },
-  { n: "05", t: "Know before they do", bullets: ["Know a student is overwhelmed before they say so", "Patterns across the whole cohort, not just one student", "What the students who thrive tend to share", "Decisions grounded in what's happening on campus"], Mock: PredictiveMock },
+  { n: "01", t: "Early-warning system", b: "Nia reads tone, attendance, and participation together to surface the students slipping before it shows up in their grades.", bullets: ["Notices a shift in tone before it shows up in grades", "Flags the student whose engagement is quietly slipping", "Watches the early signs you'd want to catch", "Reads assignments, attendance, and participation together"], Mock: WarningMock },
+  { n: "02", t: "The cohort at a glance", b: "See where the whole cohort's momentum is heading, and who needs attention first, with nothing new to enter.", bullets: ["How the cohort's momentum is trending, week over week", "Where engagement is rising, and where it's dropping", "Pulled straight from your LMS, no new data entry", "The students who need attention, surfaced first"], Mock: StaffDashboard },
+  { n: "03", t: "The same brain, your side of the desk", b: "The same model the student talks to, working from your side with their full record already in view.", bullets: ["The same model the student sees, from your side of the desk", "Knows your documents, calendars, and policies", "Sees the student's LMS, SIS, and CRM record in context", "Suggests the next step that fits this student"], Mock: InsightsMock },
+  { n: "04", t: "Step in early, recognize the wins", b: "Reach the struggling student and catch the high performer, then see whether your outreach actually landed.", bullets: ["Reach the struggling student before they fall behind", "Catch the high performer worth recognizing", "See whether your outreach actually landed", "Know what happened after you stepped in"], Mock: InterventionMock },
+  { n: "05", t: "Know before they do", b: "Patterns across the cohort surface what students who thrive have in common, so you can act sooner.", bullets: ["Know a student is overwhelmed before they say so", "Patterns across the whole cohort, not just one student", "What the students who thrive tend to share", "Decisions grounded in what's happening on campus"], Mock: PredictiveMock },
 ];
 
 const FeatureRow = ({ f, flip }) => {
@@ -564,7 +564,7 @@ const ForStaff = () => (
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (
-          <FeatureRow key={f.n} f={{ ...f, b: "" }} flip={i % 2 === 0}/>
+          <FeatureRow key={f.n} f={f} flip={i % 2 === 0}/>
         ))}
       </div>
       <PullQuote quote="From reactive to proactive. From guesswork to evidence." sub="The complete picture →"/>
