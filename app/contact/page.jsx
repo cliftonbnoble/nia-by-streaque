@@ -326,7 +326,6 @@ export default function Contact() {
       <Hero/>
       <Paths/>
       <ContactForm/>
-      <FAQ/>
       <Team/>
       </main>
       <Footer/>
