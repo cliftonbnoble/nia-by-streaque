@@ -188,7 +188,7 @@ function ChatMock() {
       </div>
       <div className="fm-bob" style={{ marginLeft: 28, marginTop: 10, width: "fit-content", background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: "9px 12px", boxShadow: "0 10px 24px -14px rgba(31,52,128,0.3)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 8.5, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)" }}>Sources</span>
+          <span style={{ fontSize: 8.5, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)" }}>Sources</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
         <div style={{ display: "flex", gap: 5, marginTop: 6, flexWrap: "wrap" }}>
@@ -431,7 +431,7 @@ const FeatureRow = ({ f, flip }) => {
   return (
     <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", padding: "32px 0", borderTop: "1px solid var(--line)" }}>
       <div style={{ order: flip ? 2 : 1 }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--ink-4)" }}>{f.n}</span>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--ink-3)" }}>{f.n}</span>
         <h3 style={{ fontSize: 28, marginTop: 8 }}>{f.t}</h3>
         {f.b && <p style={{ fontSize: 15, marginTop: 10, color: "var(--ink-2)" }}>{f.b}</p>}
         <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 10 }}>

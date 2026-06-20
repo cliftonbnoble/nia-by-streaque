@@ -79,7 +79,7 @@ export default function RoiCalculator() {
         .np-roi-label{ display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
         .np-roi-label span{ font-size: 14px; color: var(--ink-2); }
         .np-roi-label strong{ font-family: var(--font-display); font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
-        .np-roi-scale{ display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--font-mono); font-size: 10px; color: var(--ink-4); }
+        .np-roi-scale{ display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); }
         .np-roi-assume{ margin-top: auto; padding-top: 16px; font-size: 12px; line-height: 1.55; color: var(--ink-3); border-top: 1px solid var(--line); }
 
         /* range input — brand fill left of the thumb */
