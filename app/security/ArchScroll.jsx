@@ -11,7 +11,7 @@ const ARCH_GROUPS = [
     chips: ["Auth0", "SSO", "Service-to-service"] },
   { id: "data", t: "Data protection", icon: "lock", art: "data",
     d: "Encrypted at rest and in transit, with a separate key for every campus.",
-    chips: ["AES-256", "Per-campus keys", "Key vault"] },
+    chips: ["AES-256-GCM", "Per-campus keys", "Key vault"] },
   { id: "app", t: "Application security", icon: "shield", art: "app",
     d: "Hardened at every surface: every input validated, every response locked down.",
     chips: ["Strict headers", "Input validation", "Sanitization"] },

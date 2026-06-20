@@ -329,7 +329,7 @@ export default function Moats() {
         eyebrow="The unified student memory"
         title="Five domains,"
         grad="one student."
-        body="Academic, Career, Finance, Wellness, and Admin don't live in five disconnected bots. They share a single state object, so a financial-aid fact is known by the career conversation and a wellness check informs the academic nudge."
+        body="Academic, Career, Finance, Wellness, and Administrative coaches don't live in five disconnected bots. They share a single state object, so a financial-aid fact is known by the career conversation and a wellness check informs the academic nudge."
         points={["Canvas, Workday, and Handshake feed one profile", "No re-explaining across departments", "Every agent reasons from the same source of truth"]}
         alt
       >

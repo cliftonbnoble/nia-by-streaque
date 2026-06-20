@@ -72,7 +72,7 @@ const Hero = () => (
             <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               <Dot color="var(--success)"/> Replied · 4:08 PM
             </div>
-            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. Luke will be in touch tomorrow with a Calendar invite."</div>
+            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. A founder will be in touch tomorrow with a Calendar invite."</div>
           </div>
         </div>
       </div>
