@@ -31,7 +31,7 @@ export default function Qa() {
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 56, alignItems: "start" }}>
           <div style={{ position: "sticky", top: 96 }}>
             <span className="mf-eyebrow">Straight answers</span>
-            <h2 style={{ marginTop: 14 }}>The two questions <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>that decide it.</em></h2>
+            <h2 style={{ marginTop: 14 }}>The four questions <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>that decide it.</em></h2>
             <p style={{ marginTop: 16, fontSize: 15 }}>Everything else is detail. These are the ones that come up in every room, so here they are, without the hedging.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
               <a href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm" style={{ textDecoration: "none" }}>Book a demo <ArrowRight s={12}/></a>
