@@ -1,15 +1,26 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 
 /* the path cards deep-link here: the hash picks the interest chip */
 const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership", "#form-security": "security" };
 
+/* When the Turnstile site key is set (build-time, on Cloudflare Pages), the form
+   POSTs to the /api/lead Pages Function — which verifies Turnstile, then appends
+   to the Sheet + emails info@streaque.com. Until then it falls back to mailto: so
+   nothing breaks before the backend is provisioned. See docs/form-wiring-setup.md. */
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+
 export default function ContactForm() {
   const [data, setData] = useState({
     name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "",
+    company_website: "", // honeypot — real users leave this empty
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [token, setToken] = useState("");
+  const widgetRef = useRef(null);
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
 
@@ -22,8 +33,31 @@ export default function ContactForm() {
     window.addEventListener("hashchange", apply);
     return () => window.removeEventListener("hashchange", apply);
   }, []);
-  const onSubmit = (e) => {
-    e.preventDefault();
+
+  // Turnstile: load the script once, then explicitly render (reliable in React).
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || submitted) return;
+    const render = () => {
+      if (window.turnstile && widgetRef.current && !widgetRef.current.dataset.rendered) {
+        window.turnstile.render(widgetRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (t) => setToken(t),
+          "error-callback": () => setToken(""),
+          "expired-callback": () => setToken(""),
+        });
+        widgetRef.current.dataset.rendered = "1";
+      }
+    };
+    const id = "cf-turnstile-script";
+    if (document.getElementById(id)) { render(); return; }
+    const s = document.createElement("script");
+    s.id = id;
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    s.async = true; s.defer = true; s.onload = render;
+    document.head.appendChild(s);
+  }, [submitted]);
+
+  const mailtoSubmit = () => {
     const subject = `Pilot inquiry from ${data.institution || data.name}`;
     const body = [
       `Name: ${data.name}`,
@@ -37,6 +71,45 @@ export default function ContactForm() {
     ].join("\n");
     window.location.href = `mailto:info@streaque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (data.company_website) return; // honeypot tripped — silently drop
+
+    // Backend not configured yet → keep the mailto fallback.
+    if (!TURNSTILE_SITE_KEY) { mailtoSubmit(); return; }
+
+    if (!token) { setError("Please complete the verification check below."); return; }
+    setSending(true);
+    setError("");
+    const params = new URLSearchParams(window.location.search);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: data.name, email: data.email, institution: data.institution,
+          role: data.role, students: data.students, interest: data.interest,
+          message: data.message, company_website: data.company_website,
+          turnstileToken: token,
+          url: window.location.href,
+          referrer: document.referrer,
+          utm: {
+            source: params.get("utm_source") || "",
+            medium: params.get("utm_medium") || "",
+            campaign: params.get("utm_campaign") || "",
+          },
+        }),
+      });
+      const out = await res.json().catch(() => ({ ok: false }));
+      if (!out.ok) throw new Error(out.error || "failed");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please email info@streaque.com directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputStyle = {
@@ -90,6 +163,10 @@ export default function ContactForm() {
           <div>
             {!submitted ? (
               <form onSubmit={onSubmit} style={{ display: "grid", gap: 20 }}>
+                {/* honeypot — off-screen; bots that fill it are silently dropped */}
+                <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                  value={data.company_website} onChange={(e) => update("company_website", e.target.value)}
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}/>
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-name" style={labelStyle}>Your name *</label>
@@ -164,12 +241,18 @@ export default function ContactForm() {
                     placeholder="Tell us about your goals, your current student-success stack, or any questions you have. Even a sentence or two helps."/>
                 </div>
 
+                {TURNSTILE_SITE_KEY && <div ref={widgetRef} style={{ minHeight: 65 }}/>}
+                {error && (
+                  <div role="alert" style={{ fontSize: 13, color: "#b91c1c", background: "rgba(220,38,38,0.06)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 8, padding: "10px 12px" }}>
+                    {error}
+                  </div>
+                )}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 16 }}>
                   <div style={{ fontSize: 12, color: "var(--ink-3)", maxWidth: 360 }}>
                     By submitting, you agree to be contacted by Streaque about your inquiry. We never share your information.
                   </div>
-                  <button type="submit" className="mf-btn mf-btn-primary" style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}>
-                    Send inquiry <ArrowRight/>
+                  <button type="submit" disabled={sending} className="mf-btn mf-btn-primary" style={{ border: "none", cursor: sending ? "default" : "pointer", fontFamily: "inherit", opacity: sending ? 0.7 : 1 }}>
+                    {sending ? "Sending…" : <>Send inquiry <ArrowRight/></>}
                   </button>
                 </div>
               </form>
@@ -178,12 +261,23 @@ export default function ContactForm() {
                 <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
                   <Check s={36} color="var(--brand-cyan)"/>
                 </div>
-                <h3 style={{ marginTop: 24, fontSize: 28 }}>One last step, {data.name.split(" ")[0] || "thanks"}.</h3>
-                <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
-                  We've tried to open a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,
-                  and you'll hear back within one business day. If it didn't open, just write us there directly.
-                </p>
-                <button onClick={() => { setSubmitted(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "" }); }}
+                {TURNSTILE_SITE_KEY ? (
+                  <>
+                    <h3 style={{ marginTop: 24, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
+                    <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
+                      Your inquiry is in. You&apos;ll hear back from a real person on our team within one business day.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h3 style={{ marginTop: 24, fontSize: 28 }}>One last step, {data.name.split(" ")[0] || "thanks"}.</h3>
+                    <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
+                      We&apos;ve tried to open a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,
+                      and you&apos;ll hear back within one business day. If it didn&apos;t open, just write us there directly.
+                    </p>
+                  </>
+                )}
+                <button onClick={() => { setSubmitted(false); setError(""); setToken(""); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "", company_website: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
                   Send another inquiry →
                 </button>
