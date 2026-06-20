@@ -158,9 +158,16 @@ const HeroVault = () => (
       One key per campus · without it, data is just noise
     </div>
     <style>{`
-      /* the 4 side proof-points are positioned for the 580px desktop vault; below
-         640px the vault shrinks and they collide, so hide them on phones — the core
-         animation + the readable/scrambled contrast + the caption carry the story */
+      /* In the 2-col hero the vault is squeezed into the right half, so it stays
+         too narrow for the side labels until ~1100px. Stack this hero earlier
+         (<=1024) so the vault goes full-width on tablet and the labels fit;
+         desktop (>=1101, where the 2-col vault is wide enough) keeps the 2-col
+         layout untouched. (Local override — does not touch the global
+         .mf-stack-sm used elsewhere.) */
+      @media (max-width: 1100px){ .sec-hero-grid{ grid-template-columns: 1fr !important; } }
+      /* Below 640px even the full-width vault is too small for the 4 side
+         proof-points; hide them — the core animation + readable/scrambled
+         contrast + caption still carry the story. */
       @media (max-width: 640px){ .sec-vault-note{ display: none; } }
       @keyframes sec-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
       @keyframes sec-spin-rev { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
@@ -177,7 +184,7 @@ const Hero = () => (
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "radial-gradient(ellipse at 75% 50%, black 30%, transparent 80%)" }}/>
     <div style={{ position: "absolute", width: 900, height: 900, right: -280, top: "50%", transform: "translateY(-50%)", background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 60%)", borderRadius: "50%" }}/>
     <div className="mf-container" style={{ position: "relative" }}>
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+      <div className="mf-stack-sm sec-hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
         <div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", background: "rgba(43,179,223,0.12)", border: "1px solid rgba(43,179,223,0.3)", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>
             <Lock s={12}/> Security at Streaque
