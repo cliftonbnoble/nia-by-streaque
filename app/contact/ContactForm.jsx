@@ -57,7 +57,7 @@ export default function ContactForm() {
       <span id="form-partnership" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
-          <div style={{ position: "sticky", top: 100 }}>
+          <div className="cf-intro">
             <span className="mf-eyebrow">Pilot inquiry</span>
             <h2 style={{ marginTop: 14, fontSize: 44, lineHeight: 1.1 }}>
               Tell us about <span className="mf-grad-text">your institution.</span>

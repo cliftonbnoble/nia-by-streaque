@@ -1110,6 +1110,12 @@ html, body { margin: 0; padding: 0; }
   .mf-stats-cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--line); }
 }
 
+/* contact form intro: sticky beside the form on desktop; once the grid stacks
+   (<=760px) it MUST go static, or it sticks at the top and the form scrolls
+   underneath it — overlapping content. */
+.cf-intro { position: sticky; top: 100px; }
+@media (max-width: 760px) { .cf-intro { position: static; } }
+
 /* generic: stack any inline two/three-column grid on small screens */
 @media (max-width: 760px) {
   .mf-stack-sm { grid-template-columns: 1fr !important; }
