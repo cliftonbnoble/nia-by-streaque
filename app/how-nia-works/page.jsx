@@ -39,102 +39,126 @@ const TwoPaths = () => (
   <section className="mf-section hnw-paths-sec">
     <div className="mf-container">
       <div className="hnw-paths">
-        {/* STUDENT — the app, on an iPhone */}
+        {/* STUDENT — the app, on an iPhone (hero-phone shell) */}
         <a href="#for-students" className="hnw-dev hnw-dev-student">
-          <div className="hnw-phone">
-            <span className="hnw-phone-notch" aria-hidden="true"/>
-            <div className="hnw-screen">
-              <div className="hnw-bar">
-                <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstu"/></span>
-                <span className="hnw-bar-name">Nia</span>
-                <span className="hnw-bar-tag">for students</span>
-              </div>
-              <div className="hnw-body">
-                <span className="hnw-eyebrow">The app</span>
-                <h3 className="hnw-h">A coach in the<br/>student&apos;s pocket.</h3>
-                <ul className="hnw-points">
-                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
-                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
-                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
-                </ul>
-                <span className="hnw-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
+          <div className="hnw-iphone">
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 92, height: 20 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 134, height: 38 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 184, height: 38 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ right: -2.5, top: 152, height: 54 }} aria-hidden="true"/>
+            <div className="hnw-ip-bezel">
+              <div className="hnw-ip-screen">
+                <div className="hnw-ip-island" aria-hidden="true"><span className="hnw-ip-cam"/></div>
+                <div className="hnw-bar">
+                  <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstu"/></span>
+                  <span className="hnw-bar-name">Nia</span>
+                  <span className="hnw-bar-tag">for students</span>
+                </div>
+                <div className="hnw-body">
+                  <span className="hnw-eyebrow">The app</span>
+                  <h3 className="hnw-h">A coach in the<br/>student&apos;s pocket.</h3>
+                  <ul className="hnw-points">
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
+                  </ul>
+                  <span className="hnw-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
+                </div>
+                <span className="hnw-ip-home" aria-hidden="true"/>
               </div>
             </div>
           </div>
         </a>
-        {/* STAFF — the dashboard, on a MacBook */}
+        {/* STAFF — the dashboard, on a MacBook (Moats mac shell) */}
         <a href="#for-staff" className="hnw-dev hnw-dev-staff">
           <div className="hnw-mac">
             <div className="hnw-mac-lid">
-              <div className="hnw-mac-screen">
-                <div className="hnw-mac-chrome">
-                  <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
-                  <span className="hnw-mac-url">app.niahub.ai/staff</span>
-                </div>
-                <div className="hnw-body hnw-body-mac">
-                  <span className="hnw-eyebrow">The dashboard</span>
-                  <h3 className="hnw-h">A co-pilot at the desk.</h3>
-                  <ul className="hnw-points">
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
-                  </ul>
-                  <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+              <div className="hnw-mac-display">
+                <span className="hnw-mac-notch" aria-hidden="true"/>
+                <div className="hnw-mac-app">
+                  <div className="hnw-mac-chrome">
+                    <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
+                    <span className="hnw-mac-url">app.niahub.ai/staff</span>
+                  </div>
+                  <div className="hnw-body hnw-body-mac">
+                    <span className="hnw-eyebrow">The dashboard</span>
+                    <h3 className="hnw-h">A co-pilot at the desk.</h3>
+                    <ul className="hnw-points">
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
+                    </ul>
+                    <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+                  </div>
                 </div>
               </div>
             </div>
-            <span className="hnw-mac-base" aria-hidden="true"/>
+            <div className="hnw-mac-base" aria-hidden="true"><span className="hnw-mac-groove"/></div>
+            <span className="hnw-mac-floor" aria-hidden="true"/>
           </div>
         </a>
       </div>
     </div>
     <style>{`
-      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 56px; }
-      .hnw-paths{ display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 34px; align-items: center; max-width: 1060px; margin: 0 auto; }
-      .hnw-dev{ display: block; text-decoration: none; transition: transform 260ms cubic-bezier(0.2,0.8,0.2,1); }
-      .hnw-dev:hover{ transform: translateY(-6px); }
+      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; }
+      .hnw-paths{ display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 30px; align-items: center; max-width: 1080px; margin: 0 auto; }
+      .hnw-dev{ display: block; text-decoration: none; transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1); }
+      .hnw-dev:hover{ transform: translateY(-7px); }
 
-      /* iPhone */
-      .hnw-phone{ position: relative; width: 250px; max-width: 100%; margin: 0 auto; background: linear-gradient(160deg,#1b2030,#0c0f1a); border-radius: 42px; padding: 9px; box-shadow: 0 46px 86px -34px rgba(11,16,32,0.55), inset 0 0 0 1px rgba(255,255,255,0.06); }
-      .hnw-phone-notch{ position: absolute; top: 17px; left: 50%; transform: translateX(-50%); width: 78px; height: 22px; background: #0c0f1a; border-radius: 12px; z-index: 4; }
-      .hnw-phone .hnw-screen{ border-radius: 32px; min-height: 458px; }
-      .hnw-phone .hnw-bar{ padding-top: 30px; }
+      /* iPhone — matches the homepage hero phone shell */
+      .hnw-iphone{ position: relative; width: 244px; max-width: 100%; aspect-ratio: 244 / 496; margin: 0 auto;
+        background: linear-gradient(155deg, #4a4f5b 0%, #23262e 30%, #15171d 55%, #3a3f4b 100%);
+        border-radius: 44px; padding: 8px;
+        box-shadow: inset 0 0 2px rgba(255,255,255,0.35), inset 0 0 1px rgba(255,255,255,0.6),
+                    0 44px 72px -30px rgba(11,16,38,0.42), 0 14px 30px rgba(56,86,214,0.12); }
+      .hnw-ip-btn{ position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #2c303a, #181a20); }
+      .hnw-ip-bezel{ width: 100%; height: 100%; background: #000; border-radius: 37px; padding: 3px; box-sizing: border-box; }
+      .hnw-ip-screen{ position: relative; width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+      .hnw-ip-island{ position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 72px; height: 20px; border-radius: 11px; background: #000; z-index: 6; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; box-sizing: border-box; }
+      .hnw-ip-cam{ width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #1d2f4a 0%, #0a0f18 60%); }
+      .hnw-ip-home{ position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 92px; height: 4px; border-radius: 2px; background: #59606e; opacity: 0.32; z-index: 6; }
+      .hnw-iphone .hnw-bar{ padding-top: 34px; }
+      .hnw-iphone .hnw-body{ padding-bottom: 30px; }
+      .hnw-iphone .hnw-cta{ justify-content: center; margin-top: auto; padding: 12px; border-radius: 13px; background: var(--brand-gradient); color: #fff; box-shadow: 0 10px 22px -10px rgba(56,65,177,0.55); }
 
-      /* MacBook */
-      .hnw-mac{ width: 100%; max-width: 560px; margin: 0 auto; }
-      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 16px 16px 0 0; padding: 3px 3px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 40px 70px -34px rgba(11,16,32,0.42); }
-      .hnw-mac-screen{ position: relative; background: #fff; border-radius: 13px 13px 0 0; overflow: hidden; }
-      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 8px 12px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; }
+      /* MacBook — matches the /nia Moats MacBook shell */
+      .hnw-mac{ position: relative; width: 100%; max-width: 544px; margin: 0 auto; }
+      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 18px 18px 0 0; padding: 4px 4px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 42px 72px -32px rgba(11,16,32,0.4); }
+      .hnw-mac-display{ position: relative; background: #05070D; border-radius: 14px 14px 0 0; padding: 12px 11px 15px; overflow: hidden; }
+      .hnw-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 56px; height: 14px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
+      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); }
+      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; }
       .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
       .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
       .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
       .hnw-mac-dots i:nth-child(2){ background: #FEBC2E; }
       .hnw-mac-dots i:nth-child(3){ background: #28C840; }
       .hnw-mac-url{ flex: 1; max-width: 250px; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 4px 0; }
-      .hnw-mac-base{ display: block; width: 116%; margin-left: -8%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 13px 13px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
+      .hnw-mac-base{ position: relative; width: 114%; margin-left: -7%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
+      .hnw-mac-groove{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 78px; height: 6px; background: linear-gradient(180deg,#9AA2B1,#C3C9D3); border-radius: 0 0 9px 9px; box-shadow: inset 0 1px 2px rgba(11,16,32,0.25); }
+      .hnw-mac-floor{ display: block; height: 18px; width: 86%; margin: 3px auto 0; background: radial-gradient(ellipse at 50% 0%, rgba(11,16,32,0.26), transparent 65%); filter: blur(5px); }
 
       /* screen content (shared) */
-      .hnw-screen{ position: relative; background: #fff; overflow: hidden; display: flex; flex-direction: column; }
-      .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+      .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
       .hnw-bar-glyph{ width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
       .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
       .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
-      .hnw-body{ padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
-      .hnw-body-mac{ padding: 26px 30px 30px; flex: none; }
+      .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+      .hnw-body-mac{ padding: 24px 28px 28px; flex: none; }
       .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
-      .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 21px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
-      .hnw-body-mac .hnw-h{ font-size: 26px; }
-      .hnw-points{ margin: 15px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-      .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
+      .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
+      .hnw-body-mac .hnw-h{ font-size: 25px; }
+      .hnw-points{ margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+      .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
+      .hnw-body-mac .hnw-points li{ font-size: 13px; }
       .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
       .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
       .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
-      .hnw-cta{ display: inline-flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 18px; font-size: 13px; font-weight: 600; transition: gap 200ms ease; }
-      .hnw-cta-student{ color: var(--brand-blue); }
+      .hnw-cta{ display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-size: 13px; font-weight: 600; transition: gap 200ms ease; }
       .hnw-cta-staff{ color: #3a37ad; }
       .hnw-dev:hover .hnw-cta{ gap: 11px; }
 
-      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 30px; justify-items: center; } .hnw-phone .hnw-screen{ min-height: 0; } }
+      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
     `}</style>
   </section>
 );
