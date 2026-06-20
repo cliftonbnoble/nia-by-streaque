@@ -162,7 +162,7 @@ const Paths = () => {
   const paths = [
     { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", accent: "43,179,223", color: "var(--brand-cyan)", Art: PilotArt },
     { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", accent: "56,65,177", color: "var(--brand-blue)", Art: FoundersArt },
-    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, ARR/runway snapshot, and pilot-pipeline overview. We send a fresh brief every Friday.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
+    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
   ];
 
   return (

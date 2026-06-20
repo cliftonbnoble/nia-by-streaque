@@ -452,7 +452,7 @@ const ForStaff = () => (
           <FeatureRow key={f.n} f={{ ...f, b: "" }} flip={i % 2 === 0}/>
         ))}
       </div>
-      <PullQuote quote="From reactive to proactive. From guesswork to certainty." sub="The complete picture →"/>
+      <PullQuote quote="From reactive to proactive. From guesswork to evidence." sub="The complete picture →"/>
     </div>
   </section>
 );

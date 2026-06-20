@@ -239,7 +239,7 @@ const PILLARS = [
     headline: "Seven layers. In order. No shortcuts.",
     body: ["Most edtech vendors have one or two of these layers. We built all seven. Hover any layer to see what it stops."],
     facts: [
-      { l: "Total layers", v: "7" }, { l: "DB pattern", v: "Same as GitLab, DoD" },
+      { l: "Total layers", v: "7" }, { l: "DB pattern", v: "Postgres row-level security" },
       { l: "CORS policy", v: "Explicit allowlist · no wildcards" }, { l: "Validation", v: "Context-aware SQLi + XSS" },
     ],
     Visual: DefenseVisual },

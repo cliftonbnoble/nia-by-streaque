@@ -366,7 +366,7 @@ export default function Moats() {
         eyebrow="Governed, source-linked answers"
         title="Answers from your data,"
         grad="not a guess."
-        body="Generic AI paraphrases and hopes. Nia translates the student's question into a real query against actual rows in your systems, so &ldquo;how much aid is left?&rdquo; returns a number that is mathematically true and source-linked, every time."
+        body="Generic AI paraphrases and hopes. Nia translates the student's question into a real query against actual rows in your systems, so &ldquo;how much aid is left?&rdquo; returns a real number, source-linked and traceable to the row it came from."
         points={["Natural language becomes a governed, real query", "Bypasses the raw model for anything factual", "Every figure is traceable back to its source row"]}
         reverse
       >
@@ -458,7 +458,7 @@ const MoatStyles = () => (
     .np-src{ display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; color: var(--ink-2); background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px 5px 6px; }
     .np-src-mk{ display: inline-flex; }
     .np-chip-grad{ font-family: var(--font-mono); font-size: 8.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--brand-gradient); border-radius: 999px; padding: 4px 10px; }
-    .np-constel{ position: relative; width: 320px; max-width: 100%; height: 320px; margin: 10px auto 0; }
+    .np-constel{ position: relative; width: 320px; max-width: 100%; aspect-ratio: 1 / 1; height: auto; margin: 10px auto 0; }
     .np-wires{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
     .np-wire{ stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0; animation: np-wire 700ms ease both; }
     @keyframes np-wire{ 0%{ opacity: 0; stroke-dashoffset: 1; } 30%{ opacity: 1; } 100%{ opacity: 1; stroke-dashoffset: 0; } }

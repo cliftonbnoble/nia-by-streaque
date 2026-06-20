@@ -191,7 +191,7 @@ const Hero = () => (
           </div>
           <div style={{ marginTop: 36, display: "flex", gap: 28, flexWrap: "wrap" }}>
             {[
-              { n: "Bank-grade", l: "the same encryption banks use" },
+              { n: "AES-256-GCM", l: "per-tenant keys, real envelope encryption" },
               { n: "7 layers", l: "between attacker & record" },
               { n: "0", l: "student data trains AI models" },
             ].map((s) => (
@@ -218,7 +218,7 @@ const WhyPage = () => (
         </div>
         <div>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink-2)" }}>
-            Universities sit on decades of records, financial-aid data, transcripts, and research IP, protected by infrastructure built before most of this existed. Every piece of student data we touch is protected by the same patterns used by Fortune 500 financial services, federal agencies, and the largest cloud platforms in the world.
+            Universities sit on decades of records, financial-aid data, transcripts, and research IP, protected by infrastructure built before most of this existed. Every piece of student data we touch is isolated per tenant, encrypted with its own keys, and walled off from every other campus by the database itself.
           </p>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink)", marginTop: 16, fontFamily: "var(--font-display)", fontWeight: 500 }}>
             This page is the long-form answer to one question: <span className="mf-grad-text">what protects the data you're trusting us with?</span>

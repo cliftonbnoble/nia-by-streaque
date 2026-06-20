@@ -58,7 +58,7 @@ const Hero = () => (
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal. Term-to-term retention results publish after this semester.
+            Engagement is the early signal. Term-to-term retention results publish in Q3 2026.
           </p>
         </div>
 

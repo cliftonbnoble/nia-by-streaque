@@ -64,7 +64,7 @@ export default function NiaHero() {
       <div className="mf-hero-bg"/>
       <div className="mf-container np-hero-grid">
         <div className="np-hero-copy">
-          <span className="mf-eyebrow">Student-shaped, not funnel-shaped</span>
+          <span className="mf-eyebrow">Built around the student, not a funnel</span>
           <h1 style={{ marginTop: 16 }}>
             An ongoing relationship,<br/>
             <span className="mf-grad-text">not a 1-minute chat.</span>

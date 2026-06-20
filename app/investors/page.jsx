@@ -291,8 +291,8 @@ export default function InvestorsPage() {
                 q: <>I&apos;d give it a solid 8, which means I actually <span className="iv-hl">spend more time thinking about the logistics than actually learning</span> at school.</> },
               { i: "A", who: "Alison", ctx: "CUNY · BMCC → John Jay",
                 q: <>I feel like they just give you different places to go around in school and <span className="iv-hl">never get to the point.</span></> },
-              { i: "A", who: "Ashsmith Khayrul", ctx: "a Bay Area R1 university",
-                q: <>The class wasn&apos;t offered at the Oakland campus, so I had to talk to three people to fight for it to get added. <span className="iv-hl">It took weeks.</span></> },
+              { i: "A", who: "Ashsmith Khayrul", ctx: "a large public university",
+                q: <>The class wasn&apos;t offered at my campus, so I had to talk to three people to fight for it to get added. <span className="iv-hl">It took weeks.</span></> },
             ].map((x) => (
               <figure key={x.who} className="inv-quote">
                 <span className="inv-quote-mark" aria-hidden="true">&ldquo;</span>
@@ -360,7 +360,7 @@ export default function InvestorsPage() {
           <div className="iv-statgrid four">
             <Stat value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, top-tier R1, Bay Area campus"/>
             <Stat value={<span className="mf-grad-text">16</span>} label="Students in the active pilot cohort"/>
-            <Stat value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Sustained engagement per student"/>
+            <Stat value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Weeks of continuous student use, pilot to date"/>
             <Stat value={<>Canvas<span className="iv-stat-u"> partner</span></>} label="Official LMS-layer distribution, before a dollar of spend"/>
           </div>
           <p style={{ marginTop: 18, fontSize: 13.5, color: "var(--ink-3)", maxWidth: 760 }}>
@@ -379,9 +379,9 @@ export default function InvestorsPage() {
             <p>Big enough to matter, fragmented enough to win, and finally ready to buy.</p>
           </div>
           <div className="iv-statgrid three">
-            <Stat value={<span className="mf-grad-text">$52B</span>} label="US higher-ed student-success and advising software: the market Nia sells into."/>
+            <Stat value={<><span className="mf-grad-text">$52B</span><span className="iv-stat-u"> est.</span></>} label="US higher-ed student-success and advising software: the market Nia sells into."/>
             <Stat value={<span className="mf-grad-text">5,800+</span>} label="Title IV institutions in the US, from degree to certificate to online. Each one an enterprise buyer."/>
-            <Stat value={<span className="mf-grad-text">$26B</span>} label="Tuition revenue lost to attrition every year: the budget Nia is built to protect."/>
+            <Stat value={<><span className="mf-grad-text">$26B</span><span className="iv-stat-u"> est.</span></>} label="Tuition revenue lost to attrition each year, roughly early departures times one year of tuition: the budget Nia is built to protect."/>
           </div>
           <p style={{ marginTop: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.7, maxWidth: 760 }}>
             Why now: institutions face real enrollment and retention pressure, AI is finally good

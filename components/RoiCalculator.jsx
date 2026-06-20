@@ -28,7 +28,7 @@ export default function RoiCalculator() {
         <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 44px" }}>
           <span className="mf-eyebrow">The math · illustrative</span>
           <h2 style={{ marginTop: 14 }}>Set your numbers. <span className="mf-grad-text">See how the math could work.</span></h2>
-          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own enrollment and tuition; this is a hypothetical illustration to size the opportunity, not a forecast of results at your institution.</p>
+          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own enrollment and tuition to size the opportunity.</p>
         </div>
 
         <div className="np-roi">
@@ -49,7 +49,7 @@ export default function RoiCalculator() {
             </div>
             <p className="np-roi-assume">
               Assumes a conservative <strong>0.25% retention lift</strong>: about {retained} student{retained === 1 ? "" : "s"} a year,
-              each counted as a single year of tuition. A hypothetical illustration, not a promise of results.
+              each counted as a single year of tuition.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export default function RoiCalculator() {
               <div className="np-roi-term"><span className="np-roi-term-n">{usd(tuition)}</span><span className="np-roi-term-l">avg tuition</span></div>
             </div>
 
-            <p className="np-roi-foot-note">One conservative year of tuition per retained student. Figures illustrate the opportunity; they are not a forecast.</p>
+            <p className="np-roi-foot-note">Illustrative only: these figures size the opportunity from your inputs and are not a forecast of results at your institution.</p>
           </div>
         </div>
       </div>
