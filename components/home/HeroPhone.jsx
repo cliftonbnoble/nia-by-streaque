@@ -704,6 +704,15 @@ export default function HeroPhones() {
           .hp-a .hp-zoom { zoom: 0.55; }
           .hp-b .hp-zoom { zoom: 0.60; }
         }
+        /* small phones (~320-400): the fixed-size fan overflows and the front
+           phone's content gets cut off — shrink it and pull the pair back so
+           both phones sit balanced within the viewport. */
+        @media (max-width: 400px) {
+          .hp-a { left: -140px; bottom: 11px; }
+          .hp-b { left: -30px; }
+          .hp-a .hp-zoom { zoom: 0.48; }
+          .hp-b .hp-zoom { zoom: 0.52; }
+        }
 
         @media (prefers-reduced-motion: reduce) {
           .hp-fan *, .mf-hero-phone { animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
