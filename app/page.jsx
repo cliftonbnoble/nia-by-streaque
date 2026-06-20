@@ -100,7 +100,7 @@ const TwoExperiences = () => (
       <div className="mf-section-head">
         <span className="mf-eyebrow">Two experiences · One unified system</span>
         <h2>Same data model. Same governance. <em className="mf-grad-text" style={{ fontStyle: "normal" }}>Two front doors.</em></h2>
-        <p>Tuned to who&apos;s holding the device, never who pays the bill.</p>
+        <p>Tuned to the person using it, not the org chart.</p>
       </div>
       <div className="tfd-grid mf-stack-sm">
         <Link href="/how-nia-works#for-students" className="tfd-card">

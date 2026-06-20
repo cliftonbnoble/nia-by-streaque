@@ -225,7 +225,7 @@ const PILLARS = [
     accent: "#8F7DF7", icon: "verify",
     headline: "Every request, verified. Every time.",
     body: [
-      "Every API call is authenticated with a cryptographically signed JWT issued by Auth0, the identity platform behind Fortune 500 companies and the U.S. federal government.",
+      "Every API call is authenticated with a cryptographically signed JWT issued by Auth0, the identity platform behind thousands of enterprises worldwide.",
       "Every call is validated for algorithm, key ID, audience, issuer, and expiry before it touches a database query. It's then rate-limited against per-endpoint quotas tuned to real usage.",
       'Finally, it\'s authorized against a row-level security policy in the database itself. "Should this user see this record?" gets answered twice: once by our app, once by the database.',
     ],

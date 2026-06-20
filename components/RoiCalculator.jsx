@@ -26,7 +26,7 @@ export default function RoiCalculator() {
     <section className="mf-section alt">
       <div className="mf-container">
         <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 44px" }}>
-          <span className="mf-eyebrow">The math · illustrative</span>
+          <span className="mf-eyebrow">The math</span>
           <h2 style={{ marginTop: 14 }}>Set your numbers. <span className="mf-grad-text">See how the math could work.</span></h2>
           <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own enrollment and tuition to size the opportunity.</p>
         </div>
@@ -54,7 +54,7 @@ export default function RoiCalculator() {
           </div>
 
           <div className="np-roi-result">
-            <span className="np-roi-eyebrow">Illustrative · tuition protected / year</span>
+            <span className="np-roi-eyebrow">Tuition protected / year</span>
             <div className="np-roi-big">{usd(revenue)}</div>
             <p className="np-roi-by">by retaining <strong>~{retained} more students</strong> who would have slipped away.</p>
 

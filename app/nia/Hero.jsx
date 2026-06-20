@@ -71,7 +71,7 @@ export default function NiaHero() {
           </h1>
           <p className="mf-hero-sub" style={{ marginTop: 22, maxWidth: 540 }}>
             Nia is built outward from the student&apos;s entire journey: every hold cleared, goal set,
-            and deadline met. It is not bolted onto a department&apos;s sales funnel. The thread that started
+            and deadline met. It belongs to the student, not to any single office. The thread that started
             in the fall still remembers them in the spring.
           </p>
           <div className="mf-hero-actions" style={{ marginTop: 30 }}>

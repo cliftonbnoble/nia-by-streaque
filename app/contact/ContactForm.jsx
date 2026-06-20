@@ -178,8 +178,8 @@ export default function ContactForm() {
                 </div>
                 <h3 style={{ marginTop: 24, fontSize: 28 }}>One last step, {data.name.split(" ")[0] || "thanks"}.</h3>
                 <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
-                  We've opened a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,
-                  and you'll hear back within one business day. Nothing reaches us until you do.
+                  We've tried to open a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,
+                  and you'll hear back within one business day. If it didn't open, just write us there directly.
                 </p>
                 <button onClick={() => { setSubmitted(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
