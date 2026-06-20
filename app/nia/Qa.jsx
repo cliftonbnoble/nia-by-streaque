@@ -45,6 +45,7 @@ export default function Qa() {
                 <div key={it.q} style={{ borderTop: i === 0 ? "1px solid var(--line)" : "none", borderBottom: "1px solid var(--line)" }}>
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
+                    id={`qa-q-${i}`}
                     aria-expanded={isOpen}
                     aria-controls={`qa-panel-${i}`}
                     style={{ width: "100%", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 18, color: "var(--ink)", letterSpacing: "-0.015em" }}
@@ -55,7 +56,7 @@ export default function Qa() {
                     </span>
                   </button>
                   {isOpen && (
-                    <div id={`qa-panel-${i}`} role="region" style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
+                    <div id={`qa-panel-${i}`} role="region" aria-labelledby={`qa-q-${i}`} style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
                       {it.a}
                     </div>
                   )}

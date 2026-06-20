@@ -189,7 +189,7 @@ export default function Architecture() {
         </div>
       </div>
 
-      <div ref={track} className="arch-track" style={{
+      <div ref={track} className="arch-track" tabIndex={0} role="region" aria-label="Security architecture layers, scroll horizontally to see all five" style={{
         position: "relative", display: "flex", gap: 16, marginTop: 34,
         overflowX: "auto", scrollSnapType: "x mandatory", scrollbarWidth: "none",
         paddingLeft: "max(32px, calc((100% - 1200px) / 2 + 32px))",
