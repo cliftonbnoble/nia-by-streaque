@@ -117,7 +117,7 @@ export default function InvestorsPage() {
                         <span className="iv-rail-ava" aria-hidden="true"/>
                       </span>
                       <div className="iv-dash">
-                        <div className="iv-dash-head"><span className="iv-dash-t">Early-alert queue</span><span className="iv-live"><i/>live</span></div>
+                        <div className="iv-dash-head"><span className="iv-dash-t">Early-alert queue</span><span className="iv-live"><i/>demo</span></div>
                         <div className="iv-kpis">
                           <span className="iv-kpi"><b>93%</b>active plans</span>
                           <span className="iv-kpi"><b>75%</b>engaged · 24h</span>
