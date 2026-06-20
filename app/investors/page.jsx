@@ -88,7 +88,7 @@ export default function InvestorsPage() {
               <p className="mf-hero-sub" style={{ marginTop: 20, maxWidth: 520 }}>
                 The institution-governed AI platform that turns LMS, SIS, and CRM data into proactive,
                 evidence-based coaching for every student, live now in a pilot with a top-tier R1
-                university&apos;s Bay Area campus.
+                university.
               </p>
               <div className="mf-hero-actions">
                 <Link href="/contact#form-investor" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
@@ -355,10 +355,10 @@ export default function InvestorsPage() {
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Traction</span>
             <h2 style={{ marginTop: 14 }}>A live pilot, and an early signal.</h2>
-            <p>A top-tier R1 university (Bay Area campus) is piloting Nia now, before a public launch.</p>
+            <p>A top-tier R1 university is piloting Nia now, before a public launch.</p>
           </div>
           <div className="iv-statgrid four">
-            <Stat value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, top-tier R1, Bay Area campus"/>
+            <Stat value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, a top-tier R1"/>
             <Stat value={<span className="mf-grad-text">16</span>} label="Students in the active pilot cohort"/>
             <Stat value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Weeks of continuous student use, pilot to date"/>
             <Stat value={<>Canvas<span className="iv-stat-u"> partner</span></>} label="Official LMS-layer distribution, before a dollar of spend"/>

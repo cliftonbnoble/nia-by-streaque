@@ -80,7 +80,7 @@ const ProactiveVisual = () => (
                 <span className="np-mac-user"><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="22" height="22"/> <span>Maya Reyes</span></span>
               </div>
             </aside>
-            <main className="np-mac-main">
+            <div className="np-mac-main">
               <div className="np-mac-head">
                 <span>Today · 8:02 AM</span>
                 <span className="np-first">Nia reached out first</span>
@@ -101,7 +101,7 @@ const ProactiveVisual = () => (
                 </div>
               </div>
               <div className="np-inputbar">Message Nia…<span className="np-send">↑</span></div>
-            </main>
+            </div>
           </div>
           <span className="np-mac-label">MacBook Pro</span>
         </div>

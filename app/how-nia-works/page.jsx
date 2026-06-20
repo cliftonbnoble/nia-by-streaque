@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import WholeStudent from "@/components/home/WholeStudent";
+import PilotStrip from "@/components/PilotStrip";
 import CapabilityCards from "./CapabilityCards";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
@@ -530,6 +531,7 @@ export default function HowNiaWorks() {
       <WholeStudent/>
       <ForStudents/>
       <ForStaff/>
+      <PilotStrip/>
       <CompletePicture/>
       <Outcome/>
       </main>
