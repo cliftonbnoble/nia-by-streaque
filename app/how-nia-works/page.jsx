@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import WholeStudent from "@/components/home/WholeStudent";
 import PilotStrip from "@/components/PilotStrip";
-import CapabilityCards from "./CapabilityCards";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 
@@ -22,32 +21,81 @@ const Hero = () => (
       <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto" }}>
         <span className="mf-eyebrow">How Nia Works</span>
         <h1 style={{ marginTop: 18, fontSize: 60 }}>
-          Two front doors,<br/>
-          <span className="mf-grad-text">one mission:</span> transform student success.
+          Two front doors.<br/>
+          <span className="mf-grad-text">One student, seen whole.</span>
         </h1>
-        <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated front doors turning student data into nudges, alerts, and next steps,
-          on one governed layer your institution owns.
+        <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 640 }}>
+          A coach in the student&apos;s pocket. A co-pilot at the staff desk. One governed
+          platform, built on the data your institution already owns.
         </p>
       </div>
-
-      <CapabilityCards/>
     </div>
   </section>
 );
 
-/* Slim cross-link to the inside-out vs outside-in story, which lives on the
-   home page — this page stays focused on the workflow itself. */
-const ArchLink = () => (
-  <section style={{ background: "var(--bg-alt)", padding: "26px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-    <div className="mf-container" style={{ textAlign: "center" }}>
-      <span style={{ fontSize: 15, color: "var(--ink-2)" }}>
-        Want the architecture behind it, and why Nia works inside-out, not outside-in?{" "}
-        <Link href="/#architecture" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-          See the two architectures <ArrowR s={14}/>
-        </Link>
-      </span>
+/* Two-path chooser — the clear "which door?" choice up top. Each card previews
+   one platform (student app / staff dashboard) and jumps to its section. */
+const TwoPaths = () => (
+  <section className="mf-section hnw-paths-sec">
+    <div className="mf-container">
+      <div className="hnw-paths">
+        <a href="#for-students" className="hnw-path hnw-path-student">
+          <span className="hnw-path-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18.5h2"/></svg>
+          </span>
+          <span className="hnw-path-tag">For students · the app</span>
+          <h3 className="hnw-path-h">A coach in the pocket</h3>
+          <p className="hnw-path-p">A success coach on the student&apos;s phone: it answers from your real data, nudges before things slip, and learns how they actually work.</p>
+          <ul className="hnw-path-points">
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
+          </ul>
+          <span className="hnw-path-link">See the student experience <ArrowR s={14}/></span>
+        </a>
+        <a href="#for-staff" className="hnw-path hnw-path-staff">
+          <span className="hnw-path-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </span>
+          <span className="hnw-path-tag">For staff · the dashboard</span>
+          <h3 className="hnw-path-h">A co-pilot at the desk</h3>
+          <p className="hnw-path-p">An early-warning dashboard for advisors: it surfaces who needs help first, shows the cohort at a glance, and drafts outreach in your voice.</p>
+          <ul className="hnw-path-points">
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
+            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
+          </ul>
+          <span className="hnw-path-link">See the staff experience <ArrowR s={14}/></span>
+        </a>
+      </div>
     </div>
+    <style>{`
+      .hnw-paths-sec{ padding-top: 4px; }
+      .hnw-paths{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin: 0 auto; }
+      .hnw-path{ position: relative; display: block; overflow: hidden; text-decoration: none;
+        padding: 28px 30px 26px; border-radius: var(--radius-xl); background: #fff;
+        border: 1px solid var(--line); box-shadow: var(--shadow-card);
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+      .hnw-path:hover{ transform: translateY(-4px); box-shadow: 0 38px 72px -32px rgba(31,52,128,0.42); }
+      .hnw-path::before{ content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 4px; }
+      .hnw-path-student::before{ background: var(--brand-gradient); }
+      .hnw-path-staff::before{ background: linear-gradient(135deg, #3a37ad, #25278a); }
+      .hnw-path-ic{ display: inline-flex; width: 42px; height: 42px; border-radius: 12px; align-items: center; justify-content: center; color: #fff; }
+      .hnw-path-student .hnw-path-ic{ background: var(--brand-gradient); }
+      .hnw-path-staff .hnw-path-ic{ background: linear-gradient(135deg, #3a37ad, #25278a); }
+      .hnw-path-tag{ display: block; margin-top: 16px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+      .hnw-path-h{ margin-top: 6px; font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); }
+      .hnw-path-p{ margin-top: 10px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+      .hnw-path-points{ margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+      .hnw-path-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+      .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
+      .hnw-path-student .hnw-tick{ color: var(--brand-blue); }
+      .hnw-path-staff .hnw-tick{ color: #3a37ad; }
+      .hnw-path-link{ display: inline-flex; align-items: center; gap: 7px; margin-top: 20px; font-size: 13.5px; font-weight: 600; color: var(--primary); transition: gap 200ms ease; }
+      .hnw-path-staff .hnw-path-link{ color: #3a37ad; }
+      .hnw-path:hover .hnw-path-link{ gap: 11px; }
+      @media (max-width: 760px){ .hnw-paths{ grid-template-columns: 1fr; gap: 16px; } }
+    `}</style>
   </section>
 );
 
@@ -527,7 +575,7 @@ export default function HowNiaWorks() {
       <Nav active="how"/>
       <main id="main">
       <Hero/>
-      <ArchLink/>
+      <TwoPaths/>
       <WholeStudent/>
       <ForStudents/>
       <ForStaff/>
