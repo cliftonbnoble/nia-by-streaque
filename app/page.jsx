@@ -57,7 +57,8 @@ const Hero = () => (
             <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of engagement</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal. Term-to-term retention results publish in Q3 2026.
+            Engagement is the early signal.{" "}
+            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Hear the results first →</Link>
           </p>
         </div>
 

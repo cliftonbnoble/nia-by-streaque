@@ -135,7 +135,7 @@ export default function ContactForm() {
                   <span id="cf-interest-label" style={labelStyle}>I'm interested in</span>
                   <div role="group" aria-labelledby="cf-interest-label" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                     {[
-                      { v: "pilot", l: "Running a pilot" },
+                      { v: "pilot", l: "Pilot information" },
                       { v: "demo", l: "Just a demo" },
                       { v: "founders", l: "Talking to founders" },
                       { v: "partnership", l: "Partnership" },

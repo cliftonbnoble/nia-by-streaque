@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 /* Reusable proof beat. The product pages (/nia moats, /how-nia-works workflow)
    are otherwise 100% claim — this injects the one real, defensible signal:
    engagement (not outcomes), framed honestly. Matches the hero's live-pilot voice. */
@@ -15,7 +17,7 @@ export default function PilotStrip() {
             <span className="pilot-strip-div" aria-hidden="true"/>
             <span><strong>6&ndash;8 wks</strong> of sustained engagement</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
-            <span>retention results publish <strong>Q3 2026</strong></span>
+            <Link href="/contact#form" className="pilot-strip-cta">Hear the results first →</Link>
           </span>
         </div>
       </div>
@@ -38,6 +40,8 @@ export default function PilotStrip() {
           font-size: 14px; color: var(--ink-2);
         }
         .pilot-strip-facts strong{ color: var(--ink); font-weight: 700; }
+        .pilot-strip-cta{ display: inline-flex; align-items: center; gap: 5px; color: var(--primary); font-weight: 600; text-decoration: none; white-space: nowrap; transition: gap 200ms ease; }
+        .pilot-strip-cta:hover{ gap: 9px; }
         .pilot-strip-div{ width: 1px; height: 16px; background: var(--line-2); }
         @media (max-width: 560px){ .pilot-strip-div{ display: none; } .pilot-strip-facts{ gap: 4px 14px; } }
       `}</style>
