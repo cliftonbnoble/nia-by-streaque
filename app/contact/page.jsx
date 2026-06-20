@@ -252,6 +252,8 @@ const Paths = () => {
   );
 };
 
+/* NOT MOUNTED — the contact FAQ was cut (procurement Q&A lives on /security).
+   Kept for reference; don't re-add to the render without revisiting that IA call. */
 const FAQ = () => {
   const faqs = [
     { q: "How fast will you respond?", a: "Within one business day, from a real person on our team. Most replies come same-day." },

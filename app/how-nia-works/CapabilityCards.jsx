@@ -1,4 +1,7 @@
-/* ── Hero capability cards ─────────────────────────────────────────
+/* NOT MOUNTED — replaced by the two-path (iPhone/MacBook) chooser in page.jsx;
+   not imported anywhere. Kept for reference / easy restore.
+
+   ── Hero capability cards ─────────────────────────────────────────
    Three tall "playing cards" in the same language as the homepage
    office cards: big title, short body, then a drawn device cropped by
    the card with elements popping off the screen. Sentiment rides a
