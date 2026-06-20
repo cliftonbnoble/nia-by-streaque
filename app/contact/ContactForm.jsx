@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 
 /* the path cards deep-link here: the hash picks the interest chip */
-const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership" };
+const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership", "#form-security": "security" };
 
 export default function ContactForm() {
   const [data, setData] = useState({
@@ -55,6 +55,7 @@ export default function ContactForm() {
       <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-investor" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-partnership" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
+      <span id="form-security" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
           <div className="cf-intro">
@@ -137,6 +138,7 @@ export default function ContactForm() {
                     {[
                       { v: "pilot", l: "Pilot information" },
                       { v: "demo", l: "Just a demo" },
+                      { v: "security", l: "Security review" },
                       { v: "founders", l: "Talking to founders" },
                       { v: "partnership", l: "Partnership" },
                       { v: "investor", l: "Investor info" },
