@@ -41,14 +41,17 @@ they have none configured **the lead is silently lost.**
 (`TURNSTILE_SECRET`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`,
 `NEXT_PUBLIC_TURNSTILE_SITE_KEY`).
 
-**I build (on confirm):** the Pages Function, the paste-ready Apps Script, and the
-frontend swap (fetch + honeypot + Turnstile widget + real success/error states).
-Note: the Function only runs on Cloudflare Pages / `wrangler pages dev`, not
-`next dev` — so end-to-end testing happens on a Pages preview deploy.
+**✅ Built** (`functions/api/lead.js`, `docs/lead-apps-script.gs`,
+`docs/form-wiring-setup.md`, and the ContactForm frontend: honeypot + Turnstile +
+fetch + UTM/referrer capture). Email is sent by the Apps Script via `MailApp`; the
+Sheet captures timestamp + source + UTM. The form falls back to `mailto:` until the
+Turnstile site key is set, so the live form keeps working in the meantime.
 
-**⛔ Decisions:** (a) Apps-Script-sends-the-email (recommended — no email service)
-vs. a dedicated service like Resend? (b) any extra Sheet columns beyond the form
-fields (timestamp, source page, UTM)?
+**⏳ Remaining — provisioning + test (you):** follow
+[`docs/form-wiring-setup.md`](docs/form-wiring-setup.md) — create the Turnstile
+widget, deploy the Apps Script web app, and set the four Cloudflare Pages env vars
+— then submit on a Pages **preview** deploy to confirm a row lands in the Sheet and
+the email reaches info@streaque.com.
 
 ### 2. Analytics — none installed _(verified)_
 No GA / Plausible / PostHog / Vercel Analytics anywhere — the only `<script>` in
