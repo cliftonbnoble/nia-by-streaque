@@ -39,62 +39,102 @@ const TwoPaths = () => (
   <section className="mf-section hnw-paths-sec">
     <div className="mf-container">
       <div className="hnw-paths">
-        <a href="#for-students" className="hnw-path hnw-path-student">
-          <span className="hnw-path-ic" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18.5h2"/></svg>
-          </span>
-          <span className="hnw-path-tag">For students · the app</span>
-          <h3 className="hnw-path-h">A coach in the pocket</h3>
-          <p className="hnw-path-p">A success coach on the student&apos;s phone: it answers from your real data, nudges before things slip, and learns how they actually work.</p>
-          <ul className="hnw-path-points">
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
-          </ul>
-          <span className="hnw-path-link">See the student experience <ArrowR s={14}/></span>
+        {/* STUDENT — the app, on an iPhone */}
+        <a href="#for-students" className="hnw-dev hnw-dev-student">
+          <div className="hnw-phone">
+            <span className="hnw-phone-notch" aria-hidden="true"/>
+            <div className="hnw-screen">
+              <div className="hnw-bar">
+                <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstu"/></span>
+                <span className="hnw-bar-name">Nia</span>
+                <span className="hnw-bar-tag">for students</span>
+              </div>
+              <div className="hnw-body">
+                <span className="hnw-eyebrow">The app</span>
+                <h3 className="hnw-h">A coach in the<br/>student&apos;s pocket.</h3>
+                <ul className="hnw-points">
+                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
+                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
+                  <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
+                </ul>
+                <span className="hnw-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
+              </div>
+            </div>
+          </div>
         </a>
-        <a href="#for-staff" className="hnw-path hnw-path-staff">
-          <span className="hnw-path-ic" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </span>
-          <span className="hnw-path-tag">For staff · the dashboard</span>
-          <h3 className="hnw-path-h">A co-pilot at the desk</h3>
-          <p className="hnw-path-p">An early-warning dashboard for advisors: it surfaces who needs help first, shows the cohort at a glance, and drafts outreach in your voice.</p>
-          <ul className="hnw-path-points">
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
-            <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
-          </ul>
-          <span className="hnw-path-link">See the staff experience <ArrowR s={14}/></span>
+        {/* STAFF — the dashboard, on a MacBook */}
+        <a href="#for-staff" className="hnw-dev hnw-dev-staff">
+          <div className="hnw-mac">
+            <div className="hnw-mac-lid">
+              <div className="hnw-mac-screen">
+                <div className="hnw-mac-chrome">
+                  <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
+                  <span className="hnw-mac-url">app.niahub.ai/staff</span>
+                </div>
+                <div className="hnw-body hnw-body-mac">
+                  <span className="hnw-eyebrow">The dashboard</span>
+                  <h3 className="hnw-h">A co-pilot at the desk.</h3>
+                  <ul className="hnw-points">
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
+                  </ul>
+                  <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+                </div>
+              </div>
+            </div>
+            <span className="hnw-mac-base" aria-hidden="true"/>
+          </div>
         </a>
       </div>
     </div>
     <style>{`
-      .hnw-paths-sec{ padding-top: 4px; }
-      .hnw-paths{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1000px; margin: 0 auto; }
-      .hnw-path{ position: relative; display: block; overflow: hidden; text-decoration: none;
-        padding: 28px 30px 26px; border-radius: var(--radius-xl); background: #fff;
-        border: 1px solid var(--line); box-shadow: var(--shadow-card);
-        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
-      .hnw-path:hover{ transform: translateY(-4px); box-shadow: 0 38px 72px -32px rgba(31,52,128,0.42); }
-      .hnw-path::before{ content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 4px; }
-      .hnw-path-student::before{ background: var(--brand-gradient); }
-      .hnw-path-staff::before{ background: linear-gradient(135deg, #3a37ad, #25278a); }
-      .hnw-path-ic{ display: inline-flex; width: 42px; height: 42px; border-radius: 12px; align-items: center; justify-content: center; color: #fff; }
-      .hnw-path-student .hnw-path-ic{ background: var(--brand-gradient); }
-      .hnw-path-staff .hnw-path-ic{ background: linear-gradient(135deg, #3a37ad, #25278a); }
-      .hnw-path-tag{ display: block; margin-top: 16px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
-      .hnw-path-h{ margin-top: 6px; font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); }
-      .hnw-path-p{ margin-top: 10px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
-      .hnw-path-points{ margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
-      .hnw-path-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 56px; }
+      .hnw-paths{ display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 34px; align-items: center; max-width: 1060px; margin: 0 auto; }
+      .hnw-dev{ display: block; text-decoration: none; transition: transform 260ms cubic-bezier(0.2,0.8,0.2,1); }
+      .hnw-dev:hover{ transform: translateY(-6px); }
+
+      /* iPhone */
+      .hnw-phone{ position: relative; width: 250px; max-width: 100%; margin: 0 auto; background: linear-gradient(160deg,#1b2030,#0c0f1a); border-radius: 42px; padding: 9px; box-shadow: 0 46px 86px -34px rgba(11,16,32,0.55), inset 0 0 0 1px rgba(255,255,255,0.06); }
+      .hnw-phone-notch{ position: absolute; top: 17px; left: 50%; transform: translateX(-50%); width: 78px; height: 22px; background: #0c0f1a; border-radius: 12px; z-index: 4; }
+      .hnw-phone .hnw-screen{ border-radius: 32px; min-height: 458px; }
+      .hnw-phone .hnw-bar{ padding-top: 30px; }
+
+      /* MacBook */
+      .hnw-mac{ width: 100%; max-width: 560px; margin: 0 auto; }
+      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 16px 16px 0 0; padding: 3px 3px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 40px 70px -34px rgba(11,16,32,0.42); }
+      .hnw-mac-screen{ position: relative; background: #fff; border-radius: 13px 13px 0 0; overflow: hidden; }
+      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 8px 12px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; }
+      .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
+      .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
+      .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
+      .hnw-mac-dots i:nth-child(2){ background: #FEBC2E; }
+      .hnw-mac-dots i:nth-child(3){ background: #28C840; }
+      .hnw-mac-url{ flex: 1; max-width: 250px; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 4px 0; }
+      .hnw-mac-base{ display: block; width: 116%; margin-left: -8%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 13px 13px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
+
+      /* screen content (shared) */
+      .hnw-screen{ position: relative; background: #fff; overflow: hidden; display: flex; flex-direction: column; }
+      .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+      .hnw-bar-glyph{ width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
+      .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
+      .hnw-body{ padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+      .hnw-body-mac{ padding: 26px 30px 30px; flex: none; }
+      .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+      .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 21px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
+      .hnw-body-mac .hnw-h{ font-size: 26px; }
+      .hnw-points{ margin: 15px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+      .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 13px; line-height: 1.4; color: var(--ink-2); }
       .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
-      .hnw-path-student .hnw-tick{ color: var(--brand-blue); }
-      .hnw-path-staff .hnw-tick{ color: #3a37ad; }
-      .hnw-path-link{ display: inline-flex; align-items: center; gap: 7px; margin-top: 20px; font-size: 13.5px; font-weight: 600; color: var(--primary); transition: gap 200ms ease; }
-      .hnw-path-staff .hnw-path-link{ color: #3a37ad; }
-      .hnw-path:hover .hnw-path-link{ gap: 11px; }
-      @media (max-width: 760px){ .hnw-paths{ grid-template-columns: 1fr; gap: 16px; } }
+      .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
+      .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
+      .hnw-cta{ display: inline-flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 18px; font-size: 13px; font-weight: 600; transition: gap 200ms ease; }
+      .hnw-cta-student{ color: var(--brand-blue); }
+      .hnw-cta-staff{ color: #3a37ad; }
+      .hnw-dev:hover .hnw-cta{ gap: 11px; }
+
+      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 30px; justify-items: center; } .hnw-phone .hnw-screen{ min-height: 0; } }
     `}</style>
   </section>
 );

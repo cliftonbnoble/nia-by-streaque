@@ -14,8 +14,7 @@ const Moat = ({ n, eyebrow, title, grad, body, points, alt, reverse, children })
     <div className="mf-container">
       <div className={`np-moat${reverse ? " np-moat-rev" : ""}`}>
         <div className="np-moat-copy">
-          <span className="np-moat-n">Moat {n}</span>
-          <span className="mf-eyebrow" style={{ display: "block", marginTop: 14 }}>{eyebrow}</span>
+          <span className="mf-eyebrow" style={{ display: "block" }}>{eyebrow}</span>
           <h2 style={{ marginTop: 14 }}>{title} <span className="mf-grad-text">{grad}</span></h2>
           <p style={{ marginTop: 16, fontSize: 16, maxWidth: 480 }}>{body}</p>
           {points && (
@@ -307,7 +306,7 @@ export default function Moats() {
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
             <span className="mf-eyebrow">Why Nia is hard to copy</span>
-            <h2 style={{ marginTop: 14 }}>Six moats, <span className="mf-grad-text">one relationship.</span></h2>
+            <h2 style={{ marginTop: 14 }}>Six capabilities, <span className="mf-grad-text">one relationship.</span></h2>
             <p style={{ marginTop: 16 }}>Most campus AI answers a question and forgets you. Nia is built differently on purpose. Here is what compounds underneath the conversation.</p>
           </div>
         </div>
