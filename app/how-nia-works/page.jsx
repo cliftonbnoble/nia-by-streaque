@@ -119,15 +119,14 @@ const TwoPaths = () => (
       .hnw-ip-home{ position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 92px; height: 4px; border-radius: 2px; background: #59606e; opacity: 0.32; z-index: 6; }
       .hnw-iphone .hnw-bar{ padding-top: 34px; }
       .hnw-iphone .hnw-body{ padding-bottom: 30px; }
-      .hnw-iphone .hnw-cta{ justify-content: center; margin-top: auto; padding: 12px; border-radius: 13px; background: var(--brand-gradient); color: #fff; box-shadow: 0 10px 22px -10px rgba(56,65,177,0.55); }
 
       /* MacBook — matches the /nia Moats MacBook shell */
-      .hnw-mac{ position: relative; width: 100%; max-width: 544px; margin: 0 auto; }
+      .hnw-mac{ position: relative; width: 100%; max-width: 484px; margin: 0 auto; }
       .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 18px 18px 0 0; padding: 4px 4px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 42px 72px -32px rgba(11,16,32,0.4); }
       .hnw-mac-display{ position: relative; background: #05070D; border-radius: 14px 14px 0 0; padding: 12px 11px 15px; overflow: hidden; }
       .hnw-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 56px; height: 14px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
-      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); }
-      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; }
+      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); aspect-ratio: 16 / 10; display: flex; flex-direction: column; }
+      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; flex-shrink: 0; }
       .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
       .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
       .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
@@ -144,7 +143,7 @@ const TwoPaths = () => (
       .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
       .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
       .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-      .hnw-body-mac{ padding: 24px 28px 28px; flex: none; }
+      .hnw-body-mac{ padding: 22px 26px 24px; flex: 1; display: flex; flex-direction: column; }
       .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
       .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
       .hnw-body-mac .hnw-h{ font-size: 25px; }
@@ -154,11 +153,14 @@ const TwoPaths = () => (
       .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
       .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
       .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
-      .hnw-cta{ display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-size: 13px; font-weight: 600; transition: gap 200ms ease; }
-      .hnw-cta-staff{ color: #3a37ad; }
+      .hnw-cta{ display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: auto; padding: 12px; border-radius: 13px; color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 12px 24px -12px rgba(37,39,138,0.5); transition: gap 200ms ease; }
+      .hnw-cta-student{ background: var(--brand-gradient); }
+      .hnw-cta-staff{ background: linear-gradient(135deg, #3a37ad, #25278a); }
       .hnw-dev:hover .hnw-cta{ gap: 11px; }
 
       @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
+      /* below ~480px the MacBook is too narrow to hold its content at 16:10, so let it size to content instead of clipping */
+      @media (max-width: 480px){ .hnw-mac-app{ aspect-ratio: auto; } }
     `}</style>
   </section>
 );
