@@ -532,7 +532,7 @@ export default function HeroPhones() {
         .hp-home-nia { position: relative; display: inline-flex; }
         .hp-home-nia .hp-appicon { box-shadow: 0 5px 14px rgba(43,179,223,0.45); }
         .hp-home-badge { position: absolute; top: -5px; right: -5px; min-width: 15px; height: 15px; padding: 0 4px; border-radius: 999px; background: #ff3b30; color: #fff; font-family: var(--font-body); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(7,10,20,0.5); }
-        .hp-home-dock { margin: 0 14px 18px; padding: 12px; display: flex; justify-content: space-between; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; backdrop-filter: blur(8px); }
+        .hp-home-dock { margin: 0 14px 18px; padding: 12px; display: flex; justify-content: space-between; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 
         /* push banner */
         .hp-banner {

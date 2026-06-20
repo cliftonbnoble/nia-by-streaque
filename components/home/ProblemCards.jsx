@@ -147,11 +147,11 @@ export default function ProblemCards() {
         .pc-card {
           overflow: hidden;
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);
-          border-radius: var(--radius-lg); backdrop-filter: blur(6px);
+          border-radius: var(--radius-lg); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
           display: flex; flex-direction: column;
           transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
         }
-        .pc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: color-mix(in srgb, var(--pc-accent) 45%, transparent); }
+        .pc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.22); border-color: color-mix(in srgb, var(--pc-accent) 45%, transparent); }
         .pc-art {
           height: 168px; flex-shrink: 0;
           mask-image: linear-gradient(180deg, black 62%, transparent 99%);

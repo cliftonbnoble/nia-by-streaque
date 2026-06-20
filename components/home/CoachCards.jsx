@@ -197,11 +197,11 @@ export default function CoachCards() {
         .cc-card {
           flex: 1 0 212px; min-width: 0; scroll-snap-align: start; overflow: hidden;
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);
-          border-radius: var(--radius-lg); backdrop-filter: blur(6px);
+          border-radius: var(--radius-lg); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
           display: flex; flex-direction: column;
           transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
         }
-        .cc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: color-mix(in srgb, var(--cc-accent) 45%, transparent); }
+        .cc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.22); border-color: color-mix(in srgb, var(--cc-accent) 45%, transparent); }
         .cc-art {
           height: 142px; flex-shrink: 0;
           mask-image: linear-gradient(180deg, black 62%, transparent 99%);

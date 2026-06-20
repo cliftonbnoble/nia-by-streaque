@@ -107,6 +107,10 @@ export const SecArchitecture = () => (
       .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
       .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
       @media (max-width:760px){ .ioc-grid{ grid-template-columns:1fr; } }
+      /* below the desktop breakpoint there's no clip-path crop, so the phone
+         (position:absolute, bottom:-Npx) spills onto the copy — crop it at the
+         stage box and keep the text layered above. */
+      @media (max-width:1023px){ .ioc-stage{ overflow:hidden; } .ioc-text{ position:relative; z-index:2; } }
 
       /* desktop: drop the boxes — let the two stages breathe and overlap
          organically in the middle, crop the phone + orbit cleanly at the

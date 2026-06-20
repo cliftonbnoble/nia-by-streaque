@@ -267,10 +267,10 @@ export default function FeatureCards() {
         .fc-card {
           overflow: hidden; display: flex; flex-direction: column;
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);
-          border-radius: var(--radius-lg); backdrop-filter: blur(6px);
+          border-radius: var(--radius-lg); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
           transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
         }
-        .fc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: color-mix(in srgb, var(--fc-accent) 42%, transparent); }
+        .fc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.22); border-color: color-mix(in srgb, var(--fc-accent) 42%, transparent); }
         .fc-art { position: relative; height: 208px; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
         .fc-num { position: absolute; top: 14px; left: 16px; z-index: 3; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.32); }
         .fc-body { padding: 18px 22px 22px; }

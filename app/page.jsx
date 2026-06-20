@@ -27,7 +27,7 @@ const Hero = () => (
           </p>
           <p className="mf-hero-sub">
             Nia spots the student who&apos;s quietly slipping and opens the conversation first: warm,
-            evidence-based, grounded in the data you already trust. Your institution owns every byte.
+            evidence-based, grounded in the data you already trust.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
@@ -40,6 +40,16 @@ const Hero = () => (
             <Link href="/investors" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "var(--ink-3)", textDecoration: "none" }}>
               For investors →
             </Link>
+          </div>
+          {/* ownership lockup — the governance differentiator, set apart from the pilot proof */}
+          <div className="mf-hero-own">
+            <span className="mf-hero-own-ic" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <span className="mf-hero-own-txt">
+              <span className="mf-hero-own-top"><span className="mf-grad-text">100%</span> institution-owned</span>
+              <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>
+            </span>
           </div>
           {/* live pilot lockup — partner anonymized: a top-tier R1 university,
               Bay Area campus. Name/logo withheld pending a signed naming agreement. */}
@@ -54,8 +64,6 @@ const Hero = () => (
             <div className="mf-hero-meta-stat"><span className="num">16</span><span className="lbl">students in the pilot</span></div>
             <div className="mf-hero-meta-divider"/>
             <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of engagement</span></div>
-            <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
             Engagement is the early signal. Term-to-term retention results publish in Q3 2026.
@@ -144,7 +152,7 @@ const TwoExperiences = () => (
       .tfd-aud{ display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
       .tfd-h{ display: block; margin-top: 9px; font-family: var(--font-display); font-weight: 600; font-size: 27px; letter-spacing: -0.025em; color: #fff; }
       .tfd-p{ display: block; margin-top: 9px; max-width: 380px; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.86); }
-      .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
+      .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
       .tfd-card:hover .tfd-arrow{ background: rgba(255,255,255,0.18); border-color: #fff; transform: translateX(2px); }
       @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } }
     `}</style>
