@@ -196,7 +196,7 @@ const Hero = () => (
           <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: 560 }}>
             Higher education is one of the most-attacked sectors in America. We built Nia knowing it: per-tenant isolation, AES-256-GCM encryption, Zero Trust access, and defense-in-depth, so a breach anywhere else never reaches your students.
           </p>
-          <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
+          <div className="mf-hero-actions">
             <a href="#pillars" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none" }}>See the four pillars <ArrowR/></a>
             <a href="mailto:info@streaque.com" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
           </div>
