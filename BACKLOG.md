@@ -10,23 +10,45 @@ re-investigate it.
 
 ## 🔴 Blockers — must land before launch
 
-### 1. Wire up the two contact forms
-Both forms currently build a `mailto:` link, which only opens the visitor's mail
-client — if they have none configured, **the lead is silently lost.**
+### 1. Wire up the contact form
+The form builds a `mailto:` link — it only opens the visitor's mail client, and if
+they have none configured **the lead is silently lost.**
 
-- **Forms:**
-  - `app/contact/ContactForm.jsx` — pilot inquiry → `info@streaque.com`
-  - `app/security/SecurityContact.jsx` — security question → `clifton@streaque.com`
-- **Constraint:** the site is `output: "export"` (pure static, served by Cloudflare
-  Pages). There is **no Next.js server / API route** — the form must POST to an
-  **external endpoint**.
-- **Recommended approach:** a Cloudflare Pages Function / Worker that receives the
-  POST → validates → emails a notification (Resend or MailChannels) → optionally
-  stores the lead (spreadsheet/CRM). Add a honeypot field + **Cloudflare Turnstile**
-  for spam. Replace the `mailto` `onSubmit` with a `fetch` POST and update the
-  success state copy (drop the "we tried to open your email" language).
-- **⛔ Decision needed:** where should leads land? (email only · + spreadsheet ·
-  CRM like HubSpot)
+- **One form now.** ✅ The security page's separate CTO form was consolidated into
+  the main form (`/contact#form-security` pre-selects a "Security review" interest
+  pill), so there's a single endpoint to wire.
+- **Goal:** the form should land in **two places** — an email to `info@streaque.com`
+  **and** a Google Sheet in the Workspace (backup / second copy).
+- **Constraint:** the site is `output: "export"` (static, Cloudflare Pages) — no Next
+  API route. The form must POST to an external endpoint.
+
+**Architecture (proposed):**
+
+    form → POST /api/lead → Cloudflare Pages Function (functions/api/lead.js)
+            1. honeypot empty?  2. verify Turnstile  3. validate fields
+            4. forward to Google Apps Script (LEAD_WEBHOOK_URL + shared secret)
+                  → Apps Script: append row to the Sheet
+                                 + MailApp email to info@streaque.com
+
+- Pages Function deploys alongside the static site — no separate Worker.
+- The Apps Script (in your Workspace) does **both** the Sheet append and the email
+  via `MailApp` — no third-party email service or DNS setup needed.
+- The Function gatekeeps Turnstile + honeypot, so the Apps Script URL/secret never
+  reach the browser.
+
+**You provision:** a Turnstile widget (site + secret key) · an Apps Script web app
+(URL + shared secret, bound to the Sheet) · Cloudflare Pages env vars
+(`TURNSTILE_SECRET`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`,
+`NEXT_PUBLIC_TURNSTILE_SITE_KEY`).
+
+**I build (on confirm):** the Pages Function, the paste-ready Apps Script, and the
+frontend swap (fetch + honeypot + Turnstile widget + real success/error states).
+Note: the Function only runs on Cloudflare Pages / `wrangler pages dev`, not
+`next dev` — so end-to-end testing happens on a Pages preview deploy.
+
+**⛔ Decisions:** (a) Apps-Script-sends-the-email (recommended — no email service)
+vs. a dedicated service like Resend? (b) any extra Sheet columns beyond the form
+fields (timestamp, source page, UTM)?
 
 ### 2. Analytics — none installed _(verified)_
 No GA / Plausible / PostHog / Vercel Analytics anywhere — the only `<script>` in
