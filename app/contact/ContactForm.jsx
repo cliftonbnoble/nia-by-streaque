@@ -103,7 +103,7 @@ export default function ContactForm() {
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-institution" style={labelStyle}>Institution *</label>
-                    <input id="cf-institution" required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="State University"/>
+                    <input id="cf-institution" required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="University"/>
                   </div>
                   <div>
                     <label htmlFor="cf-students" style={labelStyle}>Students served</label>
