@@ -252,6 +252,14 @@ html, body { margin: 0; padding: 0; }
   .mf-nav-cta { margin-left: auto; }
   .mf-nav.is-condensed .mf-nav-inner { margin: 8px 12px 0; padding: 8px 10px 8px 16px; }
 }
+/* smallest phones (~320px): logo + full CTA + burger overflow the bar. Keep the
+   demo CTA visible (it's the primary conversion) but trim its label to
+   "Book demo" and tighten the bar so the header fits without horizontal scroll. */
+@media (max-width: 360px) {
+  .mf-nav-cta-trim { display: none; }
+  .mf-nav-inner { padding: 12px 14px; }
+  .mf-nav.is-condensed .mf-nav-inner { padding: 8px 10px 8px 14px; }
+}
 .mf-nav-links a {
   color: var(--ink-2);
   text-decoration: none;

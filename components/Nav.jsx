@@ -37,7 +37,7 @@ export default function Nav({ active = "home" }) {
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
         <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm mf-nav-cta mf-cta-fx" style={{ textDecoration: "none" }}>
-          Book a pilot demo
+          Book <span className="mf-nav-cta-trim">a pilot </span>demo
           <span className="mf-cta-arr" aria-hidden="true">
             <ArrowRight s={12}/>
             <ArrowRight s={12}/>
