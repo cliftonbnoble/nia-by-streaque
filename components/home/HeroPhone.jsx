@@ -406,7 +406,7 @@ export default function HeroPhones() {
         }
         .hp-sbtn { position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #2c303a, #181a20); }
         .hp-bezel { width: 100%; height: 100%; background: #000; border-radius: 39px; padding: 3px; box-sizing: border-box; }
-        .hp-screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #0b1020; }
+        .hp-screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: var(--ink); }
         .hp-island {
           position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
           width: 74px; height: 21px; border-radius: 12px; background: #000; z-index: 30;

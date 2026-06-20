@@ -22,6 +22,7 @@ export default function ResourcesPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="resources"/>
+      <main id="main">
 
       <section className="mf-hero" style={{ paddingBottom: 40 }}>
         <div className="mf-hero-bg"/>
@@ -82,6 +83,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      </main>
       <Footer/>
     </div>
   );

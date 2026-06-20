@@ -15,6 +15,14 @@ export default function Nav({ active = "home" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile drawer when the viewport grows past the mobile breakpoint —
+  // otherwise the burger disappears and the open drawer gets stuck with no way out.
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 760) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <div className={`mf-nav${condensed ? " is-condensed" : ""}`}>
       <div className="mf-nav-inner">
@@ -62,9 +70,6 @@ export default function Nav({ active = "home" }) {
               {l.t}
             </Link>
           ))}
-          <Link href="/contact#form" className="mf-btn mf-btn-primary" style={{ textDecoration: "none", justifyContent: "center", marginTop: 6 }} onClick={() => setMobileOpen(false)}>
-            Book a demo <ArrowRight s={12}/>
-          </Link>
         </div>
       )}
     </div>

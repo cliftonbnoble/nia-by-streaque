@@ -111,7 +111,11 @@ html, body { margin: 0; padding: 0; }
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
+  /* keep it scrollable on mobile but never show a scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.mf-trustbar-inner::-webkit-scrollbar { display: none; }
 .mf-trustbar .lbl { color: rgba(255,255,255,0.5); }
 .mf-trustbar .items { display: flex; gap: 22px; flex-wrap: wrap; }
 .mf-trustbar .items span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
@@ -119,8 +123,8 @@ html, body { margin: 0; padding: 0; }
 
 @media (max-width: 1100px) {
   .mf-trustbar { font-size: 10px; letter-spacing: 0.08em; }
-  .mf-trustbar-inner { gap: 14px; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .mf-trustbar .items { gap: 14px; flex-wrap: nowrap; }
+  .mf-trustbar-inner { gap: 16px; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 10px 18px; }
+  .mf-trustbar .items { gap: 16px; flex-wrap: nowrap; }
 }
 @media (max-width: 900px) {
   .mf-trustbar-inner { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
@@ -177,17 +181,17 @@ html, body { margin: 0; padding: 0; }
   pointer-events: auto;
 }
 .mf-nav.is-condensed .mf-nav-inner {
-  max-width: 880px;
+  max-width: 820px;
   padding: 8px 10px 8px 20px;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.99);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-color: rgba(255,255,255,0.95);
   box-shadow:
-    0 1px 3px rgba(17,17,17,0.05),
-    0 6px 6px rgba(17,17,17,0.04),
-    0 13px 8px rgba(17,17,17,0.03),
-    0 24px 9px rgba(17,17,17,0.01);
+    0 2px 4px rgba(17,17,17,0.06),
+    0 8px 16px -4px rgba(17,17,17,0.10),
+    0 18px 36px -10px rgba(17,17,17,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.9);
 }
 .mf-logo {
   display: inline-flex; align-items: center; gap: 10px;
@@ -221,17 +225,25 @@ html, body { margin: 0; padding: 0; }
   background: transparent; border: 1px solid var(--line);
   border-radius: 9px; color: var(--ink); cursor: pointer;
 }
+/* mobile drawer: a floating card inset from the screen edges with a shadow all
+   around, so it reads as attached to the nav rather than a full-bleed slab */
 .mf-nav-mobile {
   display: flex; flex-direction: column; gap: 2px;
-  padding: 10px 20px 18px;
-  background: white; border-bottom: 1px solid var(--line);
-  box-shadow: 0 18px 30px -18px rgba(11,16,32,0.18);
+  margin: 6px 12px 0;
+  padding: 8px;
+  background: rgba(255,255,255,0.98);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 20px 44px -16px rgba(11,16,32,0.24), 0 2px 10px rgba(11,16,32,0.06);
 }
 .mf-nav-mobile a {
   text-decoration: none; color: var(--ink-2);
   font-size: 15px; font-weight: 500;
-  padding: 11px 6px; border-radius: 8px;
+  padding: 12px 12px; border-radius: 10px;
 }
+.mf-nav-mobile a:active { background: var(--bg-alt); }
 .mf-nav-mobile a.active { color: var(--primary); background: var(--bg-alt); }
 @media (max-width: 760px) {
   .mf-nav-links { display: none; }
@@ -1280,6 +1292,16 @@ html, body { margin: 0; padding: 0; }
   outline-color: #fff;
   box-shadow: 0 0 0 4px rgba(35, 86, 201, 0.55);
 }
+
+/* Skip-to-content link: first focusable element, hidden until keyboard focus. */
+.mf-skip {
+  position: fixed; top: 8px; left: 8px; z-index: 2000;
+  transform: translateY(-160%);
+  background: var(--ink); color: #fff; padding: 10px 16px;
+  border-radius: var(--radius); font-size: 14px; font-weight: 600; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(11, 16, 32, 0.3); transition: transform 160ms ease;
+}
+.mf-skip:focus { transform: translateY(0); outline: 2px solid var(--brand-cyan); outline-offset: 2px; }
 
 /* Performance: PauseOffscreen halts descendant animation while off-screen. */
 .pof-paused,

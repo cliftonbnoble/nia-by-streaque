@@ -1,37 +1,34 @@
 "use client";
-/* Section III — ROI calculator. Four inputs the visitor controls:
-   enrollment, average tuition, the retention lift they want to assume, and
-   Nia's per-student cost. Everything downstream is a hypothetical illustration
-   to size the opportunity — not a forecast — and is labeled as such. */
+/* Section III — ROI calculator. Two inputs the visitor controls: total
+   enrollment and average annual tuition. Retention lift is a fixed, conservative
+   assumption (0.25%), and Nia's price is deliberately NOT shown — the panel leads
+   with the tuition protected per year so the price can't be gamed or screenshotted
+   out of context. Everything is a hypothetical illustration to size the
+   opportunity, not a forecast — and is labeled as such. */
 import { useState } from "react";
 
 const usd = (n) => "$" + Math.round(n).toLocaleString("en-US");
 
+/* fixed assumption — deliberately not exposed as a slider */
+const LIFT = 0.25; // % of enrollment retained (conservative)
+
 export default function RoiCalculator() {
   const [enroll, setEnroll] = useState(8000);
   const [tuition, setTuition] = useState(24000);
-  const [lift, setLift] = useState(0.1);   // % of enrollment retained — editable
-  const [cost, setCost] = useState(4);     // $ per student / year — editable
 
-  const retained = Math.max(1, Math.round(enroll * (lift / 100)));
-  const revenue = retained * tuition;          // one conservative year per retained student
-  const niaCost = enroll * cost;
-  const roi = revenue / niaCost;
-  const payback = Math.max(1, Math.round(12 / roi));
-  const costPct = Math.max(4, Math.min(100, (niaCost / revenue) * 100));
+  const retained = Math.max(1, Math.round(enroll * (LIFT / 100)));
+  const revenue = retained * tuition; // one conservative year per retained student
 
   const ePct = ((enroll - 1000) / (50000 - 1000)) * 100;
   const tPct = ((tuition - 6000) / (60000 - 6000)) * 100;
-  const lPct = ((lift - 0.05) / (0.5 - 0.05)) * 100;
-  const cPct = ((cost - 2) / (12 - 2)) * 100;
 
   return (
     <section className="mf-section alt">
       <div className="mf-container">
         <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 680, margin: "0 auto 44px" }}>
           <span className="mf-eyebrow">The math · illustrative</span>
-          <h2 style={{ marginTop: 14 }}>Set the assumptions. <span className="mf-grad-text">See how the math could work.</span></h2>
-          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own numbers — this is a hypothetical illustration to size the opportunity, not a forecast of results at your institution.</p>
+          <h2 style={{ marginTop: 14 }}>Set your numbers. <span className="mf-grad-text">See how the math could work.</span></h2>
+          <p style={{ marginTop: 16 }}>Nia&apos;s automated triage catches the quiet stalls that turn into withdrawals. Dial in your own enrollment and tuition; this is a hypothetical illustration to size the opportunity, not a forecast of results at your institution.</p>
         </div>
 
         <div className="np-roi">
@@ -50,23 +47,9 @@ export default function RoiCalculator() {
                 style={{ "--pct": `${tPct}%` }} aria-label="Average annual tuition"/>
               <div className="np-roi-scale"><span>$6k</span><span>$60k</span></div>
             </div>
-            <div className="np-roi-field">
-              <div className="np-roi-label"><span>Assumed retention lift</span><strong>{lift.toFixed(2)}%</strong></div>
-              <input type="range" min="0.05" max="0.5" step="0.05" value={lift}
-                onChange={(e) => setLift(+e.target.value)}
-                style={{ "--pct": `${lPct}%` }} aria-label="Assumed retention lift, percent of enrollment"/>
-              <div className="np-roi-scale"><span>0.05%</span><span>0.5%</span></div>
-            </div>
-            <div className="np-roi-field">
-              <div className="np-roi-label"><span>Nia cost / student / year</span><strong>{usd(cost)}</strong></div>
-              <input type="range" min="2" max="12" step="1" value={cost}
-                onChange={(e) => setCost(+e.target.value)}
-                style={{ "--pct": `${cPct}%` }} aria-label="Nia cost per student per year"/>
-              <div className="np-roi-scale"><span>$2</span><span>$12</span></div>
-            </div>
             <p className="np-roi-assume">
-              At {lift.toFixed(2)}% that&apos;s about {retained} student{retained === 1 ? "" : "s"} a year, counted as a single
-              year of tuition each. Figures are a hypothetical illustration, not a promise of results.
+              Assumes a conservative <strong>0.25% retention lift</strong>: about {retained} student{retained === 1 ? "" : "s"} a year,
+              each counted as a single year of tuition. A hypothetical illustration, not a promise of results.
             </p>
           </div>
 
@@ -75,21 +58,16 @@ export default function RoiCalculator() {
             <div className="np-roi-big">{usd(revenue)}</div>
             <p className="np-roi-by">by retaining <strong>~{retained} more students</strong> who would have slipped away.</p>
 
-            <div className="np-roi-bars">
-              <div className="np-roi-bar">
-                <div className="np-roi-bar-top"><span>Nia, per year</span><span>{usd(niaCost)}</span></div>
-                <span className="np-roi-track"><span className="np-roi-fill cost" style={{ width: `${costPct}%` }}/></span>
-              </div>
-              <div className="np-roi-bar">
-                <div className="np-roi-bar-top"><span>Revenue protected</span><span>{usd(revenue)}</span></div>
-                <span className="np-roi-track"><span className="np-roi-fill rev" style={{ width: "100%" }}/></span>
-              </div>
+            {/* the math, made legible — without exposing a per-student price */}
+            <div className="np-roi-calc">
+              <div className="np-roi-term"><span className="np-roi-term-n">{enroll.toLocaleString("en-US")}</span><span className="np-roi-term-l">students</span></div>
+              <span className="np-roi-op">×</span>
+              <div className="np-roi-term"><span className="np-roi-term-n">0.25%</span><span className="np-roi-term-l">retention lift</span></div>
+              <span className="np-roi-op">×</span>
+              <div className="np-roi-term"><span className="np-roi-term-n">{usd(tuition)}</span><span className="np-roi-term-l">avg tuition</span></div>
             </div>
 
-            <div className="np-roi-foot">
-              <span className="np-roi-pill">{roi >= 10 ? Math.round(roi) : roi.toFixed(1)}× return on Nia</span>
-              <span className="np-roi-pill ghost">pays for itself in ~{payback} month{payback === 1 ? "" : "s"}</span>
-            </div>
+            <p className="np-roi-foot-note">One conservative year of tuition per retained student. Figures illustrate the opportunity; they are not a forecast.</p>
           </div>
         </div>
       </div>
@@ -110,9 +88,12 @@ export default function RoiCalculator() {
         .np-roi input[type=range]::-webkit-slider-thumb{ -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 2px 8px rgba(11,16,32,0.28), 0 0 0 1px var(--line); cursor: pointer; transition: transform 120ms ease; }
         .np-roi input[type=range]::-webkit-slider-thumb:active{ transform: scale(1.12); }
         .np-roi input[type=range]::-moz-range-thumb{ width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 0; box-shadow: 0 2px 8px rgba(11,16,32,0.28), 0 0 0 1px var(--line); cursor: pointer; }
+        /* keyboard focus ring (track sets outline:none, so restore it on the thumb) */
+        .np-roi input[type=range]:focus-visible::-webkit-slider-thumb{ box-shadow: 0 0 0 3px var(--brand-blue), 0 2px 8px rgba(11,16,32,0.28); }
+        .np-roi input[type=range]:focus-visible::-moz-range-thumb{ box-shadow: 0 0 0 3px var(--brand-blue), 0 2px 8px rgba(11,16,32,0.28); }
 
         /* result panel — branded dark */
-        .np-roi-result{ position: relative; overflow: hidden; border-radius: var(--radius-xl); padding: 30px 32px; color: #fff;
+        .np-roi-result{ position: relative; overflow: hidden; border-radius: var(--radius-xl); padding: 30px 32px; color: #fff; display: flex; flex-direction: column;
           background: linear-gradient(155deg, #161a5e 0%, #25278a 55%, #3a37ad 100%); box-shadow: 0 26px 60px -24px rgba(37,39,138,0.6); }
         .np-roi-result::before{ content: ""; position: absolute; width: 360px; height: 360px; right: -140px; top: -160px; background: radial-gradient(circle, rgba(43,179,223,0.3), transparent 62%); border-radius: 50%; }
         .np-roi-eyebrow{ position: relative; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
@@ -121,19 +102,23 @@ export default function RoiCalculator() {
         /* .np-roi-result ancestor lifts specificity above the global .mf p rule (dark ink) */
         .np-roi-result .np-roi-by{ position: relative; font-size: 14.5px; color: rgba(255,255,255,0.92); margin: 14px 0 0; line-height: 1.5; }
         .np-roi-result .np-roi-by strong{ color: #fff; }
-        .np-roi-bars{ position: relative; margin-top: 24px; display: grid; gap: 14px; }
-        .np-roi-bar-top{ display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.78); margin-bottom: 7px; }
-        .np-roi-track{ display: block; height: 12px; border-radius: 999px; background: rgba(255,255,255,0.12); overflow: hidden; }
-        .np-roi-fill{ display: block; height: 100%; border-radius: 999px; transition: width 320ms cubic-bezier(0.2,0.8,0.2,1); }
-        .np-roi-fill.cost{ background: rgba(255,255,255,0.4); }
-        .np-roi-fill.rev{ background: linear-gradient(90deg,#2BB3DF,#8fe0f7); }
-        .np-roi-foot{ position: relative; display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
-        .np-roi-pill{ font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.02em; color: #0b1020; background: #fff; border-radius: 999px; padding: 8px 14px; }
-        .np-roi-pill.ghost{ color: #fff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); }
+
+        /* the breakdown — three terms, no price */
+        .np-roi-calc{ position: relative; margin-top: 26px; display: flex; align-items: stretch; gap: 10px; }
+        .np-roi-term{ flex: 1; display: flex; flex-direction: column; gap: 3px; padding: 13px 10px; text-align: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.13); border-radius: 12px; }
+        .np-roi-term-n{ font-family: var(--font-display); font-weight: 600; font-size: 17px; letter-spacing: -0.02em; color: #fff; }
+        .np-roi-term-l{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+        .np-roi-op{ align-self: center; font-size: 14px; color: rgba(255,255,255,0.5); }
+        .np-roi-result .np-roi-foot-note{ position: relative; margin-top: auto; padding-top: 18px; font-size: 11.5px; line-height: 1.5; color: rgba(255,255,255,0.6); }
 
         @media (max-width: 860px){
           .np-roi{ grid-template-columns: 1fr; }
           .np-roi-big{ font-size: 44px; }
+        }
+        @media (max-width: 480px){
+          .np-roi-calc{ gap: 6px; }
+          .np-roi-term{ padding: 10px 6px; }
+          .np-roi-term-n{ font-size: 14px; }
         }
       `}</style>
     </section>

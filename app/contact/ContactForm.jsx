@@ -89,25 +89,25 @@ export default function ContactForm() {
           <div>
             {!submitted ? (
               <form onSubmit={onSubmit} style={{ display: "grid", gap: 20 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
-                    <label style={labelStyle}>Your name *</label>
-                    <input required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
+                    <label htmlFor="cf-name" style={labelStyle}>Your name *</label>
+                    <input id="cf-name" required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
                   </div>
                   <div>
-                    <label style={labelStyle}>Work email *</label>
-                    <input required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
+                    <label htmlFor="cf-email" style={labelStyle}>Work email *</label>
+                    <input id="cf-email" required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
+                <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
                   <div>
-                    <label style={labelStyle}>Institution *</label>
-                    <input required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="State University"/>
+                    <label htmlFor="cf-institution" style={labelStyle}>Institution *</label>
+                    <input id="cf-institution" required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="State University"/>
                   </div>
                   <div>
-                    <label style={labelStyle}>Students served</label>
-                    <select style={inputStyle} value={data.students} onChange={(e) => update("students", e.target.value)}>
+                    <label htmlFor="cf-students" style={labelStyle}>Students served</label>
+                    <select id="cf-students" style={inputStyle} value={data.students} onChange={(e) => update("students", e.target.value)}>
                       <option value="">Select range</option>
                       <option>Under 2,000</option>
                       <option>2,000 – 10,000</option>
@@ -118,8 +118,8 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Your role *</label>
-                  <select required style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
+                  <label htmlFor="cf-role" style={labelStyle}>Your role *</label>
+                  <select id="cf-role" required style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
                     <option value="">Select your role</option>
                     <option>Student Success / Advising</option>
                     <option>IT / Information Systems</option>
@@ -132,8 +132,8 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>I'm interested in</label>
-                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                  <span id="cf-interest-label" style={labelStyle}>I'm interested in</span>
+                  <div role="group" aria-labelledby="cf-interest-label" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                     {[
                       { v: "pilot", l: "Running a pilot" },
                       { v: "demo", l: "Just a demo" },
@@ -142,7 +142,7 @@ export default function ContactForm() {
                       { v: "investor", l: "Investor info" },
                       { v: "other", l: "Something else" },
                     ].map((opt) => (
-                      <button key={opt.v} type="button" onClick={() => update("interest", opt.v)}
+                      <button key={opt.v} type="button" onClick={() => update("interest", opt.v)} aria-pressed={data.interest === opt.v}
                         style={{
                           padding: "8px 16px", borderRadius: 999,
                           border: data.interest === opt.v ? "1px solid var(--brand-blue)" : "1px solid var(--line)",
@@ -156,8 +156,8 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>What would you like to discuss?</label>
-                  <textarea rows={5} style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
+                  <label htmlFor="cf-message" style={labelStyle}>What would you like to discuss?</label>
+                  <textarea id="cf-message" rows={5} style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
                     value={data.message} onChange={(e) => update("message", e.target.value)}
                     placeholder="Tell us about your goals, your current student-success stack, or any questions you have. Even a sentence or two helps."/>
                 </div>

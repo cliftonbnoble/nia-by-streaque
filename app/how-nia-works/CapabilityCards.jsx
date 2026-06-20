@@ -55,14 +55,14 @@ const SentimentPhone = () => (
       <div style={{ display: "flex", alignItems: "center" }}>
         <span>
           <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#16192A" }}>Sentiment</span>
-          <span style={{ display: "block", fontSize: 8.5, color: "#6B7187", marginTop: 2 }}>Maya · last 14 days</span>
+          <span style={{ display: "block", fontSize: 8.5, color: "var(--ink-3)", marginTop: 2 }}>Maya · last 14 days</span>
         </span>
         <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 4, fontSize: 7.5, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 8px", borderRadius: 999 }}><span style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A" }}/>Live</span>
       </div>
 
       <div style={{ display: "flex", gap: 6, alignItems: "flex-start", marginTop: 12 }}>
         <img src="/students/maya.png" alt="" width="18" height="18" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
-        <div style={{ background: "white", border: "1px solid #E9EAF2", borderRadius: "13px 13px 13px 4px", padding: "8px 10px", fontSize: 10, lineHeight: 1.45, color: "#404659", boxShadow: "0 4px 10px -6px rgba(11,16,32,0.14)" }}>
+        <div style={{ background: "white", border: "1px solid #E9EAF2", borderRadius: "13px 13px 13px 4px", padding: "8px 10px", fontSize: 10, lineHeight: 1.45, color: "var(--ink-2)", boxShadow: "0 4px 10px -6px rgba(11,16,32,0.14)" }}>
           I&apos;m stuck on ch. 4 again. Not sure this class is for me.
         </div>
       </div>
@@ -99,10 +99,10 @@ const SentimentPop = () => (
       <span style={{ width: 17, height: 17, borderRadius: "50%", background: "#FFF4DE", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M23 18l-9.5-9.5-5 5L1 6"/><path d="M17 18h6v-6"/></svg>
       </span>
-      <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7187" }}>Sentiment shift</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "var(--ink-3)" }}>Sentiment shift</span>
     </div>
     <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 7 }}>
-      <span style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "#0B1020", letterSpacing: "-0.04em", lineHeight: 1 }}>−18%</span>
+      <span style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "var(--ink)", letterSpacing: "-0.04em", lineHeight: 1 }}>−18%</span>
       <span style={{ fontSize: 8.5, fontWeight: 600, color: "#B45309", background: "#FFF4DE", padding: "3px 8px", borderRadius: 999 }}>2 weeks</span>
     </div>
     <div style={{ fontSize: 9, color: "#15803D", fontWeight: 600, marginTop: 6 }}>Flagged to advising · just now</div>
@@ -120,7 +120,7 @@ const AlertMac = () => (
   <MacBook>
     <div style={{ display: "flex", alignItems: "center", gap: 5, padding: "7px 10px", borderBottom: "1px solid #EEF0F6", background: "#FBFCFE" }}>
       {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => <span key={c} style={{ width: 6.5, height: 6.5, borderRadius: "50%", background: c }}/>)}
-      <span style={{ flex: 1, textAlign: "center", fontSize: 8.5, fontWeight: 600, color: "#404659" }}>Early-alert queue</span>
+      <span style={{ flex: 1, textAlign: "center", fontSize: 8.5, fontWeight: 600, color: "var(--ink-2)" }}>Early-alert queue</span>
       <span style={{ display: "inline-flex", alignItems: "center", gap: 3.5, fontSize: 7, fontFamily: "var(--font-mono)", color: "#15803D" }}><span style={{ width: 4.5, height: 4.5, borderRadius: "50%", background: "#16A34A" }}/>live</span>
     </div>
     <div style={{ padding: "8px 10px", display: "grid", gap: 5 }}>
@@ -130,9 +130,9 @@ const AlertMac = () => (
           <img src={r.img} alt="" width="18" height="18" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
           <span style={{ flex: 1, minWidth: 0 }}>
             <span style={{ display: "block", fontSize: 9, fontWeight: 600, color: "#16192A" }}>{r.n}</span>
-            <span style={{ display: "block", fontSize: 7.5, color: "#6B7187", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{r.s}</span>
+            <span style={{ display: "block", fontSize: 7.5, color: "var(--ink-3)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{r.s}</span>
           </span>
-          <span style={{ fontSize: 7, fontFamily: "var(--font-mono)", fontWeight: 700, color: r.hot ? "#B45309" : "#6B7187", background: r.hot ? "rgba(217,119,6,0.12)" : "#F2F4F9", border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid #E9EAF2", borderRadius: 999, padding: "2px 6px", flexShrink: 0 }}>{r.tag}</span>
+          <span style={{ fontSize: 7, fontFamily: "var(--font-mono)", fontWeight: 700, color: r.hot ? "#B45309" : "var(--ink-3)", background: r.hot ? "rgba(217,119,6,0.12)" : "#F2F4F9", border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid #E9EAF2", borderRadius: 999, padding: "2px 6px", flexShrink: 0 }}>{r.tag}</span>
         </div>
       ))}
     </div>
@@ -167,14 +167,14 @@ const AlertStack = () => (
           <span style={{ width: 26, height: 26, borderRadius: 8, background: a.tint, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{a.icon}</span>
           <span style={{ flex: 1, minWidth: 0 }}>
             <span style={{ display: "block", fontSize: 10.5, fontWeight: 700, color: "#16192A", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{a.t}</span>
-            <span style={{ display: "block", fontSize: 8.5, color: "#6B7187", marginTop: 1.5, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{a.s}</span>
+            <span style={{ display: "block", fontSize: 8.5, color: "var(--ink-3)", marginTop: 1.5, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{a.s}</span>
           </span>
           <span style={{ fontSize: 7.5, color: "#8A90A5", flexShrink: 0, alignSelf: "flex-start" }}>{a.time}</span>
         </div>
         {a.buttons && (
           <div style={{ display: "flex", gap: 6, marginTop: 9 }}>
             <span style={{ flex: 1, textAlign: "center", fontSize: 8.5, fontWeight: 600, color: "white", background: "var(--brand-gradient)", borderRadius: 7, padding: "5.5px 0" }}>Send nudge</span>
-            <span style={{ flex: 1, textAlign: "center", fontSize: 8.5, fontWeight: 600, color: "#404659", background: "white", border: "1px solid #E3E8F4", borderRadius: 7, padding: "5.5px 0" }}>View</span>
+            <span style={{ flex: 1, textAlign: "center", fontSize: 8.5, fontWeight: 600, color: "var(--ink-2)", background: "white", border: "1px solid #E3E8F4", borderRadius: 7, padding: "5.5px 0" }}>View</span>
           </div>
         )}
       </div>
@@ -195,7 +195,7 @@ const JourneyPhone = () => (
       <div style={{ display: "flex", alignItems: "center" }}>
         <span>
           <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#16192A" }}>Today</span>
-          <span style={{ display: "block", fontSize: 8.5, color: "#6B7187", marginTop: 2 }}>Tuesday · built for Maya</span>
+          <span style={{ display: "block", fontSize: 8.5, color: "var(--ink-3)", marginTop: 2 }}>Tuesday · built for Maya</span>
         </span>
         <span style={{ marginLeft: "auto", position: "relative", width: 26, height: 26 }}>
           <svg width="26" height="26" viewBox="0 0 26 26">
@@ -227,7 +227,7 @@ const JourneyPhone = () => (
 
       <div style={{ marginTop: 10, display: "inline-flex", alignItems: "center", gap: 6, background: "white", border: "1px solid #E9EAF2", borderRadius: 999, padding: "6px 11px", boxShadow: "0 4px 10px -6px rgba(11,16,32,0.12)" }}>
         <svg width="10" height="10" viewBox="0 0 20 20"><path d="M10 1l2 5.4L17.4 8 12 10l-2 5.4L8 10 2.6 8 8 6.4z" fill="#5E56E0"/></svg>
-        <span style={{ fontSize: 8.5, fontWeight: 600, color: "#404659" }}>Adapts to your 7–9 PM focus</span>
+        <span style={{ fontSize: 8.5, fontWeight: 600, color: "var(--ink-2)" }}>Adapts to your 7–9 PM focus</span>
       </div>
     </div>
   </Phone>
@@ -239,9 +239,9 @@ const JourneyPop = () => (
       <span style={{ width: 17, height: 17, borderRadius: "50%", background: "#E7F6EC", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
       </span>
-      <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7187" }}>Plan adapted</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "var(--ink-3)" }}>Plan adapted</span>
     </div>
-    <div style={{ fontSize: 11, fontWeight: 600, color: "#0B1020", marginTop: 7, lineHeight: 1.4 }}>Quiz reset added, 2 blocks moved</div>
+    <div style={{ fontSize: 11, fontWeight: 600, color: "var(--ink)", marginTop: 7, lineHeight: 1.4 }}>Quiz reset added, 2 blocks moved</div>
     <div style={{ fontSize: 9, color: "#8A90A5", marginTop: 4 }}>Rebuilt around the missed quiz · 9:02 AM</div>
   </div>
 );
@@ -250,7 +250,7 @@ const JourneyPop = () => (
 const CARDS = [
   {
     tag: "01 · Sentiment",
-    title: "Real-time sentiment tracking",
+    title: "Reads the room, in real time",
     body: "Every conversation carries signal. Nia reads tone, frustration, and momentum, quietly, on every interaction.",
     bg: "linear-gradient(180deg, #EAF0F8 0%, #DCE8F6 52%, #BED7F0 100%)",
     accent: "#1a8fc0",
@@ -259,7 +259,7 @@ const CARDS = [
   },
   {
     tag: "02 · Alerts",
-    title: "Proactive intervention alerts",
+    title: "The right person, the right moment",
     body: "The right person hears about the right student at the right moment, before a missed deadline becomes a missed term.",
     bg: "linear-gradient(180deg, #EAF0F8 0%, #F2E4D3 52%, #EFCEA9 100%)",
     accent: "#B45309",
@@ -268,7 +268,7 @@ const CARDS = [
   },
   {
     tag: "03 · Journeys",
-    title: "Personalized student journeys",
+    title: "Plans that adapt to the student",
     body: "Plans that adapt to schedule, course load, and how each student actually studies, not a one-size-fits-all template.",
     bg: "linear-gradient(180deg, #EAF0F8 0%, #E0EFE2 52%, #C2E2CB 100%)",
     accent: "#15803D",

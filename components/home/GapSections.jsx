@@ -8,7 +8,8 @@ import { useState, useEffect } from "react";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import { CONSENT_KEY } from "@/lib/consent";
 
-/* ── 1. Pilot spotlight ───────────────────────────────────────── */
+/* ── 1. Pilot spotlight · NOT MOUNTED: no page imports LogoStrip. If revived, keep the
+      pilot numbers in sync with the hero (currently "6–8 weeks of engagement"). ───── */
 export const LogoStrip = () => (
   <section style={{ padding: "48px 0 56px", background: "white", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
     <div className="mf-container">
@@ -35,7 +36,7 @@ export const LogoStrip = () => (
           </div>
           <div style={{ display: "flex", gap: 20, paddingLeft: 24, borderLeft: "1px solid rgba(35,86,201,0.15)" }}>
             <div>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, color: "var(--primary)", letterSpacing: "-0.02em" }}>4–6 wks</div>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 20, color: "var(--primary)", letterSpacing: "-0.02em" }}>6–8 wks</div>
               <div style={{ fontSize: 10.5, fontFamily: "var(--font-mono)", letterSpacing: "0.06em", color: "var(--ink-3)", marginTop: 3, textTransform: "uppercase" }}>live pilot</div>
             </div>
             <div>
@@ -55,7 +56,7 @@ const FAQ_ITEMS = [
   { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance. Most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant." },
   { q: "How long does integration take?", a: "Typical Canvas + SIS pilot is live in 4–6 weeks. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
   { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console. Audit logs reflect the change immediately." },
-  { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway — we're glad to share our current controls and the plan." },
+  { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway. We're glad to share our current controls and the plan." },
   { q: "How is pricing structured?", a: "Per-FTE annual licensing with pilot-pricing for the first year. Implementation, SSO, and three integrations are included. Talk to us for a quote tied to your enrollment band." },
 ];
 
@@ -81,6 +82,8 @@ export const FAQ = ({ alt = true }) => {
                 <div key={it.q} style={{ borderTop: i === 0 ? "1px solid var(--line)" : "none", borderBottom: "1px solid var(--line)" }}>
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`gap-faq-${i}`}
                     style={{ width: "100%", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 18, color: "var(--ink)", letterSpacing: "-0.015em" }}
                   >
                     <span>{it.q}</span>
@@ -89,7 +92,7 @@ export const FAQ = ({ alt = true }) => {
                     </span>
                   </button>
                   {isOpen && (
-                    <div style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
+                    <div id={`gap-faq-${i}`} role="region" style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
                       {it.a}
                     </div>
                   )}
@@ -217,7 +220,7 @@ export const CookieBanner = () => {
   return (
     <div style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
       <div style={{ flex: 1, minWidth: 220, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
-        We use only the essential cookies needed to run this site and remember this choice — no tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
+        We use only the essential cookies needed to run this site and remember this choice. No tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
         <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Privacy &amp; cookies</a>
       </div>
       <div style={{ display: "flex", gap: 8 }}>

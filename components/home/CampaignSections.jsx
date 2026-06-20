@@ -31,7 +31,7 @@ export const SecProblem = () => {
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head">
           <span className="mf-eyebrow">The problem</span>
-          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic" }}>No one holds the whole.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em" }}>No one holds the whole.</em></h2>
           <p style={{ marginTop: 16 }}>Every team sees the student through the one window they own. The student falls through the gaps between the windows.</p>
         </div>
 
@@ -39,7 +39,7 @@ export const SecProblem = () => {
 
         <figure style={{ margin: "72px auto 0", maxWidth: 1000 }}>
           <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 42, lineHeight: 1.16, letterSpacing: "-0.025em", color: "var(--ink)", margin: 0 }}>
-            Students don't leave because they fail. They leave because systems fail to <span className="mf-grad-text">see them whole.</span>
+            Students don't leave because they fail. They leave because every office only sees <span className="mf-grad-text">its own slice.</span>
           </blockquote>
         </figure>
       </div>
@@ -57,13 +57,13 @@ export const SecArchitecture = () => (
       <div className="mf-section-head">
         <span className="mf-eyebrow">Two architectures</span>
         <h2>Most AI works <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>outside-in.</em> Nia works <span className="mf-grad-text" style={{ fontStyle: "italic" }}>inside-out.</span></h2>
-        <p>Same question, opposite starting point — and the starting point is the moat.</p>
+        <p>Same question, opposite starting point. The starting point is the moat.</p>
       </div>
 
       <div className="ioc-grid">
         {/* Nia — inside-out */}
         <div className="ioc-col">
-          <span className="mf-chip ioc-label">Nia · inside-out</span>
+          <span className="mf-chip mf-chip-grad ioc-label" style={{ fontSize: 12.5, boxShadow: "0 10px 22px -8px rgba(66,77,211,0.55)" }}>Nia · inside-out</span>
           <div className="ioc-stage"><PauseOffscreen><InsideOutPhone/></PauseOffscreen></div>
           <div className="ioc-text">
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: 0 }}>
@@ -85,7 +85,7 @@ export const SecArchitecture = () => (
           <div className="ioc-text">
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-3)", margin: 0 }}>
               Starts from the open internet and never gets closer. No LMS, no calendar, no sense of who's asking.
-              <strong> Every conversation begins with a stranger</strong> — a search box with manners.
+              <strong> Every conversation begins with a stranger.</strong> A search box with manners.
             </p>
             <div className="ioc-chips">
               {["Web text first", "Everything weighted equally", "Your student, never"].map((t) => (
@@ -136,7 +136,7 @@ export const SecCoaches = () => {
       {/* vault-room backdrop — same language as the security page */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "52px 52px", maskImage: "radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%)" }}/>
       <div style={{ position: "absolute", width: 640, height: 640, right: -240, top: -300, background: "radial-gradient(circle, rgba(43,179,223,0.14), transparent 60%)", borderRadius: "50%", pointerEvents: "none" }}/>
-      <div style={{ position: "absolute", width: 560, height: 560, left: -220, bottom: -280, background: "radial-gradient(circle, rgba(56,65,177,0.26), transparent 60%)", borderRadius: "50%", pointerEvents: "none" }}/>
+      <div style={{ position: "absolute", width: 720, height: 720, left: -200, bottom: -220, background: "radial-gradient(circle, rgba(56,65,177,0.30), transparent 64%)", borderRadius: "50%", pointerEvents: "none" }}/>
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head" style={{ marginBottom: 36 }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(143,224,247,0.85)" }}>Layer 1 · The student's truth</span>
@@ -149,26 +149,40 @@ export const SecCoaches = () => {
         <div style={{ display: "flex", justifyContent: "center", color: "rgba(255,255,255,0.4)", padding: "14px 0 4px" }}>
           <svg width="40" height="34" viewBox="0 0 40 34" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M20 0v22M20 22l-6-6M20 22l6-6"/></svg>
         </div>
-        <div style={{ background: "white", border: "1px solid rgba(72,67,193,0.22)", borderRadius: "var(--radius-xl)", padding: 28, boxShadow: "0 40px 90px -30px rgba(0,0,0,0.6)", display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 28, alignItems: "center" }} className="mf-stack-sm">
+        <div style={{ maxWidth: 980, margin: "0 auto", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: "var(--radius-lg)", padding: 28, backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)", boxShadow: "0 30px 64px -30px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.06)", display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: 28, alignItems: "center" }} className="mf-stack-sm">
           <div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "5px 12px", borderRadius: 999, background: "var(--brand-gradient)", color: "white", fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "white" }}/> One unified profile
             </div>
-            <h3 style={{ fontSize: 22, marginTop: 16 }}>Tell financial aid your parent lost their job</h3>
-            <p style={{ marginTop: 10, fontSize: 15.5, color: "var(--ink-2)", lineHeight: 1.55 }}>and the academic coach already knows to ease the week, the wellness coach already knows to check in, and no one asks the student to say it twice.</p>
+            <h3 style={{ fontSize: 22, marginTop: 16, color: "white" }}>Tell financial aid your parent lost their job</h3>
+            <p style={{ marginTop: 10, fontSize: 15.5, color: "rgba(255,255,255,0.64)", lineHeight: 1.55 }}>and the academic coach already knows to ease the week, the wellness coach already knows to check in, and no one asks the student to say it twice.</p>
           </div>
-          <div style={{ background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 18 }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 12 }}>Shared context · Maya Reyes</div>
-            <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: "11px 13px", fontSize: 13, color: "var(--ink-2)", boxShadow: "var(--shadow-sm)" }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "var(--primary-50)", color: "var(--primary)", borderRadius: 5, marginRight: 8 }}>FINANCE</span>
-              “my dad just lost his job”
+          <div style={{ background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 18, boxShadow: "0 22px 50px -26px rgba(0,0,0,0.5)" }}>
+            {/* student header — Maya's face anchors the shared profile; the synced
+                pill fills the header's right edge so the panel never reads as empty */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+              <img src="/students/maya.png" alt="" width="36" height="36" loading="lazy" decoding="async" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "var(--shadow-sm)" }}/>
+              <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.25 }}>
+                <span style={{ fontSize: 13.5, fontWeight: 600, color: "var(--ink)" }}>Maya Reyes</span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)" }}>Shared context</span>
+              </span>
+              <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--success)", background: "rgba(13,138,90,0.10)", border: "1px solid rgba(13,138,90,0.22)", borderRadius: 999, padding: "4px 9px" }}>
+                <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--success)" }}/> Synced
+              </span>
+            </div>
+            <div style={{ background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: "11px 13px", fontSize: 13, color: "var(--ink-2)", boxShadow: "var(--shadow-sm)", display: "flex", alignItems: "center", gap: 9 }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "var(--primary-50)", color: "var(--primary)", borderRadius: 5, flexShrink: 0 }}>FINANCE</span>
+              <span>“my dad just lost his job”</span>
             </div>
             <div style={{ display: "flex", justifyContent: "center", color: "var(--ink-4)", padding: "8px 0" }}><IcoArrowDown s={15}/></div>
             <div style={{ display: "grid", gap: 8 }}>
               {[["ACADEMIC", "soften deadlines this week"], ["WELLNESS", "proactive check-in queued"], ["ADMIN", "flag aid-appeal form"]].map(([tag, note]) => (
                 <div key={tag} style={{ background: "white", border: "1px solid var(--line)", borderRadius: 10, padding: "9px 12px", fontSize: 12.5, color: "var(--ink-2)", display: "flex", alignItems: "center", gap: 9 }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "rgba(13,138,90,0.10)", color: "var(--success)", borderRadius: 5 }}>{tag}</span>
-                  {note}
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, padding: "2px 7px", background: "rgba(13,138,90,0.10)", color: "var(--success)", borderRadius: 5, flexShrink: 0 }}>{tag}</span>
+                  <span style={{ flex: 1 }}>{note}</span>
+                  <span style={{ flexShrink: 0, width: 16, height: 16, borderRadius: "50%", background: "var(--success)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </span>
                 </div>
               ))}
             </div>
@@ -208,17 +222,26 @@ export const SecAdvisors = () => {
 // 5 · WHY WE BUILT IT — the real grad-cohort origin story
 // =====================================================================
 export const SecProof = () => (
-  <section className="mf-section" style={{ background: "var(--bg-alt)" }}>
-    <div className="mf-container" style={{ maxWidth: 820, textAlign: "center" }}>
+  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, var(--bg-alt) 0%, #F1EEFB 100%)" }}>
+    {/* soft brand glow so this reads as a deliberate closing beat, not naked text */}
+    <div aria-hidden="true" style={{ position: "absolute", width: 660, height: 660, left: "50%", top: -320, transform: "translateX(-50%)", background: "radial-gradient(circle, rgba(102,128,255,0.10), transparent 62%)", pointerEvents: "none" }}/>
+    <div className="mf-container" style={{ position: "relative", maxWidth: 760, textAlign: "center" }}>
       <span className="mf-eyebrow">Why we built it</span>
       <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
         We built Nia for the students least likely to ask for help. Then a cohort of graduate students
         studying student success tested it, and pushed back, nearly in unison:
       </p>
-      <p style={{ marginTop: 16, fontSize: 18, lineHeight: 1.6, color: "var(--ink)", fontStyle: "italic" }}>
-        “Why are you building this only for marginalized students? <span style={{ fontStyle: "normal", fontWeight: 600 }}>All</span> students need this.”
-      </p>
-      <p style={{ marginTop: 28, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 32, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
+      {/* the pushback, as a real pull-quote — the anchor the section was missing */}
+      <figure style={{ position: "relative", margin: "30px auto 0", maxWidth: 620, background: "#fff", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "42px 38px 28px", boxShadow: "0 30px 60px -34px rgba(31,52,128,0.28)" }}>
+        <span aria-hidden="true" style={{ position: "absolute", top: -18, left: 30, fontFamily: "var(--font-display)", fontSize: 92, lineHeight: 1, color: "var(--primary)", opacity: 0.16 }}>“</span>
+        <blockquote style={{ margin: 0, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 25, lineHeight: 1.4, letterSpacing: "-0.01em", color: "var(--ink)" }}>
+          Why are you building this only for marginalized students? <span className="mf-grad-text" style={{ paddingRight: "0.06em" }}>All</span> students need this.
+        </blockquote>
+        <figcaption style={{ marginTop: 18, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)" }}>
+          A graduate cohort studying student success
+        </figcaption>
+      </figure>
+      <p style={{ marginTop: 30, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 32, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
         We designed for the margin <span className="mf-grad-text">and found the mainstream.</span>
       </p>
     </div>
@@ -232,7 +255,7 @@ export const SecCTA = () => {
   const doors = [
     { tag: "Provost · VP of Student Success", title: "Book a pilot conversation", body: "See Nia inside your own data, governed by your own policies.", cta: "Book a pilot", href: "/contact#form", primary: true },
     { tag: "Investor", title: "Request the investor brief", body: "The architecture, the moat, and the market, sent on request.", cta: "Request brief", href: "/contact#form-investor", primary: false },
-    { tag: "Partner · Champion", title: "Make an introduction", body: "Know a campus that should see students whole? Connect us.", cta: "Make an intro", href: "/contact#form-partnership", primary: false },
+    { tag: "Partner · Champion", title: "Make an introduction", body: "Know a campus that needs this? Connect us.", cta: "Make an intro", href: "/contact#form-partnership", primary: false },
   ];
   return (
     <section style={{ background: "linear-gradient(160deg, #161a5e 0%, #25278a 52%, #3a37ad 100%)", color: "white", padding: "92px 0", position: "relative", overflow: "hidden" }}>

@@ -32,36 +32,82 @@ const Moat = ({ n, eyebrow, title, grad, body, points, alt, reverse, children })
   </section>
 );
 
-/* ── Moat 1 — Proactive Intervention ─────────────────────────── */
+/* ── Moat 1 — Proactive Intervention · the desktop (MacBook Pro) view ── */
 const ProactiveVisual = () => (
   <div className="np-vis-wrap">
-    <div className="np-phone np-phone-sm">
-      <span className="np-phone-notch"/>
-      <div className="np-screen">
-        <div className="np-appbar">
-          <span className="np-appbar-id"><NiaGlyph s={18} gid="m1g"/> <strong>Nia</strong></span>
-          <span className="np-first">Nia reached out first</span>
-        </div>
-        <div className="np-screen-body" style={{ display: "flex", flexDirection: "column" }}>
-          <div className="np-thread" style={{ flex: 1 }}>
-            <div className="np-divider np-rise" style={{ animationDelay: "300ms" }}><span>Today · 8:02 AM</span></div>
-            <div className="np-row np-bot np-rise" style={{ animationDelay: "700ms" }}>
-              <NiaMark s={24} gid="m1m"/>
-              <div className="np-bub np-bub-nia">
-                I noticed a <b>$150 hold</b>{" "}that might block your registration next week. Let&apos;s fix it before it&apos;s a problem.
-                <div className="np-card-actions">
-                  <span className="np-btn-w">Clear it now <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                  <span className="np-btn-q">What is it?</span>
+    <div className="np-mac">
+      <div className="np-mac-lid">
+        <div className="np-mac-screen">
+          <span className="np-mac-notch"/>
+          <div className="np-mac-chrome">
+            <span className="np-mac-dots"><i/><i/><i/></span>
+            <span className="np-mac-url">app.niahub.ai</span>
+          </div>
+          <div className="np-mac-app">
+            <aside className="np-mac-side">
+              <div className="np-mac-side-head">
+                <span className="np-mac-logo"><NiaGlyph s={17} gid="m1g"/></span>
+                <span className="np-mac-collapse" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+                </span>
+              </div>
+              <nav className="np-mac-actions">
+                <span className="np-mac-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 1 1 2.8 2.8L12 14.6 8 16l1.4-4z"/></svg>
+                  New Chat
+                </span>
+                <span className="np-mac-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 8h6M12 5v6"/></svg>
+                  New Notebook
+                </span>
+                <span className="np-mac-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                  Notifications
+                  <em className="np-mac-badge">1</em>
+                </span>
+              </nav>
+              <span className="np-mac-sec">Today</span>
+              <nav className="np-mac-chats">
+                <span className="np-mac-chat on">Registration hold</span>
+                <span className="np-mac-chat">Spring shortlist</span>
+                <span className="np-mac-chat">Aid &amp; FAFSA timeline</span>
+              </nav>
+              <div className="np-mac-foot">
+                <span className="np-mac-item">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                  Help
+                </span>
+                <span className="np-mac-user"><img loading="lazy" decoding="async" src="/students/maya.png" alt="" width="22" height="22"/> <span>Maya Reyes</span></span>
+              </div>
+            </aside>
+            <main className="np-mac-main">
+              <div className="np-mac-head">
+                <span>Today · 8:02 AM</span>
+                <span className="np-first">Nia reached out first</span>
+              </div>
+              <div className="np-mac-thread">
+                <div className="np-row np-bot np-rise" style={{ animationDelay: "500ms" }}>
+                  <NiaMark s={26} gid="m1m"/>
+                  <div className="np-bub np-bub-nia">
+                    I noticed a <b>$150 hold</b>{" "}that might block your registration next week. Let&apos;s fix it before it&apos;s a problem.
+                    <div className="np-card-actions">
+                      <span className="np-btn-w">Clear it now <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                      <span className="np-btn-q">What is it?</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="np-await np-rise" style={{ animationDelay: "1500ms" }}>
+                  <span className="np-await-dot"/> waiting on the student, who never had to ask
                 </div>
               </div>
-            </div>
-            <div className="np-await np-rise" style={{ animationDelay: "1700ms" }}>
-              <span className="np-await-dot"/> waiting on the student — who never had to ask
-            </div>
+              <div className="np-inputbar">Message Nia…<span className="np-send">↑</span></div>
+            </main>
           </div>
-          <div className="np-inputbar">Message Nia…<span className="np-send">↑</span></div>
+          <span className="np-mac-label">MacBook Pro</span>
         </div>
       </div>
+      <div className="np-mac-base"><span className="np-mac-groove"/></div>
+      <div className="np-mac-floor"/>
     </div>
   </div>
 );
@@ -70,7 +116,7 @@ const ProactiveVisual = () => (
 const SourceTile = ({ kind, label }) => {
   const marks = {
     canvas: <svg width="20" height="20" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#E3262E"/>{Array.from({ length: 12 }).map((_, i) => { const a = (i * 30 * Math.PI) / 180; return <circle key={i} cx={20 + 11 * Math.cos(a)} cy={20 + 11 * Math.sin(a)} r="2.1" fill="#fff"/>; })}<circle cx="20" cy="20" r="3.2" fill="#fff"/></svg>,
-    crm: <svg width="20" height="20" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#2356C9"/><circle cx="20" cy="16" r="5" fill="#fff"/><path d="M10 31c0-5.5 4.5-8.5 10-8.5s10 3 10 8.5z" fill="#fff"/></svg>,
+    crm: <svg width="20" height="20" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="var(--primary)"/><circle cx="20" cy="16" r="5" fill="#fff"/><path d="M10 31c0-5.5 4.5-8.5 10-8.5s10 3 10 8.5z" fill="#fff"/></svg>,
     handshake: <svg width="20" height="20" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#2E2A6B"/><path d="M12 19l4-4 4 3 4-3 4 4" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 18v8M16 22l4 4 4-4" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>,
   };
   return <span className="np-src"><span className="np-src-mk">{marks[kind]}</span>{label}</span>;
@@ -123,7 +169,7 @@ const MemoryVisual = () => (
 /* ── Moat 3 — Progress Blueprint ─────────────────────────────── */
 const BLUEPRINT = [
   { tag: "Goal", t: "Declare Biology major", meta: "Fall · Yr 1", tone: "goal" },
-  { tag: "Obstacle", t: "Stumbled in CHEM 101 — built a recovery plan", meta: "Spring · Yr 1", tone: "obs" },
+  { tag: "Obstacle", t: "Stumbled in CHEM 101, built a recovery plan", meta: "Spring · Yr 1", tone: "obs" },
   { tag: "Decision", t: "Chose a summer research internship over a job", meta: "Spring · Yr 2", tone: "dec" },
   { tag: "Goal", t: "On track for a Fall graduation", meta: "Now · Yr 4", tone: "goal" },
 ];
@@ -158,7 +204,7 @@ const CareVisual = () => (
         <div className="np-care-head"><span className="np-care-role">Student</span><span className="np-care-who"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/> Maya</span></div>
         <div className="np-care-bub">
           <NiaMark s={22} gid="m4m"/>
-          <span>This one deserves a person. I&apos;m connecting you to <b>Dana in Financial Aid</b>{" "}— she&apos;ll already have your full history.</span>
+          <span>This one deserves a person. I&apos;m connecting you to <b>Dana in Financial Aid</b>. She&apos;ll already have your full history.</span>
         </div>
         <span className="np-care-note">No rabbit hole, no repeating yourself.</span>
       </div>
@@ -210,7 +256,7 @@ const EngineVisual = () => (
           </span>
           <div className="np-eng-ans np-rise" style={{ animationDelay: "2000ms" }}>
             <strong>$2,480 remaining</strong>
-            <span className="np-eng-cite"><Tick/> from your SIS · 3 live rows · 8:04 AM</span>
+            <span className="np-eng-cite"><Tick/> from your SIS · 3 live rows · 1:36 PM</span>
           </div>
         </div>
       </div>
@@ -262,7 +308,7 @@ export default function Moats() {
           <div className="mf-section-head" style={{ textAlign: "center", maxWidth: 720, margin: "0 auto" }}>
             <span className="mf-eyebrow">Why Nia is hard to copy</span>
             <h2 style={{ marginTop: 14 }}>Six moats, <span className="mf-grad-text">one relationship.</span></h2>
-            <p style={{ marginTop: 16 }}>Most campus AI is a search box with manners. Nia is built differently on purpose — here is what compounds underneath the conversation.</p>
+            <p style={{ marginTop: 16 }}>Most campus AI answers a question and forgets you. Nia is built differently on purpose. Here is what compounds underneath the conversation.</p>
           </div>
         </div>
       </section>
@@ -271,8 +317,8 @@ export default function Moats() {
         n="01"
         eyebrow="Proactive intervention"
         title="Help arrives"
-        grad="before the ask."
-        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask — so Nia goes first, ending the regressive success tax where a stumble quietly compounds into a stall."
+        grad="before they ask."
+        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask, so Nia goes first, ending the regressive success tax where a stumble quietly compounds into a stall."
         points={["Watches signals across every system, not a single inbox", "Opens the conversation the moment a risk appears", "Turns a silent hold into a two-tap fix"]}
         reverse
       >
@@ -296,7 +342,7 @@ export default function Moats() {
         eyebrow="The progress blueprint"
         title="It remembers the"
         grad="whole journey."
-        body="A standard chat forgets you when the tab closes. Nia keeps a living blueprint of the student's goals, the decisions they made, and the obstacles they cleared — across the entire academic lifecycle, not a single session."
+        body="A standard chat forgets you when the tab closes. Nia keeps a living blueprint of the student's goals, the decisions they made, and the obstacles they cleared, across the entire academic lifecycle, not a single session."
         points={["Goals, decisions, and obstacles, kept in context", "Picks up exactly where the last semester left off", "Coaching that builds on history, not a blank slate"]}
         reverse
       >
@@ -308,7 +354,7 @@ export default function Moats() {
         eyebrow="Care routing · the anti-rabbit-hole"
         title="The right human,"
         grad="at the right moment."
-        body="Nia is not trying to replace your people. When a question turns high-stakes — a mental-health disclosure, a tangled aid appeal — Nia stops, recognizes it, and routes the student to the right human with their history already summarized."
+        body="Nia is not trying to replace your people. When a question turns high-stakes, like a mental-health disclosure or a tangled aid appeal, Nia stops, recognizes it, and routes the student to the right human with their history already summarized."
         points={["Detects high-stakes issues instead of looping on them", "Hands off with a written context summary, not a cold transfer", "Protects advisor capacity for the work only people can do"]}
         alt
       >
@@ -320,7 +366,7 @@ export default function Moats() {
         eyebrow="Governed, source-linked answers"
         title="Answers from your data,"
         grad="not a guess."
-        body="Generic AI paraphrases and hopes. Nia translates the student's question into a real query against actual rows in your systems — so &ldquo;how much aid is left?&rdquo; returns a number that is mathematically true and source-linked, every time."
+        body="Generic AI paraphrases and hopes. Nia translates the student's question into a real query against actual rows in your systems, so &ldquo;how much aid is left?&rdquo; returns a number that is mathematically true and source-linked, every time."
         points={["Natural language becomes a governed, real query", "Bypasses the raw model for anything factual", "Every figure is traceable back to its source row"]}
         reverse
       >
@@ -332,8 +378,8 @@ export default function Moats() {
         eyebrow="The governance substrate"
         title="Your instance,"
         grad="your rules."
-        body="Nia runs in a protected, per-tenant instance — never a shared brain. Administrators tune what Nia ingests and how it speaks, down to the field level, so it reflects your institution's templates, SOPs, voice, and values."
-        points={["Per-tenant isolation — cross-tenant movement is impossible", "Field-level control over what data Nia may use", "Tone calibrated to your brand, not a generic assistant"]}
+        body="Nia runs in a protected, per-tenant instance, never a shared brain. Administrators tune what Nia ingests and how it speaks, down to the field level, so it reflects your institution's templates, SOPs, voice, and values."
+        points={["Per-tenant isolation: cross-tenant movement is impossible", "Field-level control over what data Nia may use", "Tone calibrated to your brand, not a generic assistant"]}
         alt
       >
         <GovernanceVisual/>
@@ -357,9 +403,43 @@ const MoatStyles = () => (
     .np-moat-vis{ min-width: 0; display: flex; justify-content: center; }
     .np-vis-wrap{ width: 100%; display: flex; justify-content: center; }
 
-    /* phone size for the moats — phone proportions, not tablet */
-    .np-phone-sm{ width: 270px; }
-    .np-phone-sm .np-screen{ height: 506px; }
+    /* moat 1 — the desktop (MacBook Pro) view */
+    .np-mac{ width: 100%; max-width: 500px; }
+    .np-mac-lid{ background: linear-gradient(180deg,#EDF0F4 0%,#C8CDD6 100%); border-radius: 16px 16px 0 0; padding: 3px 3px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 38px 66px -30px rgba(11,16,32,0.45); }
+    .np-mac-screen{ position: relative; background: #05070D; border-radius: 13px 13px 0 0; padding: 11px 9px 15px; overflow: hidden; }
+    .np-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 58px; height: 15px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
+    .np-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 6px 10px; background: #F2F4F8; border-radius: 8px 8px 0 0; border-bottom: 1px solid #E3E6EE; }
+    .np-mac-dots{ display: inline-flex; gap: 5px; }
+    .np-mac-dots i{ width: 8px; height: 8px; border-radius: 50%; }
+    .np-mac-dots i:nth-child(1){ background: #FF5F57; }
+    .np-mac-dots i:nth-child(2){ background: #FEBC2E; }
+    .np-mac-dots i:nth-child(3){ background: #28C840; }
+    .np-mac-url{ flex: 1; max-width: 210px; margin: 0 auto; text-align: center; font-size: 9.5px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 3px 0; }
+    .np-mac-app{ display: flex; height: 348px; background: #fff; }
+    /* the real app sidebar: a cyan→indigo gradient with white text, white active pill */
+    .np-mac-side{ width: 144px; flex-shrink: 0; background: linear-gradient(180deg, #2BB3DF 0%, #3841B1 100%); color: #fff; display: flex; flex-direction: column; padding: 12px 9px 10px; }
+    .np-mac-side-head{ display: flex; align-items: center; justify-content: space-between; padding: 0 4px 12px; }
+    .np-mac-logo{ width: 26px; height: 26px; border-radius: 7px; background: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(11,16,32,0.2); }
+    .np-mac-collapse{ display: inline-flex; color: rgba(255,255,255,0.7); }
+    .np-mac-actions{ display: grid; gap: 2px; }
+    .np-mac-item{ display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.92); padding: 7px 8px; border-radius: 8px; }
+    .np-mac-item svg{ flex-shrink: 0; opacity: 0.9; }
+    .np-mac-badge{ margin-left: auto; font-style: normal; font-size: 8px; font-weight: 700; background: #fff; color: #2f3aa0; border-radius: 999px; padding: 1px 6px; }
+    .np-mac-sec{ display: block; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); padding: 15px 8px 6px; }
+    .np-mac-chats{ display: grid; gap: 2px; }
+    .np-mac-chat{ font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.85); padding: 7px 8px; border-radius: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .np-mac-chat.on{ background: #fff; color: #2a2f78; font-weight: 600; box-shadow: 0 3px 9px rgba(11,16,32,0.18); }
+    .np-mac-foot{ margin-top: auto; padding-top: 10px; display: grid; gap: 3px; border-top: 1px solid rgba(255,255,255,0.18); }
+    .np-mac-user{ display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: #fff; padding: 6px 8px; }
+    .np-mac-user img{ border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.5); }
+    .np-mac-main{ flex: 1; min-width: 0; display: flex; flex-direction: column; }
+    .np-mac-head{ display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px 11px; border-bottom: 1px solid var(--line); }
+    .np-mac-head > span:first-child{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); }
+    .np-mac-thread{ flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 11px; padding: 16px 16px 8px; overflow: hidden; }
+    .np-mac-label{ position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); font-size: 6px; letter-spacing: 0.14em; color: #59606E; }
+    .np-mac-base{ position: relative; width: 113%; margin-left: -6.5%; height: 14px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 3px rgba(11,16,32,0.18); }
+    .np-mac-groove{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 78px; height: 6px; background: linear-gradient(180deg,#9AA2B1,#C3C9D3); border-radius: 0 0 9px 9px; box-shadow: inset 0 1px 2px rgba(11,16,32,0.25); }
+    .np-mac-floor{ height: 16px; width: 86%; margin: 2px auto 0; background: radial-gradient(ellipse at 50% 0%, rgba(11,16,32,0.30), transparent 65%); filter: blur(5px); }
     .np-first{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; color: #7c3aed; background: rgba(124,58,237,0.10); border-radius: 999px; padding: 4px 9px; }
     .np-card-actions{ display: flex; align-items: center; gap: 9px; margin-top: 11px; }
     .np-btn-w{ display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(135deg,#2BB3DF,#3841B1); border-radius: 9px; padding: 8px 12px; box-shadow: 0 6px 14px -6px rgba(56,65,177,0.5); }
@@ -405,7 +485,7 @@ const MoatStyles = () => (
     /* connector runs from this node's bottom to the next node — no overhang */
     .np-bp-item:not(:last-child)::before{ content: ""; position: absolute; left: 5.5px; top: 15px; height: calc(100% - 7px); width: 2px; background: var(--line-2); z-index: 0; }
     .np-bp-node{ position: relative; z-index: 1; flex: 0 0 auto; width: 13px; height: 13px; margin-top: 2px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2.5px currentColor; }
-    .np-bp-item.tone-goal{ color: #2356c9; }
+    .np-bp-item.tone-goal{ color: var(--primary); }
     .np-bp-item.tone-obs{ color: #c98a1a; }
     .np-bp-item.tone-dec{ color: #7c3aed; }
     .np-bp-card{ flex: 1; min-width: 0; display: grid; gap: 3px; }
@@ -425,7 +505,7 @@ const MoatStyles = () => (
     .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
     .np-care-flow{ display: flex; align-items: center; gap: 8px; margin: 10px 6px; }
     .np-care-line{ flex: 1; height: 0; border-top: 1px dashed var(--line-2); }
-    .np-care-tag{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: #2356c9; white-space: nowrap; }
+    .np-care-tag{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
     .np-care-adv{ border-color: rgba(35,86,201,0.25); box-shadow: 0 16px 36px -18px rgba(35,86,201,0.35); }
     .np-care-live{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--success); }
     .np-care-live i{ width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: np-blink 2s ease-in-out infinite; }
@@ -448,7 +528,7 @@ const MoatStyles = () => (
     .np-eng-bad{ display: inline-flex; align-items: center; gap: 7px; align-self: center; font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-4); text-decoration: line-through; text-decoration-color: rgba(154,160,180,0.6); }
     .np-eng-x{ text-decoration: none; color: #c2410c; font-weight: 700; }
     .np-eng-good{ display: flex; flex-direction: column; align-items: center; gap: 0; }
-    .np-eng-box{ width: 100%; background: #0b1020; border-radius: 14px; padding: 13px 15px; box-shadow: 0 18px 40px -18px rgba(11,16,32,0.6); }
+    .np-eng-box{ width: 100%; background: var(--ink); border-radius: 14px; padding: 13px 15px; box-shadow: 0 18px 40px -18px rgba(11,16,32,0.6); }
     .np-eng-box-h{ display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.05em; text-transform: uppercase; color: #8fe0f7; font-weight: 600; }
     .np-eng-sql{ display: block; margin-top: 9px; font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: rgba(255,255,255,0.82); }
     .np-eng-sql .np-kw{ color: #c4b5fd; }
@@ -462,7 +542,7 @@ const MoatStyles = () => (
     .np-gov{ width: 100%; max-width: 400px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 18px 20px 22px; }
     .np-gov-head{ display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
     .np-gov-head > span:first-child{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); }
-    .np-gov-tenant{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: #2356c9; background: var(--primary-50); border-radius: 999px; padding: 4px 9px; }
+    .np-gov-tenant{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); background: var(--primary-50); border-radius: 999px; padding: 4px 9px; }
     .np-gov-sec{ margin-top: 16px; }
     .np-gov-sec-h{ display: block; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px; }
     .np-gov-row{ display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--line); }
@@ -488,6 +568,11 @@ const MoatStyles = () => (
       .np-points{ max-width: 420px; margin-left: auto; margin-right: auto; text-align: left; }
       .np-moat-copy .mf-eyebrow{ display: block; }
       .np-moat-copy p{ margin-left: auto; margin-right: auto; }
+    }
+    /* on a phone the fixed sidebar squeezes the chat — drop it so the desktop
+       view's message stays legible; the MacBook frame still reads as desktop */
+    @media (max-width: 560px){
+      .np-mac-side{ display: none; }
     }
     @media (prefers-reduced-motion: reduce){
       .np-wire, .np-pop, .np-nodepop, .np-await-dot, .np-hub-halo{ animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }

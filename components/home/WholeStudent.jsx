@@ -86,15 +86,19 @@ export default function WholeStudent() {
         }
         .ws-rowwrap{
           position: relative;
-          margin-top: 56px;
+          /* cap the visible window so the row ALWAYS overflows — even on wide
+             screens the outer tiles get cut off at the edge, then fade. */
+          max-width: 1180px;
+          margin: 56px auto 0;
         }
         .ws-row{
           display: flex;
           align-items: flex-start;
           gap: 18px;
-          padding: 8px 120px 32px;
+          padding: 8px 64px 32px;
           overflow-x: auto;
           scrollbar-width: none;
+          /* a short, defined fade right at the cut edge — not an endless dissolve */
           -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
           mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
         }

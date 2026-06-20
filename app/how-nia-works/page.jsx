@@ -11,7 +11,7 @@ import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 export const metadata = {
   title: "How Nia Works · Nia by Streaque",
   description:
-    "Two coordinated front doors — a student coach and a staff co-pilot — turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
+    "Two coordinated front doors, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
 };
 
 const Hero = () => (
@@ -25,7 +25,7 @@ const Hero = () => (
           <span className="mf-grad-text">one mission:</span> transform student success.
         </h1>
         <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated front doors turning student data into nudges, alerts, and next steps —
+          Two coordinated front doors turning student data into nudges, alerts, and next steps,
           on one governed layer your institution owns.
         </p>
       </div>
@@ -41,7 +41,7 @@ const ArchLink = () => (
   <section style={{ background: "var(--bg-alt)", padding: "26px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
     <div className="mf-container" style={{ textAlign: "center" }}>
       <span style={{ fontSize: 15, color: "var(--ink-2)" }}>
-        Want the architecture behind it — why Nia works inside-out, not outside-in?{" "}
+        Want the architecture behind it, and why Nia works inside-out, not outside-in?{" "}
         <Link href="/#architecture" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
           See the two architectures <ArrowR s={14}/>
         </Link>
@@ -293,22 +293,22 @@ function PredictiveMock() {
 }
 
 const STUDENT_FEATURES = [
-  { n: "01", t: "Intelligent Chat Assistant", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
+  { n: "01", t: "Answers from your real data", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
     bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
-  { n: "02", t: "Proactive Coaching & Nudges", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
-    bullets: ["24/7 AI agents monitoring your academic progress", "Smart reminders for assignments, deadlines, events", "Job fair alerts and career opportunities", "Personalized study recommendations"], Mock: NudgesCarousel },
-  { n: "03", t: "Learns Your Preferences", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
+  { n: "02", t: "Nudges that land, not noise", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
+    bullets: ["Catches a slipping deadline before it becomes a problem", "Reminders for the assignments and dates that matter this week", "A heads-up when an opportunity actually fits your goals", "Study suggestions shaped by how this term is going"], Mock: NudgesCarousel },
+  { n: "03", t: "Learns how you actually study", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
     bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: LearningStyleDemo },
-  { n: "04", t: "Comprehensive Integration", b: "One brain across every campus system, not a stitched-together set of point tools.",
+  { n: "04", t: "One brain, every system", b: "One brain across every campus system, not a stitched-together set of point tools.",
     bullets: ["Connected to your LMS for assignment tracking", "SIS integration for academic records", "CRM-aware for advising context", "All your university resources in one place"], Mock: IntegrationMock },
 ];
 
 const STAFF_FEATURES = [
-  { n: "01", t: "Early-warning system", bullets: ["Real-time sentiment analysis", "Automated alerts for engagement drops", "AI agents scanning for warning signs", "Track assignment trends, attendance, participation"], Mock: WarningMock },
-  { n: "02", t: "Comprehensive dashboards", bullets: ["Sentiment trends over time", "Engagement metrics and patterns", "LMS performance data integration", "Identify at-risk students instantly"], Mock: StaffDashboard },
-  { n: "03", t: "AI-powered insights", bullets: ["Same powerful AI as the student tool", "Access to documents, calendars, policies", "Student LMS, SIS, and CRM data visibility", "Context-aware recommendations"], Mock: InsightsMock },
-  { n: "04", t: "Intervention & recognition", bullets: ["Reach out to struggling students proactively", "Identify high performers for recognition", "Track intervention effectiveness", "Close the loop on student support"], Mock: InterventionMock },
-  { n: "05", t: "Predictive analysis", bullets: ["Know when students are overwhelmed, before they do", "Trend analysis across cohorts", "Success-pattern identification", "Data-driven decision making"], Mock: PredictiveMock },
+  { n: "01", t: "Early-warning system", bullets: ["Notices a shift in tone before it shows up in grades", "Flags the student whose engagement is quietly slipping", "Watches the early signs you'd want to catch", "Reads assignments, attendance, and participation together"], Mock: WarningMock },
+  { n: "02", t: "The cohort at a glance", bullets: ["How the cohort's momentum is trending, week over week", "Where engagement is rising, and where it's dropping", "Pulled straight from your LMS, no new data entry", "The students who need attention, surfaced first"], Mock: StaffDashboard },
+  { n: "03", t: "The same brain, your side of the desk", bullets: ["The same model the student sees, from your side of the desk", "Knows your documents, calendars, and policies", "Sees the student's LMS, SIS, and CRM record in context", "Suggests the next step that fits this student"], Mock: InsightsMock },
+  { n: "04", t: "Step in early, recognize the wins", bullets: ["Reach the struggling student before they fall behind", "Catch the high performer worth recognizing", "See whether your outreach actually landed", "Know what happened after you stepped in"], Mock: InterventionMock },
+  { n: "05", t: "Know before they do", bullets: ["Know a student is overwhelmed before they say so", "Patterns across the whole cohort, not just one student", "What the students who thrive tend to share", "Decisions grounded in what's happening on campus"], Mock: PredictiveMock },
 ];
 
 const FeatureRow = ({ f, flip }) => {
@@ -344,19 +344,19 @@ const PullQuote = ({ quote, sub }) => (
 );
 
 const ForStudents = () => (
-  <section className="mf-section">
+  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Students</span>
-        <h2 style={{ marginTop: 14 }}>An <span className="mf-grad-text">AI-powered</span> success partner.</h2>
-        <p>Personalized AI deeply integrated with your LMS, SIS, and CRM: coaching, specialized agents, reminders, and insights tailored to every student.</p>
+        <h2 style={{ marginTop: 14 }}>A <span className="mf-grad-text">success partner</span>, not a search box.</h2>
+        <p>One coach for every student, working from your LMS, SIS, and CRM. Real answers, nudges that land, and support that adapts as the term goes on.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STUDENT_FEATURES.map((f, i) => (
           <FeatureRow key={f.n} f={f} flip={i % 2 === 1}/>
         ))}
       </div>
-      <PullQuote quote="Not just answers. A partner in your success." sub="Real-time data flows from student interactions to staff dashboards →"/>
+      <PullQuote quote="One student sees a coach. Every office sees the same student." sub="The same record flows from the student's phone to the staff desk →"/>
     </div>
     <style>{`
       .fm-card{
@@ -440,12 +440,12 @@ const ForStudents = () => (
 );
 
 const ForStaff = () => (
-  <section className="mf-section alt">
+  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Staff</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>Powered by the same AI, the staff co-pilot turns every student interaction into actionable intelligence: identify at-risk students early, recognize high performers, and intervene with precision.</p>
+        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (
@@ -513,7 +513,7 @@ const Outcome = () => (
       </p>
       <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
         <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Schedule a demo <ArrowR/></Link>
-        <Link href="/" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>Back to home</Link>
+        <Link href="/security" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>See how it&apos;s secured →</Link>
       </div>
     </div>
   </section>
@@ -524,6 +524,7 @@ export default function HowNiaWorks() {
     <div className="mf">
       <TrustBar/>
       <Nav active="how"/>
+      <main id="main">
       <Hero/>
       <ArchLink/>
       <WholeStudent/>
@@ -531,6 +532,7 @@ export default function HowNiaWorks() {
       <ForStaff/>
       <CompletePicture/>
       <Outcome/>
+      </main>
       <Footer/>
     </div>
   );

@@ -68,7 +68,7 @@ const IdentityArt = () => (
       <rect x="146" y="135" width="28" height="3.5" rx="1.75" fill="rgba(255,255,255,0.95)"/>
     </g>
     <g style={{ animation: "arch-bob 3.4s ease-in-out infinite" }}>
-      <circle cx="232" cy="42" r="13" fill="#0b1020" stroke="rgba(47,179,128,0.6)" strokeWidth="1.5"/>
+      <circle cx="232" cy="42" r="13" fill="var(--ink)" stroke="rgba(47,179,128,0.6)" strokeWidth="1.5"/>
       <path d="m226.5 42 3.5 3.5 7-7" fill="none" stroke="#2fb380" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </g>
   </svg>

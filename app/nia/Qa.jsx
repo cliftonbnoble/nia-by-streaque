@@ -7,7 +7,7 @@ import { ArrowRight } from "@/components/icons";
 const QA = [
   {
     q: "Will this replace our advisors?",
-    a: "No — and it's built not to. Nia's Care Routing handles the Tier-1 administrative friction (holds, forms, deadlines, the same five questions) autonomously, and escalates only the high-stakes moments — a mental-health disclosure, a complex aid appeal — to your team, with the student's full history already summarized. Your advisors spend their capacity on the work only people can do.",
+    a: "No, and it's built not to. Nia's Care Routing handles the Tier-1 administrative friction (holds, forms, deadlines, the same five questions) autonomously, and escalates only the high-stakes moments, like a mental-health disclosure or a complex aid appeal, to your team with the student's full history already summarized. Your advisors spend their capacity on the work only people can do.",
   },
   {
     q: "How do you keep our institutional data safe?",
@@ -19,7 +19,7 @@ const QA = [
   },
   {
     q: "How fast can we go live?",
-    a: "Nia connects to the systems you already run — Canvas, your SIS, Workday, Handshake — and stands up in your own governed instance. Most of the lift is configuration and tone calibration, not a multi-year integration. Book a pilot and we'll scope it against your stack.",
+    a: "Nia connects to the systems you already run, like Canvas, your SIS, Workday, and Handshake, and stands up in your own governed instance. Most of the lift is configuration and tone calibration, not a multi-year integration. Book a pilot and we'll scope it against your stack.",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function Qa() {
           <div style={{ position: "sticky", top: 96 }}>
             <span className="mf-eyebrow">Straight answers</span>
             <h2 style={{ marginTop: 14 }}>The two questions <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>that decide it.</em></h2>
-            <p style={{ marginTop: 16, fontSize: 15 }}>Everything else is detail. These are the ones that come up in every room — so here they are, without the hedging.</p>
+            <p style={{ marginTop: 16, fontSize: 15 }}>Everything else is detail. These are the ones that come up in every room, so here they are, without the hedging.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
               <a href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm" style={{ textDecoration: "none" }}>Book a demo <ArrowRight s={12}/></a>
               <a href="mailto:info@streaque.com?subject=Security%20packet" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
@@ -45,6 +45,8 @@ export default function Qa() {
                 <div key={it.q} style={{ borderTop: i === 0 ? "1px solid var(--line)" : "none", borderBottom: "1px solid var(--line)" }}>
                   <button
                     onClick={() => setOpen(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`qa-panel-${i}`}
                     style={{ width: "100%", padding: "20px 0", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, background: "transparent", border: "none", cursor: "pointer", textAlign: "left", fontFamily: "var(--font-display)", fontWeight: 500, fontSize: 18, color: "var(--ink)", letterSpacing: "-0.015em" }}
                   >
                     <span>{it.q}</span>
@@ -53,7 +55,7 @@ export default function Qa() {
                     </span>
                   </button>
                   {isOpen && (
-                    <div style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
+                    <div id={`qa-panel-${i}`} role="region" style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
                       {it.a}
                     </div>
                   )}

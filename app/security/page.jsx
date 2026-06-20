@@ -85,7 +85,7 @@ const HeroVault = () => (
           return (
             <g key={deg} style={{ transformOrigin: `${x}px ${y}px`, animation: "sec-spin 44s linear infinite" }}>
               {yours && <circle cx={x} cy={y} r="20" fill="none" stroke="rgba(43,179,223,0.30)" strokeWidth="3.5"/>}
-              <circle cx={x} cy={y} r="15" fill="#0b1020" stroke={yours ? "#2BB3DF" : "rgba(255,255,255,0.28)"} strokeWidth={yours ? 2 : 1.5}/>
+              <circle cx={x} cy={y} r="15" fill="var(--ink)" stroke={yours ? "#2BB3DF" : "rgba(255,255,255,0.28)"} strokeWidth={yours ? 2 : 1.5}/>
               <g fill="none" stroke={yours ? "#8fe0f7" : "rgba(255,255,255,0.6)"} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <rect x={x - 5} y={y - 1.5} width="10" height="8.5" rx="2"/>
                 <path d={`M${x - 3} ${y - 1.5} v-2.5 a3 3 0 0 1 6 0 v2.5`}/>
@@ -240,10 +240,10 @@ const PROMISES = [
     b: "It's not in our business model. Not in our contracts. Never will be.",
     chips: ["Never sold", "No data brokers", "In our contracts"] },
   { art: "train", icon: "model", p: "Train external AI models on your students.",
-    b: "Conversations stay scoped to your university — they never leave our environment for a third-party pipeline.",
+    b: "Conversations stay scoped to your university. They never leave our environment for a third-party pipeline.",
     chips: ["Tenant-scoped", "No third parties", "Never leaves"] },
   { art: "pass", icon: "lock", p: "Store student passwords.",
-    b: "Authentication runs through Auth0. We literally cannot leak a password — we never see one.",
+    b: "Authentication runs through Auth0. We literally cannot leak a password. We never see one.",
     chips: ["Auth0", "Never stored", "Never seen"] },
 ];
 
@@ -505,12 +505,12 @@ const Roadmap = () => (
           <span className="mf-eyebrow">Compliance & roadmap</span>
           <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
-            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet — it's on our roadmap. Here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
+            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet. It's on our roadmap; here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
           <div style={{ marginTop: 26, display: "grid", gap: 11 }}>
             {[
               { s: "done", l: "Shipped, running in production today" },
-              { s: "planned", l: "Planned — on the roadmap, not yet started" },
+              { s: "planned", l: "Planned · on the roadmap, not yet started" },
             ].map((x) => (
               <div key={x.s} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "var(--ink-2)" }}>
                 <RmStatus s={x.s}/> {x.l}
@@ -529,12 +529,13 @@ const Roadmap = () => (
             <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 10, padding: "3px 9px", borderRadius: 999, background: "var(--primary-50)", color: "var(--primary)", fontWeight: 600 }}>2025 → 2027</span>
           </div>
 
+          <div className="rm-scroll">
           {/* quarter axis */}
           <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 8px", borderBottom: "1px solid var(--line)" }}>
             <span/>
             <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", paddingTop: 21 }}>
               {["2025", "H1 '26", "H2 '26", "2027"].map((q) => (
-                <span key={q} style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)", whiteSpace: "nowrap" }}>{q}</span>
+                <span key={q} style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)", whiteSpace: "nowrap" }}>{q}</span>
               ))}
               <span style={{ position: "absolute", left: "50%", top: 0, transform: "translateX(-50%)", fontFamily: "var(--font-mono)", fontSize: 8.5, fontWeight: 700, letterSpacing: "0.1em", color: "var(--brand-cyan)", background: "white", padding: "1px 6px", borderRadius: 4, border: "1px solid rgba(43,179,223,0.35)" }}>TODAY</span>
               <span style={{ position: "absolute", left: "50%", top: 14, bottom: -8, width: 1.5, background: "rgba(43,179,223,0.45)" }}/>
@@ -547,7 +548,7 @@ const Roadmap = () => (
             {RM_GROUPS.map((g) => (
               <div key={g.label}>
                 <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 4px" }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-4)" }}>{g.label}</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)" }}>{g.label}</span>
                 </div>
                 {g.items.map((it) => (
                   <div key={it.t} className="rm-row" style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, alignItems: "center", padding: "8px 18px" }}>
@@ -565,6 +566,7 @@ const Roadmap = () => (
               </div>
             ))}
           </div>
+          </div>
 
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
@@ -577,6 +579,11 @@ const Roadmap = () => (
     <style>{`
       .rm-row { transition: background 140ms ease; }
       .rm-row:hover { background: var(--bg-alt); }
+      /* below ~720px the 230+130px fixed columns can't fit; let the Gantt scroll instead of clipping */
+      @media (max-width: 720px){
+        .rm-scroll{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .rm-scroll > *{ min-width: 600px; }
+      }
     `}</style>
   </section>
 );
@@ -600,20 +607,68 @@ const Ask = () => (
         <h2 style={{ marginTop: 14 }}>Ask us. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Then ask every other vendor.</em></h2>
         <p>Eight questions worth answering in writing, from us and from anyone we're competing with.</p>
       </div>
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
+      <div className="ask-grid">
         {ASK_QUESTIONS.map((q, i) => (
-          <div key={i} style={{ display: "flex", gap: 14, padding: 22, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-sm)" }}>
-            <span style={{ width: 32, height: 32, borderRadius: 8, background: "var(--brand-gradient)", color: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div style={{ fontSize: 14.5, color: "var(--ink)", fontFamily: "var(--font-display)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em" }}>{q}</div>
+          <div key={i} className="ask-card">
+            <span className="ask-glow" aria-hidden="true"/>
+            <span className="ask-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <span className="ask-div" aria-hidden="true"/>
+            <p className="ask-q">{q}</p>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 28, padding: 22, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", fontSize: 14, color: "var(--ink-2)", textAlign: "center" }}>
-        We'll answer all of these in writing, on the record, with as much technical detail as you want. <a href="mailto:info@streaque.com" style={{ color: "var(--primary)", fontWeight: 500 }}>info@streaque.com →</a>
+      <div className="ask-foot">
+        We&apos;ll answer all of these in writing, on the record, with as much technical detail as you want.{" "}
+        <a href="mailto:info@streaque.com">info@streaque.com →</a>
       </div>
     </div>
+    <style>{`
+      .ask-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .ask-card{
+        position: relative; overflow: hidden;
+        display: flex; align-items: center; gap: 18px;
+        background: #FBFCFE; border: 1px solid var(--line);
+        border-radius: var(--radius-lg); padding: 22px 24px;
+        transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      }
+      .ask-card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 24px 48px -20px rgba(15,23,42,0.18);
+        border-color: #D3DAEE;
+      }
+      .ask-glow{
+        position: absolute; width: 320px; height: 320px;
+        left: -90px; top: -180px; border-radius: 50%;
+        background: radial-gradient(circle closest-side, rgba(43,179,223,0.14), transparent 100%);
+        opacity: 0; transition: opacity 240ms ease; pointer-events: none;
+      }
+      .ask-card:hover .ask-glow{ opacity: 1; }
+      .ask-num{
+        flex-shrink: 0; min-width: 36px;
+        font-family: var(--font-display); font-weight: 700;
+        font-size: 30px; line-height: 1; letter-spacing: -0.03em;
+        background: var(--brand-gradient);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .ask-div{
+        flex-shrink: 0; width: 1px; align-self: stretch; min-height: 36px;
+        background: linear-gradient(180deg, transparent, #DBE0EE 22%, #DBE0EE 78%, transparent);
+      }
+      .ask-q{
+        position: relative; margin: 0;
+        font-family: var(--font-display); font-weight: 500;
+        font-size: 15px; line-height: 1.45; letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .ask-foot{
+        margin-top: 26px; padding: 20px 24px;
+        background: linear-gradient(120deg, rgba(43,179,223,0.07), rgba(56,65,177,0.07));
+        border: 1px solid var(--line); border-radius: var(--radius-lg);
+        font-size: 14.5px; color: var(--ink-2); text-align: center;
+      }
+      .ask-foot a{ color: var(--primary); font-weight: 600; white-space: nowrap; }
+      @media (max-width: 760px){ .ask-grid{ grid-template-columns: 1fr; } }
+    `}</style>
   </section>
 );
 
@@ -622,6 +677,7 @@ export default function SecurityPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="security"/>
+      <main id="main">
       <Hero/>
       <WhyPage/>
       <Pillars/>
@@ -631,6 +687,7 @@ export default function SecurityPage() {
       <Ask/>
       <FAQ alt={false}/>
       <SecurityContact/>
+      </main>
       <Footer/>
     </div>
   );
