@@ -496,6 +496,7 @@ const ForStudents = () => (
       @keyframes fm-pulse{ 0%,100%{ opacity: 0.55; } 50%{ opacity: 1; } }
       /* carousel arrows: minimal circles, match the whole-student nav */
       .fm-arr{
+        position: relative;
         width: 30px; height: 30px; border-radius: 50%;
         border: 1px solid rgba(11,16,32,0.12);
         background: white; color: var(--ink-2);
@@ -504,6 +505,8 @@ const ForStudents = () => (
         box-shadow: 0 4px 10px -6px rgba(11,16,32,0.25);
         transition: color 150ms ease, border-color 150ms ease;
       }
+      /* keep the 30px circle, but extend the clickable area to the 44px minimum */
+      .fm-arr::after{ content: ""; position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
       .fm-arr:hover{ color: var(--ink); border-color: rgba(11,16,32,0.24); }
       /* responsive interiors: large fixed paddings shrink on small screens */
       .mf-stack-sm > *{ min-width: 0; }
