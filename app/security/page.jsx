@@ -131,25 +131,25 @@ const HeroVault = () => (
     </div>
 
     {/* plain-English proof points */}
-    <div style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0d8a5a", boxShadow: "0 0 8px #0d8a5a" }}/>
         Locked the instant it's saved
       </div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>before it's ever stored</div>
     </div>
-    <div style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "flex-end" }}>
         One key per campus
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2BB3DF", boxShadow: "0 0 8px #2BB3DF" }}/>
       </div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never shared, never reused</div>
     </div>
-    <div style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div>A stolen copy is just noise</div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>unreadable without your key</div>
     </div>
-    <div style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div>Keys live in a guarded vault</div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never in our code</div>
     </div>
@@ -158,6 +158,10 @@ const HeroVault = () => (
       One key per campus · without it, data is just noise
     </div>
     <style>{`
+      /* the 4 side proof-points are positioned for the 580px desktop vault; below
+         640px the vault shrinks and they collide, so hide them on phones — the core
+         animation + the readable/scrambled contrast + the caption carry the story */
+      @media (max-width: 640px){ .sec-vault-note{ display: none; } }
       @keyframes sec-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
       @keyframes sec-spin-rev { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
       @keyframes sec-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
