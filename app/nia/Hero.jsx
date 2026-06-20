@@ -76,7 +76,7 @@ export default function NiaHero() {
           </p>
           <div className="mf-hero-actions" style={{ marginTop: 30 }}>
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
-              Book a demo
+              Book a pilot demo
               <span className="mf-cta-arr" aria-hidden="true"><ArrowRight s={13}/><ArrowRight s={13}/></span>
             </Link>
             <Link href="/how-nia-works" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>
