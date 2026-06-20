@@ -24,8 +24,8 @@
   --ink-4: #9aa0b4;
   --line: #e6e8f0;
   --line-2: #d8dbe7;
-  --success: #0d8a5a;
-  --inprogress: #c98a1a;            /* "in development" amber */
+  --success: #0b7a4f;               /* deepened from #0d8a5a so status text passes AA */
+  --inprogress: #9a6a12;            /* "in development" amber, deepened to pass AA */
 
   --font-display: var(--font-geist), 'Geist', system-ui, sans-serif;
   --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
