@@ -44,14 +44,18 @@ npx wrangler deploy
 ```
 (or trigger your connected Workers build.)
 
-**b. Runtime secrets** — Worker → **Settings → Variables and Secrets** (available
-once the Worker has a script), or `npx wrangler secret put <NAME>`:
+**b. Runtime secrets** — set these with the **CLI** so they survive deploys:
+```
+npx wrangler secret put TURNSTILE_SECRET      # Turnstile SECRET key (matches the site key)
+npx wrangler secret put LEAD_WEBHOOK_URL       # Apps Script web-app URL
+npx wrangler secret put LEAD_WEBHOOK_SECRET    # must equal the Apps Script SHARED_SECRET
+```
+Each prompts for the value. Verify with `npx wrangler secret list` (should show all 3).
 
-| Variable | Value | Type |
-|---|---|---|
-| `TURNSTILE_SECRET` | Turnstile secret key | Secret (encrypt) |
-| `LEAD_WEBHOOK_URL` | Apps Script web-app URL | Secret (encrypt) |
-| `LEAD_WEBHOOK_SECRET` | same string as `SHARED_SECRET` | Secret (encrypt) |
+> ⚠️ **Do NOT add these as plain-text variables in the dashboard.** `wrangler deploy`
+> replaces the Worker's vars with what's in `wrangler.jsonc` (which has none), so it
+> *wipes* dashboard-added variables on the next deploy. `wrangler secret put` stores
+> them as encrypted secrets that persist across deploys.
 
 **c. Build-time variable** — none needed. The Turnstile **site** key is already in
 the code (`app/contact/ContactForm.jsx`), since it's public. You can override it
