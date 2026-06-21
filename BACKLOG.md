@@ -54,8 +54,9 @@ Turnstile site key is set, so the live form keeps working in the meantime.
 **⏳ Remaining — provisioning + test (you):** follow
 [`docs/form-wiring-setup.md`](docs/form-wiring-setup.md) — create the Turnstile
 widget, deploy the Apps Script web app, **redeploy the Worker** (so it has a script),
-then add the runtime secrets + the build-time site key — then submit on the deployed
-Worker to confirm a row lands in the Sheet and the email reaches info@streaque.com.
+then add the 3 runtime secrets (the public site key is already baked into the code)
+— then submit on the deployed Worker to confirm a row lands in the Sheet and the
+email reaches info@streaque.com.
 
 ### 2. Analytics — none installed _(verified)_
 No GA / Plausible / PostHog / Vercel Analytics anywhere — the only `<script>` in

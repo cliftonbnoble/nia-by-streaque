@@ -5,11 +5,12 @@ import { ArrowRight, Check } from "@/components/icons";
 /* the path cards deep-link here: the hash picks the interest chip */
 const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership", "#form-security": "security" };
 
-/* When the Turnstile site key is set (build-time, on Cloudflare Pages), the form
-   POSTs to the /api/lead Pages Function — which verifies Turnstile, then appends
-   to the Sheet + emails info@streaque.com. Until then it falls back to mailto: so
-   nothing breaks before the backend is provisioned. See docs/form-wiring-setup.md. */
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "";
+/* The Turnstile SITE key is public (it ships in the page), so it's baked in here;
+   an env var can still override it. With it set, the form POSTs to the Worker's
+   /api/lead route (verify Turnstile → forward to the Apps Script → Sheet + email
+   to info@streaque.com). The SECRET key is NOT here — that's a Worker secret
+   (TURNSTILE_SECRET). See docs/form-wiring-setup.md. */
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAADofYV_vp7xTWcAM";
 
 export default function ContactForm() {
   const [data, setData] = useState({

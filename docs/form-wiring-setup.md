@@ -11,8 +11,9 @@ form → POST /api/lead → Worker (Turnstile + honeypot + validate)
                           → Apps Script → Sheet row + email to info@streaque.com
 ```
 
-Until `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set at build time, the form falls back to
-its old `mailto:` behavior — so nothing breaks before the steps below are done.
+The Turnstile **site** key is baked into the code (it's public), so the form is
+already wired to the real `/api/lead` path. The three runtime secrets below still
+need to be set for submissions to succeed.
 
 > **Order matters.** An assets-only Worker can't hold variables (that's the
 > "Variables cannot be added to a Worker that only has static assets" error).
@@ -52,14 +53,9 @@ once the Worker has a script), or `npx wrangler secret put <NAME>`:
 | `LEAD_WEBHOOK_URL` | Apps Script web-app URL | Secret (encrypt) |
 | `LEAD_WEBHOOK_SECRET` | same string as `SHARED_SECRET` | Secret (encrypt) |
 
-**c. Build-time variable** — `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (the Turnstile
-**site** key) is inlined into the static build, so it goes wherever `npm run build`
-runs:
-- **Connected Workers build:** the Worker's **Build** settings → build variables.
-- **Local build:** put it in `.env.local` (gitignored), then `npm run build`.
-
-Setting this key is what flips the form off the `mailto:` fallback. After setting
-it, **rebuild + redeploy**.
+**c. Build-time variable** — none needed. The Turnstile **site** key is already in
+the code (`app/contact/ContactForm.jsx`), since it's public. You can override it
+with a `NEXT_PUBLIC_TURNSTILE_SITE_KEY` build var later if you ever rotate keys.
 
 ## 4. Verify (on the deployed Worker)
 The `/api/lead` route only runs on the deployed Worker — not `next dev`. After
