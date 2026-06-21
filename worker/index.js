@@ -37,7 +37,13 @@ async function handleLead(request, env) {
     }),
   });
   const verifyData = await verify.json().catch(() => ({ success: false }));
-  if (!verifyData.success) return json({ ok: false, error: "turnstile_failed" }, 403);
+  if (!verifyData.success) {
+    // surface Cloudflare's reason codes so misconfig is obvious:
+    //   missing-input-secret  → TURNSTILE_SECRET unset / wrong name
+    //   invalid-input-secret  → wrong secret value (or different widget than the site key)
+    //   timeout-or-duplicate  → token already used / expired (retry with a fresh one)
+    return json({ ok: false, error: "turnstile_failed", codes: verifyData["error-codes"] || [] }, 403);
+  }
 
   // 3. Validate required fields.
   for (const f of ["name", "email", "institution", "role"]) {

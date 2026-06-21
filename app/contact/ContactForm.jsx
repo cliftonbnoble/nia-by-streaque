@@ -104,10 +104,15 @@ export default function ContactForm() {
         }),
       });
       const out = await res.json().catch(() => ({ ok: false }));
-      if (!out.ok) throw new Error(out.error || "failed");
+      if (!out.ok) {
+        console.warn("[lead] submit failed:", res.status, out); // shows Turnstile error codes
+        throw new Error(out.error || "failed");
+      }
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please email info@streaque.com directly.");
+      setToken("");
+      try { if (window.turnstile && widgetRef.current) window.turnstile.reset(widgetRef.current); } catch { /* noop */ }
     } finally {
       setSending(false);
     }
