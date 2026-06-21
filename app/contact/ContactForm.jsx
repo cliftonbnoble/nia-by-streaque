@@ -42,6 +42,8 @@ export default function ContactForm() {
       if (window.turnstile && widgetRef.current && !widgetRef.current.dataset.rendered) {
         window.turnstile.render(widgetRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
+          theme: "light",            // match the form, not a dark slab
+          appearance: "interaction-only", // hidden unless a challenge is actually needed
           callback: (t) => setToken(t),
           "error-callback": () => setToken(""),
           "expired-callback": () => setToken(""),
@@ -81,7 +83,7 @@ export default function ContactForm() {
     // Backend not configured yet → keep the mailto fallback.
     if (!TURNSTILE_SITE_KEY) { mailtoSubmit(); return; }
 
-    if (!token) { setError("Please complete the verification check below."); return; }
+    if (!token) { setError("One moment — just finishing a quick security check. Please send again."); return; }
     setSending(true);
     setError("");
     const params = new URLSearchParams(window.location.search);
@@ -247,7 +249,9 @@ export default function ContactForm() {
                     placeholder="Tell us about your goals, your current student-success stack, or any questions you have. Even a sentence or two helps."/>
                 </div>
 
-                {TURNSTILE_SITE_KEY && <div ref={widgetRef} style={{ minHeight: 65 }}/>}
+                {/* interaction-only: usually renders nothing (silent pass), so no
+                    reserved height — it only takes space if a challenge appears */}
+                {TURNSTILE_SITE_KEY && <div ref={widgetRef}/>}
                 {error && (
                   <div role="alert" style={{ fontSize: 13, color: "#b91c1c", background: "rgba(220,38,38,0.06)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 8, padding: "10px 12px" }}>
                     {error}
