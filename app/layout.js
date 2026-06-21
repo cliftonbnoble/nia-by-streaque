@@ -61,6 +61,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <a href="#main" className="mf-skip">Skip to content</a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}

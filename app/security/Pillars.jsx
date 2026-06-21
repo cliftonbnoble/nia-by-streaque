@@ -186,7 +186,7 @@ function FerpaVisual() {
           })}
         </div>
       </div>
-      <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+      <div className="mf-stack-sm" style={{ marginTop: 14, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
         {["No data trains AI models", "Email hashed per-tenant", "PII detected & classified", "Tenant-scoped lookups"].map((l, i) => (
           <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 12, color: "var(--ink-2)" }}>
             <Tick/> {l}
@@ -208,7 +208,7 @@ const PillarIcon = ({ kind, color, s = 20 }) => {
 };
 
 const PILLARS = [
-  { id: "encryption", n: "01", t: "Bank-grade encryption", sub: "AES-256-GCM · per-tenant keys · AAD binding",
+  { id: "encryption", n: "01", t: "Per-tenant encryption", sub: "AES-256-GCM · per-tenant keys · AAD binding",
     accent: "#2BB3DF", icon: "lock",
     headline: "Every university gets its own key.",
     body: [
@@ -225,7 +225,7 @@ const PILLARS = [
     accent: "#8F7DF7", icon: "verify",
     headline: "Every request, verified. Every time.",
     body: [
-      "Every API call is authenticated with a cryptographically signed JWT issued by Auth0, the identity platform behind Fortune 500 companies and the U.S. federal government.",
+      "Every API call is authenticated with a cryptographically signed JWT issued by Auth0, the identity platform behind thousands of enterprises worldwide.",
       "Every call is validated for algorithm, key ID, audience, issuer, and expiry before it touches a database query. It's then rate-limited against per-endpoint quotas tuned to real usage.",
       'Finally, it\'s authorized against a row-level security policy in the database itself. "Should this user see this record?" gets answered twice: once by our app, once by the database.',
     ],
@@ -239,7 +239,7 @@ const PILLARS = [
     headline: "Seven layers. In order. No shortcuts.",
     body: ["Most edtech vendors have one or two of these layers. We built all seven. Hover any layer to see what it stops."],
     facts: [
-      { l: "Total layers", v: "7" }, { l: "DB pattern", v: "Same as GitLab, DoD" },
+      { l: "Total layers", v: "7" }, { l: "DB pattern", v: "Postgres row-level security" },
       { l: "CORS policy", v: "Explicit allowlist · no wildcards" }, { l: "Validation", v: "Context-aware SQLi + XSS" },
     ],
     Visual: DefenseVisual },
@@ -286,7 +286,7 @@ export default function Pillars() {
                   background: isActive ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.03)",
                   border: "1px solid " + (isActive ? x.accent : "rgba(255,255,255,0.10)"),
                   boxShadow: isActive ? `0 0 0 1px ${x.accent}55, 0 22px 54px -18px ${x.accent}66` : "none",
-                  fontFamily: "var(--font-body)", backdropFilter: "blur(6px)",
+                  fontFamily: "var(--font-body)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)",
                 }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
                   <span style={{ width: 40, height: 40, borderRadius: 11, background: `${x.accent}1f`, border: `1px solid ${x.accent}45`, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>

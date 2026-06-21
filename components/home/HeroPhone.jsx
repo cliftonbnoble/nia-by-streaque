@@ -406,7 +406,7 @@ export default function HeroPhones() {
         }
         .hp-sbtn { position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #2c303a, #181a20); }
         .hp-bezel { width: 100%; height: 100%; background: #000; border-radius: 39px; padding: 3px; box-sizing: border-box; }
-        .hp-screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #0b1020; }
+        .hp-screen { position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: var(--ink); }
         .hp-island {
           position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
           width: 74px; height: 21px; border-radius: 12px; background: #000; z-index: 30;
@@ -532,7 +532,7 @@ export default function HeroPhones() {
         .hp-home-nia { position: relative; display: inline-flex; }
         .hp-home-nia .hp-appicon { box-shadow: 0 5px 14px rgba(43,179,223,0.45); }
         .hp-home-badge { position: absolute; top: -5px; right: -5px; min-width: 15px; height: 15px; padding: 0 4px; border-radius: 999px; background: #ff3b30; color: #fff; font-family: var(--font-body); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px rgba(7,10,20,0.5); }
-        .hp-home-dock { margin: 0 14px 18px; padding: 12px; display: flex; justify-content: space-between; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; backdrop-filter: blur(8px); }
+        .hp-home-dock { margin: 0 14px 18px; padding: 12px; display: flex; justify-content: space-between; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 
         /* push banner */
         .hp-banner {
@@ -703,6 +703,15 @@ export default function HeroPhones() {
           .hp-b { left: -22px; }
           .hp-a .hp-zoom { zoom: 0.55; }
           .hp-b .hp-zoom { zoom: 0.60; }
+        }
+        /* small phones (~320-400): the fixed-size fan overflows and the front
+           phone's content gets cut off — shrink it and pull the pair back so
+           both phones sit balanced within the viewport. */
+        @media (max-width: 400px) {
+          .hp-a { left: -140px; bottom: 11px; }
+          .hp-b { left: -30px; }
+          .hp-a .hp-zoom { zoom: 0.48; }
+          .hp-b .hp-zoom { zoom: 0.52; }
         }
 
         @media (prefers-reduced-motion: reduce) {

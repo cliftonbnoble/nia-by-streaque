@@ -9,6 +9,7 @@ export default function NotFound() {
     <div className="mf">
       <TrustBar/>
       <Nav/>
+      <main id="main">
       <section className="mf-hero" style={{ paddingBottom: 96 }}>
         <div className="mf-hero-bg"/>
         <div className="mf-container mf-hero-inner" style={{ textAlign: "center", maxWidth: 720 }}>
@@ -41,6 +42,7 @@ export default function NotFound() {
           </div>
         </div>
       </section>
+      </main>
       <Footer/>
     </div>
   );

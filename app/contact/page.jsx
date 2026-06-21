@@ -72,7 +72,7 @@ const Hero = () => (
             <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               <Dot color="var(--success)"/> Replied · 4:08 PM
             </div>
-            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. Luke will be in touch tomorrow with a Calendar invite."</div>
+            <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. A founder will be in touch tomorrow with a Calendar invite."</div>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ const PilotArt = () => (
     {[["LMS", 68], ["SIS", 138], ["CRM", 208]].map(([t, x]) => (
       <g key={t}>
         <rect x={x} y="26" width="44" height="28" rx="8" fill="white" stroke="#E3E8F4"/>
-        <text x={x + 22} y="44" textAnchor="middle" fontSize="10" fontFamily="var(--font-mono)" fill="#6b7187" letterSpacing="0.5">{t}</text>
+        <text x={x + 22} y="44" textAnchor="middle" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-3)" letterSpacing="0.5">{t}</text>
       </g>
     ))}
     <path d="M90 54 C 90 86, 140 76, 152 96" fill="none" stroke="#D8DEF0" strokeWidth="1.5"/>
@@ -108,7 +108,7 @@ const PilotArt = () => (
     <g className="cp-bob">
       <rect x="198" y="106" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="212" cy="118" r="3.5" fill="#2fb380"/>
-      <text x="222" y="121.5" fontSize="9.5" fontFamily="var(--font-mono)" fill="#404659">Cohort A live</text>
+      <text x="222" y="121.5" fontSize="9.5" fontFamily="var(--font-mono)" fill="var(--ink-2)">Cohort A live</text>
     </g>
   </svg>
 );
@@ -153,7 +153,7 @@ const InvestorArt = () => (
     <g className="cp-bob">
       <rect x="196" y="128" width="96" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="210" cy="140" r="3.5" fill="#7c3aed"/>
-      <text x="220" y="144" fontSize="10" fontFamily="var(--font-mono)" fill="#404659">Sent Fridays</text>
+      <text x="220" y="144" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-2)">Sent Fridays</text>
     </g>
   </svg>
 );
@@ -162,7 +162,7 @@ const Paths = () => {
   const paths = [
     { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", accent: "43,179,223", color: "var(--brand-cyan)", Art: PilotArt },
     { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", accent: "56,65,177", color: "var(--brand-blue)", Art: FoundersArt },
-    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, ARR/runway snapshot, and pilot-pipeline overview. We send a fresh brief every Friday.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
+    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
   ];
 
   return (
@@ -252,6 +252,8 @@ const Paths = () => {
   );
 };
 
+/* NOT MOUNTED — the contact FAQ was cut (procurement Q&A lives on /security).
+   Kept for reference; don't re-add to the render without revisiting that IA call. */
 const FAQ = () => {
   const faqs = [
     { q: "How fast will you respond?", a: "Within one business day, from a real person on our team. Most replies come same-day." },
@@ -298,8 +300,8 @@ const Team = () => (
         <span className="mf-eyebrow">The team</span>
         <h2 style={{ marginTop: 14 }}>Built by people who&apos;ve sat on <span className="mf-grad-text">both sides of the desk.</span></h2>
         <p style={{ marginTop: 14 }}>
-          Higher-ed veterans, ML engineers, and student advocates — registrars, advisors, and the
-          students they serve — building the AI layer institutions actually own.
+          Higher-ed veterans, ML engineers, and student advocates: registrars, advisors, and the
+          students they serve, building the AI layer institutions actually own.
         </p>
       </div>
       <div className="mf-team-grid" style={{ marginTop: 40 }}>
@@ -322,11 +324,12 @@ export default function Contact() {
     <div className="mf">
       <TrustBar/>
       <Nav active="contact"/>
+      <main id="main">
       <Hero/>
       <Paths/>
       <ContactForm/>
-      <FAQ/>
       <Team/>
+      </main>
       <Footer/>
     </div>
   );

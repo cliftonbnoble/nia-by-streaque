@@ -85,7 +85,7 @@ const HeroVault = () => (
           return (
             <g key={deg} style={{ transformOrigin: `${x}px ${y}px`, animation: "sec-spin 44s linear infinite" }}>
               {yours && <circle cx={x} cy={y} r="20" fill="none" stroke="rgba(43,179,223,0.30)" strokeWidth="3.5"/>}
-              <circle cx={x} cy={y} r="15" fill="#0b1020" stroke={yours ? "#2BB3DF" : "rgba(255,255,255,0.28)"} strokeWidth={yours ? 2 : 1.5}/>
+              <circle cx={x} cy={y} r="15" fill="var(--ink)" stroke={yours ? "#2BB3DF" : "rgba(255,255,255,0.28)"} strokeWidth={yours ? 2 : 1.5}/>
               <g fill="none" stroke={yours ? "#8fe0f7" : "rgba(255,255,255,0.6)"} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <rect x={x - 5} y={y - 1.5} width="10" height="8.5" rx="2"/>
                 <path d={`M${x - 3} ${y - 1.5} v-2.5 a3 3 0 0 1 6 0 v2.5`}/>
@@ -120,7 +120,7 @@ const HeroVault = () => (
 
     {/* scrambled — what anyone else sees */}
     <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", width: 280, zIndex: 2, textAlign: "center" }}>
-      <div style={{ padding: "12px 14px", background: "rgba(11,16,32,0.85)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 12, backdropFilter: "blur(6px)" }}>
+      <div style={{ padding: "12px 14px", background: "rgba(11,16,32,0.85)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 12, WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
         <div style={{ position: "relative", height: 18 }}>
           {SCRAMBLES.map((s, i) => (
             <div key={i} style={{ position: "absolute", inset: 0, fontFamily: "var(--font-mono)", fontSize: 12.5, letterSpacing: "0.12em", color: "rgba(143,224,247,0.85)", animation: `sec-scramble-${i} 2.1s linear infinite` }}>{s}</div>
@@ -131,25 +131,25 @@ const HeroVault = () => (
     </div>
 
     {/* plain-English proof points */}
-    <div style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", backdropFilter: "blur(6px)" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0d8a5a", boxShadow: "0 0 8px #0d8a5a" }}/>
         Locked the instant it's saved
       </div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>before it's ever stored</div>
     </div>
-    <div style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", backdropFilter: "blur(6px)", textAlign: "right" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "flex-end" }}>
         One key per campus
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2BB3DF", boxShadow: "0 0 8px #2BB3DF" }}/>
       </div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never shared, never reused</div>
     </div>
-    <div style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", backdropFilter: "blur(6px)" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div>A stolen copy is just noise</div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>unreadable without your key</div>
     </div>
-    <div style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", backdropFilter: "blur(6px)", textAlign: "right" }}>
+    <div className="sec-vault-note" style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div>Keys live in a guarded vault</div>
       <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never in our code</div>
     </div>
@@ -158,6 +158,17 @@ const HeroVault = () => (
       One key per campus · without it, data is just noise
     </div>
     <style>{`
+      /* In the 2-col hero the vault is squeezed into the right half, so it stays
+         too narrow for the side labels until ~1100px. Stack this hero earlier
+         (<=1024) so the vault goes full-width on tablet and the labels fit;
+         desktop (>=1101, where the 2-col vault is wide enough) keeps the 2-col
+         layout untouched. (Local override — does not touch the global
+         .mf-stack-sm used elsewhere.) */
+      @media (max-width: 1100px){ .sec-hero-grid{ grid-template-columns: 1fr !important; } }
+      /* Below 640px even the full-width vault is too small for the 4 side
+         proof-points; hide them — the core animation + readable/scrambled
+         contrast + caption still carry the story. */
+      @media (max-width: 640px){ .sec-vault-note{ display: none; } }
       @keyframes sec-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
       @keyframes sec-spin-rev { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
       @keyframes sec-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
@@ -173,25 +184,25 @@ const Hero = () => (
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "48px 48px", maskImage: "radial-gradient(ellipse at 75% 50%, black 30%, transparent 80%)" }}/>
     <div style={{ position: "absolute", width: 900, height: 900, right: -280, top: "50%", transform: "translateY(-50%)", background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 60%)", borderRadius: "50%" }}/>
     <div className="mf-container" style={{ position: "relative" }}>
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+      <div className="mf-stack-sm sec-hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
         <div>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 14px", background: "rgba(43,179,223,0.12)", border: "1px solid rgba(43,179,223,0.3)", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.85)" }}>
             <Lock s={12}/> Security at Streaque
           </span>
           <h1 style={{ color: "white", marginTop: 22, fontSize: "clamp(40px, 4.8vw, 60px)", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.035em" }}>
-            Built like a bank.<br/>
-            <span className="mf-grad-text">Designed for your campus.</span>
+            Your students&apos; data,<br/>
+            <span className="mf-grad-text">locked to your campus.</span>
           </h1>
           <p style={{ marginTop: 22, fontSize: 18, lineHeight: 1.6, color: "rgba(255,255,255,0.78)", maxWidth: 560 }}>
-            Higher education is the single most-attacked sector in America. We built Nia knowing it, with the same architectural patterns used by Fortune 500 banks, federal agencies, and the largest cloud platforms in the world.
+            Higher education is one of the most-attacked sectors in America. We built Nia knowing it: per-tenant isolation, AES-256-GCM encryption, Zero Trust access, and defense-in-depth, so a breach anywhere else never reaches your students.
           </p>
-          <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
+          <div className="mf-hero-actions">
             <a href="#pillars" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none" }}>See the four pillars <ArrowR/></a>
             <a href="mailto:info@streaque.com" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
           </div>
           <div style={{ marginTop: 36, display: "flex", gap: 28, flexWrap: "wrap" }}>
             {[
-              { n: "Bank-grade", l: "the same encryption banks use" },
+              { n: "AES-256-GCM", l: "per-tenant keys, real envelope encryption" },
               { n: "7 layers", l: "between attacker & record" },
               { n: "0", l: "student data trains AI models" },
             ].map((s) => (
@@ -218,7 +229,7 @@ const WhyPage = () => (
         </div>
         <div>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink-2)" }}>
-            Universities sit on decades of records, financial-aid data, transcripts, and research IP, protected by infrastructure built before most of this existed. Every piece of student data we touch is protected by the same patterns used by Fortune 500 financial services, federal agencies, and the largest cloud platforms in the world.
+            Universities sit on decades of records, financial-aid data, transcripts, and research IP, protected by infrastructure built before most of this existed. Every piece of student data we touch is isolated per tenant, encrypted with its own keys, and walled off from every other campus by the database itself.
           </p>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink)", marginTop: 16, fontFamily: "var(--font-display)", fontWeight: 500 }}>
             This page is the long-form answer to one question: <span className="mf-grad-text">what protects the data you're trusting us with?</span>
@@ -235,208 +246,6 @@ const WhyPage = () => (
   </section>
 );
 
-const PROMISES = [
-  { art: "data", icon: "dollar", p: "Sell or share student data.",
-    b: "It's not in our business model. Not in our contracts. Never will be.",
-    chips: ["Never sold", "No data brokers", "In our contracts"] },
-  { art: "train", icon: "model", p: "Train external AI models on your students.",
-    b: "Conversations stay scoped to your university — they never leave our environment for a third-party pipeline.",
-    chips: ["Tenant-scoped", "No third parties", "Never leaves"] },
-  { art: "pass", icon: "lock", p: "Store student passwords.",
-    b: "Authentication runs through Auth0. We literally cannot leak a password — we never see one.",
-    chips: ["Auth0", "Never stored", "Never seen"] },
-];
-
-/* compact brand mark for the tenant scene */
-const NiaMk = ({ s = 13 }) => (
-  <svg width={s} height={s} viewBox="0 0 42 42" fill="none" aria-hidden>
-    <path d="M15.4952 17.7824C15.3857 16.4685 15.883 16.0711 16.1111 16.0711C15.3583 15.3868 14.3318 14.9088 13.4421 14.9772C12.5525 15.0457 11.8682 15.7987 11.8682 17.7145C11.8682 18.4685 12.5525 19.6985 13.8528 21.7515C14.8929 23.394 15.3811 22.5727 15.4952 21.9568C15.5408 21.1128 15.6047 19.0963 15.4952 17.7824Z" fill="#4167C0"/>
-    <path d="M11.8687 11.2129C10.8285 13.3481 11.5038 16.7332 11.9372 18.1932C11.9372 17.1666 12.0604 15.3189 13.1006 15.0452C14.4008 14.703 15.9063 15.8664 16.2485 16.2085C16.5222 16.4823 17.8225 18.1247 18.6437 19.4933L23.0234 26.9526C24.2552 29.1425 27.061 32.0852 29.5246 31.4008C32.1826 30.6624 32.0567 27.6432 32.0567 26.1314C32.0567 24.5575 31.0302 19.6986 29.8668 18.9459C28.9361 18.3437 28.6578 19.3793 28.635 19.9724V22.7097C28.3613 26.4052 26.1714 24.01 25.8976 23.7362C25.6813 23.5198 24.2552 21.5464 21.4495 16.4823C18.6437 11.4182 17.6856 11.2129 17.1381 10.7339C16.6951 10.3463 13.169 8.54402 11.8687 11.2129Z" fill="#3B82C4"/>
-    <circle cx="13.3058" cy="30.4435" r="2.80578" fill="#905CF4"/><circle cx="29.5924" cy="11.5558" r="2.80578" fill="#32C6F0"/>
-  </svg>
-);
-const GIcon = ({ kind, s = 15 }) => {
-  const c = { width: s, height: s, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.9, strokeLinecap: "round", strokeLinejoin: "round" };
-  if (kind === "dollar") return <svg {...c}><path d="M12 2v20"/><path d="M17 5.5c-1-1-2.5-1.5-5-1.5-3 0-5 1.5-5 3.5 0 5 10 2.5 10 7.5 0 2-2 3.5-5 3.5-2.5 0-4-.5-5-1.5"/></svg>;
-  if (kind === "model") return <svg {...c}><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>;
-  return <svg {...c}><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>;
-};
-
-/* "technical readers" treatment, in light: a tilted, glowing mock scene per guarantee */
-const DataArt = () => (
-  <div className="sg-stage">
-    <div className="sg-panel sg-rec2">
-      <span className="sg-rec2-top">
-        <span className="sg-rec2-av"><img loading="lazy" decoding="async" src="/students/maya.png" alt=""/></span>
-        <span className="sg-rec2-id"><b>Maya Reyes</b><i>Student record</i></span>
-        <span className="sg-pill-ok">FERPA</span>
-      </span>
-      <span className="sg-rec2-rows"><span/><span className="w2"/><span className="w3"/></span>
-    </div>
-    <span className="sg-seal sg-bob">
-      <GIcon kind="dollar" s={20}/>
-      <span className="sg-seal-slash"/>
-    </span>
-  </div>
-);
-const TrainArt = () => (
-  <div className="sg-stage sg-stage-row">
-    <div className="sg-panel sg-tenant2">
-      <span className="sg-tenant2-h"><NiaMk s={12}/> Your tenant</span>
-      <span className="sg-t2-bub"/><span className="sg-t2-bub r"/>
-      <span className="sg-t2-lock"><GIcon kind="lock" s={9}/> isolated</span>
-    </div>
-    <span className="sg-link">
-      <span className="sg-link-seg"/>
-      <span className="sg-link-x sg-pulse"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-      <span className="sg-link-seg"/>
-    </span>
-    <div className="sg-extnode"><GIcon kind="model" s={15}/><span>external<br/>model</span></div>
-  </div>
-);
-const PassArt = () => (
-  <div className="sg-stage">
-    <div className="sg-panel sg-login">
-      <span className="sg-login-h">Sign in</span>
-      <span className="sg-login-field">
-        <GIcon kind="lock" s={13}/>
-        <span className="sg-dots"><i/><i/><i/><i/><i/><i/></span>
-      </span>
-      <span className="sg-login-auth"><span className="sg-auth-dot"/> handled by Auth0</span>
-    </div>
-    <span className="sg-blind sg-bob">
-      <span className="sg-eye">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-        <span className="sg-eye-slash"/>
-      </span>
-      Nia never sees it
-    </span>
-  </div>
-);
-const ART = { data: DataArt, train: TrainArt, pass: PassArt };
-
-const Promises = () => (
-  <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #F5F8FC 0%, #EEF3FA 100%)" }}>
-    {/* light blueprint backdrop — the daylight counterpart to the vault room above */}
-    <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(35,86,201,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(35,86,201,0.045) 1px, transparent 1px)", backgroundSize: "52px 52px", maskImage: "radial-gradient(ellipse at center, black 25%, transparent 80%)", pointerEvents: "none" }}/>
-    <div style={{ position: "absolute", width: 600, height: 600, right: -220, top: -260, background: "radial-gradient(circle, rgba(43,179,223,0.10), transparent 60%)", borderRadius: "50%", pointerEvents: "none" }}/>
-    <div className="mf-container" style={{ position: "relative" }}>
-      <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
-        <span className="mf-eyebrow">The promises we can make architecturally</span>
-        <h2 style={{ marginTop: 14 }}>The strongest guarantees are the ones that are <span className="mf-grad-text" style={{ fontStyle: "italic" }}>impossible to break.</span></h2>
-        <p>Three things Nia will never do, not because of policy, but because of architecture.</p>
-      </div>
-      <div className="sg-grid">
-        {PROMISES.map((p, i) => {
-          const Art = ART[p.art];
-          return (
-          <div key={i} className="sg-card">
-            <div className="sg-art">
-              <span className="sg-num">{String(i + 1).padStart(2, "0")} / 03</span>
-              <Art/>
-            </div>
-            <div className="sg-body">
-              <div className="sg-head">
-                <span className="sg-ic"><GIcon kind={p.icon} s={15}/></span>
-                <h3>{p.p}</h3>
-              </div>
-              <p>{p.b}</p>
-              <div className="sg-chips">
-                {p.chips.map((c) => <span key={c} className="sg-chip">{c}</span>)}
-              </div>
-            </div>
-          </div>
-          );
-        })}
-      </div>
-    </div>
-    <style>{`
-      .sg-grid{ display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
-      .sg-card{
-        position: relative; overflow: hidden;
-        flex: 1 1 320px; max-width: 372px;
-        display: flex; flex-direction: column;
-        background: #FBFCFE; border: 1px solid var(--line); border-radius: var(--radius-lg);
-        box-shadow: 0 1px 2px rgba(11,16,32,0.05);
-        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-      }
-      .sg-card:hover{ transform: translateY(-4px); box-shadow: 0 28px 56px -22px rgba(31,52,128,0.28); border-color: rgba(43,179,223,0.4); }
-
-      /* art — a glow behind the mock, faded into the body (the "technical readers" look, in light) */
-      .sg-art{
-        position: relative; height: 186px; overflow: hidden;
-        display: flex; align-items: center; justify-content: center;
-        background: radial-gradient(60% 80% at 50% 42%, rgba(43,179,223,0.16), rgba(43,179,223,0.04) 52%, transparent 74%);
-        -webkit-mask-image: linear-gradient(180deg, #000 66%, transparent 99%);
-        mask-image: linear-gradient(180deg, #000 66%, transparent 99%);
-      }
-      .sg-num{ position: absolute; top: 14px; left: 18px; z-index: 3; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-4); }
-
-      /* the tilted stage gives the mocks depth, like the architecture cards */
-      .sg-stage{ position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 14px; padding: 0 22px; transform: perspective(820px) rotateX(7deg); transform-origin: 50% 100%; }
-      .sg-stage-row{ gap: 11px; }
-      .sg-stage-col{ flex-direction: column; gap: 12px; }
-      .sg-panel{ background: #fff; border: 1px solid var(--line); border-radius: 13px; box-shadow: 0 16px 30px -14px rgba(31,52,128,0.32), 0 2px 5px rgba(11,16,32,0.05); }
-
-      /* 1 · student record + no-sale seal */
-      .sg-rec2{ padding: 11px 13px 12px; min-width: 168px; }
-      .sg-rec2-top{ display: flex; align-items: center; gap: 9px; }
-      .sg-rec2-av img{ width: 34px; height: 34px; border-radius: 50%; display: block; }
-      .sg-rec2-id{ display: grid; gap: 1px; flex: 1; }
-      .sg-rec2-id b{ font-family: var(--font-display); font-size: 12px; color: var(--ink); }
-      .sg-rec2-id i{ font-style: normal; font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-4); }
-      .sg-pill-ok{ flex-shrink: 0; font-family: var(--font-mono); font-size: 7px; font-weight: 700; letter-spacing: 0.05em; color: var(--success); background: rgba(13,138,90,0.1); border-radius: 999px; padding: 3px 7px; }
-      .sg-rec2-rows{ display: flex; flex-direction: column; gap: 5px; margin-top: 11px; }
-      .sg-rec2-rows span{ height: 5px; border-radius: 3px; background: var(--bg-alt); width: 100%; }
-      .sg-rec2-rows span.w2{ width: 68%; } .sg-rec2-rows span.w3{ width: 84%; }
-      .sg-seal{ position: relative; flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; border: 2.6px solid #c43d3d; color: #c43d3d; background: rgba(255,255,255,0.92); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 12px 22px -8px rgba(196,61,61,0.45); }
-      .sg-seal-slash{ position: absolute; width: 56px; height: 2.8px; background: #c43d3d; border-radius: 2px; transform: rotate(-45deg); }
-
-      /* 2 · tenant, snapped link, external model */
-      .sg-tenant2{ flex-shrink: 0; padding: 9px 11px 11px; min-width: 104px; border-color: rgba(43,179,223,0.45); }
-      .sg-tenant2-h{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
-      .sg-t2-bub{ display: block; height: 7px; width: 58px; border-radius: 4px; background: #EDF1F8; margin-top: 7px; }
-      .sg-t2-bub.r{ width: 40px; margin-left: auto; background: linear-gradient(90deg,#2BB3DF,#3841B1); }
-      .sg-t2-lock{ display: inline-flex; align-items: center; gap: 4px; margin-top: 9px; font-family: var(--font-mono); font-size: 6.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--success); }
-      .sg-link{ display: flex; align-items: center; gap: 3px; flex-shrink: 0; }
-      .sg-link-seg{ width: 12px; height: 0; border-top: 2px dashed var(--line-2); }
-      .sg-link-x{ flex-shrink: 0; width: 21px; height: 21px; border-radius: 50%; background: #c43d3d; color: #fff; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 9px -2px rgba(196,61,61,0.55); }
-      .sg-extnode{ flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: 7px; line-height: 1.25; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-4); background: rgba(247,249,252,0.85); border: 1px dashed var(--line-2); border-radius: 11px; padding: 9px 9px; text-align: center; }
-      .sg-extnode svg{ color: var(--ink-4); }
-
-      /* 3 · login, handled by Auth0, never seen */
-      .sg-login{ padding: 12px 14px 13px; min-width: 166px; }
-      .sg-login-h{ font-family: var(--font-display); font-weight: 600; font-size: 11px; color: var(--ink); }
-      .sg-login-field{ display: flex; align-items: center; gap: 9px; margin-top: 9px; padding: 8px 11px; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 9px; color: var(--ink-3); }
-      .sg-dots{ display: inline-flex; gap: 5px; }
-      .sg-dots i{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
-      .sg-login-auth{ display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
-      .sg-auth-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
-      .sg-blind{ display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: #a8332f; background: rgba(255,255,255,0.94); border: 1px solid rgba(196,61,61,0.22); border-radius: 999px; padding: 6px 12px; box-shadow: 0 10px 18px -8px rgba(196,61,61,0.3); }
-      .sg-eye{ position: relative; display: inline-flex; color: #c43d3d; }
-      .sg-eye-slash{ position: absolute; left: 0; top: 50%; width: 16px; height: 2px; background: #c43d3d; border-radius: 2px; transform: translateY(-50%) rotate(-22deg); }
-
-      /* gentle motion */
-      .sg-bob{ animation: sg-bob 3.6s ease-in-out infinite; }
-      @keyframes sg-bob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-5px); } }
-      .sg-pulse{ animation: sg-pulse 2.6s ease-in-out infinite; }
-      @keyframes sg-pulse{ 0%,100%{ transform: scale(1); } 50%{ transform: scale(1.13); } }
-
-      /* body — icon + title + description + chips, like the architecture cards */
-      .sg-body{ position: relative; flex: 1; display: flex; flex-direction: column; padding: 12px 24px 24px; }
-      .sg-head{ display: flex; align-items: center; gap: 11px; }
-      .sg-ic{ flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; background: rgba(196,61,61,0.08); border: 1px solid rgba(196,61,61,0.18); color: #c43d3d; display: inline-flex; align-items: center; justify-content: center; }
-      .sg-head h3{ margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 17.5px; letter-spacing: -0.015em; line-height: 1.2; color: var(--ink); }
-      .sg-body p{ margin: 13px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.55; flex: 1; }
-      .sg-chips{ display: flex; gap: 7px; margin-top: 16px; flex-wrap: wrap; }
-      .sg-chip{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.03em; color: var(--ink-3); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
-
-      @media (max-width: 980px){ .sg-card{ flex-basis: 300px; } }
-      @media (max-width: 640px){ .sg-grid{ flex-direction: column; align-items: center; } .sg-card{ width: 100%; max-width: 440px; flex: none; } .sg-stage{ transform: none; } }
-      @media (prefers-reduced-motion: reduce){ .sg-bob, .sg-pulse{ animation: none; } }
-    `}</style>
-  </section>
-);
 
 // Architecture moved to ./ArchScroll (client component — horizontal scroller)
 
@@ -505,12 +314,12 @@ const Roadmap = () => (
           <span className="mf-eyebrow">Compliance & roadmap</span>
           <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
-            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet — it's on our roadmap. Here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
+            The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet. It's on our roadmap; here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
           <div style={{ marginTop: 26, display: "grid", gap: 11 }}>
             {[
               { s: "done", l: "Shipped, running in production today" },
-              { s: "planned", l: "Planned — on the roadmap, not yet started" },
+              { s: "planned", l: "Planned · on the roadmap, not yet started" },
             ].map((x) => (
               <div key={x.s} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 13.5, color: "var(--ink-2)" }}>
                 <RmStatus s={x.s}/> {x.l}
@@ -529,12 +338,13 @@ const Roadmap = () => (
             <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 10, padding: "3px 9px", borderRadius: 999, background: "var(--primary-50)", color: "var(--primary)", fontWeight: 600 }}>2025 → 2027</span>
           </div>
 
+          <div className="rm-scroll">
           {/* quarter axis */}
           <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 8px", borderBottom: "1px solid var(--line)" }}>
             <span/>
             <div style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", paddingTop: 21 }}>
               {["2025", "H1 '26", "H2 '26", "2027"].map((q) => (
-                <span key={q} style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)", whiteSpace: "nowrap" }}>{q}</span>
+                <span key={q} style={{ fontFamily: "var(--font-mono)", fontSize: 9.5, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)", whiteSpace: "nowrap" }}>{q}</span>
               ))}
               <span style={{ position: "absolute", left: "50%", top: 0, transform: "translateX(-50%)", fontFamily: "var(--font-mono)", fontSize: 8.5, fontWeight: 700, letterSpacing: "0.1em", color: "var(--brand-cyan)", background: "white", padding: "1px 6px", borderRadius: 4, border: "1px solid rgba(43,179,223,0.35)" }}>TODAY</span>
               <span style={{ position: "absolute", left: "50%", top: 14, bottom: -8, width: 1.5, background: "rgba(43,179,223,0.45)" }}/>
@@ -547,7 +357,7 @@ const Roadmap = () => (
             {RM_GROUPS.map((g) => (
               <div key={g.label}>
                 <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 4px" }}>
-                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-4)" }}>{g.label}</span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--ink-3)" }}>{g.label}</span>
                 </div>
                 {g.items.map((it) => (
                   <div key={it.t} className="rm-row" style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, alignItems: "center", padding: "8px 18px" }}>
@@ -565,6 +375,7 @@ const Roadmap = () => (
               </div>
             ))}
           </div>
+          </div>
 
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
@@ -577,6 +388,11 @@ const Roadmap = () => (
     <style>{`
       .rm-row { transition: background 140ms ease; }
       .rm-row:hover { background: var(--bg-alt); }
+      /* below ~720px the 230+130px fixed columns can't fit; let the Gantt scroll instead of clipping */
+      @media (max-width: 720px){
+        .rm-scroll{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .rm-scroll > *{ min-width: 600px; }
+      }
     `}</style>
   </section>
 );
@@ -600,20 +416,68 @@ const Ask = () => (
         <h2 style={{ marginTop: 14 }}>Ask us. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Then ask every other vendor.</em></h2>
         <p>Eight questions worth answering in writing, from us and from anyone we're competing with.</p>
       </div>
-      <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
+      <div className="ask-grid">
         {ASK_QUESTIONS.map((q, i) => (
-          <div key={i} style={{ display: "flex", gap: 14, padding: 22, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-sm)" }}>
-            <span style={{ width: 32, height: 32, borderRadius: 8, background: "var(--brand-gradient)", color: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: 12, fontWeight: 600, flexShrink: 0 }}>
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div style={{ fontSize: 14.5, color: "var(--ink)", fontFamily: "var(--font-display)", fontWeight: 500, lineHeight: 1.4, letterSpacing: "-0.01em" }}>{q}</div>
+          <div key={i} className="ask-card">
+            <span className="ask-glow" aria-hidden="true"/>
+            <span className="ask-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <span className="ask-div" aria-hidden="true"/>
+            <p className="ask-q">{q}</p>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 28, padding: 22, background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", fontSize: 14, color: "var(--ink-2)", textAlign: "center" }}>
-        We'll answer all of these in writing, on the record, with as much technical detail as you want. <a href="mailto:info@streaque.com" style={{ color: "var(--primary)", fontWeight: 500 }}>info@streaque.com →</a>
+      <div className="ask-foot">
+        We&apos;ll answer all of these in writing, on the record, with as much technical detail as you want.{" "}
+        <a href="mailto:info@streaque.com">info@streaque.com →</a>
       </div>
     </div>
+    <style>{`
+      .ask-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .ask-card{
+        position: relative; overflow: hidden;
+        display: flex; align-items: center; gap: 18px;
+        background: #FBFCFE; border: 1px solid var(--line);
+        border-radius: var(--radius-lg); padding: 22px 24px;
+        transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+      }
+      .ask-card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 24px 48px -20px rgba(15,23,42,0.18);
+        border-color: #D3DAEE;
+      }
+      .ask-glow{
+        position: absolute; width: 320px; height: 320px;
+        left: -90px; top: -180px; border-radius: 50%;
+        background: radial-gradient(circle closest-side, rgba(43,179,223,0.14), transparent 100%);
+        opacity: 0; transition: opacity 240ms ease; pointer-events: none;
+      }
+      .ask-card:hover .ask-glow{ opacity: 1; }
+      .ask-num{
+        flex-shrink: 0; min-width: 36px;
+        font-family: var(--font-display); font-weight: 700;
+        font-size: 30px; line-height: 1; letter-spacing: -0.03em;
+        background: var(--brand-gradient);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .ask-div{
+        flex-shrink: 0; width: 1px; align-self: stretch; min-height: 36px;
+        background: linear-gradient(180deg, transparent, #DBE0EE 22%, #DBE0EE 78%, transparent);
+      }
+      .ask-q{
+        position: relative; margin: 0;
+        font-family: var(--font-display); font-weight: 500;
+        font-size: 15px; line-height: 1.45; letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      .ask-foot{
+        margin-top: 26px; padding: 20px 24px;
+        background: linear-gradient(120deg, rgba(43,179,223,0.07), rgba(56,65,177,0.07));
+        border: 1px solid var(--line); border-radius: var(--radius-lg);
+        font-size: 14.5px; color: var(--ink-2); text-align: center;
+      }
+      .ask-foot a{ color: var(--primary); font-weight: 600; white-space: nowrap; }
+      @media (max-width: 760px){ .ask-grid{ grid-template-columns: 1fr; } }
+    `}</style>
   </section>
 );
 
@@ -622,15 +486,16 @@ export default function SecurityPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="security"/>
+      <main id="main">
       <Hero/>
       <WhyPage/>
       <Pillars/>
-      <Promises/>
       <Architecture/>
       <Roadmap/>
       <Ask/>
       <FAQ alt={false}/>
       <SecurityContact/>
+      </main>
       <Footer/>
     </div>
   );

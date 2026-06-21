@@ -6,7 +6,6 @@ import { ArrowRight } from "@/components/icons";
 import { SecProblem, SecArchitecture, SecAdvisors, SecCoaches, SecProof } from "@/components/home/CampaignSections";
 import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
-import FrontDoorsShowcase from "@/components/home/FrontDoorsShowcase";
 import FeatureCards from "@/components/home/FeatureCards";
 import RoiCalculator from "@/components/RoiCalculator";
 
@@ -24,11 +23,11 @@ const Hero = () => (
             answered.
           </h1>
           <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 500, color: "var(--ink-2)", maxWidth: 540 }}>
-            Student-success coaching your institution governs end to end — built on your LMS, SIS, and CRM.
+            Student success, governed by your institution. Built on your LMS, SIS, and CRM.
           </p>
           <p className="mf-hero-sub">
-            Nia spots the student who&apos;s quietly slipping and opens the conversation first —
-            warm, evidence-based, and grounded in the data you already trust. Your institution owns every byte.
+            Nia spots the student who&apos;s quietly slipping and opens the conversation first: warm,
+            evidence-based, grounded in the data you already trust.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
@@ -42,20 +41,25 @@ const Hero = () => (
               For investors →
             </Link>
           </div>
-          {/* live pilot lockup — Northeastern University, Bay Area campus */}
-          <div style={{ marginTop: 26 }}>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "9px 16px", borderRadius: 999, background: "var(--ink)", flexWrap: "wrap" }}>
-              <img src="/northeastern-wordmark-white.png" alt="Northeastern University" style={{ height: 13, width: "auto", display: "block" }}/>
-              <span style={{ fontSize: 12, color: "rgba(255,255,255,0.62)", whiteSpace: "nowrap" }}>Bay Area campus</span>
+          {/* ownership lockup — the governance differentiator, set apart from the pilot proof */}
+          <div className="mf-hero-own">
+            <span className="mf-hero-own-ic" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <span className="mf-hero-own-txt">
+              <span className="mf-hero-own-top"><span className="mf-grad-text">100%</span> institution-owned</span>
+              <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>
             </span>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">5</span><span className="lbl">coaches, one student profile</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">16</span><span className="lbl">students in the pilot</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">24/7</span><span className="lbl">proactive coaching</span></div>
-            <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">institution-owned data</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of engagement</span></div>
           </div>
+          <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
+            Engagement is the early signal.{" "}
+            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Hear the results first →</Link>
+          </p>
         </div>
 
         <div className="mf-mock-stage">
@@ -97,12 +101,56 @@ const TwoExperiences = () => (
       <div className="mf-section-head">
         <span className="mf-eyebrow">Two experiences · One unified system</span>
         <h2>Same data model. Same governance. <em className="mf-grad-text" style={{ fontStyle: "normal" }}>Two front doors.</em></h2>
-        <p>Tuned to who's holding the device, never who pays the bill.</p>
+        <p>Tuned to the person using it, not the org chart.</p>
       </div>
-      <FrontDoorsShowcase/>
+      <div className="tfd-grid mf-stack-sm">
+        <Link href="/how-nia-works#for-students" className="tfd-card">
+          <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/students.jpg)", backgroundPosition: "center 34%" }} aria-hidden="true"/>
+          <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-body">
+            <span className="tfd-aud">For students</span>
+            <span className="tfd-h">A coach in the pocket</span>
+            <span className="tfd-p">Personalized momentum plans, course-aware tutoring, and quiet nudges that actually land.</span>
+          </span>
+          <span className="tfd-arrow" aria-hidden="true"><ArrowRight/></span>
+        </Link>
+        <Link href="/how-nia-works#for-staff" className="tfd-card">
+          <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/staff.jpg)", backgroundPosition: "center 30%" }} aria-hidden="true"/>
+          <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-body">
+            <span className="tfd-aud">For staff</span>
+            <span className="tfd-h">A co-pilot at the desk</span>
+            <span className="tfd-p">An early-alert queue, live cohort signals, and outreach drafted in your advisor&apos;s voice.</span>
+          </span>
+          <span className="tfd-arrow" aria-hidden="true"><ArrowRight/></span>
+        </Link>
+      </div>
     </div>
+    <style>{`
+      .tfd-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 1040px; margin: 0 auto; }
+      .tfd-card{
+        position: relative; overflow: hidden; display: block; text-decoration: none;
+        min-height: 320px; border-radius: var(--radius-xl);
+        /* purple fallback so the card reads as intentional before the photo loads */
+        background: linear-gradient(150deg, #25278a 0%, #3a37ad 100%);
+        box-shadow: 0 30px 60px -28px rgba(31,52,128,0.42);
+        transition: transform 240ms ease, box-shadow 240ms ease;
+      }
+      .tfd-card:hover{ transform: translateY(-5px); box-shadow: 0 44px 84px -30px rgba(31,52,128,0.5); }
+      .tfd-photo{ position: absolute; inset: 0; background-size: cover; background-position: center 28%; transition: transform 700ms cubic-bezier(0.2,0.8,0.2,1); }
+      .tfd-card:hover .tfd-photo{ transform: scale(1.045); }
+      .tfd-veil{ position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,21,76,0.95) 0%, rgba(33,32,124,0.78) 34%, rgba(58,55,173,0.34) 64%, rgba(58,55,173,0.06) 88%, transparent 100%); }
+      .tfd-body{ position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 32px; display: block; }
+      .tfd-aud{ display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+      .tfd-h{ display: block; margin-top: 9px; font-family: var(--font-display); font-weight: 600; font-size: 27px; letter-spacing: -0.025em; color: #fff; }
+      .tfd-p{ display: block; margin-top: 9px; max-width: 380px; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.86); }
+      .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
+      .tfd-card:hover .tfd-arrow{ background: rgba(255,255,255,0.18); border-color: #fff; transform: translateX(2px); }
+      @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } }
+    `}</style>
   </section>
 );
+
 
 /* Feature demos moved to components/home/FeatureCards.jsx */
 
@@ -123,24 +171,6 @@ const Features = () => (
 );
 
 
-/* Slim mid-page CTA — one clear "book a pilot demo" between Features and the
-   five-coaches section, so a conversion point appears before the footer form. */
-const MidCTA = () => (
-  <section style={{ background: "linear-gradient(120deg, #1b2a6b 0%, #2356c9 100%)", color: "white", padding: "56px 0", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", width: 480, height: 480, right: -160, top: -200, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
-    <div className="mf-container" style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
-      <div>
-        <h2 style={{ color: "white", fontSize: 30, lineHeight: 1.15, letterSpacing: "-0.02em", margin: 0 }}>
-          See it on <span style={{ color: "rgba(255,255,255,0.72)" }}>your</span> data.
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.82)", margin: "8px 0 0", fontSize: 15 }}>Twenty minutes, your early-alert queue, no slides.</p>
-      </div>
-      <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-        Book a pilot demo <ArrowRight/>
-      </Link>
-    </div>
-  </section>
-);
 
 /* ── Tech & Privacy — three illustrated cards in the contact-page
      language, each a quick highlight that pushes to /security ── */
@@ -171,7 +201,7 @@ const NeverArt = () => (
     <path d="M61.5 79.5a6.6 6.6 0 0 1 13 0" fill="#ADB6CC"/>
     <rect x="84" y="64" width="42" height="5" rx="2.5" fill="#D9DEEC"/>
     <rect x="84" y="76" width="32" height="5" rx="2.5" fill="#EDF0F8"/>
-    <text x="92" y="46" fontSize="9" fontFamily="var(--font-mono)" fill="#6b7187" textAnchor="middle" letterSpacing="0.5">STUDENT PII</text>
+    <text x="92" y="46" fontSize="9" fontFamily="var(--font-mono)" fill="var(--ink-3)" textAnchor="middle" letterSpacing="0.5">STUDENT PII</text>
     <rect x="196" y="52" width="86" height="46" rx="10" fill="#F6F8FC" stroke="#E3E8F4" strokeDasharray="4 4"/>
     <text x="239" y="71" fontSize="9" fontFamily="var(--font-mono)" fill="#8A90A5" textAnchor="middle" letterSpacing="0.5">MODEL</text>
     <text x="239" y="84" fontSize="9" fontFamily="var(--font-mono)" fill="#8A90A5" textAnchor="middle" letterSpacing="0.5">TRAINING</text>
@@ -190,9 +220,9 @@ const ComplianceArt = () => (
     <rect x="118" y="38" width="50" height="6" rx="3" fill="#D9DEEC"/>
     <g>
       <rect x="118" y="56" width="38" height="16" rx="8" fill="#EEF6FF" stroke="rgba(35,86,201,0.25)"/>
-      <text x="137" y="67" fontSize="8" fontFamily="var(--font-mono)" fill="#2356c9" textAnchor="middle">FERPA</text>
+      <text x="137" y="67" fontSize="8" fontFamily="var(--font-mono)" fill="var(--primary)" textAnchor="middle">FERPA</text>
       <rect x="162" y="56" width="38" height="16" rx="8" fill="#EEF6FF" stroke="rgba(35,86,201,0.25)"/>
-      <text x="181" y="67" fontSize="8" fontFamily="var(--font-mono)" fill="#2356c9" textAnchor="middle">GDPR</text>
+      <text x="181" y="67" fontSize="8" fontFamily="var(--font-mono)" fill="var(--primary)" textAnchor="middle">GDPR</text>
     </g>
     <rect x="118" y="84" width="84" height="5" rx="2.5" fill="#EDF0F8"/>
     <rect x="118" y="96" width="72" height="5" rx="2.5" fill="#EDF0F8"/>
@@ -200,12 +230,12 @@ const ComplianceArt = () => (
     <g className="tp-bob">
       <rect x="196" y="100" width="110" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="210" cy="112" r="3.5" fill="#8A90A5"/>
-      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">Pen test · planned</text>
+      <text x="220" y="115.5" fontSize="9" fontFamily="var(--font-mono)" fill="var(--ink-2)">Pen test · planned</text>
     </g>
     <g className="tp-bob" style={{ animationDelay: "1.1s" }}>
       <rect x="36" y="34" width="104" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
       <circle cx="50" cy="46" r="3.5" fill="#8A90A5"/>
-      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="#404659">SOC 2 · planned</text>
+      <text x="60" y="49.5" fontSize="9" fontFamily="var(--font-mono)" fill="var(--ink-2)">SOC 2 · planned</text>
     </g>
   </svg>
 );
@@ -217,8 +247,16 @@ const TechPrivacy = () => {
     { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
-    <section className="mf-section alt">
-      <div className="mf-container">
+    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FCFBF6 0%, #EFE7D4 100%)" }}>
+      {/* the hard rule (kept) + a soft cream vignette: white bleeds in from the top
+          (brightest toward the top-right), deepening to a richer, darker cream in
+          the bottom-left and bottom-right corners */}
+      <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(72,67,193,0.32) 26%, rgba(72,67,193,0.32) 74%, transparent)" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", width: 920, height: 540, top: -250, right: -170, background: "radial-gradient(ellipse at 72% 28%, rgba(255,255,255,0.82), transparent 62%)", pointerEvents: "none" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", width: 760, height: 460, top: -230, left: -130, background: "radial-gradient(ellipse, rgba(255,255,255,0.5), transparent 64%)", pointerEvents: "none" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", width: 640, height: 540, bottom: -240, left: -190, background: "radial-gradient(ellipse, rgba(182,156,100,0.32), transparent 62%)", pointerEvents: "none" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", width: 670, height: 540, bottom: -240, right: -180, background: "radial-gradient(ellipse, rgba(188,162,112,0.30), transparent 62%)", pointerEvents: "none" }}/>
+      <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 580 }}>
           <span className="mf-eyebrow">Tech & Privacy</span>
           <h2 style={{ marginTop: 14 }}>Privacy is <em style={{ fontStyle: "normal", color: "var(--primary)" }}>the architecture.</em></h2>
@@ -314,7 +352,7 @@ const ClosingCTA = () => (
         Ready to see students <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>whole?</span>
       </h2>
       <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 560, margin: "18px auto 0", fontSize: 17, lineHeight: 1.6 }}>
-        Book a pilot demo — 20 minutes, your early-alert queue, no slides. Real answers from the people who built it.
+        The whole student is already in your data, scattered across a dozen systems. Book a pilot demo and see them in one place.
       </p>
       <div style={{ marginTop: 32, display: "flex", gap: 22, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
         <Link href="/contact#form" className="mf-btn mf-btn-lg" style={{ textDecoration: "none", background: "white", color: "var(--primary)", display: "inline-flex", alignItems: "center", gap: 8 }}>
@@ -333,18 +371,19 @@ export default function Home() {
     <div className="mf">
       <TrustBar/>
       <Nav active="home"/>
+      <main id="main">
       <Hero/>
       <SecProblem/>
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
       <SecAdvisors/>      {/* the advisor moment — "they want their time back" */}
-      <MidCTA/>
       <SecCoaches/>
       <RoiCalculator/>
-      <SecProof/>
       <TechPrivacy/>
+      <SecProof/>      {/* origin story — the human "why," last beat before the CTA */}
       <ClosingCTA/>
+      </main>
       <Footer/>
       <CookieBanner/>
     </div>

@@ -11,7 +11,7 @@ const ARCH_GROUPS = [
     chips: ["Auth0", "SSO", "Service-to-service"] },
   { id: "data", t: "Data protection", icon: "lock", art: "data",
     d: "Encrypted at rest and in transit, with a separate key for every campus.",
-    chips: ["AES-256", "Per-campus keys", "Key vault"] },
+    chips: ["AES-256-GCM", "Per-campus keys", "Key vault"] },
   { id: "app", t: "Application security", icon: "shield", art: "app",
     d: "Hardened at every surface: every input validated, every response locked down.",
     chips: ["Strict headers", "Input validation", "Sanitization"] },
@@ -68,7 +68,7 @@ const IdentityArt = () => (
       <rect x="146" y="135" width="28" height="3.5" rx="1.75" fill="rgba(255,255,255,0.95)"/>
     </g>
     <g style={{ animation: "arch-bob 3.4s ease-in-out infinite" }}>
-      <circle cx="232" cy="42" r="13" fill="#0b1020" stroke="rgba(47,179,128,0.6)" strokeWidth="1.5"/>
+      <circle cx="232" cy="42" r="13" fill="var(--ink)" stroke="rgba(47,179,128,0.6)" strokeWidth="1.5"/>
       <path d="m226.5 42 3.5 3.5 7-7" fill="none" stroke="#2fb380" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </g>
   </svg>
@@ -189,7 +189,7 @@ export default function Architecture() {
         </div>
       </div>
 
-      <div ref={track} className="arch-track" style={{
+      <div ref={track} className="arch-track" tabIndex={0} role="region" aria-label="Security architecture layers, scroll horizontally to see all five" style={{
         position: "relative", display: "flex", gap: 16, marginTop: 34,
         overflowX: "auto", scrollSnapType: "x mandatory", scrollbarWidth: "none",
         paddingLeft: "max(32px, calc((100% - 1200px) / 2 + 32px))",
@@ -202,7 +202,7 @@ export default function Architecture() {
             <div key={g.id} className="arch-card" style={{
               flex: "0 0 360px", scrollSnapAlign: "start", overflow: "hidden",
               background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.10)",
-              borderRadius: "var(--radius-lg)", backdropFilter: "blur(6px)",
+              borderRadius: "var(--radius-lg)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)",
               display: "flex", flexDirection: "column",
             }}>
               <div style={{ height: 196, background: "radial-gradient(58% 78% at 50% 46%, rgba(43,179,223,0.17), rgba(43,179,223,0.05) 52%, transparent 72%)", maskImage: "linear-gradient(180deg, black 62%, transparent 99%)", WebkitMaskImage: "linear-gradient(180deg, black 62%, transparent 99%)" }}>

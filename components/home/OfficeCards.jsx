@@ -63,7 +63,7 @@ const AcademicPhone = () => (
         <span style={{ width: 27, height: 27, borderRadius: "50%", background: "white", border: "1px solid #E6E8F0", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.12)" }}><NiaGlyph s={21} gid="oca"/></span>
         <span>
           <span style={{ display: "block", fontSize: 11.5, fontWeight: 700, color: "#16192A", lineHeight: 1.1 }}>Nia</span>
-          <span style={{ display: "block", fontSize: 8, color: "#6B7187", marginTop: 1.5 }}>Academic advising</span>
+          <span style={{ display: "block", fontSize: 8, color: "var(--ink-3)", marginTop: 1.5 }}>Academic advising</span>
         </span>
         <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 4, fontSize: 7.5, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 8px", borderRadius: 999 }}><span style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A" }}/>On track</span>
       </div>
@@ -78,7 +78,7 @@ const AcademicPhone = () => (
 
       <div style={{ display: "flex", gap: 6, alignItems: "flex-end", marginTop: 9 }}>
         <span style={{ width: 18, height: 18, borderRadius: "50%", background: "white", border: "1px solid #E6E8F0", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><NiaGlyph s={14} gid="ocb"/></span>
-        <div style={{ maxWidth: 188, background: "white", border: "1px solid #E9EAF2", color: "#404659", fontSize: 10.5, lineHeight: 1.5, padding: "9px 11px", borderRadius: "15px 15px 15px 4px", boxShadow: "0 6px 14px -8px rgba(11,16,32,0.16)" }}>
+        <div style={{ maxWidth: 188, background: "white", border: "1px solid #E9EAF2", color: "var(--ink-2)", fontSize: 10.5, lineHeight: 1.5, padding: "9px 11px", borderRadius: "15px 15px 15px 4px", boxShadow: "0 6px 14px -8px rgba(11,16,32,0.16)" }}>
           Yes. I checked your degree audit: take STAT 210 in Summer A and you still graduate in May. Want me to draft the plan?
         </div>
       </div>
@@ -92,11 +92,11 @@ const MomentumPop = () => (
       <span style={{ width: 17, height: 17, borderRadius: "50%", background: "#E7F6EC", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg>
       </span>
-      <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7187" }}>Weekly momentum</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "var(--ink-3)" }}>Weekly momentum</span>
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9CA1B5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: "auto" }}><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </div>
     <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 7 }}>
-      <span style={{ fontFamily: "var(--font-display)", fontSize: 25, fontWeight: 700, color: "#0B1020", letterSpacing: "-0.04em", lineHeight: 1 }}>+12%</span>
+      <span style={{ fontFamily: "var(--font-display)", fontSize: 25, fontWeight: 700, color: "var(--ink)", letterSpacing: "-0.04em", lineHeight: 1 }}>+12%</span>
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 8.5, fontWeight: 600, color: "#15803D", background: "#E7F6EC", padding: "3px 8px", borderRadius: 999 }}>
         <svg width="7" height="7" viewBox="0 0 9 8"><path d="M4.5 0L9 8H0z" fill="#16A34A"/></svg>
         Ahead of plan
@@ -149,7 +149,7 @@ const AidPhone = () => (
         {[["Yes", true], ["No", false], ["Not sure", false], ["Ask Nia", false]].map(([label, on]) => (
           <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6, padding: "7px 10px", borderRadius: 10, border: on ? `1.5px solid ${APP}` : "1px solid #E9EAF2", background: on ? APP_SOFT : "white" }}>
             <Radio on={on}/>
-            <span style={{ fontSize: 10.5, fontWeight: on ? 700 : 500, color: on ? APP : "#404659" }}>{label}</span>
+            <span style={{ fontSize: 10.5, fontWeight: on ? 700 : 500, color: on ? APP : "var(--ink-2)" }}>{label}</span>
           </div>
         ))}
         <div style={{ marginTop: 10, background: APP, borderRadius: 10, padding: "9px 0", textAlign: "center", fontSize: 11, fontWeight: 600, color: "white" }}>Submit Now</div>
@@ -181,9 +181,9 @@ const ScholarshipPop = () => (
       <span style={{ width: 17, height: 17, borderRadius: "50%", background: APP_SOFT, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke={APP} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"/></svg>
       </span>
-      <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7187" }}>Scholarships matched</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "var(--ink-3)" }}>Scholarships matched</span>
     </div>
-    <div style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "#0B1020", letterSpacing: "-0.04em", lineHeight: 1, marginTop: 7 }}>$5,400</div>
+    <div style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "var(--ink)", letterSpacing: "-0.04em", lineHeight: 1, marginTop: 7 }}>$5,400</div>
     <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 8 }}>
       <svg width="15" height="15" viewBox="0 0 15 15"><circle cx="7.5" cy="7.5" r="6" fill="none" stroke="#E9EAF2" strokeWidth="2.6"/><circle cx="7.5" cy="7.5" r="6" fill="none" stroke={APP} strokeWidth="2.6" strokeDasharray="37.7" strokeDashoffset="13" strokeLinecap="round" transform="rotate(-90 7.5 7.5)"/></svg>
       <span style={{ fontSize: 9, fontWeight: 600, color: APP }}>3 of 4 ready to apply</span>
@@ -199,7 +199,7 @@ const CareerPhone = () => (
         <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.9)", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.2)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16192A" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7"/></svg></span>
         <span style={{ textAlign: "center" }}>
           <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#16192A" }}>Career</span>
-          <span style={{ display: "block", fontSize: 8, color: "#6B7187", marginTop: 1 }}>September 12</span>
+          <span style={{ display: "block", fontSize: 8, color: "var(--ink-3)", marginTop: 1 }}>September 12</span>
         </span>
         <span style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.9)", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.2)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, color: "#16192A" }}>?</span>
       </div>
@@ -215,8 +215,8 @@ const CareerPhone = () => (
             <circle cx="63" cy="63" r="53" fill="none" stroke="url(#ocring)" strokeWidth="9" strokeDasharray="333" strokeDashoffset="60" strokeLinecap="round" transform="rotate(-90 63 63)"/>
           </svg>
           <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "#0B1020", letterSpacing: "-0.04em" }}>82%</span>
-            <span style={{ fontSize: 8.5, color: "#6B7187", marginTop: 1 }}>career ready</span>
+            <span style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, color: "var(--ink)", letterSpacing: "-0.04em" }}>82%</span>
+            <span style={{ fontSize: 8.5, color: "var(--ink-3)", marginTop: 1 }}>career ready</span>
           </div>
         </div>
       </div>
@@ -226,7 +226,7 @@ const CareerPhone = () => (
           <svg width="10" height="10" viewBox="0 0 20 20"><path d="M10 1l2 5.4L17.4 8 12 10l-2 5.4L8 10 2.6 8 8 6.4z" fill="#16A34A"/></svg>
           <span style={{ fontSize: 10.5, fontWeight: 700, color: "#16192A" }}>You're interview-ready</span>
         </div>
-        <p style={{ margin: "5px 0 0", fontSize: 9, lineHeight: 1.5, color: "#6B7187" }}>
+        <p style={{ margin: "5px 0 0", fontSize: 9, lineHeight: 1.5, color: "var(--ink-3)" }}>
           Your résumé now leads with the UX research internship. Three new roles fit your portfolio and two close Friday, so apply early this week. Want a mock interview before then?
         </p>
       </div>
@@ -238,7 +238,7 @@ const ResumePop = () => (
   <div className="oc-pop" style={{ left: "50%", transform: "translateX(-162px)", top: 232, width: 158, padding: "11px 13px" }}>
     <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
       <span style={{ fontSize: 6.5, fontWeight: 800, color: "white", background: "#E2362F", borderRadius: 4, padding: "2px 4px", letterSpacing: "0.04em" }}>PDF</span>
-      <span style={{ fontSize: 10, fontWeight: 600, color: "#6B7187" }}>Résumé</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "var(--ink-3)" }}>Résumé</span>
     </div>
     <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 6 }}>
       <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="7" fill="#16A34A"/><path d="M4.2 7l2 2.1 3.6-4.2" stroke="white" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round"/></svg>

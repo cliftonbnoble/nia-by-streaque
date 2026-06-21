@@ -16,7 +16,7 @@ const Thread = () => (
     <div className="np-row np-bot np-rise" style={{ animationDelay: "600ms" }}>
       <NiaMark s={24} gid="hg1"/>
       <div className="np-bub np-bub-nia">
-        Good news — your <b>$150 library hold</b>{" "}just cleared. You&apos;re clear to register the moment spring enrollment opens.
+        Good news: your <b>$150 library hold</b>{" "}just cleared. You&apos;re clear to register the moment spring enrollment opens.
         <span className="np-chip np-chip-ok"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Hold cleared</span>
       </div>
     </div>
@@ -39,7 +39,7 @@ const Thread = () => (
     <div className="np-row np-bot np-rise" style={{ animationDelay: "3600ms" }}>
       <NiaMark s={24} gid="hg2"/>
       <div className="np-bub np-bub-nia">
-        Spring registration opens tomorrow at 9 AM. Since we cleared that fall hold, nothing&apos;s blocking you — want me to line up your shortlist?
+        Spring registration opens tomorrow at 9 AM. Since we cleared that fall hold, nothing&apos;s blocking you. Want me to line up your shortlist?
         <span className="np-recall" style={{ animationDelay: "4400ms" }}>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l-7 7 7 7"/></svg>
           Remembered from Fall
@@ -64,19 +64,19 @@ export default function NiaHero() {
       <div className="mf-hero-bg"/>
       <div className="mf-container np-hero-grid">
         <div className="np-hero-copy">
-          <span className="mf-eyebrow">Student-shaped, not funnel-shaped</span>
+          <span className="mf-eyebrow">Built around the student, not a funnel</span>
           <h1 style={{ marginTop: 16 }}>
             An ongoing relationship,<br/>
             <span className="mf-grad-text">not a 1-minute chat.</span>
           </h1>
           <p className="mf-hero-sub" style={{ marginTop: 22, maxWidth: 540 }}>
-            Nia is built outward from the student&apos;s entire journey — every hold cleared, goal set,
-            and deadline met — not bolted onto a department&apos;s sales funnel. The thread that started
+            Nia is built outward from the student&apos;s entire journey: every hold cleared, goal set,
+            and deadline met. It belongs to the student, not to any single office. The thread that started
             in the fall still remembers them in the spring.
           </p>
           <div className="mf-hero-actions" style={{ marginTop: 30 }}>
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
-              Book a demo
+              Book a pilot demo
               <span className="mf-cta-arr" aria-hidden="true"><ArrowRight s={13}/><ArrowRight s={13}/></span>
             </Link>
             <Link href="/how-nia-works" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>

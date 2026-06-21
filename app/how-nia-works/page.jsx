@@ -4,14 +4,14 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import WholeStudent from "@/components/home/WholeStudent";
-import CapabilityCards from "./CapabilityCards";
+import PilotStrip from "@/components/PilotStrip";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 
 export const metadata = {
   title: "How Nia Works · Nia by Streaque",
   description:
-    "Two coordinated front doors — a student coach and a staff co-pilot — turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
+    "Two coordinated front doors, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
 };
 
 const Hero = () => (
@@ -21,32 +21,149 @@ const Hero = () => (
       <div style={{ textAlign: "center", maxWidth: 880, margin: "0 auto" }}>
         <span className="mf-eyebrow">How Nia Works</span>
         <h1 style={{ marginTop: 18, fontSize: 60 }}>
-          Two front doors,<br/>
-          <span className="mf-grad-text">one mission:</span> transform student success.
+          Two front doors.<br/>
+          <span className="mf-grad-text">One student, seen whole.</span>
         </h1>
-        <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 620 }}>
-          Two coordinated front doors turning student data into nudges, alerts, and next steps —
-          on one governed layer your institution owns.
+        <p className="mf-hero-sub" style={{ margin: "22px auto 0", maxWidth: 640 }}>
+          A coach in the student&apos;s pocket. A co-pilot at the staff desk. One governed
+          platform, built on the data your institution already owns.
         </p>
       </div>
-
-      <CapabilityCards/>
     </div>
   </section>
 );
 
-/* Slim cross-link to the inside-out vs outside-in story, which lives on the
-   home page — this page stays focused on the workflow itself. */
-const ArchLink = () => (
-  <section style={{ background: "var(--bg-alt)", padding: "26px 0", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
-    <div className="mf-container" style={{ textAlign: "center" }}>
-      <span style={{ fontSize: 15, color: "var(--ink-2)" }}>
-        Want the architecture behind it — why Nia works inside-out, not outside-in?{" "}
-        <Link href="/#architecture" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6 }}>
-          See the two architectures <ArrowR s={14}/>
-        </Link>
-      </span>
+/* Two-path chooser — the clear "which door?" choice up top. Each card previews
+   one platform (student app / staff dashboard) and jumps to its section. */
+const TwoPaths = () => (
+  <section className="mf-section hnw-paths-sec">
+    <div className="mf-container">
+      <div className="hnw-paths">
+        {/* STUDENT — the app, on an iPhone (hero-phone shell) */}
+        <a href="#for-students" className="hnw-dev hnw-dev-student">
+          <div className="hnw-iphone">
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 92, height: 20 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 134, height: 38 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ left: -2.5, top: 184, height: 38 }} aria-hidden="true"/>
+            <span className="hnw-ip-btn" style={{ right: -2.5, top: 152, height: 54 }} aria-hidden="true"/>
+            <div className="hnw-ip-bezel">
+              <div className="hnw-ip-screen">
+                <div className="hnw-ip-island" aria-hidden="true"><span className="hnw-ip-cam"/></div>
+                <div className="hnw-bar">
+                  <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstu"/></span>
+                  <span className="hnw-bar-name">Nia</span>
+                  <span className="hnw-bar-tag">for students</span>
+                </div>
+                <div className="hnw-body">
+                  <span className="hnw-eyebrow">The app</span>
+                  <h3 className="hnw-h">A coach in the<br/>student&apos;s pocket.</h3>
+                  <ul className="hnw-points">
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
+                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
+                  </ul>
+                  <span className="hnw-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
+                </div>
+                <span className="hnw-ip-home" aria-hidden="true"/>
+              </div>
+            </div>
+          </div>
+        </a>
+        {/* STAFF — the dashboard, on a MacBook (Moats mac shell) */}
+        <a href="#for-staff" className="hnw-dev hnw-dev-staff">
+          <div className="hnw-mac">
+            <div className="hnw-mac-lid">
+              <div className="hnw-mac-display">
+                <span className="hnw-mac-notch" aria-hidden="true"/>
+                <div className="hnw-mac-app">
+                  <div className="hnw-mac-chrome">
+                    <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
+                    <span className="hnw-mac-url">app.niahub.ai/staff</span>
+                  </div>
+                  <div className="hnw-body hnw-body-mac">
+                    <span className="hnw-eyebrow">The dashboard</span>
+                    <h3 className="hnw-h">A co-pilot at the desk.</h3>
+                    <ul className="hnw-points">
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
+                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
+                    </ul>
+                    <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="hnw-mac-base" aria-hidden="true"><span className="hnw-mac-groove"/></div>
+            <span className="hnw-mac-floor" aria-hidden="true"/>
+          </div>
+        </a>
+      </div>
     </div>
+    <style>{`
+      /* the MacBook base + device bleeds extend past the cards; clip horizontally
+         so they never trigger page-level horizontal scroll on tight desktop widths */
+      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; overflow-x: clip; }
+      .hnw-paths{ display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 30px; align-items: center; max-width: 1080px; margin: 0 auto; }
+      .hnw-dev{ display: block; text-decoration: none; transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1); }
+      .hnw-dev:hover{ transform: translateY(-7px); }
+
+      /* iPhone — matches the homepage hero phone shell */
+      .hnw-iphone{ position: relative; width: 244px; max-width: 100%; aspect-ratio: 244 / 496; margin: 0 auto;
+        background: linear-gradient(155deg, #4a4f5b 0%, #23262e 30%, #15171d 55%, #3a3f4b 100%);
+        border-radius: 44px; padding: 8px;
+        box-shadow: inset 0 0 2px rgba(255,255,255,0.35), inset 0 0 1px rgba(255,255,255,0.6),
+                    0 44px 72px -30px rgba(11,16,38,0.42), 0 14px 30px rgba(56,86,214,0.12); }
+      .hnw-ip-btn{ position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #2c303a, #181a20); }
+      .hnw-ip-bezel{ width: 100%; height: 100%; background: #000; border-radius: 37px; padding: 3px; box-sizing: border-box; }
+      .hnw-ip-screen{ position: relative; width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+      .hnw-ip-island{ position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 72px; height: 20px; border-radius: 11px; background: #000; z-index: 6; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; box-sizing: border-box; }
+      .hnw-ip-cam{ width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #1d2f4a 0%, #0a0f18 60%); }
+      .hnw-ip-home{ position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 92px; height: 4px; border-radius: 2px; background: #59606e; opacity: 0.32; z-index: 6; }
+      .hnw-iphone .hnw-bar{ padding-top: 34px; }
+      .hnw-iphone .hnw-body{ padding-bottom: 30px; }
+
+      /* MacBook — matches the /nia Moats MacBook shell */
+      .hnw-mac{ position: relative; width: 100%; max-width: 484px; margin: 0 auto; }
+      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 18px 18px 0 0; padding: 4px 4px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 42px 72px -32px rgba(11,16,32,0.4); }
+      .hnw-mac-display{ position: relative; background: #05070D; border-radius: 14px 14px 0 0; padding: 12px 11px 15px; overflow: hidden; }
+      .hnw-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 56px; height: 14px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
+      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); aspect-ratio: 16 / 10; display: flex; flex-direction: column; }
+      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; flex-shrink: 0; }
+      .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
+      .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
+      .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
+      .hnw-mac-dots i:nth-child(2){ background: #FEBC2E; }
+      .hnw-mac-dots i:nth-child(3){ background: #28C840; }
+      .hnw-mac-url{ flex: 1; max-width: 250px; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 4px 0; }
+      .hnw-mac-base{ position: relative; width: 114%; margin-left: -7%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
+      .hnw-mac-groove{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 78px; height: 6px; background: linear-gradient(180deg,#9AA2B1,#C3C9D3); border-radius: 0 0 9px 9px; box-shadow: inset 0 1px 2px rgba(11,16,32,0.25); }
+      .hnw-mac-floor{ display: block; height: 18px; width: 86%; margin: 3px auto 0; background: radial-gradient(ellipse at 50% 0%, rgba(11,16,32,0.26), transparent 65%); filter: blur(5px); }
+
+      /* screen content (shared) */
+      .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+      .hnw-bar-glyph{ width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
+      .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
+      .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+      .hnw-body-mac{ padding: 22px 26px 24px; flex: 1; display: flex; flex-direction: column; }
+      .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+      .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
+      .hnw-body-mac .hnw-h{ font-size: 25px; }
+      .hnw-points{ margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+      .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
+      .hnw-body-mac .hnw-points li{ font-size: 13px; }
+      .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
+      .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
+      .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
+      .hnw-cta{ display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: auto; padding: 12px; border-radius: 13px; color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 12px 24px -12px rgba(37,39,138,0.5); transition: gap 200ms ease; }
+      .hnw-cta-student{ background: var(--brand-gradient); }
+      .hnw-cta-staff{ background: linear-gradient(135deg, #3a37ad, #25278a); }
+      .hnw-dev:hover .hnw-cta{ gap: 11px; }
+
+      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
+      /* below ~480px the MacBook is too narrow to hold its content at 16:10, so let it size to content instead of clipping */
+      @media (max-width: 480px){ .hnw-mac-app{ aspect-ratio: auto; } }
+    `}</style>
   </section>
 );
 
@@ -73,7 +190,7 @@ function ChatMock() {
       </div>
       <div className="fm-bob" style={{ marginLeft: 28, marginTop: 10, width: "fit-content", background: "white", border: "1px solid var(--line)", borderRadius: 12, padding: "9px 12px", boxShadow: "0 10px 24px -14px rgba(31,52,128,0.3)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 8.5, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-4)" }}>Sources</span>
+          <span style={{ fontSize: 8.5, fontFamily: "var(--font-mono)", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)" }}>Sources</span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16A34A" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
         <div style={{ display: "flex", gap: 5, marginTop: 6, flexWrap: "wrap" }}>
@@ -293,22 +410,22 @@ function PredictiveMock() {
 }
 
 const STUDENT_FEATURES = [
-  { n: "01", t: "Intelligent Chat Assistant", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
+  { n: "01", t: "Answers from your real data", b: "Personalized to your schedule, courses, and goals, grounded in the real data your institution already trusts.",
     bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
-  { n: "02", t: "Proactive Coaching & Nudges", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
-    bullets: ["24/7 AI agents monitoring your academic progress", "Smart reminders for assignments, deadlines, events", "Job fair alerts and career opportunities", "Personalized study recommendations"], Mock: NudgesCarousel },
-  { n: "03", t: "Learns Your Preferences", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
+  { n: "02", t: "Nudges that land, not noise", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
+    bullets: ["Catches a slipping deadline before it becomes a problem", "Reminders for the assignments and dates that matter this week", "A heads-up when an opportunity actually fits your goals", "Study suggestions shaped by how this term is going"], Mock: NudgesCarousel },
+  { n: "03", t: "Learns how you actually study", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
     bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: LearningStyleDemo },
-  { n: "04", t: "Comprehensive Integration", b: "One brain across every campus system, not a stitched-together set of point tools.",
+  { n: "04", t: "One brain, every system", b: "One brain across every campus system, not a stitched-together set of point tools.",
     bullets: ["Connected to your LMS for assignment tracking", "SIS integration for academic records", "CRM-aware for advising context", "All your university resources in one place"], Mock: IntegrationMock },
 ];
 
 const STAFF_FEATURES = [
-  { n: "01", t: "Early-warning system", bullets: ["Real-time sentiment analysis", "Automated alerts for engagement drops", "AI agents scanning for warning signs", "Track assignment trends, attendance, participation"], Mock: WarningMock },
-  { n: "02", t: "Comprehensive dashboards", bullets: ["Sentiment trends over time", "Engagement metrics and patterns", "LMS performance data integration", "Identify at-risk students instantly"], Mock: StaffDashboard },
-  { n: "03", t: "AI-powered insights", bullets: ["Same powerful AI as the student tool", "Access to documents, calendars, policies", "Student LMS, SIS, and CRM data visibility", "Context-aware recommendations"], Mock: InsightsMock },
-  { n: "04", t: "Intervention & recognition", bullets: ["Reach out to struggling students proactively", "Identify high performers for recognition", "Track intervention effectiveness", "Close the loop on student support"], Mock: InterventionMock },
-  { n: "05", t: "Predictive analysis", bullets: ["Know when students are overwhelmed, before they do", "Trend analysis across cohorts", "Success-pattern identification", "Data-driven decision making"], Mock: PredictiveMock },
+  { n: "01", t: "Early-warning system", b: "Nia reads tone, attendance, and participation together to surface the students slipping before it shows up in their grades.", bullets: ["Notices a shift in tone before it shows up in grades", "Flags the student whose engagement is quietly slipping", "Watches the early signs you'd want to catch", "Reads assignments, attendance, and participation together"], Mock: WarningMock },
+  { n: "02", t: "The cohort at a glance", b: "See where the whole cohort's momentum is heading, and who needs attention first, with nothing new to enter.", bullets: ["How the cohort's momentum is trending, week over week", "Where engagement is rising, and where it's dropping", "Pulled straight from your LMS, no new data entry", "The students who need attention, surfaced first"], Mock: StaffDashboard },
+  { n: "03", t: "The same brain, your side of the desk", b: "The same model the student talks to, working from your side with their full record already in view.", bullets: ["The same model the student sees, from your side of the desk", "Knows your documents, calendars, and policies", "Sees the student's LMS, SIS, and CRM record in context", "Suggests the next step that fits this student"], Mock: InsightsMock },
+  { n: "04", t: "Step in early, recognize the wins", b: "Reach the struggling student and catch the high performer, then see whether your outreach actually landed.", bullets: ["Reach the struggling student before they fall behind", "Catch the high performer worth recognizing", "See whether your outreach actually landed", "Know what happened after you stepped in"], Mock: InterventionMock },
+  { n: "05", t: "Know before they do", b: "Patterns across the cohort surface what students who thrive have in common, so you can act sooner.", bullets: ["Know a student is overwhelmed before they say so", "Patterns across the whole cohort, not just one student", "What the students who thrive tend to share", "Decisions grounded in what's happening on campus"], Mock: PredictiveMock },
 ];
 
 const FeatureRow = ({ f, flip }) => {
@@ -316,7 +433,7 @@ const FeatureRow = ({ f, flip }) => {
   return (
     <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", padding: "32px 0", borderTop: "1px solid var(--line)" }}>
       <div style={{ order: flip ? 2 : 1 }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--ink-4)" }}>{f.n}</span>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--ink-3)" }}>{f.n}</span>
         <h3 style={{ fontSize: 28, marginTop: 8 }}>{f.t}</h3>
         {f.b && <p style={{ fontSize: 15, marginTop: 10, color: "var(--ink-2)" }}>{f.b}</p>}
         <ul style={{ listStyle: "none", padding: 0, margin: "20px 0 0", display: "grid", gap: 10 }}>
@@ -344,19 +461,19 @@ const PullQuote = ({ quote, sub }) => (
 );
 
 const ForStudents = () => (
-  <section className="mf-section">
+  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Students</span>
-        <h2 style={{ marginTop: 14 }}>An <span className="mf-grad-text">AI-powered</span> success partner.</h2>
-        <p>Personalized AI deeply integrated with your LMS, SIS, and CRM: coaching, specialized agents, reminders, and insights tailored to every student.</p>
+        <h2 style={{ marginTop: 14 }}>A <span className="mf-grad-text">success partner</span>, not a search box.</h2>
+        <p>One coach for every student, working from your LMS, SIS, and CRM. Real answers, nudges that land, and support that adapts as the term goes on.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STUDENT_FEATURES.map((f, i) => (
           <FeatureRow key={f.n} f={f} flip={i % 2 === 1}/>
         ))}
       </div>
-      <PullQuote quote="Not just answers. A partner in your success." sub="Real-time data flows from student interactions to staff dashboards →"/>
+      <PullQuote quote="One student sees a coach. Every office sees the same student." sub="The same record flows from the student's phone to the staff desk →"/>
     </div>
     <style>{`
       .fm-card{
@@ -381,6 +498,7 @@ const ForStudents = () => (
       @keyframes fm-pulse{ 0%,100%{ opacity: 0.55; } 50%{ opacity: 1; } }
       /* carousel arrows: minimal circles, match the whole-student nav */
       .fm-arr{
+        position: relative;
         width: 30px; height: 30px; border-radius: 50%;
         border: 1px solid rgba(11,16,32,0.12);
         background: white; color: var(--ink-2);
@@ -389,6 +507,8 @@ const ForStudents = () => (
         box-shadow: 0 4px 10px -6px rgba(11,16,32,0.25);
         transition: color 150ms ease, border-color 150ms ease;
       }
+      /* keep the 30px circle, but extend the clickable area to the 44px minimum */
+      .fm-arr::after{ content: ""; position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
       .fm-arr:hover{ color: var(--ink); border-color: rgba(11,16,32,0.24); }
       /* responsive interiors: large fixed paddings shrink on small screens */
       .mf-stack-sm > *{ min-width: 0; }
@@ -440,19 +560,19 @@ const ForStudents = () => (
 );
 
 const ForStaff = () => (
-  <section className="mf-section alt">
+  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Staff</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>Powered by the same AI, the staff co-pilot turns every student interaction into actionable intelligence: identify at-risk students early, recognize high performers, and intervene with precision.</p>
+        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first.</p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (
-          <FeatureRow key={f.n} f={{ ...f, b: "" }} flip={i % 2 === 0}/>
+          <FeatureRow key={f.n} f={f} flip={i % 2 === 0}/>
         ))}
       </div>
-      <PullQuote quote="From reactive to proactive. From guesswork to certainty." sub="The complete picture →"/>
+      <PullQuote quote="From reactive to proactive. From guesswork to evidence." sub="The complete picture →"/>
     </div>
   </section>
 );
@@ -512,8 +632,8 @@ const Outcome = () => (
         Most tools only report what already happened. Nia turns real-time student activity and staff insights into early alerts and next-step recommendations, so institutions can intervene sooner and improve student success.
       </p>
       <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Schedule a demo <ArrowR/></Link>
-        <Link href="/" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>Back to home</Link>
+        <Link href="/contact#form" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "white", color: "var(--ink)", fontWeight: 500, fontSize: 15 }}>Book a pilot demo <ArrowR/></Link>
+        <Link href="/security" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8, padding: "14px 24px", borderRadius: "var(--radius)", background: "transparent", color: "white", fontWeight: 500, fontSize: 15, border: "1px solid rgba(255,255,255,0.3)" }}>See how it&apos;s secured →</Link>
       </div>
     </div>
   </section>
@@ -524,13 +644,16 @@ export default function HowNiaWorks() {
     <div className="mf">
       <TrustBar/>
       <Nav active="how"/>
+      <main id="main">
       <Hero/>
-      <ArchLink/>
+      <TwoPaths/>
       <WholeStudent/>
       <ForStudents/>
       <ForStaff/>
+      <PilotStrip/>
       <CompletePicture/>
       <Outcome/>
+      </main>
       <Footer/>
     </div>
   );

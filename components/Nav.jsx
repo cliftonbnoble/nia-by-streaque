@@ -15,6 +15,14 @@ export default function Nav({ active = "home" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile drawer when the viewport grows past the mobile breakpoint —
+  // otherwise the burger disappears and the open drawer gets stuck with no way out.
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 760) setMobileOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <div className={`mf-nav${condensed ? " is-condensed" : ""}`}>
       <div className="mf-nav-inner">
@@ -23,13 +31,13 @@ export default function Nav({ active = "home" }) {
         </Link>
         <div className="mf-nav-links">
           <Link className={cls("home")} href="/">Home</Link>
-          <Link className={cls("how")} href="/how-nia-works">How Nia Works</Link>
-          <Link className={cls("nia")} href="/nia">Nia</Link>
+          <Link className={cls("how")} href="/how-nia-works">Product</Link>
+          <Link className={cls("nia")} href="/nia">Why Nia</Link>
           <Link className={cls("security")} href="/security">Security</Link>
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
         <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm mf-nav-cta mf-cta-fx" style={{ textDecoration: "none" }}>
-          Book a demo
+          <span>Book <span className="mf-nav-cta-trim">a pilot </span>demo</span>
           <span className="mf-cta-arr" aria-hidden="true">
             <ArrowRight s={12}/>
             <ArrowRight s={12}/>
@@ -53,8 +61,8 @@ export default function Nav({ active = "home" }) {
         <div className="mf-nav-mobile">
           {[
             { href: "/", t: "Home", k: "home" },
-            { href: "/how-nia-works", t: "How Nia Works", k: "how" },
-            { href: "/nia", t: "Nia", k: "nia" },
+            { href: "/how-nia-works", t: "Product", k: "how" },
+            { href: "/nia", t: "Why Nia", k: "nia" },
             { href: "/security", t: "Security", k: "security" },
             { href: "/contact", t: "Contact", k: "contact" },
           ].map((l) => (
@@ -62,9 +70,6 @@ export default function Nav({ active = "home" }) {
               {l.t}
             </Link>
           ))}
-          <Link href="/contact#form" className="mf-btn mf-btn-primary" style={{ textDecoration: "none", justifyContent: "center", marginTop: 6 }} onClick={() => setMobileOpen(false)}>
-            Book a demo <ArrowRight s={12}/>
-          </Link>
         </div>
       )}
     </div>

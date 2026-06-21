@@ -9,6 +9,7 @@ export default function LegalPage({ title, updated, intro, sections }) {
     <div className="mf">
       <TrustBar/>
       <Nav active="legal"/>
+      <main id="main">
       <section className="mf-section">
         <div className="mf-container" style={{ maxWidth: 800 }}>
           <span className="mf-eyebrow">Legal</span>
@@ -30,6 +31,7 @@ export default function LegalPage({ title, updated, intro, sections }) {
           </p>
         </div>
       </section>
+      </main>
       <Footer/>
     </div>
   );

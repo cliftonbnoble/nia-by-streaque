@@ -49,7 +49,7 @@ const AcademicArt = () => (
     <rect x="92" y="134" width="136" height="9" rx="4.5" fill="rgba(255,255,255,0.06)"/>
     <rect x="92" y="134" height="9" rx="4.5" fill="url(#cc-g-ac)" className="cc-fill" style={{ transformOrigin: "92px 138px" }} width="136"/>
     <g className="cc-bob">
-      <circle cx="250" cy="40" r="14" fill="#0b1020" stroke="rgba(43,179,223,0.55)" strokeWidth="1.4"/>
+      <circle cx="250" cy="40" r="14" fill="var(--ink)" stroke="rgba(43,179,223,0.55)" strokeWidth="1.4"/>
       <path d="M242 39l8-4 8 4-8 4-8-4z" fill="#5ec7e6"/>
       <path d="M246 41.5v4c0 1.6 8 1.6 8 0v-4" fill="none" stroke="#5ec7e6" strokeWidth="1.4"/>
     </g>
@@ -66,7 +66,7 @@ const CareerArt = () => (
       { x: 48, y: 152, l: "Year 1" }, { x: 150, y: 95, l: "Internship" }, { x: 268, y: 40, l: "" },
     ].map((n, i) => (
       <g key={i}>
-        <circle cx={n.x} cy={n.y} r={i === 2 ? 0 : 5.5} fill="#0b1020" stroke="rgba(143,125,247,0.6)" strokeWidth="1.4"/>
+        <circle cx={n.x} cy={n.y} r={i === 2 ? 0 : 5.5} fill="var(--ink)" stroke="rgba(143,125,247,0.6)" strokeWidth="1.4"/>
         {n.l && <text x={n.x} y={n.y + 19} fontSize="8" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontFamily="var(--font-mono)" letterSpacing="0.06em">{n.l}</text>}
       </g>
     ))}
@@ -121,7 +121,7 @@ const WellnessArt = () => (
       fill="none" stroke="#f0a986" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" pathLength="100"
     />
     <g className="cc-pulse" style={{ transformOrigin: "160px 95px" }}>
-      <circle cx="160" cy="95" r="19" fill="#0b1020" stroke="rgba(233,138,100,0.6)" strokeWidth="1.5"/>
+      <circle cx="160" cy="95" r="19" fill="var(--ink)" stroke="rgba(233,138,100,0.6)" strokeWidth="1.5"/>
       <path d="M160 102c-5.5-3.4-9-6.6-9-10.2 0-2.6 2-4.6 4.6-4.6 1.8 0 3.4 1 4.4 2.6 1-1.6 2.6-2.6 4.4-2.6 2.6 0 4.6 2 4.6 4.6 0 3.6-3.5 6.8-9 10.2z" fill="#E98A64"/>
     </g>
     <text x="160" y="166" fontSize="8.5" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontFamily="var(--font-mono)" letterSpacing="0.14em">HUMAN HANDOFF · ALWAYS AVAILABLE</text>
@@ -197,11 +197,11 @@ export default function CoachCards() {
         .cc-card {
           flex: 1 0 212px; min-width: 0; scroll-snap-align: start; overflow: hidden;
           background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.10);
-          border-radius: var(--radius-lg); backdrop-filter: blur(6px);
+          border-radius: var(--radius-lg); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
           display: flex; flex-direction: column;
           transition: transform 200ms ease, background 200ms ease, border-color 200ms ease;
         }
-        .cc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: color-mix(in srgb, var(--cc-accent) 45%, transparent); }
+        .cc-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.22); border-color: color-mix(in srgb, var(--cc-accent) 45%, transparent); }
         .cc-art {
           height: 142px; flex-shrink: 0;
           mask-image: linear-gradient(180deg, black 62%, transparent 99%);

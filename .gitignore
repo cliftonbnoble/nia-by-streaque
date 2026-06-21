@@ -37,6 +37,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but DO commit the no-secrets template so the variable names are documented
+!.env.example
 
 # vercel
 .vercel
@@ -61,6 +63,7 @@ next-env.d.ts
 # editor / OS cruft
 .vscode/
 .idea/
+.claude/
 *.swp
 *~
 ._*

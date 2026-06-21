@@ -1,15 +1,27 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check } from "@/components/icons";
 
 /* the path cards deep-link here: the hash picks the interest chip */
-const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership" };
+const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership", "#form-security": "security" };
+
+/* The Turnstile SITE key is public (it ships in the page), so it's baked in here;
+   an env var can still override it. With it set, the form POSTs to the Worker's
+   /api/lead route (verify Turnstile → forward to the Apps Script → Sheet + email
+   to info@streaque.com). The SECRET key is NOT here — that's a Worker secret
+   (TURNSTILE_SECRET). See docs/form-wiring-setup.md. */
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAADofYV_vp7xTWcAM";
 
 export default function ContactForm() {
   const [data, setData] = useState({
     name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "",
+    company_website: "", // honeypot — real users leave this empty
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [token, setToken] = useState("");
+  const widgetRef = useRef(null);
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
 
@@ -22,8 +34,31 @@ export default function ContactForm() {
     window.addEventListener("hashchange", apply);
     return () => window.removeEventListener("hashchange", apply);
   }, []);
-  const onSubmit = (e) => {
-    e.preventDefault();
+
+  // Turnstile: load the script once, then explicitly render (reliable in React).
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || submitted) return;
+    const render = () => {
+      if (window.turnstile && widgetRef.current && !widgetRef.current.dataset.rendered) {
+        window.turnstile.render(widgetRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (t) => setToken(t),
+          "error-callback": () => setToken(""),
+          "expired-callback": () => setToken(""),
+        });
+        widgetRef.current.dataset.rendered = "1";
+      }
+    };
+    const id = "cf-turnstile-script";
+    if (document.getElementById(id)) { render(); return; }
+    const s = document.createElement("script");
+    s.id = id;
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    s.async = true; s.defer = true; s.onload = render;
+    document.head.appendChild(s);
+  }, [submitted]);
+
+  const mailtoSubmit = () => {
     const subject = `Pilot inquiry from ${data.institution || data.name}`;
     const body = [
       `Name: ${data.name}`,
@@ -37,6 +72,50 @@ export default function ContactForm() {
     ].join("\n");
     window.location.href = `mailto:info@streaque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (data.company_website) return; // honeypot tripped — silently drop
+
+    // Backend not configured yet → keep the mailto fallback.
+    if (!TURNSTILE_SITE_KEY) { mailtoSubmit(); return; }
+
+    if (!token) { setError("Please complete the verification check below."); return; }
+    setSending(true);
+    setError("");
+    const params = new URLSearchParams(window.location.search);
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: data.name, email: data.email, institution: data.institution,
+          role: data.role, students: data.students, interest: data.interest,
+          message: data.message, company_website: data.company_website,
+          turnstileToken: token,
+          url: window.location.href,
+          referrer: document.referrer,
+          utm: {
+            source: params.get("utm_source") || "",
+            medium: params.get("utm_medium") || "",
+            campaign: params.get("utm_campaign") || "",
+          },
+        }),
+      });
+      const out = await res.json().catch(() => ({ ok: false }));
+      if (!out.ok) {
+        console.warn("[lead] submit failed:", res.status, out); // shows Turnstile error codes
+        throw new Error(out.error || "failed");
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please email info@streaque.com directly.");
+      setToken("");
+      try { if (window.turnstile && widgetRef.current) window.turnstile.reset(widgetRef.current); } catch { /* noop */ }
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputStyle = {
@@ -55,9 +134,10 @@ export default function ContactForm() {
       <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-investor" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-partnership" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
+      <span id="form-security" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <div className="mf-container">
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.85fr 1.15fr", gap: 80, alignItems: "start" }}>
-          <div style={{ position: "sticky", top: 100 }}>
+          <div className="cf-intro">
             <span className="mf-eyebrow">Pilot inquiry</span>
             <h2 style={{ marginTop: 14, fontSize: 44, lineHeight: 1.1 }}>
               Tell us about <span className="mf-grad-text">your institution.</span>
@@ -89,25 +169,29 @@ export default function ContactForm() {
           <div>
             {!submitted ? (
               <form onSubmit={onSubmit} style={{ display: "grid", gap: 20 }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                {/* honeypot — off-screen; bots that fill it are silently dropped */}
+                <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                  value={data.company_website} onChange={(e) => update("company_website", e.target.value)}
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}/>
+                <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
-                    <label style={labelStyle}>Your name *</label>
-                    <input required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
+                    <label htmlFor="cf-name" style={labelStyle}>Your name *</label>
+                    <input id="cf-name" required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
                   </div>
                   <div>
-                    <label style={labelStyle}>Work email *</label>
-                    <input required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
+                    <label htmlFor="cf-email" style={labelStyle}>Work email *</label>
+                    <input id="cf-email" required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
+                <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
                   <div>
-                    <label style={labelStyle}>Institution *</label>
-                    <input required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="State University"/>
+                    <label htmlFor="cf-institution" style={labelStyle}>Institution *</label>
+                    <input id="cf-institution" required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="University"/>
                   </div>
                   <div>
-                    <label style={labelStyle}>Students served</label>
-                    <select style={inputStyle} value={data.students} onChange={(e) => update("students", e.target.value)}>
+                    <label htmlFor="cf-students" style={labelStyle}>Students served</label>
+                    <select id="cf-students" style={inputStyle} value={data.students} onChange={(e) => update("students", e.target.value)}>
                       <option value="">Select range</option>
                       <option>Under 2,000</option>
                       <option>2,000 – 10,000</option>
@@ -118,8 +202,8 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Your role *</label>
-                  <select required style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
+                  <label htmlFor="cf-role" style={labelStyle}>Your role *</label>
+                  <select id="cf-role" required style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
                     <option value="">Select your role</option>
                     <option>Student Success / Advising</option>
                     <option>IT / Information Systems</option>
@@ -132,17 +216,18 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>I'm interested in</label>
-                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                  <span id="cf-interest-label" style={labelStyle}>I'm interested in</span>
+                  <div role="group" aria-labelledby="cf-interest-label" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                     {[
-                      { v: "pilot", l: "Running a pilot" },
+                      { v: "pilot", l: "Pilot information" },
                       { v: "demo", l: "Just a demo" },
+                      { v: "security", l: "Security review" },
                       { v: "founders", l: "Talking to founders" },
                       { v: "partnership", l: "Partnership" },
                       { v: "investor", l: "Investor info" },
                       { v: "other", l: "Something else" },
                     ].map((opt) => (
-                      <button key={opt.v} type="button" onClick={() => update("interest", opt.v)}
+                      <button key={opt.v} type="button" onClick={() => update("interest", opt.v)} aria-pressed={data.interest === opt.v}
                         style={{
                           padding: "8px 16px", borderRadius: 999,
                           border: data.interest === opt.v ? "1px solid var(--brand-blue)" : "1px solid var(--line)",
@@ -156,18 +241,24 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label style={labelStyle}>What would you like to discuss?</label>
-                  <textarea rows={5} style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
+                  <label htmlFor="cf-message" style={labelStyle}>What would you like to discuss?</label>
+                  <textarea id="cf-message" rows={5} style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
                     value={data.message} onChange={(e) => update("message", e.target.value)}
                     placeholder="Tell us about your goals, your current student-success stack, or any questions you have. Even a sentence or two helps."/>
                 </div>
 
+                {TURNSTILE_SITE_KEY && <div ref={widgetRef} style={{ minHeight: 65 }}/>}
+                {error && (
+                  <div role="alert" style={{ fontSize: 13, color: "#b91c1c", background: "rgba(220,38,38,0.06)", border: "1px solid rgba(220,38,38,0.2)", borderRadius: 8, padding: "10px 12px" }}>
+                    {error}
+                  </div>
+                )}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 16 }}>
                   <div style={{ fontSize: 12, color: "var(--ink-3)", maxWidth: 360 }}>
                     By submitting, you agree to be contacted by Streaque about your inquiry. We never share your information.
                   </div>
-                  <button type="submit" className="mf-btn mf-btn-primary" style={{ border: "none", cursor: "pointer", fontFamily: "inherit" }}>
-                    Send inquiry <ArrowRight/>
+                  <button type="submit" disabled={sending} className="mf-btn mf-btn-primary" style={{ border: "none", cursor: sending ? "default" : "pointer", fontFamily: "inherit", opacity: sending ? 0.7 : 1 }}>
+                    {sending ? "Sending…" : <>Send inquiry <ArrowRight/></>}
                   </button>
                 </div>
               </form>
@@ -176,12 +267,23 @@ export default function ContactForm() {
                 <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
                   <Check s={36} color="var(--brand-cyan)"/>
                 </div>
-                <h3 style={{ marginTop: 24, fontSize: 28 }}>Almost done, {data.name.split(" ")[0] || "thanks"}.</h3>
-                <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
-                  We've opened a pre-filled email to info@streaque.com in your mail app. Just hit send.
-                  We'll reply within one business day.
-                </p>
-                <button onClick={() => { setSubmitted(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "" }); }}
+                {TURNSTILE_SITE_KEY ? (
+                  <>
+                    <h3 style={{ marginTop: 24, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
+                    <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
+                      Your inquiry is in. You&apos;ll hear back from a real person on our team within one business day.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h3 style={{ marginTop: 24, fontSize: 28 }}>One last step, {data.name.split(" ")[0] || "thanks"}.</h3>
+                    <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
+                      We&apos;ve tried to open a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,
+                      and you&apos;ll hear back within one business day. If it didn&apos;t open, just write us there directly.
+                    </p>
+                  </>
+                )}
+                <button onClick={() => { setSubmitted(false); setError(""); setToken(""); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "", company_website: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
                   Send another inquiry →
                 </button>
