@@ -1,25 +1,20 @@
-/* Cloudflare Pages Function — POST /api/lead
+/* Cloudflare Worker entry (Workers Static Assets model).
  *
- * Receives the contact form, gatekeeps spam (honeypot + Turnstile), validates,
- * then forwards to the Google Apps Script web app, which appends a row to the
- * leads Sheet AND emails info@streaque.com. No secret ever reaches the browser.
+ * Serves the prerendered static site (out/, via the ASSETS binding) and handles
+ * the one dynamic route: POST /api/lead — the contact-form lead capture.
+ * Gatekeeps spam (honeypot + Turnstile), validates, then forwards to the Google
+ * Apps Script that appends to the Sheet and emails info@streaque.com.
  *
- * Deploys automatically with the static site (Cloudflare Pages picks up
- * `functions/`). Only runs on Pages or `wrangler pages dev` — NOT `next dev`.
- *
- * Env (Cloudflare Pages → Settings → Environment variables):
- *   TURNSTILE_SECRET     — Turnstile secret key
- *   LEAD_WEBHOOK_URL     — Apps Script web-app URL
- *   LEAD_WEBHOOK_SECRET  — shared secret, also checked inside the Apps Script
+ * Wired up in wrangler.jsonc:  "main": "worker/index.js" + assets.binding "ASSETS".
+ * Secrets (set in the Worker's Variables & Secrets, or `wrangler secret put`):
+ *   TURNSTILE_SECRET · LEAD_WEBHOOK_URL · LEAD_WEBHOOK_SECRET
+ * See docs/form-wiring-setup.md.
  */
 
 const json = (data, status = 200) =>
-  new Response(JSON.stringify(data), {
-    status,
-    headers: { "content-type": "application/json" },
-  });
+  new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json" } });
 
-export async function onRequestPost({ request, env }) {
+async function handleLead(request, env) {
   let body;
   try {
     body = await request.json();
@@ -81,3 +76,15 @@ export async function onRequestPost({ request, env }) {
 
   return json({ ok: true });
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname === "/api/lead") {
+      if (request.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
+      return handleLead(request, env);
+    }
+    // everything else → the prerendered static site (out/)
+    return env.ASSETS.fetch(request);
+  },
+};

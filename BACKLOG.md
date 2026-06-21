@@ -19,29 +19,33 @@ they have none configured **the lead is silently lost.**
   pill), so there's a single endpoint to wire.
 - **Goal:** the form should land in **two places** — an email to `info@streaque.com`
   **and** a Google Sheet in the Workspace (backup / second copy).
-- **Constraint:** the site is `output: "export"` (static, Cloudflare Pages) — no Next
-  API route. The form must POST to an external endpoint.
+- **Constraint:** deployed as a **Cloudflare Worker with static assets** (not Pages).
+  `output: "export"` emits `out/`; a small Worker (`main`) handles the one dynamic
+  route and serves the assets for everything else.
 
-**Architecture (proposed):**
+**Architecture:**
 
-    form → POST /api/lead → Cloudflare Pages Function (functions/api/lead.js)
+    form → POST /api/lead → Cloudflare Worker (worker/index.js)
             1. honeypot empty?  2. verify Turnstile  3. validate fields
             4. forward to Google Apps Script (LEAD_WEBHOOK_URL + shared secret)
                   → Apps Script: append row to the Sheet
                                  + MailApp email to info@streaque.com
+    (any other route → env.ASSETS.fetch → the prerendered static site)
 
-- Pages Function deploys alongside the static site — no separate Worker.
+- The Worker is `main` in `wrangler.jsonc`, with `out/` bound as `env.ASSETS`. (An
+  assets-only Worker can't hold secrets — adding the script is what makes the
+  variables settable, which was the "Variables cannot be added…" blocker.)
 - The Apps Script (in your Workspace) does **both** the Sheet append and the email
   via `MailApp` — no third-party email service or DNS setup needed.
-- The Function gatekeeps Turnstile + honeypot, so the Apps Script URL/secret never
+- The Worker gatekeeps Turnstile + honeypot, so the Apps Script URL/secret never
   reach the browser.
 
 **You provision:** a Turnstile widget (site + secret key) · an Apps Script web app
-(URL + shared secret, bound to the Sheet) · Cloudflare Pages env vars
-(`TURNSTILE_SECRET`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`,
-`NEXT_PUBLIC_TURNSTILE_SITE_KEY`).
+(URL + shared secret, bound to the Sheet) · Worker runtime secrets
+(`TURNSTILE_SECRET`, `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_SECRET`) · the build-time
+`NEXT_PUBLIC_TURNSTILE_SITE_KEY`.
 
-**✅ Built** (`functions/api/lead.js`, `docs/lead-apps-script.gs`,
+**✅ Built** (`worker/index.js` + `wrangler.jsonc`, `docs/lead-apps-script.gs`,
 `docs/form-wiring-setup.md`, and the ContactForm frontend: honeypot + Turnstile +
 fetch + UTM/referrer capture). Email is sent by the Apps Script via `MailApp`; the
 Sheet captures timestamp + source + UTM. The form falls back to `mailto:` until the
@@ -49,9 +53,9 @@ Turnstile site key is set, so the live form keeps working in the meantime.
 
 **⏳ Remaining — provisioning + test (you):** follow
 [`docs/form-wiring-setup.md`](docs/form-wiring-setup.md) — create the Turnstile
-widget, deploy the Apps Script web app, and set the four Cloudflare Pages env vars
-— then submit on a Pages **preview** deploy to confirm a row lands in the Sheet and
-the email reaches info@streaque.com.
+widget, deploy the Apps Script web app, **redeploy the Worker** (so it has a script),
+then add the runtime secrets + the build-time site key — then submit on the deployed
+Worker to confirm a row lands in the Sheet and the email reaches info@streaque.com.
 
 ### 2. Analytics — none installed _(verified)_
 No GA / Plausible / PostHog / Vercel Analytics anywhere — the only `<script>` in

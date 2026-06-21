@@ -1,7 +1,10 @@
 {
-  // Static-assets-only Worker: no server code, just the prerendered out/
-  // directory served off Cloudflare's edge. `wrangler deploy` reads this
-  // file, so it serves out/ directly instead of bootstrapping OpenNext.
+  // Static site (prerendered out/) served off Cloudflare's edge, PLUS a small
+  // Worker (worker/index.js) for the one dynamic route: POST /api/lead, the
+  // contact-form lead capture. Everything else falls through to the assets.
+  //
+  // The Worker is what lets us attach runtime secrets (TURNSTILE_SECRET,
+  // LEAD_WEBHOOK_URL, LEAD_WEBHOOK_SECRET) — an assets-only Worker can't have any.
   //
   // Deploy command (Cloudflare project):  npx wrangler deploy
   // Build command:                        npm run build   (emits out/)
@@ -11,8 +14,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nia",
   "compatibility_date": "2025-06-01",
+  "main": "worker/index.js",
   "assets": {
     "directory": "./out",
+    // expose the static assets to the Worker as env.ASSETS
+    "binding": "ASSETS",
     // missing routes fall through to the styled 404 page Next exports
     "not_found_handling": "404-page"
   }

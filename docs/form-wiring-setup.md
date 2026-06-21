@@ -1,48 +1,70 @@
 # Contact form wiring — setup
 
-The contact form posts to a Cloudflare Pages Function (`functions/api/lead.js`),
-which verifies Turnstile + a honeypot, then forwards to a Google Apps Script that
-**appends a row to a Sheet** and **emails `info@streaque.com`**.
+The contact form posts to a small Cloudflare **Worker** (`worker/index.js`, wired
+in `wrangler.jsonc` as `main`), which verifies Turnstile + a honeypot, then
+forwards to a Google Apps Script that **appends a row to a Sheet** and **emails
+`info@streaque.com`**. The same Worker serves the static site (`out/`) for every
+other route.
 
 ```
-form → POST /api/lead → Pages Function (Turnstile + honeypot + validate)
+form → POST /api/lead → Worker (Turnstile + honeypot + validate)
                           → Apps Script → Sheet row + email to info@streaque.com
 ```
 
-Until `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set at build time, the form falls back
-to its old `mailto:` behavior — so nothing breaks before the steps below are done.
+Until `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set at build time, the form falls back to
+its old `mailto:` behavior — so nothing breaks before the steps below are done.
+
+> **Order matters.** An assets-only Worker can't hold variables (that's the
+> "Variables cannot be added to a Worker that only has static assets" error).
+> Deploy the Worker *with its script first* (step 3a), THEN add the secrets.
 
 ## 1. Cloudflare Turnstile
 1. Cloudflare dashboard → **Turnstile** → **Add widget**.
-2. Name it (e.g. "Streaque contact"), add the hostname(s) (`streaque.com`,
-   plus the `*.pages.dev` preview host for testing).
+2. Name it (e.g. "Streaque contact"), add the hostname(s): your domain plus the
+   `*.workers.dev` host (for testing on the deployed Worker).
 3. Copy the **Site key** (public) and **Secret key** (private).
 
 ## 2. Google Apps Script + Sheet
 1. Open (or create) the leads Google Sheet in your Workspace.
 2. Make **row 1** these headers, left to right:
    `Timestamp · Name · Email · Institution · Role · Students · Interest · Message · Source · Landing URL · utm_source · utm_medium · utm_campaign`
-3. **Extensions → Apps Script**, paste in [`docs/lead-apps-script.gs`](./lead-apps-script.gs).
-4. Set `SHARED_SECRET` to a random string (save it).
+3. **Extensions → Apps Script**, paste in [`lead-apps-script.gs`](./lead-apps-script.gs).
+4. Set `SHARED_SECRET` to a random string — it must match `LEAD_WEBHOOK_SECRET`
+   below. Keep this real value OUT of git.
 5. **Deploy → New deployment → Web app** → *Execute as: Me* · *Who has access: Anyone* → **Deploy**.
    Authorize when prompted. Copy the **Web app URL**.
 
-## 3. Cloudflare Pages environment variables
-Pages project → **Settings → Environment variables** (set for Production *and*
-Preview):
+## 3. Deploy the Worker, then add its variables
+
+**a. Deploy the Worker (so it has code, not just assets):**
+```
+npm run build      # emits out/
+npx wrangler deploy
+```
+(or trigger your connected Workers build.)
+
+**b. Runtime secrets** — Worker → **Settings → Variables and Secrets** (available
+once the Worker has a script), or `npx wrangler secret put <NAME>`:
 
 | Variable | Value | Type |
 |---|---|---|
-| `TURNSTILE_SECRET` | Turnstile secret key | Secret |
-| `LEAD_WEBHOOK_URL` | Apps Script web-app URL | Plain |
-| `LEAD_WEBHOOK_SECRET` | same string as `SHARED_SECRET` | Secret |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Turnstile **site** key | Plain (build-time) |
+| `TURNSTILE_SECRET` | Turnstile secret key | Secret (encrypt) |
+| `LEAD_WEBHOOK_URL` | Apps Script web-app URL | Secret (encrypt) |
+| `LEAD_WEBHOOK_SECRET` | same string as `SHARED_SECRET` | Secret (encrypt) |
 
-> `NEXT_PUBLIC_*` is inlined at build, so a **redeploy** is required after setting it.
+**c. Build-time variable** — `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (the Turnstile
+**site** key) is inlined into the static build, so it goes wherever `npm run build`
+runs:
+- **Connected Workers build:** the Worker's **Build** settings → build variables.
+- **Local build:** put it in `.env.local` (gitignored), then `npm run build`.
 
-## 4. Verify (on a Pages preview deploy)
-The Function only runs on Cloudflare Pages — not `next dev`. After deploying:
-1. Submit the form on the preview URL.
+Setting this key is what flips the form off the `mailto:` fallback. After setting
+it, **rebuild + redeploy**.
+
+## 4. Verify (on the deployed Worker)
+The `/api/lead` route only runs on the deployed Worker — not `next dev`. After
+deploying with the variables set:
+1. Submit the form on the live / `workers.dev` URL.
 2. Confirm a row lands in the Sheet **and** an email arrives at `info@streaque.com`.
 3. Test spam handling: a submission with the honeypot filled (or a bad Turnstile
    token) should be rejected.
@@ -50,4 +72,7 @@ The Function only runs on Cloudflare Pages — not `next dev`. After deploying:
 ## Notes
 - The notification email is sent **from the Apps Script owner's account** via
   `MailApp` (Workspace quota: ~1,500/day — far beyond inquiry volume).
-- To add a CRM later, extend the Apps Script `doPost` (it's the single fan-out point).
+- To add a CRM later, extend the Apps Script `doPost` (the single fan-out point).
+- Never commit real secret values. `lead-apps-script.gs` in the repo is a template
+  with a placeholder `SHARED_SECRET`; keep your real one only in Apps Script + the
+  Worker secret.
