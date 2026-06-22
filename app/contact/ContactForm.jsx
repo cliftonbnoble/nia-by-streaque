@@ -21,7 +21,10 @@ export default function ContactForm() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [token, setToken] = useState("");
+  const [tsBroken, setTsBroken] = useState(false);   // Turnstile failed to load/run
+  const [viaMailto, setViaMailto] = useState(false);  // success came via the mailto fallback
   const widgetRef = useRef(null);
+  const tokenRef = useRef("");
 
   const update = (k, v) => setData((d) => ({ ...d, [k]: v }));
 
@@ -38,26 +41,36 @@ export default function ContactForm() {
   // Turnstile: load the script once, then explicitly render (reliable in React).
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY || submitted) return;
+    const gotToken = (t) => { tokenRef.current = t; setToken(t); setTsBroken(false); };
+    const lostToken = () => { tokenRef.current = ""; setToken(""); };
     const render = () => {
       if (window.turnstile && widgetRef.current && !widgetRef.current.dataset.rendered) {
         window.turnstile.render(widgetRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
           theme: "light",            // match the form, not a dark slab
           appearance: "interaction-only", // hidden unless a challenge is actually needed
-          callback: (t) => setToken(t),
-          "error-callback": () => setToken(""),
-          "expired-callback": () => setToken(""),
+          callback: gotToken,
+          "error-callback": () => { lostToken(); setTsBroken(true); },
+          "expired-callback": lostToken,
         });
         widgetRef.current.dataset.rendered = "1";
       }
     };
     const id = "cf-turnstile-script";
-    if (document.getElementById(id)) { render(); return; }
-    const s = document.createElement("script");
-    s.id = id;
-    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-    s.async = true; s.defer = true; s.onload = render;
-    document.head.appendChild(s);
+    if (document.getElementById(id)) { render(); }
+    else {
+      const s = document.createElement("script");
+      s.id = id;
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+      s.async = true; s.defer = true;
+      s.onload = render;
+      s.onerror = () => setTsBroken(true); // script blocked (ad blocker / offline)
+      document.head.appendChild(s);
+    }
+    // safety net: if no token ever arrives (blocked script, stuck challenge), flag
+    // it so a real visitor can still reach us via email instead of being stranded.
+    const timer = setTimeout(() => { if (!tokenRef.current) setTsBroken(true); }, 15000);
+    return () => clearTimeout(timer);
   }, [submitted]);
 
   const mailtoSubmit = () => {
@@ -73,6 +86,7 @@ export default function ContactForm() {
       data.message,
     ].join("\n");
     window.location.href = `mailto:info@streaque.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setViaMailto(true);
     setSubmitted(true);
   };
 
@@ -82,6 +96,11 @@ export default function ContactForm() {
 
     // Backend not configured yet → keep the mailto fallback.
     if (!TURNSTILE_SITE_KEY) { mailtoSubmit(); return; }
+
+    // Turnstile couldn't run (blocked / errored / timed out) → don't strand the
+    // visitor; fall back to email. /api/lead still requires a valid token, so spam
+    // protection is unchanged — this just opens their mail client, never the API.
+    if (tsBroken) { mailtoSubmit(); return; }
 
     if (!token) { setError("One moment — just finishing a quick security check. Please send again."); return; }
     setSending(true);
@@ -271,7 +290,7 @@ export default function ContactForm() {
                 <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
                   <Check s={36} color="var(--brand-cyan)"/>
                 </div>
-                {TURNSTILE_SITE_KEY ? (
+                {!viaMailto ? (
                   <>
                     <h3 style={{ marginTop: 24, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
                     <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
@@ -287,7 +306,7 @@ export default function ContactForm() {
                     </p>
                   </>
                 )}
-                <button onClick={() => { setSubmitted(false); setError(""); setToken(""); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "", company_website: "" }); }}
+                <button onClick={() => { setSubmitted(false); setError(""); setToken(""); setViaMailto(false); setTsBroken(false); setData({ name: "", email: "", institution: "", role: "", students: "", interest: "pilot", message: "", company_website: "" }); }}
                   style={{ marginTop: 24, background: "transparent", border: "none", color: "var(--brand-blue)", fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
                   Send another inquiry →
                 </button>
