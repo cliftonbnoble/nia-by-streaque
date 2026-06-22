@@ -118,7 +118,7 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-staff" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/staff.jpg)", backgroundPosition: "center 30%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
-          <span className="tfd-status tfd-status-dev">In development · Pilot 2026</span>
+          <span className="tfd-status tfd-status-dev">In development</span>
           <span className="tfd-body">
             <span className="tfd-aud">For staff</span>
             <span className="tfd-h">A co-pilot at the desk</span>

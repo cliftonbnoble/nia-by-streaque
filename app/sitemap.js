@@ -3,8 +3,7 @@ import { SITE_URL } from "@/lib/site";
 // Required for `output: export` — emit a static sitemap.xml at build time.
 export const dynamic = "force-static";
 
-/* Indexable routes only. /resources is intentionally left out — it's a
-   placeholder marked noindex, so we don't advertise it in the sitemap. */
+/* Every indexable route. */
 const ROUTES = [
   { path: "/", priority: 1.0, changeFrequency: "weekly" },
   { path: "/security", priority: 0.9, changeFrequency: "monthly" },

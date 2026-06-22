@@ -569,9 +569,9 @@ const ForStaff = () => (
   <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">In development · Pilot 2026</span>
+        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">In development</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first. <strong style={{ color: "var(--inprogress)", fontWeight: 600 }}>Shipping next — in pilot for 2026.</strong></p>
+        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first. <strong style={{ color: "var(--inprogress)", fontWeight: 600 }}>Shipping next.</strong></p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (

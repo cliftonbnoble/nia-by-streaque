@@ -14,10 +14,10 @@ tagged by owner:
 ## 🔴 Highest priority — credibility (this is the 10/10 path)
 
 - [x] **P1 · Staff-product honesty gap** ✅ _(2026-06-21)_ — re-added the status pills:
-  **"Available now"** (green) on student surfaces vs **"In development · Pilot 2026"** (amber)
-  on staff surfaces — on the home Two-Experiences cards AND the how-nia-works
-  `#for-students` / `#for-staff` section heads (staff subcopy also reads "Shipping next — in
-  pilot for 2026"). The in-mock dashboard "Live" labels now read as the depicted future UI,
+  **"Available now"** (green) on student surfaces vs **"In development"** (amber) on staff
+  surfaces — on the home Two-Experiences cards AND the how-nia-works `#for-students` /
+  `#for-staff` section heads (staff subcopy reads "Shipping next"). Timeline ("Pilot 2026")
+  dropped per your call — no locked date yet. The in-mock dashboard "Live" labels now read as the depicted future UI,
   not a claim. Reconciles the product page with the investor "not built yet" ask.
 - [x] **P3 · "Official Canvas Partner"** ✅ _(2026-06-21)_ — confirmed a **formal/signed
   Instructure partnership** → genuine asset, left as-is.
@@ -38,8 +38,9 @@ tagged by owner:
 - [ ] **Investor raise terms** 🤔🔧 — the specific **$250K** is stated publicly (unusual).
   Consider gating raise terms behind the brief request instead.
 - [ ] **Clarity pass** 🔧 — hero one-liner ("what Nia *is*" instantly clear?); Product vs
-  Why-Nia fork reads distinct?; canonical vocabulary (coaches vs agents; "LMS/SIS/CRM" vs
-  "Canvas + SIS"); confirm device-demo numbers don't read as real outcome claims.
+  Why-Nia fork reads distinct?; confirm device-demo numbers don't read as real outcome claims.
+  _(Vocabulary sub-item ✅ audited 2026-06-21 — "LMS, SIS, and CRM" consistent; "Canvas + SIS"
+  deliberate; "agent" only in technical contexts vs "coach" for product. No changes needed.)_
 
 ## ⚪ Pre-launch checklist — mostly mechanical
 
@@ -53,12 +54,14 @@ tagged by owner:
   stop getting wiped without `--keep-vars`. Until then, every deploy MUST use `--keep-vars`.
 - [ ] **Analytics** 🔧 — none installed. Add **Cloudflare Web Analytics** (free, privacy-first,
   no cookie banner) — track page views + form-submit conversions.
-- [ ] **Legal "Last updated" dates** 🔧 — bump on Privacy / Terms / Accessibility at go-live.
+- [ ] **Legal "Last updated" dates** 🔧 — real dates exist (Privacy/Terms Jun 13, Accessibility
+  Jun 15 2026); bump to current at go-live **only if the policy text changes** (bumping without
+  an actual content change would be inaccurate).
 - [ ] **SOC 2 language** 🔍 — keep "planned / roadmap" until it's real (guardrail; don't drift).
 - [ ] **Real product screenshots** 🤔 — same demo student (Maya / BIO 201 / Dr. Chen) everywhere
   is fine, but real screenshots beat polished mocks for "we have a real product." Optional.
-- [ ] **`/resources` stale comments** 🔧 — clean up the dead `/resources` mentions in the
-  comments of `app/robots.js` and `app/sitemap.js`.
+- [x] **`/resources` stale comments** ✅ _(2026-06-21)_ — removed the dead `/resources`
+  mentions from the `app/robots.js` and `app/sitemap.js` comments.
 
 ---
 
