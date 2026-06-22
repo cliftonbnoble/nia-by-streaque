@@ -80,15 +80,38 @@ const TwoPaths = () => (
                     <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
                     <span className="hnw-mac-url">app.niahub.ai/staff</span>
                   </div>
-                  <div className="hnw-body hnw-body-mac">
-                    <span className="hnw-eyebrow">The dashboard</span>
-                    <h3 className="hnw-h">A co-pilot at the desk.</h3>
-                    <ul className="hnw-points">
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
-                    </ul>
-                    <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+                  <div className="hnw-mac-split">
+                    <div className="hnw-body hnw-body-mac">
+                      <span className="hnw-eyebrow">The dashboard</span>
+                      <h3 className="hnw-h">A co-pilot at the desk.</h3>
+                      <ul className="hnw-points">
+                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning across the cohort</li>
+                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, first</li>
+                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
+                      </ul>
+                      <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
+                    </div>
+                    <div className="hnw-macdash" aria-hidden="true">
+                      <div className="hnw-md-head"><span className="hnw-md-t">Early-alert queue</span><span className="hnw-md-live"><i/>demo</span></div>
+                      <div className="hnw-md-row hot">
+                        <span className="hnw-md-ava"/>
+                        <span className="hnw-md-main"><b>Maya Reyes</b><span>BIO 201 · missed quiz</span></span>
+                        <span className="hnw-md-tag ok">Nudged</span>
+                      </div>
+                      <div className="hnw-md-row">
+                        <span className="hnw-md-ava alt"/>
+                        <span className="hnw-md-main"><b>Jonas Kim</b><span>GPA dip · 3 wks</span></span>
+                        <span className="hnw-md-tag">Draft</span>
+                      </div>
+                      <div className="hnw-md-chart">
+                        <div className="hnw-md-chart-head"><span>Cohort sentiment · 14d</span><em>+12%</em></div>
+                        <svg viewBox="0 0 300 40" preserveAspectRatio="none">
+                          <defs><linearGradient id="hnw-md-cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(61,78,216,0.20)"/><stop offset="1" stopColor="rgba(61,78,216,0)"/></linearGradient></defs>
+                          <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5 L300 40 L0 40 Z" fill="url(#hnw-md-cf)"/>
+                          <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5" fill="none" stroke="#3d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -145,13 +168,38 @@ const TwoPaths = () => (
       .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
       .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
       .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-      .hnw-body-mac{ padding: 22px 26px 24px; flex: 1; display: flex; flex-direction: column; }
+      /* laptop screen is wide (16:10) — split it: pitch on the left, a live early-alert
+         dashboard preview on the right, so the screen reads as a real product, not a slide.
+         (Compact on purpose; the full staff dashboard lives in the ForStaff section below.) */
+      .hnw-mac-split{ flex: 1; min-height: 0; display: flex; gap: 15px; padding: 16px 18px 18px; align-items: stretch; }
+      .hnw-body-mac{ flex: 0 0 42%; padding: 0; display: flex; flex-direction: column; justify-content: center; }
+      .hnw-macdash{ flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+      .hnw-md-head{ display: flex; align-items: center; justify-content: space-between; }
+      .hnw-md-t{ font-family: var(--font-display); font-weight: 700; font-size: 12px; color: var(--ink); }
+      .hnw-md-live{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--success); }
+      .hnw-md-live i{ width: 5px; height: 5px; border-radius: 50%; background: var(--success); }
+      .hnw-md-row{ display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 6px 8px; }
+      .hnw-md-row.hot{ border-color: rgba(217,119,6,0.32); background: #FFFCF6; }
+      .hnw-md-ava{ width: 19px; height: 19px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg,#E98A64,#d36a3e); }
+      .hnw-md-ava.alt{ background: linear-gradient(135deg,#8F7DF7,#5b49c9); }
+      .hnw-md-main{ flex: 1; min-width: 0; display: flex; flex-direction: column; font-size: 8px; color: var(--ink-3); overflow: hidden; }
+      .hnw-md-main b{ font-size: 10px; font-weight: 600; color: var(--ink); }
+      .hnw-md-main span{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .hnw-md-tag{ flex-shrink: 0; font-family: var(--font-mono); font-size: 7px; color: var(--ink-3); background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 3px 6px; }
+      .hnw-md-tag.ok{ color: var(--success); background: rgba(13,138,90,0.10); border-color: rgba(13,138,90,0.22); }
+      .hnw-md-chart{ background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 6px 8px; }
+      .hnw-md-chart-head{ display: flex; align-items: baseline; justify-content: space-between; }
+      .hnw-md-chart-head span{ font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-4); }
+      .hnw-md-chart-head em{ font-style: normal; font-family: var(--font-display); font-weight: 600; font-size: 10.5px; color: #3d4ed8; }
+      .hnw-md-chart svg{ width: 100%; height: 26px; margin-top: 3px; display: block; }
       .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
       .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
-      .hnw-body-mac .hnw-h{ font-size: 25px; }
+      .hnw-body-mac .hnw-h{ font-size: 17px; line-height: 1.12; }
+      .hnw-body-mac .hnw-points{ margin-top: 10px; gap: 7px; }
+      .hnw-body-mac .hnw-cta{ margin-top: 14px; padding: 9px; border-radius: 11px; font-size: 12px; }
       .hnw-points{ margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
       .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
-      .hnw-body-mac .hnw-points li{ font-size: 13px; }
+      .hnw-body-mac .hnw-points li{ font-size: 11px; }
       .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
       .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
       .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
@@ -162,6 +210,9 @@ const TwoPaths = () => (
 
       @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
       /* below ~480px the MacBook is too narrow to hold its content at 16:10, so let it size to content instead of clipping */
+      /* below ~560px the laptop is too narrow for two columns — show just the pitch
+         (the screen is no longer "wide," so it reads fine), hide the compact dashboard. */
+      @media (max-width: 560px){ .hnw-mac-split{ display: block; padding: 16px 18px; } .hnw-macdash{ display: none; } .hnw-body-mac{ flex: none; } .hnw-body-mac .hnw-h{ font-size: 20px; } .hnw-body-mac .hnw-points li{ font-size: 12.5px; } }
       @media (max-width: 480px){ .hnw-mac-app{ aspect-ratio: auto; } }
     `}</style>
   </section>
