@@ -86,7 +86,7 @@ const TwoPaths = () => (
       .hnw-door{
         position: relative; overflow: hidden; display: flex; flex-direction: column;
         text-decoration: none; border-radius: var(--radius-xl); padding: 28px 30px 26px;
-        background: linear-gradient(165deg, #1d2250 0%, #12152f 100%);
+        background: linear-gradient(165deg, #2a316e 0%, #0d1024 100%);
         border: 1px solid rgba(255,255,255,0.10);
         box-shadow: 0 30px 60px -32px rgba(13,18,52,0.55);
         transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
@@ -94,18 +94,17 @@ const TwoPaths = () => (
       .hnw-door-student{ --door-accent: #2BB3DF; }
       .hnw-door-staff{ --door-accent: #8F7DF7; }
       .hnw-door:hover{ transform: translateY(-6px); box-shadow: 0 44px 82px -32px rgba(13,18,52,0.62); border-color: color-mix(in srgb, var(--door-accent) 48%, transparent); }
-      .hnw-door-glow{ position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 78% 46% at 50% -8%, var(--door-accent), transparent 70%); opacity: 0.20; }
+      .hnw-door-glow{ position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 82% 52% at 50% -10%, var(--door-accent), transparent 72%); opacity: 0.26; }
       .hnw-door-top, .hnw-door-h, .hnw-door-points, .hnw-door-cta{ position: relative; z-index: 1; }
 
       .hnw-door-top{ display: flex; align-items: center; gap: 10px; }
       .hnw-door-ic{ display: inline-flex; flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; align-items: center; justify-content: center; color: var(--door-accent); background: color-mix(in srgb, var(--door-accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--door-accent) 32%, transparent); }
       .hnw-door-eyebrow{ font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
-      .hnw-door-status{ margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.86); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 4px 9px; }
-      .hnw-door-status::before{ content: ""; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-      .hnw-door-live::before{ background: #3ddc97; box-shadow: 0 0 7px #3ddc97; }
-      .hnw-door-dev::before{ background: #f0b54a; box-shadow: 0 0 7px rgba(240,181,74,0.7); }
+      .hnw-door-status{ margin-left: auto; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid transparent; border-radius: 999px; padding: 4px 11px; }
+      .hnw-door-live{ color: #5ee7b0; border-color: rgba(61,220,151,0.40); background: rgba(61,220,151,0.10); box-shadow: 0 0 18px -2px rgba(61,220,151,0.55), inset 0 0 10px -4px rgba(61,220,151,0.6); }
+      .hnw-door-dev{ color: #f7c873; border-color: rgba(240,181,74,0.42); background: rgba(240,181,74,0.10); box-shadow: 0 0 18px -2px rgba(240,181,74,0.5), inset 0 0 10px -4px rgba(240,181,74,0.55); }
 
-      .hnw-door-h{ margin: 18px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: -0.025em; color: #fff; line-height: 1.1; }
+      .hnw-door .hnw-door-h{ margin: 18px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: -0.025em; color: #fff; line-height: 1.1; }
       .hnw-door-points{ list-style: none; margin: 16px 0 22px; padding: 0; display: grid; gap: 11px; }
       .hnw-door-points li{ display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,0.74); }
       .hnw-door-tick{ flex-shrink: 0; margin-top: 1px; display: inline-flex; color: var(--door-accent); }
