@@ -23,9 +23,13 @@ Test: if a sentence could sit on either page unchanged, it's in the wrong place.
 
 ---
 
-## 2. Naming + URLs
+## 2. Naming + URLs — ✅ DONE & verified live (2026-06-22)
 
-**Recommendation:**
+**Shipped:** `/nia → /why-nia` (301 redirect live in the Worker), nav + footer label
+"Product" → "Platform", every reference repointed (nav ×2, footer, investors ×2, sitemap,
+404 quick-link), sitemap updated. Verified live: **0 stray `/nia` links across all 10 pages.**
+
+**What was decided:**
 
 | Page | Nav label | URL | H1 |
 |---|---|---|---|
@@ -128,8 +132,7 @@ domains, one student").
 - [ ] `/how-nia-works`: reframe **ForStaff #01** to the ranked-queue framing; merge the two
       "one brain" lines into **"two views of one record."**
 - [ ] `/nia`: confirm Moat 01 + Moat 02 read as *arguments* (no feature-demo overlap with Platform).
-- [ ] Rename **`/nia → /why-nia`** + 301 redirect; nav **"Why Nia" → /why-nia**; nav **"Product" → "Platform."**
-- [ ] Repoint internal links to `/nia`: `Nav.jsx` (35, 64–65), `Footer.jsx` (55),
-      `investors/page.jsx` (97, 421), `sitemap.js` (11).
+- [x] ✅ Rename **`/nia → /why-nia`** + 301 redirect; nav **"Why Nia" → /why-nia**; nav/footer **"Product" → "Platform."**
+- [x] ✅ Repoint every `/nia` link (Nav ×2, Footer, investors ×2, sitemap, 404 quick-link). Verified live: 0 stray links.
 
 _Merge is off the table per the keep-both decision; this list is the keep-both cleanup._
