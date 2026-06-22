@@ -8,7 +8,7 @@ const ROUTES = [
   { path: "/", priority: 1.0, changeFrequency: "weekly" },
   { path: "/security", priority: 0.9, changeFrequency: "monthly" },
   { path: "/how-nia-works", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/nia", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/why-nia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.7, changeFrequency: "monthly" },
   { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/terms", priority: 0.3, changeFrequency: "yearly" },

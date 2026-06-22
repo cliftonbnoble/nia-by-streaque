@@ -94,7 +94,7 @@ export default function InvestorsPage() {
                 <Link href="/contact#form-investor" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
                   Request the full brief <ArrowRight/>
                 </Link>
-                <Link href="/nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>
+                <Link href="/why-nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>
                   See the product depth →
                 </Link>
               </div>
@@ -418,8 +418,8 @@ export default function InvestorsPage() {
               </div>
             ))}
           </div>
-          <Link href="/nia" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 28, color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
-            See the full moat breakdown on the product page <ArrowRight s={15}/>
+          <Link href="/why-nia" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 28, color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
+            See the full moat breakdown on Why Nia <ArrowRight s={15}/>
           </Link>
         </div>
         <style>{`

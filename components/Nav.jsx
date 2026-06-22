@@ -31,8 +31,8 @@ export default function Nav({ active = "home" }) {
         </Link>
         <div className="mf-nav-links">
           <Link className={cls("home")} href="/">Home</Link>
-          <Link className={cls("how")} href="/how-nia-works">Product</Link>
-          <Link className={cls("nia")} href="/nia">Why Nia</Link>
+          <Link className={cls("how")} href="/how-nia-works">Platform</Link>
+          <Link className={cls("nia")} href="/why-nia">Why Nia</Link>
           <Link className={cls("security")} href="/security">Security</Link>
           <Link className={cls("contact")} href="/contact">Contact</Link>
         </div>
@@ -61,8 +61,8 @@ export default function Nav({ active = "home" }) {
         <div className="mf-nav-mobile">
           {[
             { href: "/", t: "Home", k: "home" },
-            { href: "/how-nia-works", t: "Product", k: "how" },
-            { href: "/nia", t: "Why Nia", k: "nia" },
+            { href: "/how-nia-works", t: "Platform", k: "how" },
+            { href: "/why-nia", t: "Why Nia", k: "nia" },
             { href: "/security", t: "Security", k: "security" },
             { href: "/contact", t: "Contact", k: "contact" },
           ].map((l) => (

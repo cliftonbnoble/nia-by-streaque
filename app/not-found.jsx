@@ -33,7 +33,7 @@ export default function NotFound() {
           </div>
           <div style={{ marginTop: 44, display: "flex", gap: 24, justifyContent: "center", flexWrap: "wrap", fontSize: 14 }}>
             {[
-              { href: "/how-nia-works", l: "How Nia Works" },
+              { href: "/how-nia-works", l: "Platform" },
               { href: "/security", l: "Security" },
               { href: "/contact", l: "Contact" },
             ].map((x) => (
