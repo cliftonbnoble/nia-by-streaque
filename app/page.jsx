@@ -153,6 +153,9 @@ const TwoExperiences = () => (
       .tfd-status-live{ border-color: rgba(61,220,151,0.55); }
       .tfd-status-live::before{ background: #3ddc97; box-shadow: 0 0 8px #3ddc97; }
       .tfd-status-dev::before{ background: #f0b54a; box-shadow: 0 0 7px rgba(240,181,74,0.7); }
+      /* 2-up cards stay narrow from 761px up to the grid cap — reserve room so the
+         paragraph never runs under the bottom-right arrow (the bug was unprotected here). */
+      @media (min-width: 761px) and (max-width: 1080px){ .tfd-p{ padding-right: 62px; } }
       @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } .tfd-status{ top: 14px; right: 14px; } }
     `}</style>
   </section>
