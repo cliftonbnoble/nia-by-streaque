@@ -34,7 +34,7 @@ export default function PilotStrip() {
           font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
           color: var(--primary); font-weight: 600;
         }
-        .pilot-strip-dot{ width: 7px; height: 7px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 3px rgba(61,220,151,0.22); }
+        .pilot-strip-dot{ width: 7px; height: 7px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 10px rgba(61,220,151,0.8), 0 0 0 3px rgba(61,220,151,0.18); }
         .pilot-strip-facts{
           display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;
           font-size: 14px; color: var(--ink-2);

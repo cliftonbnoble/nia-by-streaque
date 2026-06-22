@@ -24,7 +24,7 @@ export const Check = ({ s = 14, color = 'var(--brand-cyan)' }) => (
 );
 
 export const Dot = ({ color = 'var(--brand-cyan)', s = 6 }) => (
-  <span style={{ width: s, height: s, borderRadius: '50%', background: color, display: 'inline-block' }}/>
+  <span style={{ width: s, height: s, borderRadius: '50%', background: color, display: 'inline-block', boxShadow: `0 0 7px ${color}, 0 0 0 3px color-mix(in srgb, ${color} 18%, transparent)` }}/>
 );
 
 export const Lock = ({ s = 14 }) => (

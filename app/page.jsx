@@ -148,11 +148,9 @@ const TwoExperiences = () => (
       .tfd-p{ display: block; margin-top: 9px; max-width: 380px; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.86); }
       .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
       .tfd-card:hover .tfd-arrow{ background: rgba(255,255,255,0.18); border-color: #fff; transform: translateX(2px); }
-      .tfd-status{ position: absolute; top: 16px; right: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: rgba(8,11,26,0.6); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-      .tfd-status::before{ content: ""; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-      .tfd-status-live{ border-color: rgba(61,220,151,0.55); }
-      .tfd-status-live::before{ background: #3ddc97; box-shadow: 0 0 8px #3ddc97; }
-      .tfd-status-dev::before{ background: #f0b54a; box-shadow: 0 0 7px rgba(240,181,74,0.7); }
+      .tfd-status{ position: absolute; top: 16px; right: 16px; z-index: 2; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: rgba(8,11,26,0.6); border: 1px solid transparent; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+      .tfd-status-live{ color: #6fecb8; border-color: rgba(61,220,151,0.5); box-shadow: 0 0 16px -1px rgba(61,220,151,0.6); }
+      .tfd-status-dev{ color: #f7c873; border-color: rgba(240,181,74,0.5); box-shadow: 0 0 16px -1px rgba(240,181,74,0.55); }
       /* 2-up cards stay narrow from 761px up to the grid cap — reserve room so the
          paragraph never runs under the bottom-right arrow (the bug was unprotected here). */
       @media (min-width: 761px) and (max-width: 1080px){ .tfd-p{ padding-right: 62px; } }

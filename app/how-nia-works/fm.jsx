@@ -30,8 +30,7 @@ export const FmEyebrow = ({ children, right }) => (
 );
 
 export const FmLive = ({ children = "Live" }) => (
-  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 9, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 9px", borderRadius: 999 }}>
-    <span className="fm-pulse" style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A" }}/>
+  <span style={{ display: "inline-flex", alignItems: "center", fontSize: 9, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 10px", borderRadius: 999, border: "1px solid rgba(22,163,74,0.30)", boxShadow: "0 0 12px -1px rgba(22,163,74,0.5)" }}>
     {children}
   </span>
 );

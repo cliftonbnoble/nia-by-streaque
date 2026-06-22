@@ -44,7 +44,7 @@ const TwoPaths = () => (
           <span className="hnw-door-glow" aria-hidden="true"/>
           <div className="hnw-door-top">
             <span className="hnw-door-ic" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.18 7.67L3 21l1.83-5.82A8.5 8.5 0 1 1 21 11.5z"/><path d="M12 8.4l1.02 2.33 2.33 1.02-2.33 1.02L12 15.1l-1.02-2.33-2.33-1.02 2.33-1.02z" fill="currentColor" stroke="none"/></svg>
             </span>
             <span className="hnw-door-eyebrow">For students</span>
             <span className="hnw-door-status hnw-door-live">Available now</span>
@@ -62,7 +62,7 @@ const TwoPaths = () => (
           <span className="hnw-door-glow" aria-hidden="true"/>
           <div className="hnw-door-top">
             <span className="hnw-door-ic" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/><path d="M12 12 19.5 4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="7.5" r="1.35" fill="currentColor" stroke="none"/></svg>
             </span>
             <span className="hnw-door-eyebrow">For staff</span>
             <span className="hnw-door-status hnw-door-dev">In development</span>
@@ -427,12 +427,9 @@ const ForStudents = () => (
       <PullQuote quote="One student sees a coach. Every office sees the same student." sub="The same record flows from the student's phone to the staff desk →"/>
     </div>
     <style>{`
-      .hnw-status{ display: inline-flex; align-items: center; gap: 6px; margin-left: 10px; vertical-align: middle; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
-      .hnw-status::before{ content: ""; width: 6px; height: 6px; border-radius: 50%; }
-      .hnw-status-live{ background: rgba(13,138,90,0.1); border: 1px solid rgba(13,138,90,0.32); color: var(--success); }
-      .hnw-status-live::before{ background: var(--success); }
-      .hnw-status-dev{ background: rgba(154,106,18,0.1); border: 1px solid rgba(154,106,18,0.32); color: var(--inprogress); }
-      .hnw-status-dev::before{ background: var(--inprogress); }
+      .hnw-status{ display: inline-flex; align-items: center; margin-left: 10px; vertical-align: middle; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; }
+      .hnw-status-live{ background: rgba(13,138,90,0.1); border: 1px solid rgba(13,138,90,0.36); color: var(--success); box-shadow: 0 0 15px -1px rgba(13,138,90,0.45); }
+      .hnw-status-dev{ background: rgba(154,106,18,0.1); border: 1px solid rgba(154,106,18,0.36); color: var(--inprogress); box-shadow: 0 0 15px -1px rgba(154,106,18,0.42); }
       .fm-card{
         position: relative;
         overflow: hidden;
