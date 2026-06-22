@@ -52,11 +52,14 @@ weak *nav label* (too long) — keep it as the H1, use "Platform" in the nav.
 
 ---
 
-## 3. PilotStrip — keep ONE; my rec differs slightly from "Home + Investors"
+## 3. PilotStrip — keep ONE ✅ DONE & verified (2026-06-22)
 
-Today it's on **both** `/how-nia-works` and `/nia` (the duplication you flagged).
+**Shipped:** removed `<PilotStrip/>` (+ its import) from `/why-nia` — the one PilotStrip now
+lives only on the **Platform** page (`/how-nia-works`). Verified: `/why-nia` no longer renders
+it; `/how-nia-works` still does. Investors keeps its own richer "live pilot + 4 stats" block
+(untouched).
 
-**My recommendation: keep the single PilotStrip on the Platform page (`/how-nia-works`).**
+**Original recommendation (agreed): keep the single PilotStrip on the Platform page (`/how-nia-works`).**
 - It's the claim-heaviest page — a real-data proof beat does the most work exactly where a
   buyer is asking "does this actually work?"
 - **Remove it from `/nia`** (kills the duplication).
@@ -127,7 +130,7 @@ domains, one student").
 
 ## 6. Implementation checklist (when you say go)
 
-- [ ] PilotStrip → keep one (Platform per my rec, or Home); remove from `/nia`; leave Investors.
+- [x] ✅ PilotStrip → kept on Platform only; removed from `/why-nia`; Investors untouched.
 - [ ] `/how-nia-works`: swap **Outcome → SecCTA**; carry over the "See how it's secured →" link.
 - [ ] `/how-nia-works`: reframe **ForStaff #01** to the ranked-queue framing; merge the two
       "one brain" lines into **"two views of one record."**

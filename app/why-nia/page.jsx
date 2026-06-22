@@ -5,7 +5,6 @@ import NpStyles from "./styles";
 import NiaHero from "./Hero";
 import Moats from "./Moats";
 import Qa from "./Qa";
-import PilotStrip from "@/components/PilotStrip";
 import { SecCTA } from "@/components/home/CampaignSections";
 
 export const metadata = {
@@ -23,7 +22,6 @@ export default function NiaPage() {
       <NpStyles/>
       <NiaHero/>
       <Moats/>
-      <PilotStrip/>
       <Qa/>
       <SecCTA/>
       </main>
