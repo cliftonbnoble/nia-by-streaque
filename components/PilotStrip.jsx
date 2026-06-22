@@ -13,7 +13,7 @@ export default function PilotStrip() {
             From the live pilot
           </span>
           <span className="pilot-strip-facts">
-            <span><strong>16</strong> students using Nia weekly</span>
+            <span><strong>A full cohort</strong> using Nia weekly</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
             <span><strong>6&ndash;8 wks</strong> of sustained engagement</span>
             <span className="pilot-strip-div" aria-hidden="true"/>

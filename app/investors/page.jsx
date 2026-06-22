@@ -359,7 +359,7 @@ export default function InvestorsPage() {
           </div>
           <div className="iv-statgrid four">
             <Stat value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, a top-tier R1"/>
-            <Stat value={<span className="mf-grad-text">16</span>} label="Students in the active pilot cohort"/>
+            <Stat value={<span className="mf-grad-text">16</span>} label="Active pilot cohort, engaged weekly"/>
             <Stat value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Weeks of continuous student use, pilot to date"/>
             <Stat value={<>Canvas<span className="iv-stat-u"> partner</span></>} label="Official LMS-layer distribution, before a dollar of spend"/>
           </div>
