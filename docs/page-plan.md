@@ -115,10 +115,15 @@ Original: `/how-nia-works` (ForStudents #02 · ForStaff #01 · CompletePicture) 
 - **Net:** Platform *shows* the nudge once (+ the loop); Why-Nia *argues* proactivity as a
   moat once. Neither repeats the other's words.
 
-### B) "One profile across systems" — one brain / unified student
-Today: `/how-nia-works` (ForStudents #04 "One brain, every system" · ForStaff #03 "Same
-brain, your side of the desk" · the WholeStudent screenshots) **and** `/nia` (Moat 02 "Five
-domains, one student").
+### B) "One profile across systems" — ✅ Platform side DONE (2026-06-22)
+**Shipped:** reframed the two "one brain" lines into **two views of one coach** — ForStudents
+#04 "One brain, every system" → **"One coach, not a dozen tools"** (the student's view);
+ForStaff #03 "The same brain, your side of the desk" → **"The same coach, your side of the
+desk"** (the staff's view, cross-referencing "the very coach your students talk to").
+WholeStudent stays the one place the profile is *shown*; `/why-nia` Moat 02 keeps the
+architecture argument.
+
+Original: `/how-nia-works` (ForStudents #04 · ForStaff #03 · WholeStudent) **and** `/nia` (Moat 02).
 
 **Proposal:**
 - **Platform (mechanics):** the **WholeStudent** real-screenshot beat is the one place the
@@ -139,7 +144,7 @@ domains, one student").
 - [x] ✅ PilotStrip → kept on Platform only; removed from `/why-nia`; Investors untouched.
 - [ ] `/how-nia-works`: swap **Outcome → SecCTA**; carry over the "See how it's secured →" link.
 - [x] ✅ `/how-nia-works`: reframed **ForStaff #01 → "Ranked early-alert queue"** (staff surface; ties to the student nudge).
-- [ ] `/how-nia-works`: merge the two "one brain" lines into **"two views of one record"** (§5B — next message).
+- [x] ✅ `/how-nia-works`: merged the two "one brain" lines into **"two views of one coach"** (student = "one coach"; staff = "the same coach").
 - [ ] `/nia`: confirm Moat 01 + Moat 02 read as *arguments* (no feature-demo overlap with Platform).
 - [x] ✅ Rename **`/nia → /why-nia`** + 301 redirect; nav **"Why Nia" → /why-nia**; nav/footer **"Product" → "Platform."**
 - [x] ✅ Repoint every `/nia` link (Nav ×2, Footer, investors ×2, sitemap, 404 quick-link). Verified live: 0 stray links.
