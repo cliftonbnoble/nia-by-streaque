@@ -92,9 +92,15 @@ Use the richer, darker **SecCTA** (the segmented "find your door" 3-card: provos
 These two ideas are each said multiple times *within* a page AND on *both* pages. The fix is
 the §1 rule: **say it once per page, through that page's lens (mechanics vs moat).**
 
-### A) "Goes first / proactive" — nudges before they're asked
-Today: `/how-nia-works` (ForStudents #02 "Nudges that land" · ForStaff #01 "Early-warning" ·
-the CompletePicture loop) **and** `/nia` (Moat 01 "Help arrives before they ask").
+### A) "Goes first / proactive" — ✅ Platform side DONE (2026-06-22)
+**Shipped:** kept the student nudge (ForStudents #02 "Nudges that land"); reframed **ForStaff
+#01 "Early-warning system" → "Ranked early-alert queue"** — now the staff *surface* (the ranked
+queue they work from, matching the `WarningMock` visual), with copy that ties to the student
+side ("the same student Nia nudged, now at the top of your list"). The CompletePicture loop
+still ties the two together. _Remaining: confirm `/why-nia` Moat 01 reads as an argument (not a
+demo) when we touch that page — likely no change._
+
+Original: `/how-nia-works` (ForStudents #02 · ForStaff #01 · CompletePicture) **and** `/nia` (Moat 01).
 
 **Proposal:**
 - **Platform (mechanics):** keep ONE demonstration of the nudge — the ForStudents "Nudges
@@ -132,8 +138,8 @@ domains, one student").
 
 - [x] ✅ PilotStrip → kept on Platform only; removed from `/why-nia`; Investors untouched.
 - [ ] `/how-nia-works`: swap **Outcome → SecCTA**; carry over the "See how it's secured →" link.
-- [ ] `/how-nia-works`: reframe **ForStaff #01** to the ranked-queue framing; merge the two
-      "one brain" lines into **"two views of one record."**
+- [x] ✅ `/how-nia-works`: reframed **ForStaff #01 → "Ranked early-alert queue"** (staff surface; ties to the student nudge).
+- [ ] `/how-nia-works`: merge the two "one brain" lines into **"two views of one record"** (§5B — next message).
 - [ ] `/nia`: confirm Moat 01 + Moat 02 read as *arguments* (no feature-demo overlap with Platform).
 - [x] ✅ Rename **`/nia → /why-nia`** + 301 redirect; nav **"Why Nia" → /why-nia**; nav/footer **"Product" → "Platform."**
 - [x] ✅ Repoint every `/nia` link (Nav ×2, Footer, investors ×2, sitemap, 404 quick-link). Verified live: 0 stray links.
