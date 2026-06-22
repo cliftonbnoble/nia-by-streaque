@@ -52,8 +52,9 @@ tagged by owner:
   (`npx wrangler secret put TURNSTILE_SECRET` / `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET`,
   then delete the plaintext rows) **before the domain cutover or any CI deploys** — so they
   stop getting wiped without `--keep-vars`. Until then, every deploy MUST use `--keep-vars`.
-- [ ] **Analytics** 🔧 — none installed. Add **Cloudflare Web Analytics** (free, privacy-first,
-  no cookie banner) — track page views + form-submit conversions.
+- [~] **Analytics** 🔧 — **Cloudflare Web Analytics beacon wired** into `app/layout.js` (gated
+  on a public token, like the Turnstile key). ⏳ To activate: create the Web Analytics site in
+  the dashboard → give me the beacon token → I hardcode it + deploy.
 - [ ] **Legal "Last updated" dates** 🔧 — real dates exist (Privacy/Terms Jun 13, Accessibility
   Jun 15 2026); bump to current at go-live **only if the policy text changes** (bumping without
   an actual content change would be inaccurate).
