@@ -464,7 +464,7 @@ const ForStudents = () => (
   <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Students</span>
+        <span className="mf-eyebrow">For Students</span><span className="hnw-status hnw-status-live">Available now</span>
         <h2 style={{ marginTop: 14 }}>A <span className="mf-grad-text">success partner</span>, not a search box.</h2>
         <p>One coach for every student, working from your LMS, SIS, and CRM. Real answers, nudges that land, and support that adapts as the term goes on.</p>
       </div>
@@ -476,6 +476,12 @@ const ForStudents = () => (
       <PullQuote quote="One student sees a coach. Every office sees the same student." sub="The same record flows from the student's phone to the staff desk →"/>
     </div>
     <style>{`
+      .hnw-status{ display: inline-flex; align-items: center; gap: 6px; margin-left: 10px; vertical-align: middle; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+      .hnw-status::before{ content: ""; width: 6px; height: 6px; border-radius: 50%; }
+      .hnw-status-live{ background: rgba(13,138,90,0.1); border: 1px solid rgba(13,138,90,0.32); color: var(--success); }
+      .hnw-status-live::before{ background: var(--success); }
+      .hnw-status-dev{ background: rgba(154,106,18,0.1); border: 1px solid rgba(154,106,18,0.32); color: var(--inprogress); }
+      .hnw-status-dev::before{ background: var(--inprogress); }
       .fm-card{
         position: relative;
         overflow: hidden;
@@ -563,9 +569,9 @@ const ForStaff = () => (
   <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Staff</span>
+        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">In development · Pilot 2026</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first.</p>
+        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first. <strong style={{ color: "var(--inprogress)", fontWeight: 600 }}>Shipping next — in pilot for 2026.</strong></p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (

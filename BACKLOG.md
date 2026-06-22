@@ -13,21 +13,19 @@ tagged by owner:
 
 ## 🔴 Highest priority — credibility (this is the 10/10 path)
 
-- [ ] **P1 · Staff-product honesty gap** 🔧 — _credibility risk, not polish._ The Product
-  page shows the staff co-pilot as **"Live,"** but Investors says it isn't built yet (the
-  reason for the raise). A buyer who reads both — or asks "can I see the staff dashboard?"
-  — catches it. **Fix:** re-add the status pills we agreed on and that regressed out of
-  the build — **"Available now"** (students) vs **"In development · Pilot 2026"** (staff) —
-  on the home Two-Experiences cards + the how-nia-works staff section. Framing staff as
-  "shipping next" is both more honest and makes the investor ask make sense.
-- [ ] **P3 · Verify "Official Canvas Partner" is contractually true** 🔍 — it appears in
-  the trust bar, the FAQ, **and** as a distribution moat on Investors. Real Instructure
-  partnership = a genuine asset. Aspirational = a liability repeated in too many
-  load-bearing places. **Confirm before launch**; if it's not formal, soften/remove.
-- [ ] **P2 · Land one real third-party proof point** 🔍🤔 — today there's **zero external
-  validation a buyer can verify**. One is enough: a named pilot, a one-line advisor/student
-  quote from someone who actually used Nia, or a single real outcome metric ("X% of nudges
-  opened in the pilot"). This needs real-world input from you; I'll place it once you have it.
+- [x] **P1 · Staff-product honesty gap** ✅ _(2026-06-21)_ — re-added the status pills:
+  **"Available now"** (green) on student surfaces vs **"In development · Pilot 2026"** (amber)
+  on staff surfaces — on the home Two-Experiences cards AND the how-nia-works
+  `#for-students` / `#for-staff` section heads (staff subcopy also reads "Shipping next — in
+  pilot for 2026"). The in-mock dashboard "Live" labels now read as the depicted future UI,
+  not a claim. Reconciles the product page with the investor "not built yet" ask.
+- [x] **P3 · "Official Canvas Partner"** ✅ _(2026-06-21)_ — confirmed a **formal/signed
+  Instructure partnership** → genuine asset, left as-is.
+- [x] **P2 · Real third-party proof point** ✅ _(decision 2026-06-21)_ — no nameable pilot /
+  quote / outcome metric available yet → **keep the honest anonymous framing** (the audit
+  explicitly calls this honesty a credibility strength — don't inflate it). Revisit when a
+  real proof point exists (a named pilot, a real advisor/student quote, or a pilot outcome
+  number).
 
 ## 🟡 Design & content decisions — your call, I execute
 

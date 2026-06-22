@@ -107,6 +107,7 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-students" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/students.jpg)", backgroundPosition: "center 34%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-status tfd-status-live">Available now</span>
           <span className="tfd-body">
             <span className="tfd-aud">For students</span>
             <span className="tfd-h">A coach in the pocket</span>
@@ -117,6 +118,7 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-staff" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/staff.jpg)", backgroundPosition: "center 30%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-status tfd-status-dev">In development · Pilot 2026</span>
           <span className="tfd-body">
             <span className="tfd-aud">For staff</span>
             <span className="tfd-h">A co-pilot at the desk</span>
@@ -146,7 +148,12 @@ const TwoExperiences = () => (
       .tfd-p{ display: block; margin-top: 9px; max-width: 380px; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.86); }
       .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
       .tfd-card:hover .tfd-arrow{ background: rgba(255,255,255,0.18); border-color: #fff; transform: translateX(2px); }
-      @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } }
+      .tfd-status{ position: absolute; top: 16px; right: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 11px; border-radius: 999px; background: rgba(8,11,26,0.6); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.92); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+      .tfd-status::before{ content: ""; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+      .tfd-status-live{ border-color: rgba(61,220,151,0.55); }
+      .tfd-status-live::before{ background: #3ddc97; box-shadow: 0 0 8px #3ddc97; }
+      .tfd-status-dev::before{ background: #f0b54a; box-shadow: 0 0 7px rgba(240,181,74,0.7); }
+      @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } .tfd-status{ top: 14px; right: 14px; } }
     `}</style>
   </section>
 );
