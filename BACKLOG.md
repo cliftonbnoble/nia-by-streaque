@@ -29,14 +29,17 @@ tagged by owner:
 
 ## 🟡 Design & content decisions — your call, I execute
 
-- [ ] **Hero stat slot** 🤔 — "16 students / 6–8 weeks" is brave honesty, but small and
-  prominent; authentic to a founder, may undersell to a skimming investor. Keep / reframe / move?
+- [x] **Hero stat slot** ✅ _(2026-06-21)_ — reframed: dropped the raw "16 students" count;
+  hero now leads with **6–8 weeks of sustained engagement** + **Live · pilot at a top-tier R1**,
+  driving to "Ask us for the results" (honest — full numbers on request).
 - [ ] **"Built different. On purpose." placement** 🤔🔧 — live on home between Two Experiences
   and the advisor section. Keep where it is · move near Tech & Privacy as a capstone · tighten.
-- [ ] **Mascot** 🤔🔧 — the little Nia mascot isn't placed anywhere in the build. Drop it
-  deliberately, or plant it in 1–2 spots.
-- [ ] **Investor raise terms** 🤔🔧 — the specific **$250K** is stated publicly (unusual).
-  Consider gating raise terms behind the brief request instead.
+- [x] **Mascot** ✅ _(2026-06-21)_ — sprinkled minimally + tastefully: **nia-404** on the 404
+  page (screwdriver), **nia-grad** on the home closing CTA, **nia-hi** in the contact success
+  state. Character set in `public/character/`. **nia-read** (studying) held in reserve — say the
+  word for a 4th spot (origin story / a student section).
+- [x] **Investor raise terms** ✅ _(2026-06-21)_ — gated. Dropped the public **$250K**; "The
+  ask" keeps the use-of-funds story and routes to the requested brief (CTA → /contact#form-investor).
 - [ ] **Clarity pass** 🔧 — hero one-liner ("what Nia *is*" instantly clear?); Product vs
   Why-Nia fork reads distinct?; confirm device-demo numbers don't read as real outcome claims.
   _(Vocabulary sub-item ✅ audited 2026-06-21 — "LMS, SIS, and CRM" consistent; "Canvas + SIS"
