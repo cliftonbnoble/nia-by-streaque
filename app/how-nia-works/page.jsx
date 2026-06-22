@@ -71,53 +71,40 @@ const TwoPaths = () => (
         </a>
         {/* STAFF — the dashboard, on a MacBook (Moats mac shell) */}
         <a href="#for-staff" className="hnw-dev hnw-dev-staff">
-          <div className="hnw-mac">
-            <div className="hnw-mac-lid">
-              <div className="hnw-mac-display">
-                <span className="hnw-mac-notch" aria-hidden="true"/>
-                <div className="hnw-mac-app">
-                  <div className="hnw-mac-chrome">
-                    <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
-                    <span className="hnw-mac-url">app.niahub.ai/staff</span>
+          <div className="hnw-board">
+            <div className="hnw-board-screen">
+              <div className="hnw-bar">
+                <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstf"/></span>
+                <span className="hnw-bar-name">Nia</span>
+                <span className="hnw-bar-tag">for staff</span>
+              </div>
+              <div className="hnw-body">
+                <span className="hnw-eyebrow">The dashboard</span>
+                <h3 className="hnw-h">A co-pilot at the desk.</h3>
+                <div className="hnw-macdash" aria-hidden="true">
+                  <div className="hnw-md-head"><span className="hnw-md-t">Early-alert queue</span><span className="hnw-md-live"><i/>demo</span></div>
+                  <div className="hnw-md-row hot">
+                    <span className="hnw-md-ava"/>
+                    <span className="hnw-md-main"><b>Maya Reyes</b><span>BIO 201 · missed quiz</span></span>
+                    <span className="hnw-md-tag ok">Nudged</span>
                   </div>
-                  <div className="hnw-mac-split">
-                    <div className="hnw-body hnw-body-mac">
-                      <span className="hnw-eyebrow">The dashboard</span>
-                      <h3 className="hnw-h">A co-pilot at the desk.</h3>
-                      <ul className="hnw-points">
-                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning across the cohort</li>
-                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, first</li>
-                        <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
-                      </ul>
-                      <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
-                    </div>
-                    <div className="hnw-macdash" aria-hidden="true">
-                      <div className="hnw-md-head"><span className="hnw-md-t">Early-alert queue</span><span className="hnw-md-live"><i/>demo</span></div>
-                      <div className="hnw-md-row hot">
-                        <span className="hnw-md-ava"/>
-                        <span className="hnw-md-main"><b>Maya Reyes</b><span>BIO 201 · missed quiz</span></span>
-                        <span className="hnw-md-tag ok">Nudged</span>
-                      </div>
-                      <div className="hnw-md-row">
-                        <span className="hnw-md-ava alt"/>
-                        <span className="hnw-md-main"><b>Jonas Kim</b><span>GPA dip · 3 wks</span></span>
-                        <span className="hnw-md-tag">Draft</span>
-                      </div>
-                      <div className="hnw-md-chart">
-                        <div className="hnw-md-chart-head"><span>Cohort sentiment · 14d</span><em>+12%</em></div>
-                        <svg viewBox="0 0 300 40" preserveAspectRatio="none">
-                          <defs><linearGradient id="hnw-md-cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(61,78,216,0.20)"/><stop offset="1" stopColor="rgba(61,78,216,0)"/></linearGradient></defs>
-                          <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5 L300 40 L0 40 Z" fill="url(#hnw-md-cf)"/>
-                          <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5" fill="none" stroke="#3d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      </div>
-                    </div>
+                  <div className="hnw-md-row">
+                    <span className="hnw-md-ava alt"/>
+                    <span className="hnw-md-main"><b>Jonas Kim</b><span>GPA dip · 3 wks</span></span>
+                    <span className="hnw-md-tag">Draft</span>
+                  </div>
+                  <div className="hnw-md-chart">
+                    <div className="hnw-md-chart-head"><span>Cohort sentiment · 14d</span><em>+12%</em></div>
+                    <svg viewBox="0 0 300 40" preserveAspectRatio="none">
+                      <defs><linearGradient id="hnw-md-cf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="rgba(61,78,216,0.20)"/><stop offset="1" stopColor="rgba(61,78,216,0)"/></linearGradient></defs>
+                      <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5 L300 40 L0 40 Z" fill="url(#hnw-md-cf)"/>
+                      <path d="M0 30 L25 28 L50 31 L75 24 L100 21 L125 19 L150 16 L175 18 L200 12 L225 9 L250 10 L275 6 L300 5" fill="none" stroke="#3d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                 </div>
+                <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
               </div>
             </div>
-            <div className="hnw-mac-base" aria-hidden="true"><span className="hnw-mac-groove"/></div>
-            <span className="hnw-mac-floor" aria-hidden="true"/>
           </div>
         </a>
       </div>
@@ -126,7 +113,7 @@ const TwoPaths = () => (
       /* the MacBook base + device bleeds extend past the cards; clip horizontally
          so they never trigger page-level horizontal scroll on tight desktop widths */
       .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; overflow-x: clip; }
-      .hnw-paths{ display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 30px; align-items: center; max-width: 1080px; margin: 0 auto; }
+      .hnw-paths{ display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: center; justify-items: center; max-width: 780px; margin: 0 auto; }
       .hnw-dev{ display: block; text-decoration: none; transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1); }
       .hnw-dev:hover{ transform: translateY(-7px); }
 
@@ -145,22 +132,15 @@ const TwoPaths = () => (
       .hnw-iphone .hnw-bar{ padding-top: 34px; }
       .hnw-iphone .hnw-body{ padding-bottom: 30px; }
 
-      /* MacBook — matches the /nia Moats MacBook shell */
-      .hnw-mac{ position: relative; width: 100%; max-width: 484px; margin: 0 auto; }
-      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 18px 18px 0 0; padding: 4px 4px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 42px 72px -32px rgba(11,16,32,0.4); }
-      .hnw-mac-display{ position: relative; background: #05070D; border-radius: 14px 14px 0 0; padding: 12px 11px 15px; overflow: hidden; }
-      .hnw-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 56px; height: 14px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
-      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); aspect-ratio: 16 / 10; display: flex; flex-direction: column; }
-      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; flex-shrink: 0; }
-      .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
-      .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
-      .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
-      .hnw-mac-dots i:nth-child(2){ background: #FEBC2E; }
-      .hnw-mac-dots i:nth-child(3){ background: #28C840; }
-      .hnw-mac-url{ flex: 1; max-width: 250px; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 4px 0; }
-      .hnw-mac-base{ position: relative; width: 114%; margin-left: -7%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
-      .hnw-mac-groove{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 78px; height: 6px; background: linear-gradient(180deg,#9AA2B1,#C3C9D3); border-radius: 0 0 9px 9px; box-shadow: inset 0 1px 2px rgba(11,16,32,0.25); }
-      .hnw-mac-floor{ display: block; height: 18px; width: 86%; margin: 3px auto 0; background: radial-gradient(ellipse at 50% 0%, rgba(11,16,32,0.26), transparent 65%); filter: blur(5px); }
+      /* staff "box" — same dark-bezel device styling as the iPhone, so the two read as a
+         matched pair (a phone + a wider board), not a phone next to a laptop. */
+      .hnw-board{ position: relative; width: 100%; max-width: 358px; margin: 0 auto;
+        background: linear-gradient(155deg, #4a4f5b 0%, #23262e 30%, #15171d 55%, #3a3f4b 100%);
+        border-radius: 40px; padding: 8px;
+        box-shadow: inset 0 0 2px rgba(255,255,255,0.35), inset 0 0 1px rgba(255,255,255,0.6),
+                    0 44px 72px -30px rgba(11,16,38,0.42), 0 14px 30px rgba(56,86,214,0.12); }
+      .hnw-board-screen{ position: relative; height: 100%; background: #fff; border-radius: 33px; overflow: hidden; display: flex; flex-direction: column; }
+      .hnw-board .hnw-body{ flex: 1; justify-content: space-between; padding: 18px 20px 22px; }
 
       /* screen content (shared) */
       .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
@@ -168,12 +148,8 @@ const TwoPaths = () => (
       .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
       .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
       .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-      /* laptop screen is wide (16:10) — split it: pitch on the left, a live early-alert
-         dashboard preview on the right, so the screen reads as a real product, not a slide.
-         (Compact on purpose; the full staff dashboard lives in the ForStaff section below.) */
-      .hnw-mac-split{ flex: 1; min-height: 0; display: flex; gap: 15px; padding: 16px 18px 18px; align-items: stretch; }
-      .hnw-body-mac{ flex: 0 0 42%; padding: 0; display: flex; flex-direction: column; justify-content: center; }
-      .hnw-macdash{ flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+      /* compact early-alert dashboard preview, stacked inside the staff box */
+      .hnw-macdash{ display: flex; flex-direction: column; gap: 7px; margin: 14px 0; }
       .hnw-md-head{ display: flex; align-items: center; justify-content: space-between; }
       .hnw-md-t{ font-family: var(--font-display); font-weight: 700; font-size: 12px; color: var(--ink); }
       .hnw-md-live{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--success); }
@@ -194,26 +170,17 @@ const TwoPaths = () => (
       .hnw-md-chart svg{ width: 100%; height: 26px; margin-top: 3px; display: block; }
       .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
       .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
-      .hnw-body-mac .hnw-h{ font-size: 17px; line-height: 1.12; }
-      .hnw-body-mac .hnw-points{ margin-top: 10px; gap: 7px; }
-      .hnw-body-mac .hnw-cta{ margin-top: 14px; padding: 9px; border-radius: 11px; font-size: 12px; }
       .hnw-points{ margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
       .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
-      .hnw-body-mac .hnw-points li{ font-size: 11px; }
       .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
       .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
       .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
       .hnw-cta{ display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: auto; padding: 12px; border-radius: 13px; color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 12px 24px -12px rgba(37,39,138,0.5); transition: gap 200ms ease; }
       .hnw-cta-student{ background: var(--brand-gradient); }
-      .hnw-cta-staff{ background: linear-gradient(135deg, #3a37ad, #25278a); }
+      .hnw-cta-staff{ background: linear-gradient(135deg, #8A6CF2 0%, #4F3FD0 100%); }
       .hnw-dev:hover .hnw-cta{ gap: 11px; }
 
-      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
-      /* below ~480px the MacBook is too narrow to hold its content at 16:10, so let it size to content instead of clipping */
-      /* below ~560px the laptop is too narrow for two columns — show just the pitch
-         (the screen is no longer "wide," so it reads fine), hide the compact dashboard. */
-      @media (max-width: 560px){ .hnw-mac-split{ display: block; padding: 16px 18px; } .hnw-macdash{ display: none; } .hnw-body-mac{ flex: none; } .hnw-body-mac .hnw-h{ font-size: 20px; } .hnw-body-mac .hnw-points li{ font-size: 12.5px; } }
-      @media (max-width: 480px){ .hnw-mac-app{ aspect-ratio: auto; } }
+      @media (max-width: 760px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } .hnw-board{ max-width: 340px; } }
     `}</style>
   </section>
 );
