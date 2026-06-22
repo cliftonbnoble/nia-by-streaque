@@ -51,12 +51,20 @@ fetch + UTM/referrer capture). Email is sent by the Apps Script via `MailApp`; t
 Sheet captures timestamp + source + UTM. The form falls back to `mailto:` until the
 Turnstile site key is set, so the live form keeps working in the meantime.
 
-**⏳ Remaining — provisioning + test (you):** follow
-[`docs/form-wiring-setup.md`](docs/form-wiring-setup.md) — create the Turnstile
-widget, deploy the Apps Script web app, **redeploy the Worker** (so it has a script),
-then add the 3 runtime secrets (the public site key is already baked into the code)
-— then submit on the deployed Worker to confirm a row lands in the Sheet and the
-email reaches info@streaque.com.
+**✅ LIVE & working** (2026-06-21) on `nia.clifton23.workers.dev`: submit → Turnstile
+→ Worker → Sheet row **and** email to info@streaque.com. Turnstile is invisible for
+normal visitors (interaction-only, light theme), and the form falls back to email if
+Turnstile ever fails — so no real visitor is ever trapped. (Email reaches everyone
+except the sender's own account — a Gmail self-send quirk, not a bug.)
+
+**⏳ One hardening task before launch:** the 3 Worker secrets are currently
+**plaintext dashboard vars**, which `wrangler deploy` wipes unless `--keep-vars` is
+passed (the recurring "disappearing secrets" issue). Convert them to encrypted
+secrets so they survive every deploy — `npx wrangler secret put TURNSTILE_SECRET` /
+`LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET`, then delete the plaintext rows. **Do this
+before pointing the real domain (streaque.com) at the Worker or setting up any
+CI/automated deploys.** Until then, every deploy MUST use `--keep-vars` (the agent's
+deploy permission is scoped to enforce it).
 
 ### 2. Analytics — none installed _(verified)_
 No GA / Plausible / PostHog / Vercel Analytics anywhere — the only `<script>` in
