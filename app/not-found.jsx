@@ -13,6 +13,8 @@ export default function NotFound() {
       <section className="mf-hero" style={{ paddingBottom: 96 }}>
         <div className="mf-hero-bg"/>
         <div className="mf-container mf-hero-inner" style={{ textAlign: "center", maxWidth: 720 }}>
+          <img src="/character/nia-404.svg" alt="Nia, tools in hand, fixing things up" width="484" height="376"
+            style={{ width: "min(240px, 64vw)", height: "auto", margin: "0 auto 18px", display: "block" }}/>
           <span className="mf-eyebrow">404 · Page not found</span>
           <h1 style={{ marginTop: 18, fontSize: "clamp(44px, 6vw, 72px)" }}>
             This page hasn't <span className="mf-grad-text">enrolled yet.</span>

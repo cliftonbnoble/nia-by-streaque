@@ -448,7 +448,7 @@ export default function InvestorsPage() {
         <div className="mf-container" style={{ position: "relative", maxWidth: 760, textAlign: "center" }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>The ask</span>
           <h2 style={{ color: "white", margin: "18px 0 0", fontSize: 42, lineHeight: 1.12, letterSpacing: "-0.02em" }}>
-            We&apos;re raising <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>$250K</span> to build out the staff tool.
+            We&apos;re raising to build out the <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>staff tool</span>.
           </h2>
           <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 600, margin: "18px auto 0", fontSize: 16, lineHeight: 1.6 }}>
             The student experience is live and in production. This round funds the advisor-facing co-pilot, the institution&apos;s side of the platform, and the runway to turn an active pilot into signed campuses.

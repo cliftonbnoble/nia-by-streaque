@@ -287,18 +287,20 @@ export default function ContactForm() {
               </form>
             ) : (
               <div style={{ background: "linear-gradient(135deg, var(--primary-50) 0%, white 60%)", border: "1px solid var(--brand-cyan)", borderRadius: 16, padding: 48, textAlign: "center" }}>
-                <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
-                  <Check s={36} color="var(--brand-cyan)"/>
-                </div>
                 {!viaMailto ? (
                   <>
-                    <h3 style={{ marginTop: 24, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
+                    <img src="/character/nia-hi.svg" alt="" width="519" height="404"
+                      style={{ width: "min(200px, 58%)", height: "auto", margin: "0 auto", display: "block" }}/>
+                    <h3 style={{ marginTop: 10, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
                     <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
                       Your inquiry is in. You&apos;ll hear back from a real person on our team within one business day.
                     </p>
                   </>
                 ) : (
                   <>
+                    <div style={{ width: 72, height: 72, borderRadius: "50%", background: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 20px -6px rgba(43,179,223,0.4)" }}>
+                      <Check s={36} color="var(--brand-cyan)"/>
+                    </div>
                     <h3 style={{ marginTop: 24, fontSize: 28 }}>One last step, {data.name.split(" ")[0] || "thanks"}.</h3>
                     <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>
                       We&apos;ve tried to open a pre-filled email in your mail app, addressed to info@streaque.com. Hit send,

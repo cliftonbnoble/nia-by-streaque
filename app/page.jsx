@@ -52,13 +52,13 @@ const Hero = () => (
             </span>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">16</span><span className="lbl">students in the pilot</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of sustained engagement</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of engagement</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">Live</span><span className="lbl">pilot at a top-tier R1</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal.{" "}
-            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Hear the results first →</Link>
+            Engagement is the early signal — and we&apos;ll walk you through the full pilot results, openly.{" "}
+            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Ask us for the results →</Link>
           </p>
         </div>
 
@@ -354,6 +354,8 @@ const ClosingCTA = () => (
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 72%)" }}/>
     <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
     <div className="mf-container" style={{ position: "relative", textAlign: "center", maxWidth: 720 }}>
+      <img src="/character/nia-grad.svg" alt="" width="458" height="356"
+        style={{ width: 132, height: "auto", margin: "0 auto 14px", display: "block" }}/>
       <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>See it on your campus</span>
       <h2 style={{ color: "white", margin: "20px 0 0", fontSize: 48, lineHeight: 1.08 }}>
         Ready to see students <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>whole?</span>
