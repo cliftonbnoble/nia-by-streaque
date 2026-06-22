@@ -8,6 +8,7 @@ import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FeatureCards from "@/components/home/FeatureCards";
 import RoiCalculator from "@/components/RoiCalculator";
+import VideoSection from "@/components/home/VideoEmbed";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -384,6 +385,7 @@ export default function Home() {
       <main id="main">
       <Hero/>
       <SecProblem/>
+      <VideoSection/>      {/* "A complete story with Nia" — the 90s story, high up */}
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>
