@@ -31,7 +31,7 @@ export const SecProblem = () => {
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head">
           <span className="mf-eyebrow">The problem</span>
-          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em" }}>No one holds the whole.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>No one holds the whole.</em></h2>
           <p style={{ marginTop: 16 }}>Every team sees the student through the one window they own. The student falls through the gaps between the windows.</p>
         </div>
 
@@ -100,10 +100,13 @@ export const SecArchitecture = () => (
       .ioc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
       .ioc-col{ display:flex; flex-direction:column; overflow:hidden; background:white; border:1px solid rgba(61,78,216,0.18); border-radius:var(--radius-lg); padding:24px; box-shadow:var(--shadow-card); }
       .ioc-col.ghost{ background:#FBFBFC; border:1px dashed #C9CDD7; box-shadow:none; }
+      /* header label: content-width + centered. As a flex-column child it would
+         otherwise stretch full-width below the desktop breakpoint. */
+      .ioc-label{ align-self:center; }
       .ioc-stage{ margin:8px -24px 18px; }
       .ioc-text{ display:flex; flex-direction:column; flex:1; }
       .ioc-text p{ flex:1; }
-      .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+      .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; justify-content:center; }
       .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
       .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
       @media (max-width:760px){ .ioc-grid{ grid-template-columns:1fr; } }
