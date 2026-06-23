@@ -79,7 +79,9 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   `canonical: "/"`. Investors keeps `noindex`. Verified per-page in the build output.
 - [x] ✅ **Standardize page `<title>` separators** 🔧 — done _(2026-06-23)_: all pages now on `X · Nia by
   Streaque` (why-nia + contact were the last two stragglers).
-- [ ] **Nav mobile drawer: Escape + focus** 🔧 — Escape-to-close + move/restore focus (`Nav.jsx`).
+- [x] ✅ **Nav mobile drawer: Escape + focus** 🔧 — done _(2026-06-23)_: opening the drawer moves focus to the
+  first link; Escape closes it + restores focus to the burger (aria-expanded flips); Tab is trapped between the
+  burger and the links. All four behaviors verified in the DOM.
 - [ ] 🔍 **Eager LCP image** 🔧 — investigated _(2026-06-23)_: **no above-the-fold lazy raster exists** — every
   hero is SVG/text (the home hero's only `<img>` is commented out). The real LCP candidates are the home
   two-door CSS-background photos (2nd section); optimizing those is a measured preload pass, not a one-line

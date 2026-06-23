@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "./icons";
 
 export default function Nav({ active = "home" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [condensed, setCondensed] = useState(false);
+  const burgerRef = useRef(null);
+  const drawerRef = useRef(null);
   const cls = (k) => (active === k ? "active" : undefined);
 
   useEffect(() => {
@@ -22,6 +24,30 @@ export default function Nav({ active = "home" }) {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  // Mobile drawer a11y: Escape closes it, focus moves into it on open and back to
+  // the burger on close, and Tab is trapped between the burger (close) and the links.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const links = () => (drawerRef.current ? [...drawerRef.current.querySelectorAll("a[href]")] : []);
+    links()[0]?.focus();
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        burgerRef.current?.focus();
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = [burgerRef.current, ...links()].filter(Boolean);
+        if (items.length < 2) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
 
   return (
     <div className={`mf-nav${condensed ? " is-condensed" : ""}`}>
@@ -44,6 +70,7 @@ export default function Nav({ active = "home" }) {
           </span>
         </Link>
         <button
+          ref={burgerRef}
           className="mf-nav-burger"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -58,7 +85,7 @@ export default function Nav({ active = "home" }) {
       </div>
 
       {mobileOpen && (
-        <div className="mf-nav-mobile">
+        <div ref={drawerRef} className="mf-nav-mobile">
           {[
             { href: "/", t: "Home", k: "home" },
             { href: "/how-nia-works", t: "Platform", k: "how" },
