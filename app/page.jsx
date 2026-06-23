@@ -245,20 +245,18 @@ const ComplianceArt = () => (
 
 const TechPrivacy = () => {
   const cards = [
-    { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", accent: "43,179,223", color: "var(--brand-cyan)", Art: PromiseArt },
-    { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", accent: "220,38,38", color: "#B91C1C", Art: NeverArt },
-    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
+    { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", color: "var(--brand-cyan)", Art: PromiseArt },
+    { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", color: "#B91C1C", Art: NeverArt },
+    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
-    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FCFBF6 0%, #EFE7D4 100%)" }}>
-      {/* the hard rule (kept) + a soft cream vignette: white bleeds in from the top
-          (brightest toward the top-right), deepening to a richer, darker cream in
-          the bottom-left and bottom-right corners */}
+    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FFFFFF 0%, #F3F6FF 100%)" }}>
+      {/* the hard rule (kept) + the hero's cyan/violet glow, pulled in and focused
+          behind the middle card: the two colors overlap at center (blending to the
+          brand indigo) and bloom outward to frame all three cards. The white cards
+          now float on top of it instead of carrying their own per-card glow. */}
       <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(72,67,193,0.32) 26%, rgba(72,67,193,0.32) 74%, transparent)" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 920, height: 540, top: -250, right: -170, background: "radial-gradient(ellipse at 72% 28%, rgba(255,255,255,0.82), transparent 62%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 760, height: 460, top: -230, left: -130, background: "radial-gradient(ellipse, rgba(255,255,255,0.5), transparent 64%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 640, height: 540, bottom: -240, left: -190, background: "radial-gradient(ellipse, rgba(182,156,100,0.32), transparent 62%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 670, height: 540, bottom: -240, right: -180, background: "radial-gradient(ellipse, rgba(188,162,112,0.30), transparent 62%)", pointerEvents: "none" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: 210, transform: "translateX(-50%)", width: "min(1320px, 102%)", height: 540, zIndex: 0, pointerEvents: "none", background: "radial-gradient(46% 60% at 44% 48%, rgba(84,201,255,0.55), transparent 70%), radial-gradient(46% 60% at 57% 56%, rgba(123,103,241,0.53), transparent 70%)", filter: "blur(60px)", opacity: 0.95 }}/>
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 580 }}>
           <span className="mf-eyebrow">Tech & Privacy</span>
@@ -267,9 +265,8 @@ const TechPrivacy = () => {
         </div>
 
         <div className="tp-grid">
-          {cards.map(({ eyebrow, title, body, cta, accent, color, Art }) => (
+          {cards.map(({ eyebrow, title, body, cta, color, Art }) => (
             <Link key={title} href="/security" className="tp-card">
-              <span className="tp-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
               <div className="tp-art"><Art/></div>
               <div className="tp-meta">
                 <span className="mf-eyebrow" style={{ fontSize: 11, color }}>{eyebrow}</span>
@@ -294,23 +291,15 @@ const TechPrivacy = () => {
           flex-direction: column;
           text-decoration: none;
           color: inherit;
-          background: #FBFCFE;
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid rgba(15,23,42,0.06);
           border-radius: 18px;
-          transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+          box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+          transition: transform 220ms ease, box-shadow 220ms ease;
         }
         .tp-card:hover{
-          transform: translateY(-4px);
-          box-shadow: 0 24px 48px -18px rgba(15,23,42,0.16);
-          border-color: #D8DEF0;
-        }
-        .tp-glow{
-          position: absolute;
-          width: 380px; height: 380px;
-          left: 50%; top: -210px;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          pointer-events: none;
+          transform: translateY(-6px);
+          box-shadow: 0 36px 64px -24px rgba(31,52,128,0.38), 0 10px 20px -8px rgba(31,52,128,0.16);
         }
         .tp-art{ position: relative; height: 150px; }
         .tp-svg{ width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 14px rgba(31,52,128,0.08)); }
