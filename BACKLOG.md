@@ -33,8 +33,8 @@ tagged by owner:
 - [x] **Hero stat slot** ✅ _(2026-06-21)_ — reframed: dropped the raw "16 students" count;
   hero now leads with **6–8 weeks of sustained engagement** + **Live · pilot at a top-tier R1**,
   driving to "Ask us for the results" (honest — full numbers on request).
-- [ ] **"Built different. On purpose." placement** 🤔🔧 — live on home between Two Experiences
-  and the advisor section. Keep where it is · move near Tech & Privacy as a capstone · tighten.
+- [x] **"Built different. On purpose." placement** ✅ _(2026-06-22)_ — **keep where it is** (home,
+  between Two Experiences and the advisor section). Easy to move/tighten later if needed.
 - [x] **Mascot** ✅ _(2026-06-21)_ — sprinkled minimally + tastefully: **nia-404** on the 404
   page (screwdriver), **nia-grad** on the home closing CTA, **nia-hi** in the contact success
   state. Character set in `public/character/`. **nia-read** (studying) held in reserve — say the
