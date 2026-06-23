@@ -9,6 +9,8 @@ and a craft/a11y last-mile.
 
 **Owner:** 🔧 code/copy I do · 🤔 your decision · 🔍 you confirm a fact · ⚙️ ops/deploy
 **Status:** ✅ shipped · 🟡 reviewed — no change needed · ⏸ held · ⬜ open
+**Progress (2026-06-23):** P1 ✅ · P2 ✅ · P3 ✅ — the full craft / code / a11y / polish list is shipped.
+Remaining = the ⭐ levers below (content + ops, mostly yours).
 
 ---
 
@@ -109,10 +111,10 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
 - [x] ✅ **`--ink-4` contrast** 🔧 — done _(2026-06-23)_: `.mf-canvas-note` (the one real UI-text use) →
   `--ink-3` (AA-passing); the variable itself nudged `#9aa0b4` → `#858ba0` so the faint mock labels are more
   legible. The rest of `--ink-4`'s uses are mock-illustration / decorative (WCAG-exempt).
-- [~] **Misc** 🔧 — ✅ done _(2026-06-23)_: NL2SQL "3 live rows" → "1 live row"; worker `/api/lead` →
+- [x] ✅ **Misc** 🔧 — done _(2026-06-23)_: NL2SQL "3 live rows" → "1 live row"; worker `/api/lead` →
   `Cache-Control: no-store`; placeholders de-duped (cf-name → "Jordan Lee", cf-institution → "Your institution");
-  dead 155KB hero asset deleted. 🟡 investors "6–8 wks" kept (your call — clear enough; it's a conversation
-  starter). ⬜ "regressive success tax" plain-language — proposing below for your OK.
+  dead 155KB hero asset deleted; "regressive success tax" → plain language ("…so Nia goes first — before a small
+  stumble quietly compounds into a stall"). 🟡 investors "6–8 wks" kept (your call — it's a conversation starter).
 
 ---
 
