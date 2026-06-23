@@ -3,12 +3,14 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight, Dot } from "@/components/icons";
 import ContactForm from "./ContactForm";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/contact",
   title: "Contact · Nia by Streaque",
   description:
     "Start a pilot conversation or request the investor brief. Real responses from real people, within one business day.",
-};
+});
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 80 }}>

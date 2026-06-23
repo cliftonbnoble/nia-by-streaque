@@ -70,10 +70,13 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   signal); no hard claims remain.
 
 ### P2 — polish wins
-- [ ] **CTAs bypass the captured form** 🔧 _(Audit #05)_ — `Request security packet`, `Request DPA`, the
-  security hero CTA are still `mailto:`. Route to the form (`#form-security` chip exists) so every touch is captured.
-- [ ] **Per-page canonical + OpenGraph** 🔧 — no `alternates.canonical` / per-page OG; shared links show the
-  generic homepage card. Add both (also de-risks the cutover).
+- [x] ✅ **CTAs bypass the captured form** 🔧 _(Audit #05)_ — done _(2026-06-23)_: every lead-capture CTA
+  (security packet ×4, DPA, the two security-page prose links) now routes to `/contact#form-security` — captured
+  in the form. Kept as direct email (deliberate, not lead-capture): the CTO "direct line" (a trust signal that
+  already sits beside its own form CTA), the footer contact, the legal-page contact, and the form's own fallback.
+- [x] ✅ **Per-page canonical + OpenGraph** 🔧 — done _(2026-06-23)_: new `pageMetadata()` helper (`lib/site.js`)
+  gives every page a self-canonical URL + its own OG/Twitter card (title, description, url, locale); layout gets
+  `canonical: "/"`. Investors keeps `noindex`. Verified per-page in the build output.
 - [x] ✅ **Standardize page `<title>` separators** 🔧 — done _(2026-06-23)_: all pages now on `X · Nia by
   Streaque` (why-nia + contact were the last two stragglers).
 - [ ] **Nav mobile drawer: Escape + focus** 🔧 — Escape-to-close + move/restore focus (`Nav.jsx`).

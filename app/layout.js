@@ -16,6 +16,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbm
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: "Nia by Streaque — the higher-ed AI platform",
   description:
     "Institution-governed AI that turns LMS, SIS, and CRM signals into warm, evidence-based coaching for every student.",

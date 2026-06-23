@@ -3,11 +3,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
+import { pageMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Investors · Nia by Streaque",
-  description:
-    "The investment case for Nia by Streaque: the institution-governed AI platform for higher-ed student success.",
+  ...pageMetadata({
+    path: "/investors",
+    title: "Investors · Nia by Streaque",
+    description:
+      "The investment case for Nia by Streaque: the institution-governed AI platform for higher-ed student success.",
+  }),
   // Investor material is sensitive and this is still a scaffold — keep it out of
   // search until the real numbers are in and you choose to make it public.
   robots: { index: false, follow: false },

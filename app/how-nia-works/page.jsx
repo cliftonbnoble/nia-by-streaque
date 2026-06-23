@@ -8,12 +8,14 @@ import PilotStrip from "@/components/PilotStrip";
 import { SecCTA } from "@/components/home/CampaignSections";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/how-nia-works",
   title: "How Nia Works · Nia by Streaque",
   description:
     "Two coordinated front doors, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
-};
+});
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 64 }}>

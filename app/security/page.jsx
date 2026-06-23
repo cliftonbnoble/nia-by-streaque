@@ -6,12 +6,14 @@ import Architecture from "./ArchScroll";
 import SecurityContact from "./SecurityContact";
 import { FAQ } from "@/components/home/GapSections";
 import { ArrowRight as ArrowR, ShieldCheck as Shield, Tick, Lock } from "@/components/icons";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/security",
   title: "Security · Nia by Streaque",
   description:
     "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
-};
+});
 
 /* Hero animation — the story in one loop:
    a readable student record flows into the campus shield (your key),
@@ -198,7 +200,7 @@ const Hero = () => (
           </p>
           <div className="mf-hero-actions">
             <a href="#pillars" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none" }}>See the four pillars <ArrowR/></a>
-            <a href="mailto:info@streaque.com" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
+            <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
           </div>
           <div style={{ marginTop: 36, display: "flex", gap: 28, flexWrap: "wrap" }}>
             {[
@@ -237,7 +239,7 @@ const WhyPage = () => (
           <div style={{ marginTop: 24, padding: 18, background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius)", display: "flex", alignItems: "center", gap: 14 }}>
             <span style={{ width: 36, height: 36, borderRadius: 8, background: "var(--brand-gradient)", color: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Shield s={18}/></span>
             <div style={{ flex: 1, fontSize: 14, color: "var(--ink-2)" }}>
-              <strong style={{ color: "var(--ink)", fontFamily: "var(--font-display)" }}>CISO, IT Director, or counsel?</strong> Skip the page and <a href="mailto:info@streaque.com" style={{ color: "var(--primary)" }}>email info@streaque.com</a> for our questionnaire response and an architecture walkthrough.
+              <strong style={{ color: "var(--ink)", fontFamily: "var(--font-display)" }}>CISO, IT Director, or counsel?</strong> Skip the page and <a href="/contact#form-security" style={{ color: "var(--primary)" }}>request our questionnaire response</a> and an architecture walkthrough.
             </div>
           </div>
         </div>
@@ -380,7 +382,7 @@ const Roadmap = () => (
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 in production · 5 planned</span>
-            <a href="mailto:info@streaque.com?subject=Security%20packet" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
+            <a href="/contact#form-security" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
           </div>
         </div>
       </div>
@@ -428,7 +430,7 @@ const Ask = () => (
       </div>
       <div className="ask-foot">
         We&apos;ll answer all of these in writing, on the record, with as much technical detail as you want.{" "}
-        <a href="mailto:info@streaque.com">info@streaque.com →</a>
+        <a href="/contact#form-security">Start a security review →</a>
       </div>
     </div>
     <style>{`

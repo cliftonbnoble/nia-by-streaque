@@ -1,10 +1,12 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/privacy",
   title: "Privacy Policy · Nia by Streaque",
   description:
     "How Nia by Streaque collects, uses, and protects information, including student records handled on behalf of partner institutions.",
-};
+});
 
 const SECTIONS = [
   {

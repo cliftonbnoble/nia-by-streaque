@@ -35,7 +35,7 @@ export default function Qa() {
             <p style={{ marginTop: 16, fontSize: 15 }}>Everything else is detail. These are the ones that come up in every room, so here they are, without the hedging.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
               <a href="/contact#form" className="mf-btn mf-btn-primary mf-btn-sm" style={{ textDecoration: "none" }}>Book a pilot demo <ArrowRight s={12}/></a>
-              <a href="mailto:info@streaque.com?subject=Security%20packet" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
+              <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
             </div>
           </div>
           <div>

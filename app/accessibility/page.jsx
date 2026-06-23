@@ -1,10 +1,12 @@
 import LegalPage from "@/components/LegalPage";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/accessibility",
   title: "Accessibility · Nia by Streaque",
   description:
     "Our commitment to making the Nia by Streaque website and platform usable by everyone, including people who rely on assistive technology.",
-};
+});
 
 const SECTIONS = [
   {
