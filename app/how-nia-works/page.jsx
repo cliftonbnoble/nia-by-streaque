@@ -458,8 +458,8 @@ const ForStudents = () => (
         filter: blur(50px);
         pointer-events: none;
       }
-      .fm-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.86), transparent 76%); }
-      .fm-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.77), transparent 76%); }
+      .fm-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+      .fm-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
       .fm-bob{ animation: fm-bob 3.4s ease-in-out infinite; }
       @keyframes fm-bob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-4px); } }
       .fm-pulse{ animation: fm-pulse 2.4s ease-in-out infinite; }
@@ -576,7 +576,7 @@ const CompletePicture = () => (
               </div>
             </div>
             {i < 2 && (
-              <div style={{ position: "absolute", right: -22, top: "50%", transform: "translateY(-50%)", width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--brand-blue)", boxShadow: "var(--shadow-sm)", zIndex: 2 }}>
+              <div className="loop-arrow" style={{ width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--brand-blue)", boxShadow: "var(--shadow-sm)", zIndex: 2 }}>
                 <ArrowR s={18}/>
               </div>
             )}
@@ -584,6 +584,15 @@ const CompletePicture = () => (
         ))}
       </div>
     </div>
+    <style>{`
+      /* step connectors: point right between the side-by-side cards, and
+         down once the grid stacks into a single column */
+      .loop-arrow{ position: absolute; right: -22px; top: 50%; transform: translateY(-50%); }
+      @media (max-width: 760px){
+        .loop-arrow{ right: auto; left: 50%; top: auto; bottom: -22px; transform: translateX(-50%); }
+        .loop-arrow svg{ transform: rotate(90deg); }
+      }
+    `}</style>
   </section>
 );
 
