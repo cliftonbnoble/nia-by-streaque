@@ -260,7 +260,7 @@ export const SecProof = () => (
 // =====================================================================
 export const SecCTA = () => {
   const doors = [
-    { tag: "Provost · VP of Student Success", title: "Book a pilot conversation", body: "See Nia inside your own data, governed by your own policies.", cta: "Book a pilot demo", href: "/contact#form", primary: true },
+    { tag: "Provost · Campus leadership", title: "Book a pilot conversation", body: "See Nia inside your own data, governed by your own policies.", cta: "Book a pilot demo", href: "/contact#form", primary: true },
     { tag: "Investor", title: "Request the investor brief", body: "The architecture, the moat, and the market, sent on request.", cta: "Request brief", href: "/contact#form-investor", primary: false },
     { tag: "Partner · Champion", title: "Make an introduction", body: "Know a campus that needs this? Connect us.", cta: "Make an intro", href: "/contact#form-partnership", primary: false },
   ];
