@@ -103,15 +103,16 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   (instead of unmounting), so every `aria-controls` resolves; toggle + single-open behavior verified in the DOM.
 
 ### P3 — cleanup / taste
-- [ ] **Dead code** 🔧 — `CapabilityCards.jsx` (unimported), unmounted home/contact `FAQ`, dead `n` prop +
-  `.np-moat-n`, duplicate `.np-inputbar/.np-send`.
+- [x] ✅ **Dead code** 🔧 — done _(2026-06-23, you confirmed)_: removed `CapabilityCards.jsx` (441 lines,
+  unimported), the unmounted contact `FAQ` (+ its comment), the dead Moat `n` prop + `.np-moat-n` CSS, and the
+  duplicate `.np-inputbar/.np-send` (kept the `styles.jsx` copy). Build verified green.
 - [x] ✅ **`--ink-4` contrast** 🔧 — done _(2026-06-23)_: `.mf-canvas-note` (the one real UI-text use) →
   `--ink-3` (AA-passing); the variable itself nudged `#9aa0b4` → `#858ba0` so the faint mock labels are more
   legible. The rest of `--ink-4`'s uses are mock-illustration / decorative (WCAG-exempt).
-- [~] **Misc** 🔧 — ✅ done _(2026-06-23)_: NL2SQL "3 live rows" → "1 live row" (matches the single `$2,480` /
-  single-student query); worker `/api/lead` → `Cache-Control: no-store`. ⬜ Pending your OK: cf-name placeholder
-  duplicates its label + plain-language "regressive success tax" + investors "6–8 wks" → single figure (all
-  wording — proposing); delete the dead 155KB hero asset (confirm).
+- [~] **Misc** 🔧 — ✅ done _(2026-06-23)_: NL2SQL "3 live rows" → "1 live row"; worker `/api/lead` →
+  `Cache-Control: no-store`; placeholders de-duped (cf-name → "Jordan Lee", cf-institution → "Your institution");
+  dead 155KB hero asset deleted. 🟡 investors "6–8 wks" kept (your call — clear enough; it's a conversation
+  starter). ⬜ "regressive success tax" plain-language — proposing below for your OK.
 
 ---
 

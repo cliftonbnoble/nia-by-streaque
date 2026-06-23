@@ -254,37 +254,6 @@ const Paths = () => {
   );
 };
 
-/* NOT MOUNTED — the contact FAQ was cut (procurement Q&A lives on /security).
-   Kept for reference; don't re-add to the render without revisiting that IA call. */
-const FAQ = () => {
-  const faqs = [
-    { q: "How fast will you respond?", a: "Within one business day, from a real person on our team. Most replies come same-day." },
-    { q: "What happens after I submit the form?", a: "A founder or success lead will email you to schedule a 30-minute discovery call. No demos before we understand your goals." },
-    { q: "Do I need to commit to anything?", a: "No. The first call is purely exploratory. We learn about your institution, you see Nia in action, and we both decide if there's a fit." },
-    { q: "Can I try Nia myself first?", a: "Yes. The student app is live and we're happy to set you up with a sandbox account before any institutional conversation." },
-    { q: "How do you handle student data?", a: "FERPA-aligned by design. All institutional data stays on your tenant, never trains models, and is governed by your IT policies." },
-    { q: "Are you fundraising?", a: "We're always open to talking with mission-aligned investors. Email info@streaque.com for our current brief." },
-  ];
-  return (
-    <section style={{ padding: "120px 0", background: "var(--bg-alt)" }}>
-      <div className="mf-container">
-        <div className="mf-section-head" style={{ marginBottom: 56 }}>
-          <span className="mf-eyebrow">Common questions</span>
-          <h2 style={{ marginTop: 14 }}>What to expect <span className="mf-grad-text">when you reach out.</span></h2>
-        </div>
-        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
-          {faqs.map((f) => (
-            <div key={f.q} style={{ borderTop: "1px solid var(--line)", paddingTop: 24 }}>
-              <div style={{ fontSize: 17, fontWeight: 600, fontFamily: "var(--font-display)" }}>{f.q}</div>
-              <p style={{ marginTop: 10, fontSize: 14, color: "var(--ink-2)", lineHeight: 1.6 }}>{f.a}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 /* ── The team — moved here from the former /about page ── */
 const TEAM = [
   { name: "Luke", role: "CEO", img: "/team/luke.jpg" },

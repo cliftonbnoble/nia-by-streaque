@@ -204,7 +204,7 @@ export default function ContactForm() {
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-name" style={labelStyle}>Your name *</label>
-                    <input id="cf-name" required autoComplete="name" style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
+                    <input id="cf-name" required autoComplete="name" style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Jordan Lee"/>
                   </div>
                   <div>
                     <label htmlFor="cf-email" style={labelStyle}>Work email *</label>
@@ -215,7 +215,7 @@ export default function ContactForm() {
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-institution" style={labelStyle}>Institution *</label>
-                    <input id="cf-institution" required autoComplete="organization" style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="University"/>
+                    <input id="cf-institution" required autoComplete="organization" style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="Your institution"/>
                   </div>
                   <div>
                     <label htmlFor="cf-students" style={labelStyle}>Students served</label>

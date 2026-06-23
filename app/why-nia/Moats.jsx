@@ -9,7 +9,7 @@ const Tick = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
 );
 
-const Moat = ({ n, eyebrow, title, grad, body, points, alt, reverse, children }) => (
+const Moat = ({ eyebrow, title, grad, body, points, alt, reverse, children }) => (
   <section className={`mf-section${alt ? " alt" : ""}`}>
     <div className="mf-container">
       <div className={`np-moat${reverse ? " np-moat-rev" : ""}`}>
@@ -395,7 +395,6 @@ const MoatStyles = () => (
     .np-moat{ display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
     .np-moat-rev .np-moat-copy{ order: 2; }
     .np-moat-copy{ min-width: 0; }
-    .np-moat-n{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-4); }
     .np-points{ list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 11px; }
     .np-points li{ display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
     .np-points-t{ flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: rgba(13,138,90,0.1); color: var(--success); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
@@ -446,8 +445,6 @@ const MoatStyles = () => (
     .np-await{ display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 6px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
     .np-await-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); animation: np-blink 1.6s ease-in-out infinite; }
     @keyframes np-blink{ 0%,100%{ opacity: 0.3; } 50%{ opacity: 1; } }
-    .np-inputbar{ margin: 0 14px 14px; padding: 9px 13px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; font-size: 11px; color: var(--ink-4); flex-shrink: 0; }
-    .np-send{ width: 19px; height: 19px; border-radius: 6px; background: linear-gradient(135deg,#695bd7,#424dd3); color: #fff; font-size: 11px; display: inline-flex; align-items: center; justify-content: center; }
 
     /* memory hub */
     .np-memcard{ width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 18px 18px 22px; }

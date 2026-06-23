@@ -68,12 +68,6 @@ const Hero = () => (
                left: agent thinking process · right: iOS push → in-app reminder */}
           <HeroPhones/>
 
-          {/* === REAL PHONE PNG + DESKTOP MOCK (kept commented for easy revert) ===
-          <div className="mf-mock-phone-real">
-            <img src="/agent-interaction-hero.png" alt="Nia mobile chat"/>
-          </div>
-          === END COMMENTED MOCKS === */}
-
           {/* label above the left phone, arrow dropping to its top edge */}
           <div className="mf-anno" style={{ top: -64, left: 0, width: 110, whiteSpace: "normal", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
             <span>Specialized<br/>Agents</span>
