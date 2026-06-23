@@ -128,7 +128,7 @@ const TwoPaths = () => (
 function ChatMock() {
   return (
     <FmCard accent="43,179,223">
-      <FmEyebrow right={<FmLive>Always on</FmLive>}>
+      <FmEyebrow>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
           <span style={{ width: 24, height: 24, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.12)" }}><ConnGlyph s={18} gid="fmc"/></span>
           Nia · course-aware
@@ -189,7 +189,7 @@ function IntegrationMock() {
   const days = ["M", "T", "W", "T", "F", "S", "S"];
   return (
     <FmCard accent="56,65,177">
-      <FmEyebrow right={<FmLive>Synced</FmLive>}>Canvas dashboard · from the app</FmEyebrow>
+      <FmEyebrow>Canvas dashboard · from the app</FmEyebrow>
       <div style={{ display: "grid", gap: 10 }}>
         {/* the headliners: streak + projected GPA, floating like the dashboard */}
         <div className="fm-integ" style={{ alignItems: "stretch" }}>
@@ -249,7 +249,7 @@ function IntegrationMock() {
 function WarningMock() {
   return (
     <FmCard accent="43,179,223">
-      <FmEyebrow right={<FmLive tone="dev">In development</FmLive>}>Early-alert queue</FmEyebrow>
+      <FmEyebrow>Early-alert queue</FmEyebrow>
       <div style={{ display: "grid", gap: 8 }}>
         {[
           { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "New", hot: true },
@@ -326,7 +326,7 @@ function InterventionMock() {
 function PredictiveMock() {
   return (
     <FmCard accent="217,119,6">
-      <FmEyebrow right={<FmLive>Updating</FmLive>}>Overload forecast · next 14 days</FmEyebrow>
+      <FmEyebrow>Overload forecast · next 14 days</FmEyebrow>
       <div style={{ padding: "13px 14px 10px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
         <svg viewBox="0 0 240 110" style={{ width: "100%", height: 132 }} preserveAspectRatio="none">
           <defs>

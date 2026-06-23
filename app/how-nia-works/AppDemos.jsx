@@ -4,7 +4,7 @@
    screen reacts to hover (the mascot character follows). Visuals match
    the product: drawer-card gradient, shadow-xl, lavender icon blobs. */
 import { useEffect, useRef, useState } from "react";
-import { ConnGlyph, FmCard, FmEyebrow, FmLive } from "./fm";
+import { ConnGlyph, FmCard, FmEyebrow } from "./fm";
 
 /* fires once when the element scrolls into view */
 function useInView(threshold = 0.35) {
@@ -229,7 +229,7 @@ export function StaffDashboard() {
 
   return (
     <FmCard accent="56,65,177">
-      <FmEyebrow right={<FmLive tone="dev">In development</FmLive>}>Staff dashboards · pilot signal</FmEyebrow>
+      <FmEyebrow>Staff dashboards · pilot signal</FmEyebrow>
       <div ref={ref} style={{ display: "grid", gap: 10 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
           {DASH_STATS.map((s, i) => (
