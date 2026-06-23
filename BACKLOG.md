@@ -1,8 +1,8 @@
 # Streaque / Nia — Site Backlog
 
 _Last updated: 2026-06-22 · Branch: `design-critique-fixes`_
-_Merges the working backlog + **Site Audit #04** (8.7/10) + the completed `docs/page-plan.md` IA
-cleanup. **This is the single working agenda.**_
+_The record of what's already shipped. **Active fix-list (Audit #05 + the 6-reviewer pass) →
+[`docs/polish-tracker.md`](docs/polish-tracker.md)** — the single working list._
 
 The site is already a professional, production-grade marketing site. The distance to
 a legit **10/10 is proof + one consistency fix, not craft** (audit's words). Items are
@@ -46,86 +46,11 @@ tagged by owner:
   subcopy makes "what Nia is" clear); device-demo numbers read as illustrative product UI (one
   demo student, no outcome claims); vocabulary audited clean.
 
-## 🔵 Polish — the 9→10 review (2026-06-22)
+## 🔵 Polish + ⚪ pre-launch ops → moved to the tracker
 
-Fresh 6-reviewer pass across every page. The site is solid; these are the subtle gaps. 🔧 = I do it.
-
-### P1 — fix before calling it 10/10
-- [ ] **Reduced-motion: JS-driven animations bypass the CSS reset** 🔧 — `HeroPhone.jsx` scene timers,
-  `AppDemos.jsx:25` CountUp (rAF), and 3 why-nia moat loops (`Moats.jsx` np-care-live / np-tgl.flip /
-  np-gov-knob) keep moving for reduced-motion users. Gate JS timers/rAF on `matchMedia(reduce)`.
-- [ ] **Decorative controls in the tab / screen-reader tree** 🔧 — the nudge-demo `<button>`s
-  (`FeatureCards.jsx:80`), hero annotations, and CampaignSections faux-chat read as real (dead)
-  controls/text to AT. Add `aria-hidden` / `tabIndex={-1}` to the decorative mocks.
-- [ ] **ROI calculator result is silent to screen-readers** 🔧 — `RoiCalculator.jsx` output has no
-  `aria-live`. Wrap the result in `aria-live="polite"`.
-- [ ] **Contact form has no `autoComplete`** 🔧 — kills mobile autofill on the main conversion surface.
-  Add `autoComplete="name|email|organization|organization-title"` (`ContactForm.jsx`).
-- [ ] **Consent vs the analytics beacon** 🔧🤔 — the cookie banner + Privacy Policy promise future
-  analytics is "gated by your choice," but the CF beacon (`layout.js`) loads unconditionally when the
-  token is set. Gate it on stored consent, or adjust the copy. **Decide before activating analytics.**
-- [ ] **Why-Nia `<title>` is stale** 🔧 — `why-nia/page.jsx:11` still says "Nia · Streaque" (rename
-  leftover; breaks the `X · Nia by Streaque` pattern). → "Why Nia · Nia by Streaque". (Also
-  `contact/page.jsx:8` "Contact · Streaque" → add "by".)
-- [ ] **why-nia mock identity mismatch** 🔧 — `Moats.jsx:251` NL2SQL queries `'maya.j'` but the student
-  is "Maya Reyes" everywhere else. → `'maya.r'`. (A live demo would catch it.)
-- [ ] **Security compliance gantt — keyboard/SR can't reach it** 🔧 — the horizontal-scroll roadmap
-  (`security/page.jsx:341`) lacks the `tabindex/role/aria-label` the architecture scroller already has.
-- [ ] **Investors hero `<h1>` doesn't scale** 🔧 — `investors/page.jsx:85` hard-codes `fontSize:50`
-  (overrides the clamp; heavy at 360px). Responsive clamp; same for the `:450` h2.
-- [ ] **Investors "See the product depth →"** 🔧 — points to /why-nia (the argument, not a product
-  tour). Reword ("See why Nia wins" / "Read the thesis") + use the `<ArrowRight/>` component.
-- [ ] **Device-demo numbers could read as outcome claims** 🔧 — Platform mocks stack GPA/streak/cohort-%
-  with no label. Add one small "Illustrative / sample data" marker.
-
-### P2 — clear polish wins
-- [ ] **Per-page canonical + OpenGraph** 🔧 — no page sets `alternates.canonical` or per-page OG/Twitter;
-  shared links show the generic homepage card. Add both (mechanical; de-risks the domain cutover).
-- [ ] **Standardize page `<title>` separators** 🔧 — all on `X · Nia by Streaque`.
-- [ ] **Nav mobile drawer: Escape + focus** 🔧 — add Escape-to-close + move/restore focus (`Nav.jsx`).
-- [ ] **Eager LCP image** 🔧 — hero images are all `loading="lazy"`; mark the above-the-fold hero
-  `eager` / `fetchPriority="high"`.
-- [ ] **Contact inputs: real focus state** 🔧 — the declared border/shadow transition has no `:focus`
-  rule; add a branded focus ring. Also bump the interest-chip tap targets (34px → ~40px+).
-- [ ] **Copy tightening** 🔧 — "FERPA-scoped" → "permission-scoped" (`how-nia-works:369`); investors
-  thesis lead with the positive; give `$52B` a one-clause basis (`investors:382`); PullQuotes → curly
-  quotes; relabel hero "6–8 weeks of sustained engagement" so it can't read as a retention result.
-- [ ] **Two-door chooser heading level** 🔧 — H3 doors with no parent H2 (`how-nia-works`); add a muted H2.
-- [ ] **WarningMock ranking** 🔧 — rows read `#1/Draft/Meeting/Routed`; make 2–4 ranked so "ranked queue"
-  is self-evident.
-- [ ] **Qa accordion `aria-controls`** 🔧 — closed panels unmount, so 3/4 buttons reference missing IDs
-  (`why-nia/Qa.jsx`). Always-render+hide, or drop `aria-controls`.
-
-### P3 — cleanup / taste
-- [ ] **Dead code** 🔧 — `CapabilityCards.jsx` (442 lines, imported nowhere), the unmounted home/contact
-  `FAQ`, the dead `n` prop + `.np-moat-n` in Moats, duplicate `.np-inputbar/.np-send`. Tidy (git has it).
-- [ ] **`--ink-4` contrast** 🔧 — `#9aa0b4` ≈ 2.6:1 fails AA; audit its uses, move real text to `--ink-3`.
-- [ ] **Misc** 🔧 — plain-language "regressive success tax" (`Moats.jsx:320`); investors "6–8 wks" elapsed
-  range → single figure; NL2SQL "$2,480 / 3 rows" wrinkle; input placeholders duplicate labels; worker
-  `/api/lead` add `Cache-Control: no-store`; commented hero fallback img needs dimensions (or delete the
-  155KB dead asset).
-
-## ⚪ Pre-launch checklist — mostly mechanical
-
-- [ ] **Domain cutover** ⚙️ — `streaque.com` still serves the **old WordPress site**; the new
-  site lives only on `nia.clifton23.workers.dev`. Point DNS at the Worker + set
-  `NEXT_PUBLIC_SITE_URL`, or you get split-identity SEO/link-sharing (OG tags already point
-  at streaque.com).
-- [ ] **Encrypted secrets** ⚙️ — convert the 3 plaintext Worker vars to encrypted
-  (`npx wrangler secret put TURNSTILE_SECRET` / `LEAD_WEBHOOK_URL` / `LEAD_WEBHOOK_SECRET`,
-  then delete the plaintext rows) **before the domain cutover or any CI deploys** — so they
-  stop getting wiped without `--keep-vars`. Until then, every deploy MUST use `--keep-vars`.
-- [~] **Analytics** 🔧 — **Cloudflare Web Analytics beacon wired** into `app/layout.js` (gated
-  on a public token, like the Turnstile key). ⏳ To activate: create the Web Analytics site in
-  the dashboard → give me the beacon token → I hardcode it + deploy.
-- [ ] **Legal "Last updated" dates** 🔧 — real dates exist (Privacy/Terms Jun 13, Accessibility
-  Jun 15 2026); bump to current at go-live **only if the policy text changes** (bumping without
-  an actual content change would be inaccurate).
-- [ ] **SOC 2 language** 🔍 — keep "planned / roadmap" until it's real (guardrail; don't drift).
-- [ ] **Real product screenshots** 🤔 — same demo student (Maya / BIO 201 / Dr. Chen) everywhere
-  is fine, but real screenshots beat polished mocks for "we have a real product." Optional.
-- [x] **`/resources` stale comments** ✅ _(2026-06-21)_ — removed the dead `/resources`
-  mentions from the `app/robots.js` and `app/sitemap.js` comments.
+The 6-reviewer findings, **Site Audit #05**, and the pre-launch ops are now combined in the single
+active working list: **[`docs/polish-tracker.md`](docs/polish-tracker.md)**. Work from there; this
+file stays as the record of what's already shipped. _(Done: `/resources` stale comments cleaned.)_
 
 ---
 
