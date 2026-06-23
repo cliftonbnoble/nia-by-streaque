@@ -21,7 +21,7 @@
   --ink: #0b1020;
   --ink-2: #404659;
   --ink-3: #6b7187;
-  --ink-4: #9aa0b4;
+  --ink-4: #858ba0;
   --line: #e6e8f0;
   --line-2: #d8dbe7;
   --success: #0b7a4f;               /* deepened from #0d8a5a so status text passes AA */
@@ -954,7 +954,7 @@ html, body { margin: 0; padding: 0; }
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-4);
+  color: var(--ink-3);
   background: white;
   padding: 4px 8px;
   border-radius: 4px;

@@ -255,7 +255,7 @@ const EngineVisual = () => (
           </span>
           <div className="np-eng-ans np-rise" style={{ animationDelay: "2000ms" }}>
             <strong>$2,480 remaining</strong>
-            <span className="np-eng-cite"><Tick/> from your SIS · 3 live rows · 1:36 PM</span>
+            <span className="np-eng-cite"><Tick/> from your SIS · 1 live row · 1:36 PM</span>
           </div>
         </div>
       </div>

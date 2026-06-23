@@ -105,10 +105,13 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
 ### P3 — cleanup / taste
 - [ ] **Dead code** 🔧 — `CapabilityCards.jsx` (unimported), unmounted home/contact `FAQ`, dead `n` prop +
   `.np-moat-n`, duplicate `.np-inputbar/.np-send`.
-- [ ] **`--ink-4` contrast** 🔧 — `#9aa0b4` ≈ 2.6:1 fails AA; move real text to `--ink-3`.
-- [ ] **Misc** 🔧 — plain-language "regressive success tax"; investors "6–8 wks" elapsed → single figure;
-  NL2SQL "$2,480 / 3 rows" wrinkle; placeholders duplicate labels; worker `/api/lead` `Cache-Control:
-  no-store`; commented hero fallback img dimensions / delete dead 155KB asset.
+- [x] ✅ **`--ink-4` contrast** 🔧 — done _(2026-06-23)_: `.mf-canvas-note` (the one real UI-text use) →
+  `--ink-3` (AA-passing); the variable itself nudged `#9aa0b4` → `#858ba0` so the faint mock labels are more
+  legible. The rest of `--ink-4`'s uses are mock-illustration / decorative (WCAG-exempt).
+- [~] **Misc** 🔧 — ✅ done _(2026-06-23)_: NL2SQL "3 live rows" → "1 live row" (matches the single `$2,480` /
+  single-student query); worker `/api/lead` → `Cache-Control: no-store`. ⬜ Pending your OK: cf-name placeholder
+  duplicates its label + plain-language "regressive success tax" + investors "6–8 wks" → single figure (all
+  wording — proposing); delete the dead 155KB hero asset (confirm).
 
 ---
 
