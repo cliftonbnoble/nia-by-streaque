@@ -47,15 +47,18 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
 - [x] ✅ **Reduced-motion: JS animations** 🔧 — done _(2026-06-22)_: gated the `HeroPhone` scene timers +
   `AppDemos` CountUp (rAF) on `matchMedia(reduce)` (the `AdvisorBars` pattern), and added the 3 missing
   `Moats` loops (np-care-live / np-tgl.flip / np-gov-knob) to the reduced-motion CSS.
-- [ ] **Decorative controls in the tab / SR tree** 🔧 — nudge-demo `<button>`s (`FeatureCards.jsx:80`), hero
-  annotations, CampaignSections faux-chat read as real dead controls. `aria-hidden` / `tabIndex={-1}`.
-- [ ] **ROI calculator result silent to screen-readers** 🔧 — `RoiCalculator.jsx`, add `aria-live="polite"`.
-- [ ] **Contact form has no `autoComplete`** 🔧 — `name|email|organization|organization-title` (`ContactForm.jsx`).
+- [x] ✅ **Decorative controls in the tab / SR tree** 🔧 — done _(2026-06-22)_: the fake "Start now" button →
+  `tabIndex={-1}` and the nudge demo `aria-hidden`; the hero phone fan + both inside-out / outside-in phones
+  now `role="img"` (keeps their aria-label, silences the faux-chat internals for AT).
+- [x] ✅ **ROI calculator result silent to screen-readers** 🔧 — done _(2026-06-22)_: wrapped the result
+  headline in `aria-live="polite"`, so the protected-tuition figure announces as the sliders move.
+- [x] ✅ **Contact form `autoComplete`** 🔧 — done _(2026-06-22)_: `name` / `email` / `organization` /
+  `organization-title` on the four relevant fields (mobile autofill on the main conversion surface).
 - [ ] **Why-Nia `<title>` stale** 🔧 — `why-nia/page.jsx:11` "Nia · Streaque" → "Why Nia · Nia by Streaque";
   `contact/page.jsx:8` "Contact · Streaque" → add "by".
 - [ ] **why-nia mock identity mismatch** 🔧 — `Moats.jsx:251` `'maya.j'` → `'maya.r'` (student is Maya Reyes).
-- [ ] **Security compliance gantt — keyboard/SR can't reach it** 🔧 — `security/page.jsx:341`, add
-  `tabindex/role/aria-label` like the architecture scroller.
+- [x] ✅ **Security compliance gantt — keyboard/SR reach** 🔧 — done _(2026-06-22)_: the roadmap scroller now
+  `tabIndex={0}` + `role="region"` + an aria-label, matching the architecture scroller.
 - [ ] **Investors hero `<h1>` doesn't scale** 🔧 — `investors/page.jsx:85` fixed `fontSize:50` → responsive
   clamp; same `:450` h2.
 - [ ] **Investors "See the product depth →"** 🔧 — points at /why-nia (the argument). Reword + use `<ArrowRight/>`.

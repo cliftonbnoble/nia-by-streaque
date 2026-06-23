@@ -51,7 +51,7 @@ const CanvasMark = ({ s = 34 }) => (
 
 /* ── Proactive Nudging — the animated demo ────────────────────── */
 const NudgeDemo = ({ k }) => (
-  <div className="fn-stage">
+  <div className="fn-stage" aria-hidden="true">
     {/* pipeline rail (everything in one HTML coordinate space → exact alignment) */}
     <span className="fn-rail"/>
     <span className="fn-rail-flow"/>
@@ -77,7 +77,7 @@ const NudgeDemo = ({ k }) => (
         </div>
         <div className="fn-card-p">Want a 10-minute reset before Friday?</div>
         <div className="fn-card-row">
-          <button className="fn-card-cta">Start now <IcExtern s={10} sw={2.2}/></button>
+          <button className="fn-card-cta" tabIndex={-1}>Start now <IcExtern s={10} sw={2.2}/></button>
           <span className="fn-card-snz"><IcSnooze s={13} sw={1.9} c="rgba(255,255,255,0.9)"/></span>
         </div>
         <img loading="lazy" decoding="async" src="/notif-cal.png" alt="" className="fn-card-cal" width="52" height="78"/>

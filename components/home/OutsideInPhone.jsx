@@ -40,7 +40,7 @@ export default function OutsideInPhone() {
   }, [cycle]);
 
   return (
-    <div className="oi-stage" aria-label="Generic chatbots work outside-in: web text and ads flow in, while the student's LMS, calendar, and profile stay locked out">
+    <div className="oi-stage" role="img" aria-label="Generic chatbots work outside-in: web text and ads flow in, while the student's LMS, calendar, and profile stay locked out">
       <div className="oi-center">
         <span className="oi-glow"/>
         {[0, 1, 2, 3].map((i) => (

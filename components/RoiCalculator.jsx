@@ -54,9 +54,11 @@ export default function RoiCalculator() {
           </div>
 
           <div className="np-roi-result">
-            <span className="np-roi-eyebrow">Tuition protected / year</span>
-            <div className="np-roi-big">{usd(revenue)}</div>
-            <p className="np-roi-by">by retaining <strong>~{retained} more students</strong> who would have slipped away.</p>
+            <div aria-live="polite">
+              <span className="np-roi-eyebrow">Tuition protected / year</span>
+              <div className="np-roi-big">{usd(revenue)}</div>
+              <p className="np-roi-by">by retaining <strong>~{retained} more students</strong> who would have slipped away.</p>
+            </div>
 
             {/* the math, made legible — without exposing a per-student price */}
             <div className="np-roi-calc">

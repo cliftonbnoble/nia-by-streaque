@@ -80,7 +80,7 @@ export default function InsideOutPhone() {
   }, [cycle]);
 
   return (
-    <div className="io-stage" aria-label="Nia answers from the inside out: student data, campus context, and university resources are consulted before the global model">
+    <div className="io-stage" role="img" aria-label="Nia answers from the inside out: student data, campus context, and university resources are consulted before the global model">
       {/* glow + growing rings, centered on the phone */}
       <div className="io-center">
         <span className="io-glow"/>

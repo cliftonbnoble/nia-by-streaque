@@ -197,18 +197,18 @@ export default function ContactForm() {
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-name" style={labelStyle}>Your name *</label>
-                    <input id="cf-name" required style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
+                    <input id="cf-name" required autoComplete="name" style={inputStyle} value={data.name} onChange={(e) => update("name", e.target.value)} placeholder="Your name"/>
                   </div>
                   <div>
                     <label htmlFor="cf-email" style={labelStyle}>Work email *</label>
-                    <input id="cf-email" required type="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
+                    <input id="cf-email" required type="email" autoComplete="email" style={inputStyle} value={data.email} onChange={(e) => update("email", e.target.value)} placeholder="yourname@university.edu"/>
                   </div>
                 </div>
 
                 <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 20 }}>
                   <div>
                     <label htmlFor="cf-institution" style={labelStyle}>Institution *</label>
-                    <input id="cf-institution" required style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="University"/>
+                    <input id="cf-institution" required autoComplete="organization" style={inputStyle} value={data.institution} onChange={(e) => update("institution", e.target.value)} placeholder="University"/>
                   </div>
                   <div>
                     <label htmlFor="cf-students" style={labelStyle}>Students served</label>
@@ -224,7 +224,7 @@ export default function ContactForm() {
 
                 <div>
                   <label htmlFor="cf-role" style={labelStyle}>Your role *</label>
-                  <select id="cf-role" required style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
+                  <select id="cf-role" required autoComplete="organization-title" style={inputStyle} value={data.role} onChange={(e) => update("role", e.target.value)}>
                     <option value="">Select your role</option>
                     <option>Student Success / Advising</option>
                     <option>IT / Information Systems</option>
