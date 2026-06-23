@@ -39,6 +39,7 @@ const Hero = () => (
 const TwoPaths = () => (
   <section className="mf-section hnw-paths-sec">
     <div className="mf-container">
+      <h2 style={{ textAlign: "center", margin: "0 0 32px", fontSize: 16.5, fontWeight: 600, color: "var(--ink-3)", letterSpacing: 0 }}>Two front doors, one student.</h2>
       <div className="hnw-paths">
         {/* STUDENT door */}
         <a href="#for-students" className="hnw-door hnw-door-student">

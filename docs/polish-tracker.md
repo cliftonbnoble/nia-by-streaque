@@ -64,24 +64,32 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   and the "ask" h2 → `clamp(28px, 5.2vw, 42px)`; verified light + 2-line at 375px.
 - [x] ✅ **Investors "See the product depth →"** 🔧 — done _(2026-06-23)_: → **"See why Nia wins"** with the
   `<ArrowRight/>` component (replaces the literal arrow), matching the page's actual job.
-- [ ] ⏸ **Device-demo numbers could read as outcome claims** 🔧 — Platform mocks; add a small "Illustrative"
-  label. _(Held 2026-06-23 — you want to pin down exactly which numbers this means first.)_
+- [x] ✅ **Device-demo numbers could read as outcome claims** 🔧 — done _(2026-06-23)_: the StaffDashboard
+  "live metrics" → "pilot signal", its green "live" pill → amber "In development", + a provenance footnote
+  ("Early signal from the student pilot — illustrative, projected for the staff view"). Numbers kept (real pilot
+  signal); no hard claims remain.
 
 ### P2 — polish wins
 - [ ] **CTAs bypass the captured form** 🔧 _(Audit #05)_ — `Request security packet`, `Request DPA`, the
   security hero CTA are still `mailto:`. Route to the form (`#form-security` chip exists) so every touch is captured.
 - [ ] **Per-page canonical + OpenGraph** 🔧 — no `alternates.canonical` / per-page OG; shared links show the
   generic homepage card. Add both (also de-risks the cutover).
-- [ ] **Standardize page `<title>` separators** 🔧 — all on `X · Nia by Streaque`.
+- [x] ✅ **Standardize page `<title>` separators** 🔧 — done _(2026-06-23)_: all pages now on `X · Nia by
+  Streaque` (why-nia + contact were the last two stragglers).
 - [ ] **Nav mobile drawer: Escape + focus** 🔧 — Escape-to-close + move/restore focus (`Nav.jsx`).
-- [ ] **Eager LCP image** 🔧 — hero images all lazy; mark above-fold hero `eager` / `fetchPriority="high"`.
+- [ ] 🔍 **Eager LCP image** 🔧 — investigated _(2026-06-23)_: **no above-the-fold lazy raster exists** — every
+  hero is SVG/text (the home hero's only `<img>` is commented out). The real LCP candidates are the home
+  two-door CSS-background photos (2nd section); optimizing those is a measured preload pass, not a one-line
+  flip. Deferred pending a Lighthouse check — flag if you want the image-perf pass.
 - [ ] **Contact inputs: focus state + tap targets** 🔧 — branded `:focus` ring; interest chips 34px → ~40px.
 - [ ] **Copy tightening** 🔧 — "FERPA-scoped" → "permission-scoped" (`how-nia-works:369`); investors thesis
   lead positive; `$52B` a one-clause basis; PullQuotes → curly quotes; relabel hero "6–8 weeks of sustained
   engagement" so it can't read as a retention result.
-- [ ] **Two-door chooser heading level** 🔧 — H3 doors with no parent H2 (`how-nia-works`); add a muted H2.
+- [x] ✅ **Two-door chooser heading level** 🔧 — done _(2026-06-23)_: added a muted centered H2 ("Two front
+  doors, one student.") above the doors — fixes the H1→H3 skip and gives the section an intro.
 - [ ] **WarningMock ranking** 🔧 — rows `#1/Draft/Meeting/Routed`; make 2–4 ranked.
-- [ ] **Qa accordion `aria-controls`** 🔧 — closed panels unmount → dangling IDs (`why-nia/Qa.jsx`).
+- [x] ✅ **Qa accordion `aria-controls`** 🔧 — done _(2026-06-23)_: panels always render with `hidden={!isOpen}`
+  (instead of unmounting), so every `aria-controls` resolves; toggle + single-open behavior verified in the DOM.
 
 ### P3 — cleanup / taste
 - [ ] **Dead code** 🔧 — `CapabilityCards.jsx` (unimported), unmounted home/contact `FAQ`, dead `n` prop +

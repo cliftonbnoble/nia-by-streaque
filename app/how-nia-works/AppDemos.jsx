@@ -229,7 +229,7 @@ export function StaffDashboard() {
 
   return (
     <FmCard accent="56,65,177">
-      <FmEyebrow right={<FmLive>Cohort B</FmLive>}>Staff dashboards · live metrics</FmEyebrow>
+      <FmEyebrow right={<FmLive tone="dev">In development</FmLive>}>Staff dashboards · pilot signal</FmEyebrow>
       <div ref={ref} style={{ display: "grid", gap: 10 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
           {DASH_STATS.map((s, i) => (
@@ -256,6 +256,7 @@ export function StaffDashboard() {
             <circle cx="200" cy="12" r="3.5" fill="var(--brand-blue)" style={{ opacity: inView ? 1 : 0, transition: "opacity 300ms ease 1500ms" }}/>
           </svg>
         </div>
+        <p style={{ margin: 0, fontSize: 9.5, lineHeight: 1.5, color: "var(--ink-3)" }}>Early signal from the student pilot — illustrative, projected for the staff view.</p>
       </div>
     </FmCard>
   );

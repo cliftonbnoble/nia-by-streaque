@@ -55,11 +55,9 @@ export default function Qa() {
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M12 5v14M5 12h14"/></svg>
                     </span>
                   </button>
-                  {isOpen && (
-                    <div id={`qa-panel-${i}`} role="region" aria-labelledby={`qa-q-${i}`} style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
-                      {it.a}
-                    </div>
-                  )}
+                  <div id={`qa-panel-${i}`} role="region" aria-labelledby={`qa-q-${i}`} hidden={!isOpen} style={{ paddingBottom: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.65, maxWidth: 640 }}>
+                    {it.a}
+                  </div>
                 </div>
               );
             })}
