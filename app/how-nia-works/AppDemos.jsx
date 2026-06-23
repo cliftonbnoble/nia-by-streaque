@@ -228,7 +228,7 @@ export function StaffDashboard() {
   const [ref, inView] = useInView();
 
   return (
-    <FmCard accent="56,65,177">
+    <FmCard>
       <FmEyebrow>Staff dashboards · pilot signal</FmEyebrow>
       <div ref={ref} style={{ display: "grid", gap: 10 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>

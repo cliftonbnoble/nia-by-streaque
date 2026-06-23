@@ -15,9 +15,8 @@ export const ConnGlyph = ({ s = 40, gid = "cg" }) => (
   </svg>
 );
 
-export const FmCard = ({ accent, children }) => (
+export const FmCard = ({ children }) => (
   <div className="fm-card">
-    <span className="fm-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
     <div style={{ position: "relative", padding: "20px 22px 22px" }}>{children}</div>
   </div>
 );

@@ -127,7 +127,7 @@ const TwoPaths = () => (
 
 function ChatMock() {
   return (
-    <FmCard accent="43,179,223">
+    <FmCard>
       <FmEyebrow>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
           <span style={{ width: 24, height: 24, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.12)" }}><ConnGlyph s={18} gid="fmc"/></span>
@@ -188,7 +188,7 @@ const StatCard = ({ value, label, change, spark, gid }) => (
 function IntegrationMock() {
   const days = ["M", "T", "W", "T", "F", "S", "S"];
   return (
-    <FmCard accent="56,65,177">
+    <FmCard>
       <FmEyebrow>Canvas dashboard · from the app</FmEyebrow>
       <div style={{ display: "grid", gap: 10 }}>
         {/* the headliners: streak + projected GPA, floating like the dashboard */}
@@ -248,7 +248,7 @@ function IntegrationMock() {
 
 function WarningMock() {
   return (
-    <FmCard accent="43,179,223">
+    <FmCard>
       <FmEyebrow>Early-alert queue</FmEyebrow>
       <div style={{ display: "grid", gap: 8 }}>
         {[
@@ -274,7 +274,7 @@ function WarningMock() {
 
 function InsightsMock() {
   return (
-    <FmCard accent="124,58,237">
+    <FmCard>
       <FmEyebrow right={<FmLive>3 new</FmLive>}>AI insights</FmEyebrow>
       <div className="fm-bob" style={{ padding: "13px 14px", background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 52%, #eef2ff 100%)", border: "1px solid #c7d2fe", borderRadius: 14, boxShadow: "0 14px 30px -16px rgba(56,65,177,0.4)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -301,7 +301,7 @@ function InsightsMock() {
 
 function InterventionMock() {
   return (
-    <FmCard accent="43,179,223">
+    <FmCard>
       <FmEyebrow right={<FmLive>Draft ready</FmLive>}>Draft reply · Maya Reyes</FmEyebrow>
       <div style={{ padding: "13px 14px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>Hi Maya,</div>
@@ -325,7 +325,7 @@ function InterventionMock() {
 
 function PredictiveMock() {
   return (
-    <FmCard accent="217,119,6">
+    <FmCard>
       <FmEyebrow>Overload forecast · next 14 days</FmEyebrow>
       <div style={{ padding: "13px 14px 10px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
         <svg viewBox="0 0 240 110" style={{ width: "100%", height: 132 }} preserveAspectRatio="none">
@@ -398,8 +398,9 @@ const FeatureRow = ({ f, flip }) => {
           ))}
         </ul>
       </div>
-      <div style={{ order: flip ? 1 : 2 }}>
-        <Mock/>
+      <div style={{ order: flip ? 1 : 2, position: "relative" }}>
+        <span aria-hidden="true" className={`fm-bloom ${flip ? "fm-bloom-blue" : "fm-bloom-purple"}`}/>
+        <div style={{ position: "relative", zIndex: 1 }}><Mock/></div>
       </div>
     </div>
   );
@@ -417,7 +418,7 @@ const PullQuote = ({ quote, sub }) => (
 );
 
 const ForStudents = () => (
-  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84 }}>
+  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84, overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Students</span><span className="hnw-status hnw-status-live">Available now</span>
@@ -438,19 +439,27 @@ const ForStudents = () => (
       .fm-card{
         position: relative;
         overflow: hidden;
-        background: #FBFCFE;
-        border: 1px solid var(--line);
+        background: #FFFFFF;
+        border: 1px solid rgba(15,23,42,0.06);
         border-radius: 18px;
-        box-shadow: 0 24px 48px -28px rgba(15,23,42,0.18);
+        box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+        transition: transform 220ms ease, box-shadow 220ms ease;
       }
-      .fm-glow{
+      .fm-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 34px 62px -24px rgba(31,52,128,0.40), 0 10px 20px -8px rgba(31,52,128,0.16);
+      }
+      /* colored bloom behind each mock — left cards blue, right cards purple —
+         sitting under the card's own drop shadow for a splash of brand color */
+      .fm-bloom{
         position: absolute;
-        width: 420px; height: 420px;
-        left: 50%; top: -240px;
-        transform: translateX(-50%);
-        border-radius: 50%;
+        z-index: 0;
+        inset: -10% -16%;
+        filter: blur(50px);
         pointer-events: none;
       }
+      .fm-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.86), transparent 76%); }
+      .fm-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.77), transparent 76%); }
       .fm-bob{ animation: fm-bob 3.4s ease-in-out infinite; }
       @keyframes fm-bob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-4px); } }
       .fm-pulse{ animation: fm-pulse 2.4s ease-in-out infinite; }
@@ -519,7 +528,7 @@ const ForStudents = () => (
 );
 
 const ForStaff = () => (
-  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
+  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84, overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
         <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">In development</span>
@@ -537,7 +546,7 @@ const ForStaff = () => (
 );
 
 const CompletePicture = () => (
-  <section className="mf-section">
+  <section className="mf-section" style={{ overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ marginBottom: 64 }}>
         <span className="mf-eyebrow">The complete picture</span>
@@ -546,13 +555,13 @@ const CompletePicture = () => (
       </div>
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28, position: "relative" }}>
         {[
-          { n: "01", t: "Student engages", accent: "43,179,223", color: "var(--brand-cyan)", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
-          { n: "02", t: "Data flows", accent: "56,65,177", color: "var(--brand-blue)", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
-          { n: "03", t: "Staff acts", accent: "124,58,237", color: "#7c3aed", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
+          { n: "01", t: "Student engages", color: "var(--brand-cyan)", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
+          { n: "02", t: "Data flows", color: "var(--brand-blue)", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
+          { n: "03", t: "Staff acts", color: "#7c3aed", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
         ].map((s, i) => (
           <div key={s.n} style={{ position: "relative" }}>
-            <div style={{ position: "relative", overflow: "hidden", height: "100%", padding: 28, background: "#FBFCFE", border: "1px solid var(--line)", borderRadius: 18, boxShadow: "0 24px 48px -28px rgba(15,23,42,0.16)", boxSizing: "border-box" }}>
-              <span style={{ position: "absolute", width: 380, height: 380, left: "50%", top: -210, transform: "translateX(-50%)", borderRadius: "50%", background: `radial-gradient(circle closest-side, rgba(${s.accent},0.13), transparent 100%)`, pointerEvents: "none" }} aria-hidden="true"/>
+            <span aria-hidden="true" className={`fm-bloom ${i === 1 ? "fm-bloom-blue" : "fm-bloom-purple"}`}/>
+            <div className="fm-card" style={{ position: "relative", zIndex: 1, height: "100%", padding: 28, boxSizing: "border-box" }}>
               <div style={{ position: "relative" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                   <span style={{ padding: "5px 11px", background: "var(--brand-gradient)", color: "white", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", fontWeight: 600 }}>{s.n}</span>
