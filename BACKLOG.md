@@ -46,6 +46,65 @@ tagged by owner:
   subcopy makes "what Nia is" clear); device-demo numbers read as illustrative product UI (one
   demo student, no outcome claims); vocabulary audited clean.
 
+## 🔵 Polish — the 9→10 review (2026-06-22)
+
+Fresh 6-reviewer pass across every page. The site is solid; these are the subtle gaps. 🔧 = I do it.
+
+### P1 — fix before calling it 10/10
+- [ ] **Reduced-motion: JS-driven animations bypass the CSS reset** 🔧 — `HeroPhone.jsx` scene timers,
+  `AppDemos.jsx:25` CountUp (rAF), and 3 why-nia moat loops (`Moats.jsx` np-care-live / np-tgl.flip /
+  np-gov-knob) keep moving for reduced-motion users. Gate JS timers/rAF on `matchMedia(reduce)`.
+- [ ] **Decorative controls in the tab / screen-reader tree** 🔧 — the nudge-demo `<button>`s
+  (`FeatureCards.jsx:80`), hero annotations, and CampaignSections faux-chat read as real (dead)
+  controls/text to AT. Add `aria-hidden` / `tabIndex={-1}` to the decorative mocks.
+- [ ] **ROI calculator result is silent to screen-readers** 🔧 — `RoiCalculator.jsx` output has no
+  `aria-live`. Wrap the result in `aria-live="polite"`.
+- [ ] **Contact form has no `autoComplete`** 🔧 — kills mobile autofill on the main conversion surface.
+  Add `autoComplete="name|email|organization|organization-title"` (`ContactForm.jsx`).
+- [ ] **Consent vs the analytics beacon** 🔧🤔 — the cookie banner + Privacy Policy promise future
+  analytics is "gated by your choice," but the CF beacon (`layout.js`) loads unconditionally when the
+  token is set. Gate it on stored consent, or adjust the copy. **Decide before activating analytics.**
+- [ ] **Why-Nia `<title>` is stale** 🔧 — `why-nia/page.jsx:11` still says "Nia · Streaque" (rename
+  leftover; breaks the `X · Nia by Streaque` pattern). → "Why Nia · Nia by Streaque". (Also
+  `contact/page.jsx:8` "Contact · Streaque" → add "by".)
+- [ ] **why-nia mock identity mismatch** 🔧 — `Moats.jsx:251` NL2SQL queries `'maya.j'` but the student
+  is "Maya Reyes" everywhere else. → `'maya.r'`. (A live demo would catch it.)
+- [ ] **Security compliance gantt — keyboard/SR can't reach it** 🔧 — the horizontal-scroll roadmap
+  (`security/page.jsx:341`) lacks the `tabindex/role/aria-label` the architecture scroller already has.
+- [ ] **Investors hero `<h1>` doesn't scale** 🔧 — `investors/page.jsx:85` hard-codes `fontSize:50`
+  (overrides the clamp; heavy at 360px). Responsive clamp; same for the `:450` h2.
+- [ ] **Investors "See the product depth →"** 🔧 — points to /why-nia (the argument, not a product
+  tour). Reword ("See why Nia wins" / "Read the thesis") + use the `<ArrowRight/>` component.
+- [ ] **Device-demo numbers could read as outcome claims** 🔧 — Platform mocks stack GPA/streak/cohort-%
+  with no label. Add one small "Illustrative / sample data" marker.
+
+### P2 — clear polish wins
+- [ ] **Per-page canonical + OpenGraph** 🔧 — no page sets `alternates.canonical` or per-page OG/Twitter;
+  shared links show the generic homepage card. Add both (mechanical; de-risks the domain cutover).
+- [ ] **Standardize page `<title>` separators** 🔧 — all on `X · Nia by Streaque`.
+- [ ] **Nav mobile drawer: Escape + focus** 🔧 — add Escape-to-close + move/restore focus (`Nav.jsx`).
+- [ ] **Eager LCP image** 🔧 — hero images are all `loading="lazy"`; mark the above-the-fold hero
+  `eager` / `fetchPriority="high"`.
+- [ ] **Contact inputs: real focus state** 🔧 — the declared border/shadow transition has no `:focus`
+  rule; add a branded focus ring. Also bump the interest-chip tap targets (34px → ~40px+).
+- [ ] **Copy tightening** 🔧 — "FERPA-scoped" → "permission-scoped" (`how-nia-works:369`); investors
+  thesis lead with the positive; give `$52B` a one-clause basis (`investors:382`); PullQuotes → curly
+  quotes; relabel hero "6–8 weeks of sustained engagement" so it can't read as a retention result.
+- [ ] **Two-door chooser heading level** 🔧 — H3 doors with no parent H2 (`how-nia-works`); add a muted H2.
+- [ ] **WarningMock ranking** 🔧 — rows read `#1/Draft/Meeting/Routed`; make 2–4 ranked so "ranked queue"
+  is self-evident.
+- [ ] **Qa accordion `aria-controls`** 🔧 — closed panels unmount, so 3/4 buttons reference missing IDs
+  (`why-nia/Qa.jsx`). Always-render+hide, or drop `aria-controls`.
+
+### P3 — cleanup / taste
+- [ ] **Dead code** 🔧 — `CapabilityCards.jsx` (442 lines, imported nowhere), the unmounted home/contact
+  `FAQ`, the dead `n` prop + `.np-moat-n` in Moats, duplicate `.np-inputbar/.np-send`. Tidy (git has it).
+- [ ] **`--ink-4` contrast** 🔧 — `#9aa0b4` ≈ 2.6:1 fails AA; audit its uses, move real text to `--ink-3`.
+- [ ] **Misc** 🔧 — plain-language "regressive success tax" (`Moats.jsx:320`); investors "6–8 wks" elapsed
+  range → single figure; NL2SQL "$2,480 / 3 rows" wrinkle; input placeholders duplicate labels; worker
+  `/api/lead` add `Cache-Control: no-store`; commented hero fallback img needs dimensions (or delete the
+  155KB dead asset).
+
 ## ⚪ Pre-launch checklist — mostly mechanical
 
 - [ ] **Domain cutover** ⚙️ — `streaque.com` still serves the **old WordPress site**; the new
