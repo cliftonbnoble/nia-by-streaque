@@ -252,12 +252,13 @@ function WarningMock() {
       <FmEyebrow right={<FmLive tone="dev">In development</FmLive>}>Early-alert queue</FmEyebrow>
       <div style={{ display: "grid", gap: 8 }}>
         {[
-          { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "#1", hot: true },
+          { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "New", hot: true },
           { img: "/students/jonas.png", n: "Jonas Kim", s: "GPA dip · 3 weeks", tag: "Draft" },
           { img: "/students/anya.png", n: "Anya Patel", s: "Low engagement · CS 110", tag: "Meeting" },
           { img: "/students/ravi.png", n: "Ravi Shah", s: "Aid form overdue", tag: "Routed" },
-        ].map((r) => (
+        ].map((r, i) => (
           <div key={r.n} className={r.hot ? "fm-glowbob" : undefined} style={{ display: "flex", alignItems: "center", gap: 9, padding: "9px 11px", background: "white", borderRadius: 12, border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid var(--line)", boxShadow: r.hot ? undefined : "0 6px 16px -10px rgba(11,16,32,0.16)" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 700, color: r.hot ? "#B45309" : "var(--ink-3)", minWidth: 13, textAlign: "center", flexShrink: 0 }}>{i + 1}</span>
             <img src={r.img} alt="" width="24" height="24" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>{r.n}</div>
@@ -369,7 +370,7 @@ const STUDENT_FEATURES = [
     bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
   { n: "02", t: "Nudges that land, not noise", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
     bullets: ["Catches a slipping deadline before it becomes a problem", "Reminders for the assignments and dates that matter this week", "A heads-up when an opportunity actually fits your goals", "Study suggestions shaped by how this term is going"], Mock: NudgesCarousel },
-  { n: "03", t: "Learns how you actually study", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
+  { n: "03", t: "Learns how you actually study", b: "Builds a private, permission-scoped model of how you study best, and adapts everything to fit.",
     bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: LearningStyleDemo },
   { n: "04", t: "One coach, not a dozen tools", b: "To you it's one coach that already knows your courses, aid, and calendar — not a stack of disconnected apps to chase.",
     bullets: ["One coach connected to your LMS, SIS, and CRM", "Knows your assignments, records, and advising context", "Nothing to re-enter, no apps to chase", "Every campus resource, behind one conversation"], Mock: IntegrationMock },
@@ -407,9 +408,9 @@ const FeatureRow = ({ f, flip }) => {
 const PullQuote = ({ quote, sub }) => (
   <div style={{ margin: "64px auto 0", maxWidth: 760, textAlign: "center", padding: "48px 24px", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
     <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 500, lineHeight: 1.2, letterSpacing: "-0.02em" }}>
-      <em style={{ fontStyle: "normal" }}>"</em>
+      <em style={{ fontStyle: "normal" }}>“</em>
       <span className="mf-grad-text">{quote}</span>
-      <em style={{ fontStyle: "normal" }}>"</em>
+      <em style={{ fontStyle: "normal" }}>”</em>
     </div>
     <div style={{ marginTop: 14, fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>{sub}</div>
   </div>

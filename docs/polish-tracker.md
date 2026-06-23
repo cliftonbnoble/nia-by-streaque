@@ -8,6 +8,7 @@ and engineering the site is a 10. What's left is one content decision, a few fac
 and a craft/a11y last-mile.
 
 **Owner:** 🔧 code/copy I do · 🤔 your decision · 🔍 you confirm a fact · ⚙️ ops/deploy
+**Status:** ✅ shipped · 🟡 reviewed — no change needed · ⏸ held · ⬜ open
 
 ---
 
@@ -82,20 +83,22 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
 - [x] ✅ **Nav mobile drawer: Escape + focus** 🔧 — done _(2026-06-23)_: opening the drawer moves focus to the
   first link; Escape closes it + restores focus to the burger (aria-expanded flips); Tab is trapped between the
   burger and the links. All four behaviors verified in the DOM.
-- [ ] 🔍 **Eager LCP image** 🔧 — investigated _(2026-06-23)_: **no above-the-fold lazy raster exists** — every
-  hero is SVG/text (the home hero's only `<img>` is commented out). The real LCP candidates are the home
-  two-door CSS-background photos (2nd section); optimizing those is a measured preload pass, not a one-line
-  flip. Deferred pending a Lighthouse check — flag if you want the image-perf pass.
+- [x] 🟡 **Eager LCP image** 🔧 — reviewed _(2026-06-23)_, **no change needed**: there's no above-the-fold lazy
+  raster to flip — every hero is SVG/text (the home hero's only `<img>` is commented out). The only large rasters
+  are the home two-door CSS-background photos (2nd section), and a measured preload pass isn't worth the mobile
+  cost. Closed. _(Flag if you ever want a Lighthouse-driven image-perf pass.)_
 - [x] ✅ **Contact inputs: focus state + tap targets** 🔧 — done _(2026-06-23)_: a scoped `#form` `:focus` rule
   gives every input/select/textarea a branded ring (brand-blue border + soft halo) — activating the
   previously-dead border/shadow transition; interest chips bumped 34px → 40px tap targets + a keyboard
   `:focus-visible` ring.
-- [ ] **Copy tightening** 🔧 — "FERPA-scoped" → "permission-scoped" (`how-nia-works:369`); investors thesis
-  lead positive; `$52B` a one-clause basis; PullQuotes → curly quotes; relabel hero "6–8 weeks of sustained
-  engagement" so it can't read as a retention result.
+- [x] ✅ **Copy tightening** 🔧 — done _(2026-06-23)_: "FERPA-scoped" → "permission-scoped"; PullQuotes → curly
+  quotes. 🟡 Reviewed & kept (your call, 2026-06-23): the hero "6–8 weeks of sustained engagement" (reads as
+  pilot duration that went well — fine), `$52B` (already marked "est." — an honest internal estimate), and the
+  investors thesis (already opens with the market opportunity, then contrasts).
 - [x] ✅ **Two-door chooser heading level** 🔧 — done _(2026-06-23)_: added a muted centered H2 ("Two front
   doors, one student.") above the doors — fixes the H1→H3 skip and gives the section an intro.
-- [ ] **WarningMock ranking** 🔧 — rows `#1/Draft/Meeting/Routed`; make 2–4 ranked.
+- [x] ✅ **WarningMock ranking** 🔧 — done _(2026-06-23)_: each row now carries a leading rank numeral (1–4) so
+  the queue reads as ranked; row 1's redundant "#1" badge → "New" (amber); the action badges (Draft/Meeting/Routed) stay.
 - [x] ✅ **Qa accordion `aria-controls`** 🔧 — done _(2026-06-23)_: panels always render with `hidden={!isOpen}`
   (instead of unmounting), so every `aria-controls` resolves; toggle + single-open behavior verified in the DOM.
 
