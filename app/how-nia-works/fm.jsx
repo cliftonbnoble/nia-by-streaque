@@ -29,8 +29,13 @@ export const FmEyebrow = ({ children, right }) => (
   </div>
 );
 
-export const FmLive = ({ children = "Live" }) => (
-  <span style={{ display: "inline-flex", alignItems: "center", fontSize: 9, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 10px", borderRadius: 999, border: "1px solid rgba(22,163,74,0.30)", boxShadow: "0 0 12px -1px rgba(22,163,74,0.5)" }}>
-    {children}
-  </span>
-);
+export const FmLive = ({ children = "Live", tone = "live" }) => {
+  const c = tone === "dev"
+    ? { fg: "#B45309", bg: "#FFF4DE", bd: "rgba(180,83,9,0.32)", glow: "rgba(217,119,6,0.45)" }
+    : { fg: "#15803D", bg: "#EAF7EF", bd: "rgba(22,163,74,0.30)", glow: "rgba(22,163,74,0.5)" };
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", fontSize: 9, fontWeight: 600, color: c.fg, background: c.bg, padding: "3px 10px", borderRadius: 999, border: `1px solid ${c.bd}`, boxShadow: `0 0 12px -1px ${c.glow}` }}>
+      {children}
+    </span>
+  );
+};

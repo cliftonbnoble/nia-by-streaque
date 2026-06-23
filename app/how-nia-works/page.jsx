@@ -246,7 +246,7 @@ function IntegrationMock() {
 function WarningMock() {
   return (
     <FmCard accent="43,179,223">
-      <FmEyebrow right={<FmLive>Live</FmLive>}>Early-alert queue</FmEyebrow>
+      <FmEyebrow right={<FmLive tone="dev">In development</FmLive>}>Early-alert queue</FmEyebrow>
       <div style={{ display: "grid", gap: 8 }}>
         {[
           { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "#1", hot: true },

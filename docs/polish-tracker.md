@@ -41,13 +41,12 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
 ## 🔵 Code / copy polish (I do these)
 
 ### P1 — credibility + accessibility (do first)
-- [ ] **Staff demo mocks still wear "live" pills** 🔧 _(Audit #05)_ — the staff section is correctly "In
-  development / Shipping next," but the mocks inside say `Live` (early-alert queue), `Synced`, `Draft ready`,
-  `3 new` — a sharp reader reads "Early-alert queue · Live" as shipped. Relabel the **staff** mocks only
-  (`Preview` / `Concept`); student mocks keep "Live."
-- [ ] **Reduced-motion: JS animations bypass the CSS reset** 🔧 — `HeroPhone.jsx` timers, `AppDemos.jsx:25`
-  CountUp (rAF), 3 why-nia moat loops (`Moats.jsx` np-care-live / np-tgl.flip / np-gov-knob). Gate on
-  `matchMedia(reduce)`.
+- [x] ✅ **Staff demo mock "live" pill** 🔧 — done _(2026-06-22)_: the "Early-alert queue · Live" pill is now
+  amber **"In development"** (gave `FmLive` a `tone="dev"` variant, styled like the rest of the app's dev
+  status). The neutral UI-state pills (Draft, Meeting, Routed, 3 new) stay as-is.
+- [x] ✅ **Reduced-motion: JS animations** 🔧 — done _(2026-06-22)_: gated the `HeroPhone` scene timers +
+  `AppDemos` CountUp (rAF) on `matchMedia(reduce)` (the `AdvisorBars` pattern), and added the 3 missing
+  `Moats` loops (np-care-live / np-tgl.flip / np-gov-knob) to the reduced-motion CSS.
 - [ ] **Decorative controls in the tab / SR tree** 🔧 — nudge-demo `<button>`s (`FeatureCards.jsx:80`), hero
   annotations, CampaignSections faux-chat read as real dead controls. `aria-hidden` / `tabIndex={-1}`.
 - [ ] **ROI calculator result silent to screen-readers** 🔧 — `RoiCalculator.jsx`, add `aria-live="polite"`.

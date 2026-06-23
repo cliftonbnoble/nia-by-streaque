@@ -26,6 +26,7 @@ function CountUp({ to, run, dur = 1400 }) {
   const [val, setVal] = useState(0);
   useEffect(() => {
     if (!run) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setVal(to); return; }
     let raf;
     const t0 = performance.now();
     const tick = (t) => {

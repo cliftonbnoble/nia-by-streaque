@@ -574,7 +574,7 @@ const MoatStyles = () => (
       .np-mac-side{ display: none; }
     }
     @media (prefers-reduced-motion: reduce){
-      .np-wire, .np-pop, .np-nodepop, .np-await-dot, .np-hub-halo{ animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
+      .np-wire, .np-pop, .np-nodepop, .np-await-dot, .np-hub-halo, .np-care-live i, .np-tgl.flip, .np-tgl.flip i, .np-gov-knob{ animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
     }
   `}</style>
 );
