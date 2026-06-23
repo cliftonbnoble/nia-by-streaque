@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import WholeStudent from "@/components/home/WholeStudent";
 import PilotStrip from "@/components/PilotStrip";
+import { SecCTA } from "@/components/home/CampaignSections";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
 
@@ -606,7 +607,13 @@ export default function HowNiaWorks() {
       <ForStaff/>
       <PilotStrip/>
       <CompletePicture/>
-      <Outcome/>
+      <SecCTA/>
+      <div style={{ background: "var(--ink)", padding: "30px 0 8px", textAlign: "center" }}>
+        <p style={{ fontSize: 14.5, color: "rgba(255,255,255,0.72)", margin: 0 }}>
+          Every answer is governed, encrypted, and yours.{" "}
+          <Link href="/security" style={{ color: "#8fe0f7", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>See how it&apos;s secured →</Link>
+        </p>
+      </div>
       </main>
       <Footer/>
     </div>
