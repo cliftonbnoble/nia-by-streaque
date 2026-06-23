@@ -8,7 +8,7 @@ import Qa from "./Qa";
 import { SecCTA } from "@/components/home/CampaignSections";
 
 export const metadata = {
-  title: "Nia · Streaque",
+  title: "Why Nia · Nia by Streaque",
   description:
     "Nia is an ongoing relationship, not a 1-minute chat. Built outward from the student's whole journey, on your data, governed by your institution.",
 };

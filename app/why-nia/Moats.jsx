@@ -248,7 +248,7 @@ const EngineVisual = () => (
         <div className="np-eng-good">
           <div className="np-eng-box np-rise" style={{ animationDelay: "1100ms" }}>
             <span className="np-eng-box-h"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg> Institutional Data Engine</span>
-            <code className="np-eng-sql"><span className="np-kw">SELECT</span> remaining<br/><span className="np-kw">FROM</span> aid_awards<br/><span className="np-kw">WHERE</span> student = &lsquo;maya.j&rsquo;</code>
+            <code className="np-eng-sql"><span className="np-kw">SELECT</span> remaining<br/><span className="np-kw">FROM</span> aid_awards<br/><span className="np-kw">WHERE</span> student = &lsquo;maya.r&rsquo;</code>
           </div>
           <span className="np-eng-down np-pop" style={{ animationDelay: "1700ms" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>

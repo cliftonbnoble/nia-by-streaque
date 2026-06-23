@@ -5,7 +5,7 @@ import { ArrowRight, Dot } from "@/components/icons";
 import ContactForm from "./ContactForm";
 
 export const metadata = {
-  title: "Contact · Streaque",
+  title: "Contact · Nia by Streaque",
   description:
     "Start a pilot conversation or request the investor brief. Real responses from real people, within one business day.",
 };

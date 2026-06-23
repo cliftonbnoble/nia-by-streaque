@@ -54,15 +54,18 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   headline in `aria-live="polite"`, so the protected-tuition figure announces as the sliders move.
 - [x] ✅ **Contact form `autoComplete`** 🔧 — done _(2026-06-22)_: `name` / `email` / `organization` /
   `organization-title` on the four relevant fields (mobile autofill on the main conversion surface).
-- [ ] **Why-Nia `<title>` stale** 🔧 — `why-nia/page.jsx:11` "Nia · Streaque" → "Why Nia · Nia by Streaque";
-  `contact/page.jsx:8` "Contact · Streaque" → add "by".
-- [ ] **why-nia mock identity mismatch** 🔧 — `Moats.jsx:251` `'maya.j'` → `'maya.r'` (student is Maya Reyes).
+- [x] ✅ **Why-Nia + Contact `<title>` stale** 🔧 — done _(2026-06-23)_: `why-nia` → "Why Nia · Nia by Streaque",
+  `contact` → "Contact · Nia by Streaque" — both now match the `X · Nia by Streaque` pattern every other page uses.
+- [x] ✅ **why-nia mock identity mismatch** 🔧 — done _(2026-06-23)_: `Moats.jsx:251` `'maya.j'` → `'maya.r'`.
+  Audited the whole codebase — every other Maya reference was already "Maya Reyes"; this was the only stray.
 - [x] ✅ **Security compliance gantt — keyboard/SR reach** 🔧 — done _(2026-06-22)_: the roadmap scroller now
   `tabIndex={0}` + `role="region"` + an aria-label, matching the architecture scroller.
-- [ ] **Investors hero `<h1>` doesn't scale** 🔧 — `investors/page.jsx:85` fixed `fontSize:50` → responsive
-  clamp; same `:450` h2.
-- [ ] **Investors "See the product depth →"** 🔧 — points at /why-nia (the argument). Reword + use `<ArrowRight/>`.
-- [ ] **Device-demo numbers could read as outcome claims** 🔧 — Platform mocks; add a small "Illustrative" label.
+- [x] ✅ **Investors hero `<h1>` doesn't scale** 🔧 — done _(2026-06-23)_: hero h1 → `clamp(32px, 6vw, 50px)`
+  and the "ask" h2 → `clamp(28px, 5.2vw, 42px)`; verified light + 2-line at 375px.
+- [x] ✅ **Investors "See the product depth →"** 🔧 — done _(2026-06-23)_: → **"See why Nia wins"** with the
+  `<ArrowRight/>` component (replaces the literal arrow), matching the page's actual job.
+- [ ] ⏸ **Device-demo numbers could read as outcome claims** 🔧 — Platform mocks; add a small "Illustrative"
+  label. _(Held 2026-06-23 — you want to pin down exactly which numbers this means first.)_
 
 ### P2 — polish wins
 - [ ] **CTAs bypass the captured form** 🔧 _(Audit #05)_ — `Request security packet`, `Request DPA`, the

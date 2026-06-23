@@ -82,7 +82,7 @@ export default function InvestorsPage() {
           <div className="iv-hero-grid">
             <div className="iv-hero-copy">
               <span className="mf-eyebrow">For investors</span>
-              <h1 style={{ marginTop: 18, fontSize: 50, letterSpacing: "-0.03em", lineHeight: 1.06 }}>
+              <h1 style={{ marginTop: 18, fontSize: "clamp(32px, 6vw, 50px)", letterSpacing: "-0.03em", lineHeight: 1.06 }}>
                 Invest in the <span className="mf-grad-text">AI layer</span> for higher education.
               </h1>
               <p className="mf-hero-sub" style={{ marginTop: 20, maxWidth: 520 }}>
@@ -94,8 +94,8 @@ export default function InvestorsPage() {
                 <Link href="/contact#form-investor" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
                   Request the full brief <ArrowRight/>
                 </Link>
-                <Link href="/why-nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>
-                  See the product depth →
+                <Link href="/why-nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+                  See why Nia wins <ArrowRight/>
                 </Link>
               </div>
             </div>
@@ -447,7 +447,7 @@ export default function InvestorsPage() {
         <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
         <div className="mf-container" style={{ position: "relative", maxWidth: 760, textAlign: "center" }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>The ask</span>
-          <h2 style={{ color: "white", margin: "18px 0 0", fontSize: 42, lineHeight: 1.12, letterSpacing: "-0.02em" }}>
+          <h2 style={{ color: "white", margin: "18px 0 0", fontSize: "clamp(28px, 5.2vw, 42px)", lineHeight: 1.12, letterSpacing: "-0.02em" }}>
             We&apos;re raising to build out the <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>staff tool</span>.
           </h2>
           <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 600, margin: "18px auto 0", fontSize: 16, lineHeight: 1.6 }}>
