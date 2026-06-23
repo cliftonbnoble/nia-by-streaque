@@ -84,7 +84,10 @@ The only things between a 9.4 and a 10 — not craft, not code; what a site can'
   hero is SVG/text (the home hero's only `<img>` is commented out). The real LCP candidates are the home
   two-door CSS-background photos (2nd section); optimizing those is a measured preload pass, not a one-line
   flip. Deferred pending a Lighthouse check — flag if you want the image-perf pass.
-- [ ] **Contact inputs: focus state + tap targets** 🔧 — branded `:focus` ring; interest chips 34px → ~40px.
+- [x] ✅ **Contact inputs: focus state + tap targets** 🔧 — done _(2026-06-23)_: a scoped `#form` `:focus` rule
+  gives every input/select/textarea a branded ring (brand-blue border + soft halo) — activating the
+  previously-dead border/shadow transition; interest chips bumped 34px → 40px tap targets + a keyboard
+  `:focus-visible` ring.
 - [ ] **Copy tightening** 🔧 — "FERPA-scoped" → "permission-scoped" (`how-nia-works:369`); investors thesis
   lead positive; `$52B` a one-clause basis; PullQuotes → curly quotes; relabel hero "6–8 weeks of sustained
   engagement" so it can't read as a retention result.

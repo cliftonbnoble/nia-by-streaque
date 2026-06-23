@@ -151,6 +151,13 @@ export default function ContactForm() {
 
   return (
     <section id="form" style={{ padding: "120px 0", background: "white", position: "relative" }}>
+      <style>{`
+        #form input:focus, #form select:focus, #form textarea:focus {
+          outline: none; border-color: var(--brand-blue) !important;
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-blue) 22%, transparent);
+        }
+        .cf-chip:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-blue) 22%, transparent); }
+      `}</style>
       {/* extra scroll targets so the path cards can land here with intent */}
       <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
       <span id="form-investor" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
@@ -249,7 +256,9 @@ export default function ContactForm() {
                       { v: "other", l: "Something else" },
                     ].map((opt) => (
                       <button key={opt.v} type="button" onClick={() => update("interest", opt.v)} aria-pressed={data.interest === opt.v}
+                        className="cf-chip"
                         style={{
+                          minHeight: 40, display: "inline-flex", alignItems: "center",
                           padding: "8px 16px", borderRadius: 999,
                           border: data.interest === opt.v ? "1px solid var(--brand-blue)" : "1px solid var(--line)",
                           background: data.interest === opt.v ? "var(--primary-50)" : "white",
