@@ -1,8 +1,8 @@
 # `/how-nia-works` ↔ `/nia` — overlap + clarity plan
 
-**Decision (2026-06-22):** keep BOTH pages, but (a) reduce the overlap, (b) make each
-page's job unmistakable, and (c) fix the naming/URLs. Do NOT merge. **Nothing below is
-built yet — this is the plan to review.**
+**Status: ✅ COMPLETE (2026-06-22).** Every section below is shipped + verified live — kept both
+pages, reduced the overlap, made each page's job clear, fixed the naming/URLs. Remaining *site*
+work (not part of this plan) lives in `BACKLOG.md`, the single working agenda.
 
 ---
 
@@ -75,7 +75,11 @@ with proof on the most-visited page, **Home-only** is the next-best — but **no
 
 ---
 
-## 4. Closing CTA — SecCTA ✅ (your pick)
+## 4. Closing CTA — SecCTA ✅ DONE & verified live (2026-06-22)
+
+**Shipped:** on `/how-nia-works`, replaced the Outcome dark band with **SecCTA** (the segmented
+provost/investor/partner closer), matching `/why-nia`. The Outcome's **"See how it's secured →"**
+link survives as a dark strip into the footer. (Outcome kept defined-but-unmounted for revert.)
 
 Use the richer, darker **SecCTA** (the segmented "find your door" 3-card: provost / investor
 / partner) as the closer.
@@ -97,8 +101,8 @@ the §1 rule: **say it once per page, through that page's lens (mechanics vs moa
 #01 "Early-warning system" → "Ranked early-alert queue"** — now the staff *surface* (the ranked
 queue they work from, matching the `WarningMock` visual), with copy that ties to the student
 side ("the same student Nia nudged, now at the top of your list"). The CompletePicture loop
-still ties the two together. _Remaining: confirm `/why-nia` Moat 01 reads as an argument (not a
-demo) when we touch that page — likely no change._
+still ties the two together. _✅ Confirmed (2026-06-22): `/why-nia` Moat 01 reads as an argument
+("Help arrives before they ask" — the regressive-success-tax case), not a demo. No change._
 
 Original: `/how-nia-works` (ForStudents #02 · ForStaff #01 · CompletePicture) **and** `/nia` (Moat 01).
 
@@ -142,10 +146,10 @@ Original: `/how-nia-works` (ForStudents #04 · ForStaff #03 · WholeStudent) **a
 ## 6. Implementation checklist (when you say go)
 
 - [x] ✅ PilotStrip → kept on Platform only; removed from `/why-nia`; Investors untouched.
-- [ ] `/how-nia-works`: swap **Outcome → SecCTA**; carry over the "See how it's secured →" link.
+- [x] ✅ `/how-nia-works`: swapped **Outcome → SecCTA**; carried the "See how it's secured →" link.
 - [x] ✅ `/how-nia-works`: reframed **ForStaff #01 → "Ranked early-alert queue"** (staff surface; ties to the student nudge).
 - [x] ✅ `/how-nia-works`: merged the two "one brain" lines into **"two views of one coach"** (student = "one coach"; staff = "the same coach").
-- [ ] `/nia`: confirm Moat 01 + Moat 02 read as *arguments* (no feature-demo overlap with Platform).
+- [x] ✅ `/why-nia`: confirmed Moat 01 + Moat 02 read as *arguments* (no feature-demo overlap). No change.
 - [x] ✅ Rename **`/nia → /why-nia`** + 301 redirect; nav **"Why Nia" → /why-nia**; nav/footer **"Product" → "Platform."**
 - [x] ✅ Repoint every `/nia` link (Nav ×2, Footer, investors ×2, sitemap, 404 quick-link). Verified live: 0 stray links.
 

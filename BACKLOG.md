@@ -1,7 +1,8 @@
 # Streaque / Nia — Site Backlog
 
-_Last updated: 2026-06-21 · Branch: `design-critique-fixes`_
-_Merges the working backlog + **Site Audit #04** (overall **8.7/10 — ship-ready**)._
+_Last updated: 2026-06-22 · Branch: `design-critique-fixes`_
+_Merges the working backlog + **Site Audit #04** (8.7/10) + the completed `docs/page-plan.md` IA
+cleanup. **This is the single working agenda.**_
 
 The site is already a professional, production-grade marketing site. The distance to
 a legit **10/10 is proof + one consistency fix, not craft** (audit's words). Items are
@@ -40,10 +41,10 @@ tagged by owner:
   word for a 4th spot (origin story / a student section).
 - [x] **Investor raise terms** ✅ _(2026-06-21)_ — gated. Dropped the public **$250K**; "The
   ask" keeps the use-of-funds story and routes to the requested brief (CTA → /contact#form-investor).
-- [ ] **Clarity pass** 🔧 — hero one-liner ("what Nia *is*" instantly clear?); Product vs
-  Why-Nia fork reads distinct?; confirm device-demo numbers don't read as real outcome claims.
-  _(Vocabulary sub-item ✅ audited 2026-06-21 — "LMS, SIS, and CRM" consistent; "Canvas + SIS"
-  deliberate; "agent" only in technical contexts vs "coach" for product. No changes needed.)_
+- [x] **Clarity pass** ✅ _(2026-06-22)_ — Product vs Why-Nia now read distinct (the full
+  `docs/page-plan.md` IA cleanup: naming/URLs + message de-dup). Hero one-liner left as-is (the
+  subcopy makes "what Nia is" clear); device-demo numbers read as illustrative product UI (one
+  demo student, no outcome claims); vocabulary audited clean.
 
 ## ⚪ Pre-launch checklist — mostly mechanical
 
@@ -71,6 +72,13 @@ tagged by owner:
 
 ## ✅ Done / verified — don't re-litigate
 
+- **Page IA cleanup (`docs/page-plan.md`) — ✅ done & verified live:** kept both product pages but
+  made them distinct — renamed `/nia → /why-nia` (301 redirect), nav/footer "Product" → "Platform",
+  one PilotStrip (Platform only), closer swapped Outcome → SecCTA, and the two repeated messages
+  de-duped ("proactive" → ranked early-alert queue; "one profile" → two views of one coach).
+- **Latest copy/UX (2026-06-22):** restored the home "A complete story" video section (section 3);
+  pilot copy "16 students" → "a full cohort"; glow status pills site-wide (replaced flat dots);
+  two-door cards redesigned (dark cards, sharper icons).
 - **Contact form — LIVE & working** on workers.dev: Turnstile → Worker `/api/lead` → Sheet
   row **and** email to info@streaque.com; honeypot + graceful mailto fallback (no trapped
   visitors) + invisible Turnstile box. _Audit: 8.5 — "better engineering than most funded
