@@ -10,7 +10,7 @@ const Tick = () => (
 );
 
 const Moat = ({ eyebrow, title, grad, body, points, alt, reverse, children }) => (
-  <section className={`mf-section${alt ? " alt" : ""}`}>
+  <section className={`mf-section${alt ? " alt" : ""}`} style={{ overflow: "hidden" }}>
     <div className="mf-container">
       <div className={`np-moat${reverse ? " np-moat-rev" : ""}`}>
         <div className="np-moat-copy">
@@ -25,7 +25,10 @@ const Moat = ({ eyebrow, title, grad, body, points, alt, reverse, children }) =>
             </ul>
           )}
         </div>
-        <div className="np-moat-vis">{children}</div>
+        <div className="np-moat-vis">
+          <span aria-hidden="true" className={`np-bloom ${reverse ? "np-bloom-purple" : "np-bloom-blue"}`}/>
+          {children}
+        </div>
       </div>
     </div>
   </section>
@@ -398,8 +401,14 @@ const MoatStyles = () => (
     .np-points{ list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 11px; }
     .np-points li{ display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
     .np-points-t{ flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: rgba(13,138,90,0.1); color: var(--success); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
-    .np-moat-vis{ min-width: 0; display: flex; justify-content: center; }
-    .np-vis-wrap{ width: 100%; display: flex; justify-content: center; }
+    .np-moat-vis{ min-width: 0; display: flex; justify-content: center; position: relative; }
+    .np-vis-wrap{ width: 100%; display: flex; justify-content: center; position: relative; z-index: 1; }
+    /* ambient bloom behind each moat visual — purple on the left (reversed
+       rows), blue on the right; mirrors the platform page, flipped, so the
+       brand color stays consistent across the app */
+    .np-bloom{ position: absolute; z-index: 0; inset: -10% -16%; filter: blur(50px); pointer-events: none; }
+    .np-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+    .np-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
 
     /* moat 1 — the desktop (MacBook Pro) view */
     .np-mac{ width: 100%; max-width: 500px; }
@@ -501,7 +510,7 @@ const MoatStyles = () => (
     .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
     .np-care-flow{ display: flex; align-items: center; gap: 8px; margin: 10px 6px; }
     .np-care-line{ flex: 1; height: 0; border-top: 1px dashed var(--line-2); }
-    .np-care-tag{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
+    .np-care-tag{ display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
     .np-care-adv{ border-color: rgba(35,86,201,0.25); box-shadow: 0 16px 36px -18px rgba(35,86,201,0.35); }
     .np-care-live{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--success); }
     .np-care-live i{ width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: np-blink 2s ease-in-out infinite; }
@@ -521,7 +530,7 @@ const MoatStyles = () => (
     .np-eng-q{ display: flex; align-items: center; gap: 9px; align-self: stretch; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; font-size: 13px; font-style: italic; color: var(--ink); box-shadow: var(--shadow-card); }
     .np-eng-ava img{ width: 26px; height: 26px; border-radius: 50%; display: block; }
     .np-eng-paths{ display: flex; flex-direction: column; gap: 10px; }
-    .np-eng-bad{ display: inline-flex; align-items: center; gap: 7px; align-self: center; font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-4); text-decoration: line-through; text-decoration-color: rgba(154,160,180,0.6); }
+    .np-eng-bad{ display: inline-flex; align-items: center; gap: 7px; align-self: center; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); text-decoration: line-through; text-decoration-color: rgba(107,113,135,0.55); }
     .np-eng-x{ text-decoration: none; color: #c2410c; font-weight: 700; }
     .np-eng-good{ display: flex; flex-direction: column; align-items: center; gap: 0; }
     .np-eng-box{ width: 100%; background: var(--ink); border-radius: 14px; padding: 13px 15px; box-shadow: 0 18px 40px -18px rgba(11,16,32,0.6); }
