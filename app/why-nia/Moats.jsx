@@ -320,7 +320,7 @@ export default function Moats() {
         eyebrow="Proactive intervention"
         title="Help arrives"
         grad="before they ask."
-        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask, so Nia goes first — before a small stumble quietly compounds into a stall."
+        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask, so Nia goes first, before a small stumble quietly compounds into a stall."
         points={["Watches signals across every system, not a single inbox", "Opens the conversation the moment a risk appears", "Turns a silent hold into a two-tap fix"]}
         reverse
       >

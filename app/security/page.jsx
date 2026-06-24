@@ -340,7 +340,7 @@ const Roadmap = () => (
             <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 10, padding: "3px 9px", borderRadius: 999, background: "var(--primary-50)", color: "var(--primary)", fontWeight: 600 }}>2025 → 2027</span>
           </div>
 
-          <div className="rm-scroll" tabIndex={0} role="region" aria-label="Compliance roadmap timeline, 2025 to 2027 — scroll horizontally to see all phases">
+          <div className="rm-scroll" tabIndex={0} role="region" aria-label="Compliance roadmap timeline, 2025 to 2027. Scroll horizontally to see all phases">
           {/* quarter axis */}
           <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 8px", borderBottom: "1px solid var(--line)" }}>
             <span/>

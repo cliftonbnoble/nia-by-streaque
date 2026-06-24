@@ -58,7 +58,7 @@ const Hero = () => (
             <div className="mf-hero-meta-stat"><span className="num">Live</span><span className="lbl">pilot at a top-tier R1</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal — and we&apos;ll walk you through the full pilot results, openly.{" "}
+            Engagement is the early signal, and we&apos;ll walk you through the full pilot results, openly.{" "}
             <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Ask us for the results →</Link>
           </p>
         </div>

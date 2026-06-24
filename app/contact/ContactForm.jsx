@@ -102,7 +102,7 @@ export default function ContactForm() {
     // protection is unchanged — this just opens their mail client, never the API.
     if (tsBroken) { mailtoSubmit(); return; }
 
-    if (!token) { setError("One moment — just finishing a quick security check. Please send again."); return; }
+    if (!token) { setError("One moment, just finishing a quick security check. Please send again."); return; }
     setSending(true);
     setError("");
     const params = new URLSearchParams(window.location.search);
