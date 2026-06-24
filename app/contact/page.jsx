@@ -162,13 +162,13 @@ const InvestorArt = () => (
 
 const Paths = () => {
   const paths = [
-    { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", accent: "43,179,223", color: "var(--brand-cyan)", Art: PilotArt },
-    { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", accent: "56,65,177", color: "var(--brand-blue)", Art: FoundersArt },
-    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
+    { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", color: "var(--brand-cyan)", Art: PilotArt },
+    { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", color: "var(--brand-blue)", Art: FoundersArt },
+    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", color: "#7c3aed", Art: InvestorArt },
   ];
 
   return (
-    <section style={{ padding: "80px 0", background: "var(--bg-alt)" }}>
+    <section style={{ padding: "80px 0", background: "var(--bg-alt)", overflow: "hidden" }}>
       <div className="mf-container">
         <div className="mf-section-head" style={{ marginBottom: 48 }}>
           <span className="mf-eyebrow">Three ways in</span>
@@ -176,9 +176,10 @@ const Paths = () => {
         </div>
 
         <div className="cp-grid">
-          {paths.map(({ eyebrow, title, body, cta, href, accent, color, Art }) => (
-            <a key={title} href={href} className="cp-card">
-              <span className="cp-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
+          {paths.map(({ eyebrow, title, body, cta, href, color, Art }, i) => (
+            <div key={title} className="cp-cell">
+              <span aria-hidden="true" className={`cp-bloom ${i === 1 ? "cp-bloom-purple" : "cp-bloom-blue"}`}/>
+              <a href={href} className="cp-card">
               <div className="cp-art"><Art/></div>
               <div className="cp-meta">
                 <span className="mf-eyebrow" style={{ fontSize: 11, color }}>{eyebrow}</span>
@@ -186,7 +187,8 @@ const Paths = () => {
                 <p style={{ margin: "10px 0 0", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55 }}>{body}</p>
                 <span className="cp-cta" style={{ color }}>{cta} <ArrowRight s={14}/></span>
               </div>
-            </a>
+              </a>
+            </div>
           ))}
         </div>
       </div>
@@ -196,31 +198,31 @@ const Paths = () => {
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
         }
+        .cp-cell{ position: relative; }
         .cp-card{
           position: relative;
+          z-index: 1;
+          height: 100%;
           overflow: hidden;
           display: flex;
           flex-direction: column;
           text-decoration: none;
           color: inherit;
-          background: #FBFCFE;
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid rgba(15,23,42,0.06);
           border-radius: 18px;
-          transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+          box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+          transition: transform 220ms ease, box-shadow 220ms ease;
         }
         .cp-card:hover{
-          transform: translateY(-4px);
-          box-shadow: 0 24px 48px -18px rgba(15,23,42,0.16);
-          border-color: #D8DEF0;
+          transform: translateY(-6px);
+          box-shadow: 0 34px 62px -24px rgba(31,52,128,0.40), 0 10px 20px -8px rgba(31,52,128,0.16);
         }
-        .cp-glow{
-          position: absolute;
-          width: 380px; height: 380px;
-          left: 50%; top: -210px;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          pointer-events: none;
-        }
+        /* colored bloom behind each card — blue, purple, blue — sitting under
+           the card's float shadow, matching the platform/why-nia treatment */
+        .cp-bloom{ position: absolute; z-index: 0; inset: -11.5% -18.5%; filter: blur(50px); pointer-events: none; }
+        .cp-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+        .cp-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
         .cp-art{ position: relative; height: 168px; }
         .cp-svg{ width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 14px rgba(31,52,128,0.08)); }
         .cp-meta{
@@ -244,7 +246,7 @@ const Paths = () => {
         @keyframes cp-type{ 0%,100%{ opacity: 0.35; } 50%{ opacity: 1; } }
         @media (max-width: 1020px){
           .cp-grid{ grid-template-columns: 1fr; }
-          .cp-card{ max-width: 470px; width: 100%; margin: 0 auto; }
+          .cp-cell{ max-width: 470px; width: 100%; margin: 0 auto; }
         }
         @media (prefers-reduced-motion: reduce){
           .cp-bob, .cp-dot{ animation: none; }
