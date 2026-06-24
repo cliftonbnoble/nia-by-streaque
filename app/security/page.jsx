@@ -227,7 +227,7 @@ const WhyPage = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "start" }}>
         <div>
           <span className="mf-eyebrow">Why this page exists</span>
-          <h2 style={{ marginTop: 14 }}>One question, <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>fully answered.</em></h2>
+          <h2 style={{ marginTop: 14 }}>One question, <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>fully answered.</em></h2>
         </div>
         <div>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink-2)" }}>
@@ -314,7 +314,7 @@ const Roadmap = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.78fr 1.22fr", gap: 56, alignItems: "start" }}>
         <div style={{ position: "sticky", top: 24 }}>
           <span className="mf-eyebrow">Compliance & roadmap</span>
-          <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Built for it. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
             The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet. It's on our roadmap; here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
@@ -413,7 +413,7 @@ const Ask = () => (
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">What to ask us next</span>
-        <h2 style={{ marginTop: 14 }}>Ask us. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Then ask every other vendor.</em></h2>
+        <h2 style={{ marginTop: 14 }}>Ask us. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>Then ask every other vendor.</em></h2>
         <p>Six questions worth answering in writing, from us and from anyone we're competing with.</p>
       </div>
       <div className="ask-grid">

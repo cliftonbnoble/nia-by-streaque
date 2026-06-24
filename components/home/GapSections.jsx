@@ -28,7 +28,7 @@ export const FAQ = ({ alt = true }) => {
             <h2 style={{ marginTop: 14 }}>The questions <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>your CIO will ask.</em></h2>
             <p style={{ marginTop: 16, fontSize: 15 }}>Short answers here. Long answers (security white paper, DPA, vendor questionnaire) are one request away.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
-              <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
+              <a href="/contact#form-security" className="mf-btn mf-btn-primary mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
             </div>
           </div>
           <div>
