@@ -76,8 +76,8 @@ const StatStyles = () => (
     .iv-cell{ position: relative; display: flex; }
     .iv-cell > :not(.iv-bloom){ position: relative; z-index: 1; width: 100%; background: #fff; }
     .iv-bloom{ position: absolute; z-index: 0; inset: -10% -14%; filter: blur(44px); pointer-events: none; }
-    .iv-bloom-blue{ background: radial-gradient(60% 62% at 50% 50%, rgba(84,201,255,0.60), transparent 74%); }
-    .iv-bloom-purple{ background: radial-gradient(60% 62% at 50% 50%, rgba(123,103,241,0.55), transparent 74%); }
+    .iv-bloom-blue{ background: radial-gradient(60% 62% at 50% 50%, rgba(84,201,255,0.69), transparent 74%); }
+    .iv-bloom-purple{ background: radial-gradient(60% 62% at 50% 50%, rgba(123,103,241,0.63), transparent 74%); }
     @media (max-width: 860px){
       .iv-statgrid.four, .iv-statgrid.three{ grid-template-columns: repeat(2, 1fr); }
     }
