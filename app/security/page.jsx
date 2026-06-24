@@ -401,11 +401,9 @@ const Roadmap = () => (
 
 const ASK_QUESTIONS = [
   "Where do my students' encryption keys live, and who has access to them?",
-  "If your codebase leaks tomorrow, what happens to my data?",
   "Do you train your AI models on student conversations?",
   "What happens if one of your other customers gets breached? Could it affect us?",
   "How quickly will you tell us if there's a security incident, and what's in that notification?",
-  "Can I see your most recent penetration test report and your SOC 2 attestation?",
   "What identity provider do you support? Can students sign in with existing university credentials?",
   "How is data deleted when our contract ends? How do I verify it?",
 ];
@@ -416,7 +414,7 @@ const Ask = () => (
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">What to ask us next</span>
         <h2 style={{ marginTop: 14 }}>Ask us. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Then ask every other vendor.</em></h2>
-        <p>Eight questions worth answering in writing, from us and from anyone we're competing with.</p>
+        <p>Six questions worth answering in writing, from us and from anyone we're competing with.</p>
       </div>
       <div className="ask-grid">
         {ASK_QUESTIONS.map((q, i) => (

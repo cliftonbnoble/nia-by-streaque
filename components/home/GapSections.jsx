@@ -29,7 +29,6 @@ export const FAQ = ({ alt = true }) => {
             <p style={{ marginTop: 16, fontSize: 15 }}>Short answers here. Long answers (security white paper, DPA, vendor questionnaire) are one request away.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
               <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
-              <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request DPA</a>
             </div>
           </div>
           <div>
