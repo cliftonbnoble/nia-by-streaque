@@ -248,7 +248,7 @@ const TechPrivacy = () => {
   const cards = [
     { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", color: "var(--brand-cyan)", Art: PromiseArt },
     { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", color: "#B91C1C", Art: NeverArt },
-    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", color: "#7c3aed", Art: ComplianceArt },
+    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "Per-tenant encryption, federated login, and SAM.gov registration today. FERPA and GDPR by default; SOC 2 and pen testing on the roadmap.", cta: "See the full posture", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
     <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FFFFFF 0%, #F3F6FF 100%)" }}>
