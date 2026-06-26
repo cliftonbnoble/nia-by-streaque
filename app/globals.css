@@ -1010,10 +1010,11 @@ html, body { margin: 0; padding: 0; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: box-shadow 220ms ease;
   background: var(--bg-alt);
 }
-.mf-team-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+/* light up on hover (brand glow + brighter photo) rather than lift */
+.mf-team-card:hover { box-shadow: 0 0 0 1.5px rgba(84,201,255,0.6), 0 18px 40px -18px rgba(56,65,177,0.5); }
 .mf-team-photo {
   width: 100%;
   height: auto;
@@ -1021,7 +1022,9 @@ html, body { margin: 0; padding: 0; }
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 18%;
+  transition: filter 220ms ease;
 }
+.mf-team-card:hover .mf-team-photo { filter: brightness(1.06) saturate(1.03); }
 .mf-team-overlay {
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -1031,11 +1034,45 @@ html, body { margin: 0; padding: 0; }
 }
 .mf-team-name {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.01em;
   color: white;
-  line-height: 1.15;
+  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+}
+.mf-team-fn {
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+/* last name staggered under the first, with the founder's LinkedIn icon trailing */
+.mf-team-ln {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 14px;
+  margin-top: 2px;
+  font-weight: 500;
+  font-size: 14.5px;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.92);
+}
+.mf-team-li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.62);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+.mf-team-li:hover {
+  color: #fff;
+  background: #0A66C2;
+  border-color: #0A66C2;
+  transform: translateY(-1px);
 }
 .mf-team-role {
   font-family: var(--font-mono);
@@ -1043,7 +1080,7 @@ html, body { margin: 0; padding: 0; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.72);
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 /* (mascot accent removed — class was unused and its asset archived) */

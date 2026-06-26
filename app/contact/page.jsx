@@ -258,13 +258,19 @@ const Paths = () => {
 
 /* ── The team — moved here from the former /about page ── */
 const TEAM = [
-  { name: "Luke", role: "CEO", img: "/team/luke.jpg" },
-  { name: "Clifton", role: "CTO", img: "/team/clifton.jpg" },
-  { name: "Amit", role: "AI Lead", img: "/team/amit.jpg" },
-  { name: "Bhavadeep", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
-  { name: "Sunil", role: "Engineering", img: "/team/sunil.jpg" },
-  { name: "Pundlik", role: "DBA", img: "/team/pundlik.jpg" },
+  { first: "Luke", last: "Jubb", role: "CEO", img: "/team/luke.jpg", linkedin: "https://www.linkedin.com/in/lukejubb/" },
+  { first: "Clifton", last: "Noble", role: "CTO", img: "/team/clifton.jpg", linkedin: "https://www.linkedin.com/in/clifton-noble/" },
+  { first: "Amit", last: "Kumar Singh", role: "AI Lead", img: "/team/amit.jpg" },
+  { first: "Bhavadeep", last: "Magham", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
+  { first: "Sunil", last: "Prakash", role: "Engineering", img: "/team/sunil.jpg" },
+  { first: "Pundlik", last: "Rathod", role: "DBA", img: "/team/pundlik.jpg" },
 ];
+
+const LinkedInGlyph = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/>
+  </svg>
+);
 
 const Team = () => (
   <section className="mf-section" id="team">
@@ -279,10 +285,21 @@ const Team = () => (
       </div>
       <div className="mf-team-grid" style={{ marginTop: 40 }}>
         {TEAM.map((m) => (
-          <div key={m.name} className="mf-team-card">
-            <img src={m.img} alt={`${m.name}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
+          <div key={m.first} className="mf-team-card">
+            <img src={m.img} alt={`${m.first} ${m.last}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
             <div className="mf-team-overlay">
-              <div className="mf-team-name">{m.name}</div>
+              <div className="mf-team-name">
+                <span className="mf-team-fn">{m.first}</span>
+                <span className="mf-team-ln">
+                  {m.last}
+                  {m.linkedin && (
+                    <a className="mf-team-li" href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                       aria-label={`${m.first} ${m.last} on LinkedIn`}>
+                      <LinkedInGlyph/>
+                    </a>
+                  )}
+                </span>
+              </div>
               <div className="mf-team-role">{m.role}</div>
             </div>
           </div>
