@@ -54,8 +54,8 @@ export default function OutsideInPhone() {
             const x1 = Math.cos(rad) * 296, y1 = Math.sin(rad) * 296;
             const x2 = Math.cos(rad) * 168, y2 = Math.sin(rad) * 168;
             return (
-              <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#A7ADBD" strokeWidth="1.4" strokeDasharray="3 9" strokeLinecap="round" opacity="0.6">
-                <animate attributeName="stroke-dashoffset" values="0;-24" dur="1.8s" repeatCount="indefinite"/>
+              <line key={deg} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#A7ADBD" strokeWidth="1.4" strokeDasharray="5 14" strokeLinecap="round" opacity="0.6">
+                <animate attributeName="stroke-dashoffset" values="0;-38" dur="1.8s" repeatCount="indefinite"/>
               </line>
             );
           })}
@@ -141,7 +141,7 @@ export default function OutsideInPhone() {
         .oi-ring {
           position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
           width: var(--d); height: var(--d); border-radius: 50%;
-          border: 1.5px dashed rgba(110,117,136, var(--o));
+          border: 2px dashed rgba(110,117,136, var(--o));
           animation: oi-churn 90s linear infinite;
           pointer-events: none;
         }

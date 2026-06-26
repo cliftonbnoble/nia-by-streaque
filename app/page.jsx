@@ -23,7 +23,7 @@ const Hero = () => (
             <span className="mf-grad-text">every student,</span><br/>
             answered.
           </h1>
-          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 500, color: "var(--ink-2)", maxWidth: 540 }}>
+          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 600, color: "var(--ink)", maxWidth: 540 }}>
             Student success, governed by your institution. Built on your LMS, SIS, and CRM.
           </p>
           <p className="mf-hero-sub">
@@ -43,9 +43,7 @@ const Hero = () => (
           </div>
           {/* ownership lockup — the governance differentiator, set apart from the pilot proof */}
           <div className="mf-hero-own">
-            <span className="mf-hero-own-ic" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
+            <img className="mf-hero-own-ic" src="/lock-institution.png" alt="" aria-hidden="true" width="34" height="34"/>
             <span className="mf-hero-own-txt">
               <span className="mf-hero-own-top"><span className="mf-grad-text">100%</span> institution-owned</span>
               <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>
@@ -82,8 +80,7 @@ const Hero = () => (
               <path d="M9 28 L 15.5 24.5 M 9 28 L 9.5 20.5"/>
             </svg>
           </div>
-          {/* pilot validation quote, overlaid in the gradient band below the phones
-              (absolute — does not grow the stage or move the phones) */}
+          {/* pilot validation quote, overlaid in the gradient band below the phones */}
           <figure className="mf-hero-quote">
             <blockquote>&ldquo;It&rsquo;s like having an advisor who&rsquo;s already read my file.&rdquo;</blockquote>
             <figcaption>Pilot evaluator, Summer 2026 cohort</figcaption>
@@ -121,7 +118,7 @@ const TwoExperiences = () => (
           <span className="tfd-body">
             <span className="tfd-aud">For staff</span>
             <span className="tfd-h">A co-pilot at the desk</span>
-            <span className="tfd-p">An early-alert queue, live cohort signals, and outreach drafted in your advisor&apos;s voice.</span>
+            <span className="tfd-p">An early-alert queue, live cohort signals, and outreach drafted in your voice.</span>
           </span>
           <span className="tfd-arrow" aria-hidden="true"><ArrowRight/></span>
         </Link>
