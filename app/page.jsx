@@ -27,8 +27,7 @@ const Hero = () => (
             Student success, governed by your institution. Built on your LMS, SIS, and CRM.
           </p>
           <p className="mf-hero-sub">
-            Nia spots the student who&apos;s quietly slipping and opens the conversation first: warm,
-            evidence-based, grounded in the data you already trust.
+            Nia spots the student quietly slipping and reaches out first, grounded in data you already trust.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
@@ -53,13 +52,12 @@ const Hero = () => (
             </span>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of sustained engagement</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">pilot demand consensus</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">Live</span><span className="lbl">pilot at a top-tier R1</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">Live</span><span className="lbl">pilot running now</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal, and we&apos;ll walk you through the full pilot results, openly.{" "}
-            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Ask us for the results →</Link>
+            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>See the full pilot results →</Link>
           </p>
         </div>
 
@@ -84,6 +82,12 @@ const Hero = () => (
               <path d="M9 28 L 15.5 24.5 M 9 28 L 9.5 20.5"/>
             </svg>
           </div>
+          {/* pilot validation quote, overlaid in the gradient band below the phones
+              (absolute — does not grow the stage or move the phones) */}
+          <figure className="mf-hero-quote">
+            <blockquote>&ldquo;It&rsquo;s like having an advisor who&rsquo;s already read my file.&rdquo;</blockquote>
+            <figcaption>Pilot evaluator, Summer 2026 cohort</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -113,7 +117,7 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-staff" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/staff.jpg)", backgroundPosition: "center 30%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
-          <span className="tfd-status tfd-status-dev">In development</span>
+          <span className="tfd-status tfd-status-dev">Beta · Fall 2026</span>
           <span className="tfd-body">
             <span className="tfd-aud">For staff</span>
             <span className="tfd-h">A co-pilot at the desk</span>

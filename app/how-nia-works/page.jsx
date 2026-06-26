@@ -69,7 +69,7 @@ const TwoPaths = () => (
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/><path d="M12 12 19.5 4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="7.5" r="1.35" fill="currentColor" stroke="none"/></svg>
             </span>
             <span className="hnw-door-eyebrow">For staff</span>
-            <span className="hnw-door-status hnw-door-dev">In development</span>
+            <span className="hnw-door-status hnw-door-dev">Beta · Fall 2026</span>
           </div>
           <h3 className="hnw-door-h">A co-pilot at the desk.</h3>
           <ul className="hnw-door-points">
@@ -531,7 +531,7 @@ const ForStaff = () => (
   <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84, overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">In development</span>
+        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">Beta · Fall 2026</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
         <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first. <strong style={{ color: "var(--inprogress)", fontWeight: 600 }}>Shipping next.</strong></p>
       </div>

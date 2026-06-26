@@ -135,7 +135,7 @@ const DELTAS = [
 const SmartDemo = () => (
   <div className="fd-stage center">
     <div className="fd-row">
-      <span className="fd-tag">NUDGE OPEN-RATE · 8 WK</span>
+      <span className="fd-tag">NUDGE OPEN-RATE · 8 WK · ILLUSTRATIVE</span>
       <span className="fs-delta">
         {DELTAS.map((d) => (
           <span key={d.v} className="fs-delta-v" style={{

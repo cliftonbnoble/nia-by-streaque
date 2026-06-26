@@ -31,15 +31,15 @@ export const SecProblem = () => {
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head">
           <span className="mf-eyebrow">The problem</span>
-          <h2 style={{ marginTop: 14 }}>Each office holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>No one holds the whole.</em></h2>
-          <p style={{ marginTop: 16 }}>Every team sees the student through the one window they own. The student falls through the gaps between the windows.</p>
+          <h2 style={{ marginTop: 14 }}>Each system holds a piece. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>No one holds the whole.</em></h2>
+          <p style={{ marginTop: 16 }}>Every team sees the student through the one window they own. The student falls through the gaps between them, and 40% never reach year two.</p>
         </div>
 
         <OfficeCards/>
 
         <figure style={{ margin: "72px auto 0", maxWidth: 1000 }}>
           <blockquote style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 42, lineHeight: 1.16, letterSpacing: "-0.025em", color: "var(--ink)", margin: 0 }}>
-            Students don't leave because they fail. They leave because every office only sees <span className="mf-grad-text">its own slice.</span>
+            Students don't leave because they fail. They leave because every system only sees <span className="mf-grad-text">its own slice.</span>
           </blockquote>
         </figure>
       </div>
@@ -67,7 +67,7 @@ export const SecArchitecture = () => (
           <div className="ioc-stage"><PauseOffscreen><InsideOutPhone/></PauseOffscreen></div>
           <div className="ioc-text">
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "var(--ink-2)", margin: 0 }}>
-              Live LMS, SIS, and CRM data, campus resources, and the student's own profile are in hand
+              Live LMS, SIS, and CRM data, campus resources, and the student's own profile, all in hand
               <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
             </p>
             <div className="ioc-chips">
@@ -212,7 +212,7 @@ export const SecAdvisors = () => {
             <span className="mf-eyebrow">For advisors</span>
             <h2 style={{ marginTop: 14 }}>Advisors don't want AI to replace them. <em className="mf-grad-text" style={{ fontStyle: "normal" }}>They want their time back.</em></h2>
             <p style={{ marginTop: 18, fontSize: 16, lineHeight: 1.6 }}>
-              Advisors don't spend their day mentoring. They spend it retrieving fragmented data and triaging crises they could have seen coming. Nia reclaims that capacity, so they can do the work only humans can do: build trust, offer perspective, hold space.
+              Advisors don't spend their day mentoring. They spend it retrieving fragmented data and triaging crises they could have seen coming. Nia reclaims the 60% of advisor time lost to admin triage, so they can do the work only humans can do: build trust, offer perspective, hold space.
             </p>
             <p style={{ marginTop: 24, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 24, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
               You can't automate belonging. <span className="mf-grad-text">But you can automate the barriers that prevent it.</span>
@@ -235,8 +235,8 @@ export const SecProof = () => (
     <div className="mf-container" style={{ position: "relative", maxWidth: 760, textAlign: "center" }}>
       <span className="mf-eyebrow">Why we built it</span>
       <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.7, color: "var(--ink-2)" }}>
-        We built Nia for the students least likely to ask for help. Then a cohort of graduate students
-        studying student success tested it, and pushed back, nearly in unison:
+        We built Nia for the students least likely to ask for help. Then a cohort of undergraduate
+        evaluators put Nia through a worst-case stress-test and pushed back:
       </p>
       {/* the pushback, as a real pull-quote — the anchor the section was missing */}
       <figure style={{ position: "relative", margin: "30px auto 0", maxWidth: 620, background: "#fff", border: "1px solid var(--line)", borderRadius: "var(--radius-xl)", padding: "42px 38px 28px", boxShadow: "0 30px 60px -34px rgba(31,52,128,0.28)" }}>
@@ -245,7 +245,7 @@ export const SecProof = () => (
           Why are you building this only for marginalized students? <span className="mf-grad-text" style={{ paddingRight: "0.06em" }}>All</span> students need this.
         </blockquote>
         <figcaption style={{ marginTop: 18, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-3)" }}>
-          A graduate cohort studying student success
+          An undergraduate evaluator · Pilot cohort
         </figcaption>
       </figure>
       <p style={{ marginTop: 30, fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 32, lineHeight: 1.25, letterSpacing: "-0.02em", color: "var(--ink)" }}>
