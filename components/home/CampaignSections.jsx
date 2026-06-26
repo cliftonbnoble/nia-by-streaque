@@ -71,9 +71,10 @@ export const SecArchitecture = () => (
               <strong> before a single answer is written.</strong> The global model is the last resort, not the first.
             </p>
             <div className="ioc-chips">
-              {["Student data first", "Campus context second", "Global model last"].map((t) => (
-                <span key={t} className="ioc-chip">{t}</span>
-              ))}
+              {["Student data first", "Campus context second", "Global model last"].flatMap((t, i) => [
+                <span key={t} className="ioc-chip">{t}</span>,
+                i === 1 ? <span key={t + "-br"} className="ioc-break" aria-hidden="true"/> : null,
+              ])}
             </div>
           </div>
         </div>
@@ -88,9 +89,10 @@ export const SecArchitecture = () => (
               <strong> Every conversation begins with a stranger.</strong> A search box with manners.
             </p>
             <div className="ioc-chips">
-              {["Web text first", "Context-blind logic", "Your student, last"].map((t) => (
-                <span key={t} className="ioc-chip ghost">{t}</span>
-              ))}
+              {["Web text first", "Context-blind logic", "Your student, last"].flatMap((t, i) => [
+                <span key={t} className="ioc-chip ghost">{t}</span>,
+                i === 1 ? <span key={t + "-br"} className="ioc-break" aria-hidden="true"/> : null,
+              ])}
             </div>
           </div>
         </div>
@@ -107,6 +109,8 @@ export const SecArchitecture = () => (
       .ioc-text{ display:flex; flex-direction:column; flex:1; }
       .ioc-text p{ flex:1; }
       .ioc-chips{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; justify-content:center; }
+      /* force a row break after the 2nd chip so both columns read 2 + 1, matched */
+      .ioc-break{ flex-basis:100%; height:0; }
       .ioc-chip{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.04em; padding:6px 12px; border-radius:999px; background:white; border:1px solid rgba(61,78,216,0.18); color:var(--ink-2); }
       .ioc-chip.ghost{ border:1px dashed #C9CDD7; color:var(--ink-3); background:transparent; }
       @media (max-width:760px){ .ioc-grid{ grid-template-columns:1fr; } }
