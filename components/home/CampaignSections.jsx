@@ -88,7 +88,7 @@ export const SecArchitecture = () => (
               <strong> Every conversation begins with a stranger.</strong> A search box with manners.
             </p>
             <div className="ioc-chips">
-              {["Web text first", "Context-blind logic", "Your student, never"].map((t) => (
+              {["Web text first", "Context-blind logic", "Your student, last"].map((t) => (
                 <span key={t} className="ioc-chip ghost">{t}</span>
               ))}
             </div>
