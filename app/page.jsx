@@ -43,7 +43,7 @@ const Hero = () => (
           </div>
           {/* ownership lockup — the governance differentiator, set apart from the pilot proof */}
           <div className="mf-hero-own">
-            <img className="mf-hero-own-ic" src="/lock-institution.png" alt="" aria-hidden="true" width="34" height="34"/>
+            <img className="mf-hero-own-ic" src="/key-for-institutions.png" alt="" aria-hidden="true" width="34" height="34"/>
             <span className="mf-hero-own-txt">
               <span className="mf-hero-own-top"><span className="mf-grad-text">100%</span> institution-owned</span>
               <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>

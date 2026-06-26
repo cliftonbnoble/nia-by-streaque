@@ -541,7 +541,7 @@ html, body { margin: 0; padding: 0; }
 }
 .mf-hero-own-ic {
   display: block; flex-shrink: 0;
-  width: 34px; height: 34px; border-radius: 10px;
+  width: 34px; height: 34px; border-radius: 50%;
   box-shadow: 0 6px 14px -4px rgba(56,65,177,0.5);
 }
 .mf-hero-own-txt { display: block; line-height: 1.3; }
