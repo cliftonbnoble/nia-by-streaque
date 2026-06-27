@@ -70,7 +70,7 @@ const Hero = () => (
             boxShadow: "0 30px 80px -20px rgba(15, 23, 42, 0.25), 0 10px 24px -8px rgba(15, 23, 42, 0.12)",
             aspectRatio: "600/595",
           }}>
-            <img src="/nia-contact.jpg" alt="Talking with Nia"
+            <img src="/nia-contact.jpg" alt="Talking with Nia" fetchPriority="high" decoding="async"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}/>
             <div style={{ position: "absolute", inset: 0,
               background: "linear-gradient(140deg, rgba(43, 179, 223, 0.08) 0%, transparent 40%, rgba(56, 65, 177, 0.18) 100%)" }}/>
