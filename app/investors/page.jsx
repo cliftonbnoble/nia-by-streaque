@@ -92,7 +92,7 @@ export default function InvestorsPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="investors"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <StatStyles/>
 
       {/* hero */}

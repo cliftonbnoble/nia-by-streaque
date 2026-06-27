@@ -303,7 +303,7 @@ export default function ContactForm() {
               <div style={{ background: "linear-gradient(135deg, var(--primary-50) 0%, white 60%)", border: "1px solid var(--brand-cyan)", borderRadius: 16, padding: 48, textAlign: "center" }}>
                 {!viaMailto ? (
                   <>
-                    <img src="/character/nia-hi.svg" alt="" width="519" height="404"
+                    <img src="/character/nia-hi.webp" alt="" width="600" height="467" decoding="async"
                       style={{ width: "min(200px, 58%)", height: "auto", margin: "0 auto", display: "block" }}/>
                     <h3 style={{ marginTop: 10, fontSize: 28 }}>Thanks, {data.name.split(" ")[0] || "we've got it"}.</h3>
                     <p style={{ marginTop: 12, fontSize: 16, color: "var(--ink-2)", maxWidth: 440, margin: "12px auto 0" }}>

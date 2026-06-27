@@ -334,7 +334,7 @@ export default function Contact() {
     <div className="mf">
       <TrustBar/>
       <Nav active="contact"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <Hero/>
       <Paths/>
       <ContactForm/>

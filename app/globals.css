@@ -885,6 +885,15 @@ html, body { margin: 0; padding: 0; }
   padding: 96px 0;
   position: relative;
 }
+/* perf: skip rendering below-the-fold sections until they scroll near the
+   viewport — culls their compositing layers (blooms/blurs/phone mocks) and
+   pauses their CSS animations while off-screen. Purely a rendering hint, no
+   visual change; contain-intrinsic-size keeps the scroll height stable and is
+   remembered per-section after first paint (the `auto` keyword). */
+.cv-sections > section:nth-of-type(n+2) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
 .mf-section.alt { background: var(--bg-alt); }
 .mf-section-head {
   text-align: center;

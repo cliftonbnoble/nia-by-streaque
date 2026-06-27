@@ -621,7 +621,7 @@ export default function HowNiaWorks() {
     <div className="mf">
       <TrustBar/>
       <Nav active="how"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <Hero/>
       <TwoPaths/>
       <WholeStudent/>

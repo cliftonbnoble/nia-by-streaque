@@ -487,7 +487,7 @@ export default function SecurityPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="security"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <Hero/>
       <WhyPage/>
       <Pillars/>

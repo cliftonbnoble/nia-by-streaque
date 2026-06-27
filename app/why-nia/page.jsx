@@ -20,7 +20,7 @@ export default function NiaPage() {
     <div className="mf">
       <TrustBar/>
       <Nav active="nia"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <NpStyles/>
       <NiaHero/>
       <Moats/>

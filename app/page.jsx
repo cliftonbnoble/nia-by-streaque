@@ -340,7 +340,7 @@ const ClosingCTA = () => (
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 72%)" }}/>
     <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
     <div className="mf-container" style={{ position: "relative", textAlign: "center", maxWidth: 720 }}>
-      <img src="/character/nia-grad.svg" alt="" width="458" height="356"
+      <img src="/character/nia-grad.webp" alt="" width="400" height="312" loading="lazy" decoding="async"
         style={{ width: 132, height: "auto", margin: "0 auto 14px", display: "block" }}/>
       <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>See it on your campus</span>
       <h2 style={{ color: "white", margin: "20px 0 0", fontSize: 48, lineHeight: 1.08 }}>
@@ -366,7 +366,7 @@ export default function Home() {
     <div className="mf">
       <TrustBar/>
       <Nav active="home"/>
-      <main id="main">
+      <main id="main" className="cv-sections">
       <Hero/>
       <SecProblem/>
       <VideoSection/>      {/* "A complete story with Nia" — the 90s story, high up */}
