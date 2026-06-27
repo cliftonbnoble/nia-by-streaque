@@ -217,23 +217,29 @@ const CARDS = [
 ];
 
 export default function FeatureCards() {
+  // skip the looping demo re-mounts entirely for reduced-motion users
+  const reduceMotion = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const [cycle, setCycle] = useState(0);
   const [ecycle, setEcycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setCycle((c) => c + 1), NUDGE_MS);
     return () => clearTimeout(t);
   }, [cycle]);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setEcycle((c) => c + 1), 14000);
     return () => clearTimeout(t);
   }, [ecycle]);
   const [scycle, setScycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setScycle((c) => c + 1), 12000);
     return () => clearTimeout(t);
   }, [scycle]);
   const [mcycle, setMcycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setMcycle((c) => c + 1), 12500);
     return () => clearTimeout(t);
   }, [mcycle]);

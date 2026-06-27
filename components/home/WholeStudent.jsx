@@ -167,7 +167,7 @@ export default function WholeStudent() {
             border-radius: 20px;
             scroll-snap-align: center;
           }
-          .ws-arr{ width: 36px; height: 36px; }
+          .ws-arr{ width: 40px; height: 40px; }
         }
       `}</style>
     </section>

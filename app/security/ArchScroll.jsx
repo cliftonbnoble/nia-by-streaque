@@ -226,7 +226,7 @@ export default function Architecture() {
       </div>
 
       <div className="mf-container" style={{ position: "relative", marginTop: 22 }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.62)" }}>
           Scroll for all five layers →
         </span>
       </div>

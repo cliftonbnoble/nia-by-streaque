@@ -441,7 +441,7 @@ const MoatStyles = () => (
     .np-mac-user img{ border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.5); }
     .np-mac-main{ flex: 1; min-width: 0; display: flex; flex-direction: column; }
     .np-mac-head{ display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px 11px; border-bottom: 1px solid var(--line); }
-    .np-mac-head > span:first-child{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); }
+    .np-mac-head > span:first-child{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
     .np-mac-thread{ flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 11px; padding: 16px 16px 8px; overflow: hidden; }
     .np-mac-label{ position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); font-size: 6px; letter-spacing: 0.14em; color: #59606E; }
     .np-mac-base{ position: relative; width: 113%; margin-left: -6.5%; height: 14px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 3px rgba(11,16,32,0.18); }
@@ -451,14 +451,14 @@ const MoatStyles = () => (
     .np-card-actions{ display: flex; align-items: center; gap: 9px; margin-top: 11px; }
     .np-btn-w{ display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(135deg,#2BB3DF,#3841B1); border-radius: 9px; padding: 8px 12px; box-shadow: 0 6px 14px -6px rgba(56,65,177,0.5); }
     .np-btn-q{ font-size: 11px; font-weight: 600; color: var(--ink-3); }
-    .np-await{ display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 6px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
-    .np-await-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); animation: np-blink 1.6s ease-in-out infinite; }
+    .np-await{ display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 6px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-3); }
+    .np-await-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); animation: np-blink 1.6s ease-in-out infinite; }
     @keyframes np-blink{ 0%,100%{ opacity: 0.3; } 50%{ opacity: 1; } }
 
     /* memory hub */
     .np-memcard{ width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 18px 18px 22px; }
     .np-memhead{ display: flex; flex-direction: column; align-items: center; gap: 10px; padding-bottom: 6px; }
-    .np-src-label{ font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); }
+    .np-src-label{ font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
     .np-src-row{ display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .np-src{ display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; color: var(--ink-2); background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px 5px 6px; }
     .np-src-mk{ display: inline-flex; }
@@ -483,7 +483,7 @@ const MoatStyles = () => (
     .np-blueprint{ width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 20px 22px 24px; }
     .np-bp-head{ display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
     .np-bp-head > span:first-child{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); }
-    .np-bp-vs{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-4); background: var(--bg-alt); border-radius: 999px; padding: 4px 9px; }
+    .np-bp-vs{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); background: var(--bg-alt); border-radius: 999px; padding: 4px 9px; }
     .np-bp-line{ position: relative; }
     .np-bp-item{ position: relative; display: flex; gap: 15px; padding-bottom: 18px; }
     .np-bp-item:last-child{ padding-bottom: 0; }
@@ -491,12 +491,12 @@ const MoatStyles = () => (
     .np-bp-item:not(:last-child)::before{ content: ""; position: absolute; left: 5.5px; top: 15px; height: calc(100% - 7px); width: 2px; background: var(--line-2); z-index: 0; }
     .np-bp-node{ position: relative; z-index: 1; flex: 0 0 auto; width: 13px; height: 13px; margin-top: 2px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2.5px currentColor; }
     .np-bp-item.tone-goal{ color: var(--primary); }
-    .np-bp-item.tone-obs{ color: #c98a1a; }
+    .np-bp-item.tone-obs{ color: #9a6a12; }
     .np-bp-item.tone-dec{ color: #7c3aed; }
     .np-bp-card{ flex: 1; min-width: 0; display: grid; gap: 3px; }
     .np-bp-tag{ font-family: var(--font-mono); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: currentColor; }
     .np-bp-t{ font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.4; }
-    .np-bp-meta{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; color: var(--ink-4); }
+    .np-bp-meta{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; color: var(--ink-3); }
 
     /* care routing */
     .np-care{ width: 100%; max-width: 420px; }
@@ -507,7 +507,7 @@ const MoatStyles = () => (
     .np-care-who img{ width: 20px; height: 20px; border-radius: 50%; }
     .np-care-bub{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
     .np-care-bub b{ color: var(--ink); }
-    .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
+    .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-3); }
     .np-care-flow{ display: flex; align-items: center; gap: 8px; margin: 10px 6px; }
     .np-care-line{ flex: 1; height: 0; border-top: 1px dashed var(--line-2); }
     .np-care-tag{ display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
@@ -520,7 +520,7 @@ const MoatStyles = () => (
     .np-care-alert strong{ display: block; font-size: 12.5px; color: var(--ink); }
     .np-care-alert span{ font-size: 10.5px; color: var(--ink-3); }
     .np-care-ctx{ margin-top: 12px; display: grid; gap: 7px; }
-    .np-care-ctx-h{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); }
+    .np-care-ctx-h{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
     .np-care-ctx-row{ display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--ink-2); }
     .np-care-ctx-row svg{ color: var(--success); flex-shrink: 0; }
     .np-care-cap{ display: inline-flex; margin-top: 13px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--success); background: rgba(13,138,90,0.08); border-radius: 999px; padding: 5px 11px; }
@@ -549,7 +549,7 @@ const MoatStyles = () => (
     .np-gov-head > span:first-child{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); }
     .np-gov-tenant{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); background: var(--primary-50); border-radius: 999px; padding: 4px 9px; }
     .np-gov-sec{ margin-top: 16px; }
-    .np-gov-sec-h{ display: block; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px; }
+    .np-gov-sec-h{ display: block; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
     .np-gov-row{ display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--line); }
     .np-gov-row:first-of-type{ border-top: none; }
     .np-tgl{ flex: 0 0 auto; width: 36px; height: 21px; border-radius: 999px; background: var(--line-2); position: relative; transition: background 260ms ease; }

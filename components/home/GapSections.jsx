@@ -80,7 +80,7 @@ export const CookieBanner = () => {
     setShow(false);
   };
   return (
-    <div style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
+    <div role="region" aria-label="Cookie consent" style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
       <div style={{ flex: 1, minWidth: 220, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
         We use only the essential cookies needed to run this site and remember this choice. No tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
         <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Privacy &amp; cookies</a>

@@ -7,6 +7,7 @@ import { Tick, ShieldCheck as Shield, Lock } from "@/components/icons";
 function EncryptionVisual() {
   const [stage, setStage] = useState(0);
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setStage(3); return; }
     const t = setInterval(() => setStage((s) => (s + 1) % 4), 1050);
     return () => clearInterval(t);
   }, []);
@@ -41,7 +42,7 @@ function EncryptionVisual() {
               transition: "all 320ms ease",
             }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: s.kind === "cipher" ? "var(--success)" : "var(--ink-4)" }}>{s.lbl}</span>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: 9, letterSpacing: "0.08em", textTransform: "uppercase", color: s.kind === "cipher" ? "var(--success)" : "var(--ink-3)" }}>{s.lbl}</span>
                 {s.kind === "cipher" && show && (
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
                 )}
@@ -81,7 +82,7 @@ function ZeroTrustVisual() {
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
             <span style={{ flex: 1, fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--ink-2)" }}>{c.l}</span>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--ink-4)" }}>{(i + 1) * 12}ms</span>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--ink-3)" }}>{(i + 1) * 12}ms</span>
           </div>
         ))}
       </div>

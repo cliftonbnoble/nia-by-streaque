@@ -138,25 +138,25 @@ const HeroVault = () => (
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0d8a5a", boxShadow: "0 0 8px #0d8a5a" }}/>
         Locked the instant it's saved
       </div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>before it's ever stored</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>before it's ever stored</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "flex-end" }}>
         One key per campus
         <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2BB3DF", boxShadow: "0 0 8px #2BB3DF" }}/>
       </div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never shared, never reused</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>never shared, never reused</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div>A stolen copy is just noise</div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>unreadable without your key</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>unreadable without your key</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div>Keys live in a guarded vault</div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never in our code</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>never in our code</div>
     </div>
 
-    <div style={{ position: "absolute", bottom: -28, left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.55)", textTransform: "uppercase" }}>
+    <div style={{ position: "absolute", bottom: -28, left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.66)", textTransform: "uppercase" }}>
       One key per campus · without it, data is just noise
     </div>
     <style>{`

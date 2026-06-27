@@ -55,6 +55,7 @@ const Thread = () => (
 export default function NiaHero() {
   const [cycle, setCycle] = useState(0);
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => setCycle((c) => c + 1), LOOP);
     return () => clearTimeout(t);
   }, [cycle]);

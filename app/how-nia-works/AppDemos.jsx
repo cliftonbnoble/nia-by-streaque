@@ -77,6 +77,7 @@ export function NudgesCarousel() {
   const timer = useRef(null);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     timer.current = setTimeout(() => setIdx((i) => (i + 1) % NUDGES.length), HOLD_MS);
     return () => clearTimeout(timer.current);
   }, [idx]);
@@ -95,7 +96,7 @@ export function NudgesCarousel() {
               <div className="fm-nudgecard" style={{
                 position: "relative", borderRadius: 16, overflow: "hidden", minHeight: 212,
                 border: "1px solid rgba(99,88,182,0.35)",
-                backgroundImage: "linear-gradient(92.81deg, rgba(105,91,215,0.7) -4.09%, rgba(66,77,211,0.7) 109.24%), linear-gradient(85.36deg, #40bfea 0%, #0a16a0 99.57%)",
+                backgroundImage: "linear-gradient(92.81deg, rgba(88,75,196,0.92) -4.09%, rgba(54,64,189,0.94) 109.24%), linear-gradient(85.36deg, #40bfea 0%, #0a16a0 99.57%)",
                 boxShadow: "0 20px 25px -5px rgba(0,0,0,0.12), 0 8px 10px -6px rgba(0,0,0,0.12)",
               }}>
                 {/* close: top-right, aligned with the title like the app */}
@@ -104,12 +105,12 @@ export function NudgesCarousel() {
                 {/* content: right padding clears the artwork zone */}
                 <div className="fm-nc-content">
                   <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 7 }}>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: 8, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.75)", fontWeight: 600 }}>{n.cat}</span>
-                    <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.5)" }}/>
-                    <span style={{ fontSize: 8.5, color: "rgba(255,255,255,0.65)" }}>{n.time}</span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: 8.5, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.95)", fontWeight: 600 }}>{n.cat}</span>
+                    <span style={{ width: 3, height: 3, borderRadius: "50%", background: "rgba(255,255,255,0.7)" }}/>
+                    <span style={{ fontSize: 9, color: "rgba(255,255,255,0.9)" }}>{n.time}</span>
                   </div>
                   <div style={{ color: "white", fontWeight: 600, fontSize: 14.5, lineHeight: 1.35, fontFamily: "var(--font-display)" }}>{n.t}</div>
-                  <div style={{ color: "rgba(255,255,255,0.9)", fontSize: 11.5, lineHeight: 1.5, marginTop: 5 }}>{n.s}</div>
+                  <div style={{ color: "rgba(255,255,255,0.96)", fontSize: 11.5, lineHeight: 1.5, marginTop: 5 }}>{n.s}</div>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 9, background: "rgba(255,255,255,0.16)", border: "1px solid rgba(255,255,255,0.25)", color: "white", fontSize: 9.5, fontWeight: 600, padding: "4px 10px", borderRadius: 999 }}>
                     <svg width="9" height="9" viewBox="0 0 20 20"><path d="M10 1l2 5.4L17.4 8 12 10l-2 5.4L8 10 2.6 8 8 6.4z" fill="white"/></svg>
                     {n.chip}
@@ -166,6 +167,7 @@ export function LearningStyleDemo() {
 
   useEffect(() => {
     if (hovered !== null) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => setActive((a) => (a + 1) % STYLES.length), CYCLE_MS);
     return () => clearTimeout(t);
   }, [active, hovered]);

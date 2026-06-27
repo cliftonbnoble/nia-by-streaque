@@ -275,7 +275,7 @@ export const SecCTA = () => {
       <div style={{ position: "absolute", width: 520, height: 520, left: -200, bottom: -260, background: "radial-gradient(circle, rgba(56,65,177,0.35), transparent 60%)", borderRadius: "50%" }}/>
       <div className="mf-container" style={{ position: "relative" }}>
         <div style={{ textAlign: "center", maxWidth: 720, margin: "0 auto 48px" }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>Find your door</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.74)" }}>Find your door</span>
           <h2 style={{ color: "white", margin: "18px 0 0", fontSize: 46, lineHeight: 1.08 }}>
             Tired of tools that don't <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>see students whole?</span> Let's talk.
           </h2>
@@ -283,9 +283,9 @@ export const SecCTA = () => {
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
           {doors.map((d) => (
             <a key={d.tag} href={d.href} style={{ textDecoration: "none", background: d.primary ? "rgba(255,255,255,0.09)" : "rgba(255,255,255,0.045)", border: "1px solid " + (d.primary ? "rgba(255,255,255,0.20)" : "rgba(255,255,255,0.10)"), borderRadius: "var(--radius-lg)", padding: 26, display: "flex", flexDirection: "column" }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.08em", textTransform: "uppercase", color: d.primary ? "rgb(143,224,247)" : "rgba(255,255,255,0.55)", fontWeight: 600 }}>{d.tag}</span>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.08em", textTransform: "uppercase", color: d.primary ? "rgb(143,224,247)" : "rgba(255,255,255,0.78)", fontWeight: 600 }}>{d.tag}</span>
               <h3 style={{ color: "white", fontSize: 21, marginTop: 12 }}>{d.title}</h3>
-              <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginTop: 8, lineHeight: 1.5, flex: 1 }}>{d.body}</p>
+              <p style={{ color: "rgba(255,255,255,0.86)", fontSize: 14, marginTop: 8, lineHeight: 1.5, flex: 1 }}>{d.body}</p>
               <span style={{ marginTop: 22, display: "inline-flex", alignItems: "center", gap: 8, alignSelf: "flex-start", padding: "11px 18px", borderRadius: "var(--radius)", fontSize: 14, fontWeight: 500, background: d.primary ? "white" : "transparent", color: d.primary ? "var(--ink)" : "white", border: d.primary ? "none" : "1px solid rgba(255,255,255,0.30)" }}>
                 {d.cta} <IcoArrowR s={14}/>
               </span>
