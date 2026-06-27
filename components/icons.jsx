@@ -23,10 +23,6 @@ export const Check = ({ s = 14, color = 'var(--brand-cyan)' }) => (
   </svg>
 );
 
-export const Dot = ({ color = 'var(--brand-cyan)', s = 6 }) => (
-  <span style={{ width: s, height: s, borderRadius: '50%', background: color, display: 'inline-block', boxShadow: `0 0 7px ${color}, 0 0 0 3px color-mix(in srgb, ${color} 18%, transparent)` }}/>
-);
-
 export const Lock = ({ s = 14 }) => (
   <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>

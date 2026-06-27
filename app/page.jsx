@@ -7,6 +7,7 @@ import { SecProblem, SecArchitecture, SecAdvisors, SecCoaches, SecProof } from "
 import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FeatureCards from "@/components/home/FeatureCards";
+import PauseOffscreen from "@/components/PauseOffscreen";
 import RoiCalculator from "@/components/RoiCalculator";
 import VideoSection from "@/components/home/VideoEmbed";
 
@@ -61,8 +62,13 @@ const Hero = () => (
 
         <div className="mf-mock-stage">
           {/* === TWO FANNED LIVE PHONES (active) ===
-               left: agent thinking process · right: iOS push → in-app reminder */}
-          <HeroPhones/>
+               left: agent thinking process · right: iOS push → in-app reminder.
+               PauseOffscreen halts the phones' infinite animations once scrolled
+               past — the hero is excluded from content-visibility, so without this
+               they'd keep burning frames off-screen. The wrapper fills the stage
+               (inset:0) so the observer sees a real box and the fan still anchors
+               to the stage. */}
+          <PauseOffscreen style={{ position: "absolute", inset: 0 }}><HeroPhones/></PauseOffscreen>
 
           {/* label above the left phone, arrow dropping to its top edge */}
           <div className="mf-anno" style={{ top: -64, left: 0, width: 110, whiteSpace: "normal", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
