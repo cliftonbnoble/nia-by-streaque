@@ -134,16 +134,17 @@ const HeroVault = () => (
 
     {/* plain-English proof points */}
     <div className="sec-vault-note" style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0d8a5a", boxShadow: "0 0 8px #0d8a5a" }}/>
-        Locked the instant it's saved
+      <div>
+        <strong style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>Locked</strong>{" "}the instant it&apos;s saved
       </div>
-      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>before it's ever stored</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>before it&apos;s ever stored</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 7, justifyContent: "flex-end" }}>
         One key per campus
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2BB3DF", boxShadow: "0 0 8px #2BB3DF" }}/>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2BB3DF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, filter: "drop-shadow(0 0 3px rgba(43,179,223,0.55))" }}>
+          <circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/>
+        </svg>
       </div>
       <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>never shared, never reused</div>
     </div>

@@ -528,15 +528,18 @@ html, body { margin: 0; padding: 0; }
   color: var(--ink);
   letter-spacing: -0.02em;
 }
-/* "Live" reads green with a soft glow behind it — matches the platform pilot strip */
+/* "Live" reads green with a soft glow behind it — matches the platform pilot strip.
+   align-self keeps the span content-width so the glow centers on the word itself,
+   not the (wider) stat column — otherwise it drifts right of "Live". */
 .mf-hero-meta-stat .num-live {
   position: relative;
   isolation: isolate;
+  align-self: flex-start;
   color: #0a7a48;
 }
 .mf-hero-meta-stat .num-live::before {
   content: ""; position: absolute; left: 50%; top: 50%;
-  width: 150%; height: 150%; transform: translate(-50%, -50%);
+  width: 134%; height: 156%; transform: translate(-50%, -50%);
   background: radial-gradient(ellipse at center, rgba(61,220,151,0.5), rgba(61,220,151,0) 70%);
   z-index: -1; pointer-events: none;
 }
