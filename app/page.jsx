@@ -52,7 +52,7 @@ const Hero = () => (
           <div className="mf-hero-meta">
             <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">pilot demand consensus</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">Live</span><span className="lbl">pilot running now</span></div>
+            <div className="mf-hero-meta-stat"><span className="num num-live">Live</span><span className="lbl">pilot running now</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
             <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>See the full pilot results →</Link>

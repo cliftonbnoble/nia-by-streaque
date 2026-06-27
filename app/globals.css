@@ -163,6 +163,9 @@ html, body { margin: 0; padding: 0; }
   display: flex; align-items: center; justify-content: space-between;
   border: 1px solid transparent;
   border-radius: 12px;
+  /* keep the row on its own compositor layer so the condense animation
+     (width + shadow) stays smooth and doesn't promote a layer mid-scroll */
+  transform: translateZ(0);
   transition: max-width 320ms cubic-bezier(0.4, 0, 0.2, 1), margin 320ms cubic-bezier(0.4, 0, 0.2, 1),
               padding 320ms cubic-bezier(0.4, 0, 0.2, 1), background 280ms ease,
               border-color 280ms ease, box-shadow 280ms ease;
@@ -181,12 +184,13 @@ html, body { margin: 0; padding: 0; }
   pointer-events: auto;
 }
 .mf-nav.is-condensed .mf-nav-inner {
-  max-width: 820px;
+  max-width: 730px;
   padding: 8px 10px 8px 20px;
-  background: rgba(255,255,255,0.99);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  border-color: rgba(255,255,255,0.95);
+  /* solid white pill — the old 0.99-opacity + backdrop-blur was invisible
+     yet re-blurred a resizing element every frame, which caused the shrink
+     stutter. Dropping the filter keeps the look and makes the animation clean. */
+  background: #ffffff;
+  border-color: rgba(15,23,42,0.06);
   box-shadow:
     0 2px 4px rgba(17,17,17,0.06),
     0 8px 16px -4px rgba(17,17,17,0.10),
@@ -523,6 +527,18 @@ html, body { margin: 0; padding: 0; }
   font-size: 22px;
   color: var(--ink);
   letter-spacing: -0.02em;
+}
+/* "Live" reads green with a soft glow behind it — matches the platform pilot strip */
+.mf-hero-meta-stat .num-live {
+  position: relative;
+  isolation: isolate;
+  color: #0a7a48;
+}
+.mf-hero-meta-stat .num-live::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 150%; height: 150%; transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(61,220,151,0.5), rgba(61,220,151,0) 70%);
+  z-index: -1; pointer-events: none;
 }
 .mf-hero-meta-stat .lbl {
   font-size: 12px;

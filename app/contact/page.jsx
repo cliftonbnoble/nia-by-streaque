@@ -12,16 +12,26 @@ export const metadata = pageMetadata({
     "Start a pilot conversation or request the investor brief. Real responses from real people, within one business day.",
 });
 
-/* minimal line-icons replacing the status dots — inherit the muted ink color */
+/* minimal line-icons replacing the status dots — blue→purple gradient stroke for a little pop */
 const ChatIcon = ({ s = 14 }) => (
-  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.7L3 21l1.8-5.8A8.5 8.5 0 1 1 21 11.5z"/>
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="cf-ic-grad-chat" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#2BB3DF"/><stop offset="1" stopColor="#7C3AED"/>
+      </linearGradient>
+    </defs>
+    <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.7L3 21l1.8-5.8A8.5 8.5 0 1 1 21 11.5z" stroke="url(#cf-ic-grad-chat)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 const AnswerIcon = ({ s = 14 }) => (
-  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    <path d="m9 10.5 2 2 4-4.5"/>
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="cf-ic-grad-ans" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#2BB3DF"/><stop offset="1" stopColor="#7C3AED"/>
+      </linearGradient>
+    </defs>
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="url(#cf-ic-grad-ans)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="m9 10.5 2 2 4-4.5" stroke="url(#cf-ic-grad-ans)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
