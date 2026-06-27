@@ -10,11 +10,12 @@ import { CONSENT_KEY } from "@/lib/consent";
 /* ── 4. Procurement FAQ ───────────────────────────────────────── */
 const FAQ_ITEMS = [
   { q: "Where does our student data live?", a: "Inside your tenant. Nia orchestrates models and signals from your VPC; PII never leaves your perimeter, and we never train foundation models on your data." },
-  { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance. Most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant." },
-  { q: "How long does integration take?", a: "A typical Canvas + SIS pilot goes live within 4–6 weeks of kickoff. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
-  { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console. Audit logs reflect the change immediately." },
+  { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance — most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant. Student data is sent to the provider under no-training terms, so neither we nor the model provider trains on it." },
+  { q: "Do you complete a HECVAT?", a: "Not yet — we're early, and we don't have a published HECVAT today. We'll complete your institution's security questionnaire, HECVAT or your own, on request, and we're glad to walk through our current controls and roadmap." },
   { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway. We're glad to share our current controls and the plan." },
-  { q: "How is pricing structured?", a: "Per-FTE annual licensing with pilot-pricing for the first year. Implementation, SSO, and three integrations are included. Talk to us for a quote tied to your enrollment band." },
+  { q: "How long does integration take?", a: "A typical Canvas + SIS pilot goes live within 4–6 weeks of kickoff. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
+  { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console, and audit logs reflect the change immediately. At the end of an engagement, or on request, we return or delete your data per your institution's instructions and our agreement." },
+  { q: "What's your accessibility posture?", a: "We aim to meet WCAG 2.1 AA across the Nia website and product, and we treat accessibility as part of how we build rather than a one-time certification. See our accessibility statement for the details, and we're glad to discuss specific requirements." },
 ];
 
 export const FAQ = ({ alt = true }) => {
