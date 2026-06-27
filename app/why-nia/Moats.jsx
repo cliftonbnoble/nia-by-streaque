@@ -53,7 +53,7 @@ const ProactiveVisual = () => (
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
                 </span>
               </div>
-              <nav className="np-mac-actions">
+              <div className="np-mac-actions">
                 <span className="np-mac-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 1 1 2.8 2.8L12 14.6 8 16l1.4-4z"/></svg>
                   New Chat
@@ -67,13 +67,13 @@ const ProactiveVisual = () => (
                   Notifications
                   <em className="np-mac-badge">1</em>
                 </span>
-              </nav>
+              </div>
               <span className="np-mac-sec">Today</span>
-              <nav className="np-mac-chats">
+              <div className="np-mac-chats">
                 <span className="np-mac-chat on">Registration hold</span>
                 <span className="np-mac-chat">Spring shortlist</span>
                 <span className="np-mac-chat">Aid &amp; FAFSA timeline</span>
-              </nav>
+              </div>
               <div className="np-mac-foot">
                 <span className="np-mac-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>

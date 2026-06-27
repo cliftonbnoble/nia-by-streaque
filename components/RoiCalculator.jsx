@@ -37,14 +37,16 @@ export default function RoiCalculator() {
               <div className="np-roi-label"><span>Total enrollment</span><strong>{enroll.toLocaleString("en-US")}</strong></div>
               <input type="range" min="1000" max="50000" step="500" value={enroll}
                 onChange={(e) => setEnroll(+e.target.value)}
-                style={{ "--pct": `${ePct}%` }} aria-label="Total enrollment"/>
+                style={{ "--pct": `${ePct}%` }} aria-label="Total enrollment"
+                aria-valuetext={`${enroll.toLocaleString("en-US")} students`}/>
               <div className="np-roi-scale"><span>1k</span><span>50k</span></div>
             </div>
             <div className="np-roi-field">
               <div className="np-roi-label"><span>Average annual tuition</span><strong>{usd(tuition)}</strong></div>
               <input type="range" min="6000" max="60000" step="1000" value={tuition}
                 onChange={(e) => setTuition(+e.target.value)}
-                style={{ "--pct": `${tPct}%` }} aria-label="Average annual tuition"/>
+                style={{ "--pct": `${tPct}%` }} aria-label="Average annual tuition"
+                aria-valuetext={usd(tuition)}/>
               <div className="np-roi-scale"><span>$6k</span><span>$60k</span></div>
             </div>
             <p className="np-roi-assume">
