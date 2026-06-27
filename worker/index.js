@@ -14,7 +14,14 @@
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
+const clamp = (v, max) => String(v ?? "").slice(0, max);
+
 async function handleLead(request, env) {
+  // Reject oversized bodies before parsing — a lead is a few KB; this caps abuse.
+  if (Number(request.headers.get("content-length") || 0) > 64 * 1024) {
+    return json({ ok: false, error: "too_large" }, 413);
+  }
+
   let body;
   try {
     body = await request.json();
@@ -51,20 +58,32 @@ async function handleLead(request, env) {
       return json({ ok: false, error: `missing_${f}` }, 400);
     }
   }
+  // basic email shape + length (defense-in-depth; the client also uses type=email)
+  const email = String(body.email).trim();
+  if (email.length > 320 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    return json({ ok: false, error: "invalid_email" }, 400);
+  }
 
   // 4. Forward to the Apps Script (appends to the Sheet + emails info@).
+  // clamp every forwarded field so an oversized payload can never reach the Sheet,
+  // and pin utm to known keys (the client sends an arbitrary object otherwise).
+  const utm = body.utm && typeof body.utm === "object" ? body.utm : {};
   const payload = {
     secret: env.LEAD_WEBHOOK_SECRET,
-    name: body.name,
-    email: body.email,
-    institution: body.institution,
-    role: body.role,
-    students: body.students || "",
-    interest: body.interest || "",
-    message: body.message || "",
-    source: body.referrer || "",
-    url: body.url || "",
-    utm: body.utm || {},
+    name: clamp(body.name, 200),
+    email: clamp(email, 320),
+    institution: clamp(body.institution, 200),
+    role: clamp(body.role, 100),
+    students: clamp(body.students, 80),
+    interest: clamp(body.interest, 80),
+    message: clamp(body.message, 5000),
+    source: clamp(body.referrer, 500),
+    url: clamp(body.url, 500),
+    utm: {
+      source: clamp(utm.source, 120),
+      medium: clamp(utm.medium, 120),
+      campaign: clamp(utm.campaign, 120),
+    },
   };
   try {
     const res = await fetch(env.LEAD_WEBHOOK_URL, {
