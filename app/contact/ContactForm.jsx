@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Check } from "@/components/icons";
+import { ArrowRight, Check, ShieldCheck } from "@/components/icons";
 
 /* the path cards deep-link here: the hash picks the interest chip */
 const HASH_INTEREST = { "#form": "pilot", "#form-founders": "founders", "#form-investor": "investor", "#form-partnership": "partnership", "#form-security": "security" };
@@ -145,8 +145,9 @@ export default function ContactForm() {
     transition: "border-color 150ms ease, box-shadow 150ms ease", boxSizing: "border-box",
   };
   const labelStyle = {
+    // #4f5468 clears WCAG AA comfortably on white (~7.5:1) vs --ink-3's borderline 4.84:1
     fontSize: 11, fontFamily: "var(--font-mono)", textTransform: "uppercase",
-    letterSpacing: "0.08em", color: "var(--ink-3)", marginBottom: 6, display: "block",
+    letterSpacing: "0.08em", color: "#4f5468", marginBottom: 6, display: "block",
   };
 
   return (
@@ -157,6 +158,7 @@ export default function ContactForm() {
           box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-blue) 22%, transparent);
         }
         .cf-chip:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-blue) 22%, transparent); }
+        #form input::placeholder, #form textarea::placeholder { color: #6b7187; opacity: 1; }
       `}</style>
       {/* extra scroll targets so the path cards can land here with intent */}
       <span id="form-founders" style={{ position: "absolute", top: 0 }} aria-hidden="true"/>
@@ -286,8 +288,11 @@ export default function ContactForm() {
                   </div>
                 )}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 8, flexWrap: "wrap", gap: 16 }}>
-                  <div style={{ fontSize: 12, color: "var(--ink-3)", maxWidth: 360 }}>
-                    By submitting, you agree to be contacted by Streaque about your inquiry. We never share your information.
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 9, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-2)", maxWidth: 380 }}>
+                    <span aria-hidden="true" style={{ color: "var(--brand-blue)", flexShrink: 0, marginTop: 1, display: "inline-flex" }}>
+                      <ShieldCheck s={15}/>
+                    </span>
+                    <span>By submitting, you agree to be contacted by Streaque about your inquiry. <strong style={{ fontWeight: 600, color: "var(--ink)" }}>We never share your information.</strong></span>
                   </div>
                   <button type="submit" disabled={sending} className="mf-btn mf-btn-primary" style={{ border: "none", cursor: sending ? "default" : "pointer", fontFamily: "inherit", opacity: sending ? 0.7 : 1 }}>
                     {sending ? "Sending…" : <>Send inquiry <ArrowRight/></>}
