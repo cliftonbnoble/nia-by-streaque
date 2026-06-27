@@ -103,7 +103,7 @@ const PilotArt = () => (
       <linearGradient id="cp-py" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#2BB3DF"/><stop offset="1" stopColor="#3841B1"/></linearGradient>
       <linearGradient id="cpn0" x1="12.6894" y1="15.3877" x2="14.8792" y2="22.7101" gradientUnits="userSpaceOnUse"><stop stopColor="#4167C0"/><stop offset="0.447" stopColor="#5680D7"/></linearGradient>
       <linearGradient id="cpn1" x1="21.6878" y1="9.7793" x2="21.6878" y2="31.5017" gradientUnits="userSpaceOnUse"><stop stopColor="#35B2E7"/><stop offset="1" stopColor="#4296EE"/></linearGradient>
-      <filter id="cp-glow-green" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.3"/></filter>
+      <filter id="cp-glow-green" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#3ddc97" floodOpacity="0.55"/></filter>
     </defs>
     {[["LMS", 68], ["SIS", 138], ["CRM", 208]].map(([t, x]) => (
       <g key={t}>
@@ -122,10 +122,8 @@ const PilotArt = () => (
       <circle cx="29.5924" cy="11.5558" r="2.80578" fill="#32C6F0"/>
     </g>
     <g className="cp-bob">
-      <rect x="198" y="106" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="212" cy="118" r="4" fill="#2fb380" opacity="0.55" filter="url(#cp-glow-green)"/>
-      <circle cx="212" cy="118" r="3.2" fill="#2fb380"/>
-      <text x="222" y="121.5" fontSize="9.5" fontFamily="var(--font-mono)" fill="var(--ink-2)">Cohort A live</text>
+      <rect x="202" y="106" width="90" height="24" rx="12" fill="#0b1020" stroke="rgba(61,220,151,0.5)" strokeWidth="1" filter="url(#cp-glow-green)"/>
+      <text x="247" y="120.5" textAnchor="middle" fontSize="9" fontWeight="600" fontFamily="var(--font-mono)" letterSpacing="0.8" fill="#6fecb8">COHORT LIVE</text>
     </g>
   </svg>
 );
