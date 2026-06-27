@@ -179,7 +179,7 @@ export default function Architecture() {
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(143,224,247,0.85)" }}>Architecture at a glance</span>
             <h2 style={{ color: "white", marginTop: 16 }}>For the <em className="mf-grad-text" style={{ fontStyle: "italic" }}>technical readers.</em></h2>
             <p style={{ color: "rgba(255,255,255,0.65)", marginTop: 14, fontSize: 17 }}>
-              The shape of our stack, on the record. The exact configurations stay where they belong: in the <a href="mailto:info@streaque.com?subject=Security%20packet" style={{ color: "#8fe0f7", textDecoration: "none", borderBottom: "1px solid rgba(143,224,247,0.4)" }}>security packet</a>, not on a webpage.
+              The shape of our stack, on the record. The exact configurations stay where they belong: in the <a href="/contact#form-security" style={{ color: "#8fe0f7", textDecoration: "none", borderBottom: "1px solid rgba(143,224,247,0.4)" }}>security packet</a>, not on a webpage.
             </p>
           </div>
           <div style={{ display: "flex", gap: 10 }}>
@@ -226,7 +226,7 @@ export default function Architecture() {
       </div>
 
       <div className="mf-container" style={{ position: "relative", marginTop: 22 }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)" }}>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.62)" }}>
           Scroll for all five layers →
         </span>
       </div>

@@ -58,7 +58,7 @@ export default function WholeStudent() {
           <h2 style={{ marginTop: 16 }}>Nia knows the <span className="mf-grad-text">whole student.</span></h2>
           <p>
             Goals, check-ins, reminders, courses, career plans, wellness, and finances
-            come together in one living profile. Depth a general model can't see and
+            come together in one living profile. Depth that a general model can't see and
             a point solution can't build.
           </p>
         </div>
@@ -167,7 +167,7 @@ export default function WholeStudent() {
             border-radius: 20px;
             scroll-snap-align: center;
           }
-          .ws-arr{ width: 36px; height: 36px; }
+          .ws-arr{ width: 40px; height: 40px; }
         }
       `}</style>
     </section>

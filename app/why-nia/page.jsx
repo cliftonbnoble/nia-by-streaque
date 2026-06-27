@@ -5,14 +5,15 @@ import NpStyles from "./styles";
 import NiaHero from "./Hero";
 import Moats from "./Moats";
 import Qa from "./Qa";
-import PilotStrip from "@/components/PilotStrip";
 import { SecCTA } from "@/components/home/CampaignSections";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
-  title: "Nia · Streaque",
+export const metadata = pageMetadata({
+  path: "/why-nia",
+  title: "Why Nia · Nia by Streaque",
   description:
     "Nia is an ongoing relationship, not a 1-minute chat. Built outward from the student's whole journey, on your data, governed by your institution.",
-};
+});
 
 export default function NiaPage() {
   return (
@@ -23,7 +24,6 @@ export default function NiaPage() {
       <NpStyles/>
       <NiaHero/>
       <Moats/>
-      <PilotStrip/>
       <Qa/>
       <SecCTA/>
       </main>

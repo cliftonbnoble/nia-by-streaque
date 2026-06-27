@@ -1,14 +1,39 @@
 import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { ArrowRight, Dot } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 import ContactForm from "./ContactForm";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
-  title: "Contact · Streaque",
+export const metadata = pageMetadata({
+  path: "/contact",
+  title: "Contact · Nia by Streaque",
   description:
     "Start a pilot conversation or request the investor brief. Real responses from real people, within one business day.",
-};
+});
+
+/* minimal line-icons replacing the status dots — blue→purple gradient stroke for a little pop */
+const ChatIcon = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="cf-ic-grad-chat" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#2BB3DF"/><stop offset="1" stopColor="#7C3AED"/>
+      </linearGradient>
+    </defs>
+    <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.7L3 21l1.8-5.8A8.5 8.5 0 1 1 21 11.5z" stroke="url(#cf-ic-grad-chat)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+const AnswerIcon = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="cf-ic-grad-ans" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#2BB3DF"/><stop offset="1" stopColor="#7C3AED"/>
+      </linearGradient>
+    </defs>
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="url(#cf-ic-grad-ans)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="m9 10.5 2 2 4-4.5" stroke="url(#cf-ic-grad-ans)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 80 }}>
@@ -31,10 +56,10 @@ const Hero = () => (
           </div>
           <div style={{ marginTop: 32, display: "flex", gap: 24, flexWrap: "wrap", fontSize: 13, color: "var(--ink-3)" }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-              <Dot color="var(--success)"/> Replies within 1 business day
+              <ChatIcon/> Replies within 1 business day
             </span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-              <Dot color="var(--brand-cyan)"/> No sales scripts, just answers
+              <AnswerIcon/> No sales scripts, just answers
             </span>
           </div>
         </div>
@@ -69,8 +94,8 @@ const Hero = () => (
             position: "absolute", bottom: 32, right: -28, background: "white", borderRadius: 12, padding: "14px 18px",
             boxShadow: "0 16px 36px -8px rgba(15, 23, 42, 0.2)", minWidth: 240,
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              <Dot color="var(--success)"/> Replied · 4:08 PM
+            <div style={{ display: "flex", alignItems: "center", fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Replied · 4:08 PM
             </div>
             <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. A founder will be in touch tomorrow with a Calendar invite."</div>
           </div>
@@ -88,6 +113,7 @@ const PilotArt = () => (
       <linearGradient id="cp-py" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#2BB3DF"/><stop offset="1" stopColor="#3841B1"/></linearGradient>
       <linearGradient id="cpn0" x1="12.6894" y1="15.3877" x2="14.8792" y2="22.7101" gradientUnits="userSpaceOnUse"><stop stopColor="#4167C0"/><stop offset="0.447" stopColor="#5680D7"/></linearGradient>
       <linearGradient id="cpn1" x1="21.6878" y1="9.7793" x2="21.6878" y2="31.5017" gradientUnits="userSpaceOnUse"><stop stopColor="#35B2E7"/><stop offset="1" stopColor="#4296EE"/></linearGradient>
+      <filter id="cp-glow-green" x="-70%" y="-70%" width="240%" height="240%"><feDropShadow dx="0" dy="0" stdDeviation="3" floodColor="#3ddc97" floodOpacity="0.55"/></filter>
     </defs>
     {[["LMS", 68], ["SIS", 138], ["CRM", 208]].map(([t, x]) => (
       <g key={t}>
@@ -106,9 +132,8 @@ const PilotArt = () => (
       <circle cx="29.5924" cy="11.5558" r="2.80578" fill="#32C6F0"/>
     </g>
     <g className="cp-bob">
-      <rect x="198" y="106" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="212" cy="118" r="3.5" fill="#2fb380"/>
-      <text x="222" y="121.5" fontSize="9.5" fontFamily="var(--font-mono)" fill="var(--ink-2)">Cohort A live</text>
+      <rect x="202" y="106" width="90" height="24" rx="12" fill="#0b1020" stroke="rgba(61,220,151,0.5)" strokeWidth="1" filter="url(#cp-glow-green)"/>
+      <text x="247" y="120.5" textAnchor="middle" fontSize="9" fontWeight="600" fontFamily="var(--font-mono)" letterSpacing="0.8" fill="#6fecb8">COHORT LIVE</text>
     </g>
   </svg>
 );
@@ -151,22 +176,21 @@ const InvestorArt = () => (
     <path d="M106 116 C 124 112, 134 100, 150 98 S 180 86, 196 72 L 214 62" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round"/>
     <circle cx="214" cy="62" r="4" fill="#7c3aed" stroke="white" strokeWidth="1.8"/>
     <g className="cp-bob">
-      <rect x="196" y="128" width="96" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="210" cy="140" r="3.5" fill="#7c3aed"/>
-      <text x="220" y="144" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-2)">Sent Fridays</text>
+      <rect x="182" y="128" width="110" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <text x="237" y="144" textAnchor="middle" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-2)">Sent on demand</text>
     </g>
   </svg>
 );
 
 const Paths = () => {
   const paths = [
-    { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", accent: "43,179,223", color: "var(--brand-cyan)", Art: PilotArt },
-    { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", accent: "56,65,177", color: "var(--brand-blue)", Art: FoundersArt },
-    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", accent: "124,58,237", color: "#7c3aed", Art: InvestorArt },
+    { eyebrow: "For institutions", title: "Start a pilot", body: "Bring Nia to your campus. We'll scope a pilot tailored to your LMS, SIS, and student-success workflows.", cta: "Talk to our team", href: "#form", color: "var(--brand-cyan)", Art: PilotArt },
+    { eyebrow: "For founders", title: "Talk directly", body: "Book time with Luke or Clifton. Best for higher-ed leaders, peer founders, or partnership conversations.", cta: "Message the founders", href: "#form-founders", color: "var(--brand-blue)", Art: FoundersArt },
+    { eyebrow: "For investors", title: "Investor brief", body: "Request our latest deck, traction summary, and pilot-pipeline overview. We'll send the current brief on request.", cta: "Request brief", href: "#form-investor", color: "#7c3aed", Art: InvestorArt },
   ];
 
   return (
-    <section style={{ padding: "80px 0", background: "var(--bg-alt)" }}>
+    <section style={{ padding: "80px 0", background: "var(--bg-alt)", overflow: "hidden" }}>
       <div className="mf-container">
         <div className="mf-section-head" style={{ marginBottom: 48 }}>
           <span className="mf-eyebrow">Three ways in</span>
@@ -174,9 +198,10 @@ const Paths = () => {
         </div>
 
         <div className="cp-grid">
-          {paths.map(({ eyebrow, title, body, cta, href, accent, color, Art }) => (
-            <a key={title} href={href} className="cp-card">
-              <span className="cp-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
+          {paths.map(({ eyebrow, title, body, cta, href, color, Art }, i) => (
+            <div key={title} className="cp-cell">
+              <span aria-hidden="true" className={`cp-bloom ${i === 1 ? "cp-bloom-purple" : "cp-bloom-blue"}`}/>
+              <a href={href} className="cp-card">
               <div className="cp-art"><Art/></div>
               <div className="cp-meta">
                 <span className="mf-eyebrow" style={{ fontSize: 11, color }}>{eyebrow}</span>
@@ -184,7 +209,8 @@ const Paths = () => {
                 <p style={{ margin: "10px 0 0", fontSize: 14, color: "var(--ink-2)", lineHeight: 1.55 }}>{body}</p>
                 <span className="cp-cta" style={{ color }}>{cta} <ArrowRight s={14}/></span>
               </div>
-            </a>
+              </a>
+            </div>
           ))}
         </div>
       </div>
@@ -194,31 +220,31 @@ const Paths = () => {
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
         }
+        .cp-cell{ position: relative; }
         .cp-card{
           position: relative;
+          z-index: 1;
+          height: 100%;
           overflow: hidden;
           display: flex;
           flex-direction: column;
           text-decoration: none;
           color: inherit;
-          background: #FBFCFE;
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid rgba(15,23,42,0.06);
           border-radius: 18px;
-          transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+          box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+          transition: transform 220ms ease, box-shadow 220ms ease;
         }
         .cp-card:hover{
-          transform: translateY(-4px);
-          box-shadow: 0 24px 48px -18px rgba(15,23,42,0.16);
-          border-color: #D8DEF0;
+          transform: translateY(-6px);
+          box-shadow: 0 34px 62px -24px rgba(31,52,128,0.40), 0 10px 20px -8px rgba(31,52,128,0.16);
         }
-        .cp-glow{
-          position: absolute;
-          width: 380px; height: 380px;
-          left: 50%; top: -210px;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          pointer-events: none;
-        }
+        /* colored bloom behind each card — blue, purple, blue — sitting under
+           the card's float shadow, matching the platform/why-nia treatment */
+        .cp-bloom{ position: absolute; z-index: 0; inset: -11.5% -18.5%; filter: blur(50px); pointer-events: none; }
+        .cp-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+        .cp-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
         .cp-art{ position: relative; height: 168px; }
         .cp-svg{ width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 14px rgba(31,52,128,0.08)); }
         .cp-meta{
@@ -242,7 +268,7 @@ const Paths = () => {
         @keyframes cp-type{ 0%,100%{ opacity: 0.35; } 50%{ opacity: 1; } }
         @media (max-width: 1020px){
           .cp-grid{ grid-template-columns: 1fr; }
-          .cp-card{ max-width: 470px; width: 100%; margin: 0 auto; }
+          .cp-cell{ max-width: 470px; width: 100%; margin: 0 auto; }
         }
         @media (prefers-reduced-motion: reduce){
           .cp-bob, .cp-dot{ animation: none; }
@@ -252,46 +278,21 @@ const Paths = () => {
   );
 };
 
-/* NOT MOUNTED — the contact FAQ was cut (procurement Q&A lives on /security).
-   Kept for reference; don't re-add to the render without revisiting that IA call. */
-const FAQ = () => {
-  const faqs = [
-    { q: "How fast will you respond?", a: "Within one business day, from a real person on our team. Most replies come same-day." },
-    { q: "What happens after I submit the form?", a: "A founder or success lead will email you to schedule a 30-minute discovery call. No demos before we understand your goals." },
-    { q: "Do I need to commit to anything?", a: "No. The first call is purely exploratory. We learn about your institution, you see Nia in action, and we both decide if there's a fit." },
-    { q: "Can I try Nia myself first?", a: "Yes. The student app is live and we're happy to set you up with a sandbox account before any institutional conversation." },
-    { q: "How do you handle student data?", a: "FERPA-aligned by design. All institutional data stays on your tenant, never trains models, and is governed by your IT policies." },
-    { q: "Are you fundraising?", a: "We're always open to talking with mission-aligned investors. Email info@streaque.com for our current brief." },
-  ];
-  return (
-    <section style={{ padding: "120px 0", background: "var(--bg-alt)" }}>
-      <div className="mf-container">
-        <div className="mf-section-head" style={{ marginBottom: 56 }}>
-          <span className="mf-eyebrow">Common questions</span>
-          <h2 style={{ marginTop: 14 }}>What to expect <span className="mf-grad-text">when you reach out.</span></h2>
-        </div>
-        <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
-          {faqs.map((f) => (
-            <div key={f.q} style={{ borderTop: "1px solid var(--line)", paddingTop: 24 }}>
-              <div style={{ fontSize: 17, fontWeight: 600, fontFamily: "var(--font-display)" }}>{f.q}</div>
-              <p style={{ marginTop: 10, fontSize: 14, color: "var(--ink-2)", lineHeight: 1.6 }}>{f.a}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 /* ── The team — moved here from the former /about page ── */
 const TEAM = [
-  { name: "Luke", role: "CEO", img: "/team/luke.jpg" },
-  { name: "Clifton", role: "CTO", img: "/team/clifton.jpg" },
-  { name: "Amit", role: "AI Lead", img: "/team/amit.jpg" },
-  { name: "Bhavadeep", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
-  { name: "Sunil", role: "Engineering", img: "/team/sunil.jpg" },
-  { name: "Pundlik", role: "DBA", img: "/team/pundlik.jpg" },
+  { first: "Luke", last: "Jubb", role: "CEO", img: "/team/luke.jpg", linkedin: "https://www.linkedin.com/in/lukejubb/" },
+  { first: "Clifton", last: "Noble", role: "CTO", img: "/team/clifton.jpg", linkedin: "https://www.linkedin.com/in/clifton-noble/" },
+  { first: "Amit", last: "Kumar Singh", role: "AI Engineer", img: "/team/amit.jpg" },
+  { first: "Bhavadeep", last: "Magham", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
+  { first: "Sunil", last: "Prakash", role: "ENG Lead", img: "/team/sunil.jpg" },
+  { first: "Pundlik", last: "Rathod", role: "Back-end Ninja", img: "/team/pundlik.jpg" },
 ];
+
+const LinkedInGlyph = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0z"/>
+  </svg>
+);
 
 const Team = () => (
   <section className="mf-section" id="team">
@@ -306,11 +307,20 @@ const Team = () => (
       </div>
       <div className="mf-team-grid" style={{ marginTop: 40 }}>
         {TEAM.map((m) => (
-          <div key={m.name} className="mf-team-card">
-            <img src={m.img} alt={`${m.name}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
+          <div key={m.first} className="mf-team-card">
+            <img src={m.img} alt={`${m.first} ${m.last}, ${m.role}`} className="mf-team-photo" loading="lazy" decoding="async"/>
             <div className="mf-team-overlay">
-              <div className="mf-team-name">{m.name}</div>
+              <div className="mf-team-name">
+                <span className="mf-team-fn">{m.first}</span>
+                <span className="mf-team-ln">{m.last}</span>
+              </div>
               <div className="mf-team-role">{m.role}</div>
+              {m.linkedin && (
+                <a className="mf-team-li" href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                   aria-label={`${m.first} ${m.last} on LinkedIn`}>
+                  <LinkedInGlyph/>
+                </a>
+              )}
             </div>
           </div>
         ))}

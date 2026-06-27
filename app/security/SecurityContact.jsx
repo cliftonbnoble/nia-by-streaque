@@ -16,7 +16,7 @@ export default function SecurityContact() {
         <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 56, alignItems: "center" }}>
           <div>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(143,224,247,0.85)" }}>Direct line</span>
-            <h2 style={{ color: "white", marginTop: 16, fontSize: 40, lineHeight: 1.1 }}>Still have questions? <span className="mf-grad-text" style={{ fontStyle: "italic" }}>Ask the team that built it.</span></h2>
+            <h2 style={{ color: "white", marginTop: 16, fontSize: 40, lineHeight: 1.1 }}>Still have questions? <span className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>Ask the team that built it.</span></h2>
             <p style={{ color: "rgba(255,255,255,0.78)", marginTop: 18, fontSize: 16, lineHeight: 1.65, maxWidth: 520 }}>
               Security reviews, questionnaires, and architecture deep-dives go to the people who built the platform, and get a reply within one business day.
             </p>

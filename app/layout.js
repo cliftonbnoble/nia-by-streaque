@@ -2,6 +2,12 @@ import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site";
 
+/* Cloudflare Web Analytics beacon token (public, cookieless — no consent banner
+   needed). Get it from the dashboard → Web Analytics → your site. Hardcode it
+   here like the Turnstile site key, or set NEXT_PUBLIC_CF_ANALYTICS_TOKEN.
+   Empty = no beacon rendered (so nothing breaks until it's set). */
+const CF_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN || "";
+
 /* self-hosted variable fonts: one file per family covers every weight,
    no render-blocking request to Google */
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
@@ -10,6 +16,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jbm
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: "Nia by Streaque — the higher-ed AI platform",
   description:
     "Institution-governed AI that turns LMS, SIS, and CRM signals into warm, evidence-based coaching for every student.",
@@ -67,6 +74,13 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         {children}
+        {CF_ANALYTICS_TOKEN && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: CF_ANALYTICS_TOKEN })}
+          />
+        )}
       </body>
     </html>
   );

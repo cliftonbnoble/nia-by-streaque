@@ -12,7 +12,7 @@
  */
 
 const json = (data, status = 200) =>
-  new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json" } });
+  new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json", "cache-control": "no-store" } });
 
 async function handleLead(request, env) {
   let body;
@@ -89,6 +89,10 @@ export default {
     if (url.pathname === "/api/lead") {
       if (request.method !== "POST") return json({ ok: false, error: "method_not_allowed" }, 405);
       return handleLead(request, env);
+    }
+    // Renamed page: /nia → /why-nia (301, preserves SEO from the old indexed path).
+    if (url.pathname === "/nia" || url.pathname === "/nia/") {
+      return Response.redirect(`${url.origin}/why-nia`, 301);
     }
     // everything else → the prerendered static site (out/)
     return env.ASSETS.fetch(request);

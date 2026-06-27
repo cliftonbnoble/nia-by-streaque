@@ -6,12 +6,14 @@ import Architecture from "./ArchScroll";
 import SecurityContact from "./SecurityContact";
 import { FAQ } from "@/components/home/GapSections";
 import { ArrowRight as ArrowR, ShieldCheck as Shield, Tick, Lock } from "@/components/icons";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/security",
   title: "Security · Nia by Streaque",
   description:
-    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
-};
+    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA-aligned by design. The security architecture behind Nia.",
+});
 
 /* Hero animation — the story in one loop:
    a readable student record flows into the campus shield (your key),
@@ -132,29 +134,30 @@ const HeroVault = () => (
 
     {/* plain-English proof points */}
     <div className="sec-vault-note" style={{ position: "absolute", top: "25%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0d8a5a", boxShadow: "0 0 8px #0d8a5a" }}/>
-        Locked the instant it's saved
+      <div>
+        <strong style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>Locked</strong>{" "}the instant it&apos;s saved
       </div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>before it's ever stored</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>before it&apos;s ever stored</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", top: "19%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: "flex-end" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 7, justifyContent: "flex-end" }}>
         One key per campus
-        <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2BB3DF", boxShadow: "0 0 8px #2BB3DF" }}/>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2BB3DF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, filter: "drop-shadow(0 0 3px rgba(43,179,223,0.55))" }}>
+          <circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/>
+        </svg>
       </div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never shared, never reused</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>never shared, never reused</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", bottom: "24%", left: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)" }}>
       <div>A stolen copy is just noise</div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>unreadable without your key</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>unreadable without your key</div>
     </div>
     <div className="sec-vault-note" style={{ position: "absolute", bottom: "17%", right: 0, padding: "8px 12px", background: "rgba(11,16,32,0.7)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 8, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.04em", color: "rgba(255,255,255,0.8)", WebkitBackdropFilter: "blur(6px)", backdropFilter: "blur(6px)", textAlign: "right" }}>
       <div>Keys live in a guarded vault</div>
-      <div style={{ color: "rgba(255,255,255,0.45)", marginTop: 2 }}>never in our code</div>
+      <div style={{ color: "rgba(255,255,255,0.62)", marginTop: 2 }}>never in our code</div>
     </div>
 
-    <div style={{ position: "absolute", bottom: -28, left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.55)", textTransform: "uppercase" }}>
+    <div style={{ position: "absolute", bottom: -28, left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.66)", textTransform: "uppercase" }}>
       One key per campus · without it, data is just noise
     </div>
     <style>{`
@@ -198,7 +201,7 @@ const Hero = () => (
           </p>
           <div className="mf-hero-actions">
             <a href="#pillars" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none" }}>See the four pillars <ArrowR/></a>
-            <a href="mailto:info@streaque.com" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
+            <a href="/contact#form-security" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", background: "transparent", color: "white", borderColor: "rgba(255,255,255,0.25)" }}>Request security packet</a>
           </div>
           <div style={{ marginTop: 36, display: "flex", gap: 28, flexWrap: "wrap" }}>
             {[
@@ -225,7 +228,7 @@ const WhyPage = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "start" }}>
         <div>
           <span className="mf-eyebrow">Why this page exists</span>
-          <h2 style={{ marginTop: 14 }}>One question, <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>fully answered.</em></h2>
+          <h2 style={{ marginTop: 14 }}>One question, <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>fully answered.</em></h2>
         </div>
         <div>
           <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--ink-2)" }}>
@@ -237,7 +240,7 @@ const WhyPage = () => (
           <div style={{ marginTop: 24, padding: 18, background: "var(--bg-alt)", border: "1px solid var(--line)", borderRadius: "var(--radius)", display: "flex", alignItems: "center", gap: 14 }}>
             <span style={{ width: 36, height: 36, borderRadius: 8, background: "var(--brand-gradient)", color: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Shield s={18}/></span>
             <div style={{ flex: 1, fontSize: 14, color: "var(--ink-2)" }}>
-              <strong style={{ color: "var(--ink)", fontFamily: "var(--font-display)" }}>CISO, IT Director, or counsel?</strong> Skip the page and <a href="mailto:info@streaque.com" style={{ color: "var(--primary)" }}>email info@streaque.com</a> for our questionnaire response and an architecture walkthrough.
+              <strong style={{ color: "var(--ink)", fontFamily: "var(--font-display)" }}>CISO, IT Director, or counsel?</strong> Skip the page and <a href="/contact#form-security" style={{ color: "var(--primary)" }}>request our questionnaire response</a> and an architecture walkthrough.
             </div>
           </div>
         </div>
@@ -312,7 +315,7 @@ const Roadmap = () => (
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "0.78fr 1.22fr", gap: 56, alignItems: "start" }}>
         <div style={{ position: "sticky", top: 24 }}>
           <span className="mf-eyebrow">Compliance & roadmap</span>
-          <h2 style={{ marginTop: 14 }}>Built for it. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Earning the badges next.</em></h2>
+          <h2 style={{ marginTop: 14 }}>Built for it. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>Earning the badges next.</em></h2>
           <p style={{ marginTop: 18, fontSize: 15 }}>
             The honest answer to "are you SOC 2 certified?" today is "<em style={{ fontStyle: "normal" }}>not yet. It's on our roadmap; here's what we've already built, and what's coming.</em>" We'd rather show you the controls than rush a checkbox.
           </p>
@@ -338,7 +341,7 @@ const Roadmap = () => (
             <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 10, padding: "3px 9px", borderRadius: 999, background: "var(--primary-50)", color: "var(--primary)", fontWeight: 600 }}>2025 → 2027</span>
           </div>
 
-          <div className="rm-scroll">
+          <div className="rm-scroll" tabIndex={0} role="region" aria-label="Compliance roadmap timeline, 2025 to 2027. Scroll horizontally to see all phases">
           {/* quarter axis */}
           <div style={{ display: "grid", gridTemplateColumns: RM_COLS, gap: 14, padding: "10px 18px 8px", borderBottom: "1px solid var(--line)" }}>
             <span/>
@@ -380,7 +383,7 @@ const Roadmap = () => (
           {/* footer */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "12px 18px", borderTop: "1px solid var(--line)", background: "var(--bg-alt)", flexWrap: "wrap" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--ink-3)" }}>4 in production · 5 planned</span>
-            <a href="mailto:info@streaque.com?subject=Security%20packet" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
+            <a href="/contact#form-security" style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--primary)", textDecoration: "none", fontWeight: 600 }}>Full evidence in the security packet →</a>
           </div>
         </div>
       </div>
@@ -399,11 +402,9 @@ const Roadmap = () => (
 
 const ASK_QUESTIONS = [
   "Where do my students' encryption keys live, and who has access to them?",
-  "If your codebase leaks tomorrow, what happens to my data?",
   "Do you train your AI models on student conversations?",
   "What happens if one of your other customers gets breached? Could it affect us?",
   "How quickly will you tell us if there's a security incident, and what's in that notification?",
-  "Can I see your most recent penetration test report and your SOC 2 attestation?",
   "What identity provider do you support? Can students sign in with existing university credentials?",
   "How is data deleted when our contract ends? How do I verify it?",
 ];
@@ -413,8 +414,8 @@ const Ask = () => (
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
         <span className="mf-eyebrow">What to ask us next</span>
-        <h2 style={{ marginTop: 14 }}>Ask us. <em style={{ fontStyle: "italic", color: "var(--ink-3)" }}>Then ask every other vendor.</em></h2>
-        <p>Eight questions worth answering in writing, from us and from anyone we're competing with.</p>
+        <h2 style={{ marginTop: 14 }}>Ask us. <em className="mf-grad-text" style={{ fontStyle: "italic", paddingRight: "0.14em", WebkitBoxDecorationBreak: "clone", boxDecorationBreak: "clone" }}>Then ask every other vendor.</em></h2>
+        <p>Six questions worth answering in writing, from us and from anyone we're competing with.</p>
       </div>
       <div className="ask-grid">
         {ASK_QUESTIONS.map((q, i) => (
@@ -428,7 +429,7 @@ const Ask = () => (
       </div>
       <div className="ask-foot">
         We&apos;ll answer all of these in writing, on the record, with as much technical detail as you want.{" "}
-        <a href="mailto:info@streaque.com">info@streaque.com →</a>
+        <a href="/contact#form-security">Start a security review →</a>
       </div>
     </div>
     <style>{`

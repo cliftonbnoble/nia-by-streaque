@@ -343,6 +343,7 @@ const Phone = ({ variant, cls }) => {
   const [cycle, setCycle] = useState(0);
   const dur = variant === "agent" ? AGENT_MS : NOTIFY_MS;
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => setCycle((c) => c + 1), dur);
     return () => clearTimeout(t);
   }, [cycle, dur]);
@@ -372,7 +373,7 @@ const Phone = ({ variant, cls }) => {
 /* ── both phones, fanned ────────────────────────────────────── */
 export default function HeroPhones() {
   return (
-    <div className="hp-fan" aria-label="Nia mobile app: the agent thinking process, and a proactive student notification">
+    <div className="hp-fan" role="img" aria-label="Nia mobile app: the agent thinking process, and a proactive student notification">
       <Phone variant="agent" cls="hp-a"/>
       <Phone variant="notify" cls="hp-b"/>
 

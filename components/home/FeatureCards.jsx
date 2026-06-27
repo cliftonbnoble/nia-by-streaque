@@ -51,7 +51,7 @@ const CanvasMark = ({ s = 34 }) => (
 
 /* ── Proactive Nudging — the animated demo ────────────────────── */
 const NudgeDemo = ({ k }) => (
-  <div className="fn-stage">
+  <div className="fn-stage" aria-hidden="true">
     {/* pipeline rail (everything in one HTML coordinate space → exact alignment) */}
     <span className="fn-rail"/>
     <span className="fn-rail-flow"/>
@@ -77,7 +77,7 @@ const NudgeDemo = ({ k }) => (
         </div>
         <div className="fn-card-p">Want a 10-minute reset before Friday?</div>
         <div className="fn-card-row">
-          <button className="fn-card-cta">Start now <IcExtern s={10} sw={2.2}/></button>
+          <button className="fn-card-cta" tabIndex={-1}>Start now <IcExtern s={10} sw={2.2}/></button>
           <span className="fn-card-snz"><IcSnooze s={13} sw={1.9} c="rgba(255,255,255,0.9)"/></span>
         </div>
         <img loading="lazy" decoding="async" src="/notif-cal.png" alt="" className="fn-card-cal" width="52" height="78"/>
@@ -135,7 +135,7 @@ const DELTAS = [
 const SmartDemo = () => (
   <div className="fd-stage center">
     <div className="fd-row">
-      <span className="fd-tag">NUDGE OPEN-RATE · 8 WK</span>
+      <span className="fd-tag">NUDGE OPEN-RATE · 8 WK · ILLUSTRATIVE</span>
       <span className="fs-delta">
         {DELTAS.map((d) => (
           <span key={d.v} className="fs-delta-v" style={{
@@ -217,23 +217,29 @@ const CARDS = [
 ];
 
 export default function FeatureCards() {
+  // skip the looping demo re-mounts entirely for reduced-motion users
+  const reduceMotion = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const [cycle, setCycle] = useState(0);
   const [ecycle, setEcycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setCycle((c) => c + 1), NUDGE_MS);
     return () => clearTimeout(t);
   }, [cycle]);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setEcycle((c) => c + 1), 14000);
     return () => clearTimeout(t);
   }, [ecycle]);
   const [scycle, setScycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setScycle((c) => c + 1), 12000);
     return () => clearTimeout(t);
   }, [scycle]);
   const [mcycle, setMcycle] = useState(0);
   useEffect(() => {
+    if (reduceMotion()) return;
     const t = setTimeout(() => setMcycle((c) => c + 1), 12500);
     return () => clearTimeout(t);
   }, [mcycle]);

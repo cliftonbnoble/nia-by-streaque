@@ -5,14 +5,17 @@ import Footer from "@/components/Footer";
 import { ArrowRight as ArrowR, Tick } from "@/components/icons";
 import WholeStudent from "@/components/home/WholeStudent";
 import PilotStrip from "@/components/PilotStrip";
+import { SecCTA } from "@/components/home/CampaignSections";
 import { FmCard, FmEyebrow, FmLive, ConnGlyph } from "./fm";
 import { NudgesCarousel, LearningStyleDemo, StaffDashboard } from "./AppDemos";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = pageMetadata({
+  path: "/how-nia-works",
   title: "How Nia Works · Nia by Streaque",
   description:
     "Two coordinated front doors, a student coach and a staff co-pilot, turning LMS, SIS, and CRM signals into nudges, alerts, and next steps on one governed layer.",
-};
+});
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 64 }}>
@@ -38,131 +41,83 @@ const Hero = () => (
 const TwoPaths = () => (
   <section className="mf-section hnw-paths-sec">
     <div className="mf-container">
+      <h2 style={{ textAlign: "center", margin: "0 0 32px", fontSize: 16.5, fontWeight: 600, color: "var(--ink-3)", letterSpacing: 0 }}>Two front doors, one student.</h2>
       <div className="hnw-paths">
-        {/* STUDENT — the app, on an iPhone (hero-phone shell) */}
-        <a href="#for-students" className="hnw-dev hnw-dev-student">
-          <div className="hnw-iphone">
-            <span className="hnw-ip-btn" style={{ left: -2.5, top: 92, height: 20 }} aria-hidden="true"/>
-            <span className="hnw-ip-btn" style={{ left: -2.5, top: 134, height: 38 }} aria-hidden="true"/>
-            <span className="hnw-ip-btn" style={{ left: -2.5, top: 184, height: 38 }} aria-hidden="true"/>
-            <span className="hnw-ip-btn" style={{ right: -2.5, top: 152, height: 54 }} aria-hidden="true"/>
-            <div className="hnw-ip-bezel">
-              <div className="hnw-ip-screen">
-                <div className="hnw-ip-island" aria-hidden="true"><span className="hnw-ip-cam"/></div>
-                <div className="hnw-bar">
-                  <span className="hnw-bar-glyph" aria-hidden="true"><ConnGlyph s={15} gid="hpstu"/></span>
-                  <span className="hnw-bar-name">Nia</span>
-                  <span className="hnw-bar-tag">for students</span>
-                </div>
-                <div className="hnw-body">
-                  <span className="hnw-eyebrow">The app</span>
-                  <h3 className="hnw-h">A coach in the<br/>student&apos;s pocket.</h3>
-                  <ul className="hnw-points">
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Answers from your LMS, SIS, and CRM</li>
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Nudges that land, not noise</li>
-                    <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Adapts to how each student studies</li>
-                  </ul>
-                  <span className="hnw-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
-                </div>
-                <span className="hnw-ip-home" aria-hidden="true"/>
-              </div>
-            </div>
+        {/* STUDENT door */}
+        <a href="#for-students" className="hnw-door hnw-door-student">
+          <span className="hnw-door-glow" aria-hidden="true"/>
+          <div className="hnw-door-top">
+            <span className="hnw-door-ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.18 7.67L3 21l1.83-5.82A8.5 8.5 0 1 1 21 11.5z"/><path d="M12 8.4l1.02 2.33 2.33 1.02-2.33 1.02L12 15.1l-1.02-2.33-2.33-1.02 2.33-1.02z" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span className="hnw-door-eyebrow">For students</span>
+            <span className="hnw-door-status hnw-door-live">Available now</span>
           </div>
+          <h3 className="hnw-door-h">A coach in the pocket.</h3>
+          <ul className="hnw-door-points">
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>Answers from your LMS, SIS, and CRM</li>
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>Nudges that land, not noise</li>
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>Adapts to how each student studies</li>
+          </ul>
+          <span className="hnw-door-cta hnw-cta-student">See the student experience <ArrowR s={13}/></span>
         </a>
-        {/* STAFF — the dashboard, on a MacBook (Moats mac shell) */}
-        <a href="#for-staff" className="hnw-dev hnw-dev-staff">
-          <div className="hnw-mac">
-            <div className="hnw-mac-lid">
-              <div className="hnw-mac-display">
-                <span className="hnw-mac-notch" aria-hidden="true"/>
-                <div className="hnw-mac-app">
-                  <div className="hnw-mac-chrome">
-                    <span className="hnw-mac-dots" aria-hidden="true"><i/><i/><i/></span>
-                    <span className="hnw-mac-url">app.niahub.ai/staff</span>
-                  </div>
-                  <div className="hnw-body hnw-body-mac">
-                    <span className="hnw-eyebrow">The dashboard</span>
-                    <h3 className="hnw-h">A co-pilot at the desk.</h3>
-                    <ul className="hnw-points">
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Early-warning signals across the cohort</li>
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>The student who needs you, surfaced first</li>
-                      <li><span className="hnw-tick" aria-hidden="true"><Tick s={11}/></span>Outreach drafted in your voice</li>
-                    </ul>
-                    <span className="hnw-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="hnw-mac-base" aria-hidden="true"><span className="hnw-mac-groove"/></div>
-            <span className="hnw-mac-floor" aria-hidden="true"/>
+        {/* STAFF door */}
+        <a href="#for-staff" className="hnw-door hnw-door-staff">
+          <span className="hnw-door-glow" aria-hidden="true"/>
+          <div className="hnw-door-top">
+            <span className="hnw-door-ic" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/><path d="M12 12 19.5 4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="7.5" r="1.35" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span className="hnw-door-eyebrow">For staff</span>
+            <span className="hnw-door-status hnw-door-dev">Beta · Fall 2026</span>
           </div>
+          <h3 className="hnw-door-h">A co-pilot at the desk.</h3>
+          <ul className="hnw-door-points">
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>Early-warning across the cohort</li>
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>The student who needs you, surfaced first</li>
+            <li><span className="hnw-door-tick" aria-hidden="true"><Tick s={12}/></span>Outreach drafted in your voice</li>
+          </ul>
+          <span className="hnw-door-cta hnw-cta-staff">See the staff experience <ArrowR s={13}/></span>
         </a>
       </div>
     </div>
     <style>{`
-      /* the MacBook base + device bleeds extend past the cards; clip horizontally
-         so they never trigger page-level horizontal scroll on tight desktop widths */
-      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; overflow-x: clip; }
-      .hnw-paths{ display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 30px; align-items: center; max-width: 1080px; margin: 0 auto; }
-      .hnw-dev{ display: block; text-decoration: none; transition: transform 280ms cubic-bezier(0.2,0.8,0.2,1); }
-      .hnw-dev:hover{ transform: translateY(-7px); }
+      .hnw-paths-sec{ padding-top: 6px; padding-bottom: 60px; }
+      .hnw-paths{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; max-width: 940px; margin: 0 auto; }
 
-      /* iPhone — matches the homepage hero phone shell */
-      .hnw-iphone{ position: relative; width: 244px; max-width: 100%; aspect-ratio: 244 / 496; margin: 0 auto;
-        background: linear-gradient(155deg, #4a4f5b 0%, #23262e 30%, #15171d 55%, #3a3f4b 100%);
-        border-radius: 44px; padding: 8px;
-        box-shadow: inset 0 0 2px rgba(255,255,255,0.35), inset 0 0 1px rgba(255,255,255,0.6),
-                    0 44px 72px -30px rgba(11,16,38,0.42), 0 14px 30px rgba(56,86,214,0.12); }
-      .hnw-ip-btn{ position: absolute; width: 3px; border-radius: 2px; background: linear-gradient(90deg, #2c303a, #181a20); }
-      .hnw-ip-bezel{ width: 100%; height: 100%; background: #000; border-radius: 37px; padding: 3px; box-sizing: border-box; }
-      .hnw-ip-screen{ position: relative; width: 100%; height: 100%; border-radius: 34px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
-      .hnw-ip-island{ position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 72px; height: 20px; border-radius: 11px; background: #000; z-index: 6; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; box-sizing: border-box; }
-      .hnw-ip-cam{ width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #1d2f4a 0%, #0a0f18 60%); }
-      .hnw-ip-home{ position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 92px; height: 4px; border-radius: 2px; background: #59606e; opacity: 0.32; z-index: 6; }
-      .hnw-iphone .hnw-bar{ padding-top: 34px; }
-      .hnw-iphone .hnw-body{ padding-bottom: 30px; }
+      /* two symmetric doors — dark cards in the "Built different" glass language, set on
+         the light section. Per-card accent: cyan (students) / purple (staff). */
+      .hnw-door{
+        position: relative; overflow: hidden; display: flex; flex-direction: column;
+        text-decoration: none; border-radius: var(--radius-xl); padding: 28px 30px 26px;
+        background: linear-gradient(165deg, #2a316e 0%, #0d1024 100%);
+        border: 1px solid rgba(255,255,255,0.10);
+        box-shadow: 0 30px 60px -32px rgba(13,18,52,0.55);
+        transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+      }
+      .hnw-door-student{ --door-accent: #2BB3DF; }
+      .hnw-door-staff{ --door-accent: #8F7DF7; }
+      .hnw-door:hover{ transform: translateY(-6px); box-shadow: 0 44px 82px -32px rgba(13,18,52,0.62); border-color: color-mix(in srgb, var(--door-accent) 48%, transparent); }
+      .hnw-door-glow{ position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 82% 52% at 50% -10%, var(--door-accent), transparent 72%); opacity: 0.26; }
+      .hnw-door-top, .hnw-door-h, .hnw-door-points, .hnw-door-cta{ position: relative; z-index: 1; }
 
-      /* MacBook — matches the /nia Moats MacBook shell */
-      .hnw-mac{ position: relative; width: 100%; max-width: 484px; margin: 0 auto; }
-      .hnw-mac-lid{ background: linear-gradient(180deg,#EDF0F4,#C8CDD6); border-radius: 18px 18px 0 0; padding: 4px 4px 0; box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 42px 72px -32px rgba(11,16,32,0.4); }
-      .hnw-mac-display{ position: relative; background: #05070D; border-radius: 14px 14px 0 0; padding: 12px 11px 15px; overflow: hidden; }
-      .hnw-mac-notch{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 56px; height: 14px; background: #05070D; border-radius: 0 0 8px 8px; z-index: 5; }
-      .hnw-mac-app{ position: relative; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.45); aspect-ratio: 16 / 10; display: flex; flex-direction: column; }
-      .hnw-mac-chrome{ display: flex; align-items: center; gap: 9px; padding: 9px 13px; background: #F2F4F8; border-bottom: 1px solid #E3E6EE; flex-shrink: 0; }
-      .hnw-mac-dots{ display: inline-flex; gap: 5px; flex-shrink: 0; }
-      .hnw-mac-dots i{ width: 9px; height: 9px; border-radius: 50%; }
-      .hnw-mac-dots i:nth-child(1){ background: #FF5F57; }
-      .hnw-mac-dots i:nth-child(2){ background: #FEBC2E; }
-      .hnw-mac-dots i:nth-child(3){ background: #28C840; }
-      .hnw-mac-url{ flex: 1; max-width: 250px; margin: 0 auto; text-align: center; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: #fff; border: 1px solid #E3E6EE; border-radius: 6px; padding: 4px 0; }
-      .hnw-mac-base{ position: relative; width: 114%; margin-left: -7%; height: 15px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 4px rgba(11,16,32,0.18); }
-      .hnw-mac-groove{ position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 78px; height: 6px; background: linear-gradient(180deg,#9AA2B1,#C3C9D3); border-radius: 0 0 9px 9px; box-shadow: inset 0 1px 2px rgba(11,16,32,0.25); }
-      .hnw-mac-floor{ display: block; height: 18px; width: 86%; margin: 3px auto 0; background: radial-gradient(ellipse at 50% 0%, rgba(11,16,32,0.26), transparent 65%); filter: blur(5px); }
+      .hnw-door-top{ display: flex; align-items: center; gap: 10px; }
+      .hnw-door-ic{ display: inline-flex; flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; align-items: center; justify-content: center; color: var(--door-accent); background: color-mix(in srgb, var(--door-accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--door-accent) 32%, transparent); }
+      .hnw-door-eyebrow{ font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+      .hnw-door-status{ margin-left: auto; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border: 1px solid transparent; border-radius: 999px; padding: 4px 11px; }
+      .hnw-door-live{ color: #5ee7b0; border-color: rgba(61,220,151,0.40); background: rgba(61,220,151,0.10); box-shadow: 0 0 18px -2px rgba(61,220,151,0.55), inset 0 0 10px -4px rgba(61,220,151,0.6); }
+      .hnw-door-dev{ color: #f7c873; border-color: rgba(240,181,74,0.42); background: rgba(240,181,74,0.10); box-shadow: 0 0 18px -2px rgba(240,181,74,0.5), inset 0 0 10px -4px rgba(240,181,74,0.55); }
 
-      /* screen content (shared) */
-      .hnw-bar{ display: flex; align-items: center; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
-      .hnw-bar-glyph{ width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-      .hnw-bar-name{ font-family: var(--font-display); font-weight: 700; font-size: 13.5px; color: var(--ink); }
-      .hnw-bar-tag{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-left: auto; }
-      .hnw-body{ padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; }
-      .hnw-body-mac{ padding: 22px 26px 24px; flex: 1; display: flex; flex-direction: column; }
-      .hnw-eyebrow{ font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
-      .hnw-h{ margin-top: 8px; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.025em; color: var(--ink); line-height: 1.14; }
-      .hnw-body-mac .hnw-h{ font-size: 25px; }
-      .hnw-points{ margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-      .hnw-points li{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
-      .hnw-body-mac .hnw-points li{ font-size: 13px; }
-      .hnw-tick{ flex-shrink: 0; margin-top: 2px; display: inline-flex; }
-      .hnw-dev-student .hnw-tick{ color: var(--brand-blue); }
-      .hnw-dev-staff .hnw-tick{ color: #3a37ad; }
-      .hnw-cta{ display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: auto; padding: 12px; border-radius: 13px; color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 12px 24px -12px rgba(37,39,138,0.5); transition: gap 200ms ease; }
+      .hnw-door .hnw-door-h{ margin: 18px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; letter-spacing: -0.025em; color: #fff; line-height: 1.1; }
+      .hnw-door-points{ list-style: none; margin: 16px 0 22px; padding: 0; display: grid; gap: 11px; }
+      .hnw-door-points li{ display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: rgba(255,255,255,0.74); }
+      .hnw-door-tick{ flex-shrink: 0; margin-top: 1px; display: inline-flex; color: var(--door-accent); }
+      .hnw-door-cta{ margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px; border-radius: 12px; color: #fff; font-size: 13.5px; font-weight: 600; box-shadow: 0 14px 28px -14px rgba(0,0,0,0.5); transition: gap 200ms ease; }
       .hnw-cta-student{ background: var(--brand-gradient); }
-      .hnw-cta-staff{ background: linear-gradient(135deg, #3a37ad, #25278a); }
-      .hnw-dev:hover .hnw-cta{ gap: 11px; }
+      .hnw-cta-staff{ background: linear-gradient(135deg, #8A6CF2 0%, #4F3FD0 100%); }
+      .hnw-door:hover .hnw-door-cta{ gap: 11px; }
 
-      @media (max-width: 820px){ .hnw-paths{ grid-template-columns: 1fr; gap: 40px; justify-items: center; } .hnw-iphone{ aspect-ratio: 244 / 472; width: 270px; } }
-      /* below ~480px the MacBook is too narrow to hold its content at 16:10, so let it size to content instead of clipping */
-      @media (max-width: 480px){ .hnw-mac-app{ aspect-ratio: auto; } }
+      @media (max-width: 700px){ .hnw-paths{ grid-template-columns: 1fr; gap: 18px; max-width: 440px; } }
     `}</style>
   </section>
 );
@@ -172,8 +127,8 @@ const TwoPaths = () => (
 
 function ChatMock() {
   return (
-    <FmCard accent="43,179,223">
-      <FmEyebrow right={<FmLive>Always on</FmLive>}>
+    <FmCard>
+      <FmEyebrow>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}>
           <span style={{ width: 24, height: 24, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "inline-flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 6px -2px rgba(11,16,32,0.12)" }}><ConnGlyph s={18} gid="fmc"/></span>
           Nia · course-aware
@@ -233,8 +188,8 @@ const StatCard = ({ value, label, change, spark, gid }) => (
 function IntegrationMock() {
   const days = ["M", "T", "W", "T", "F", "S", "S"];
   return (
-    <FmCard accent="56,65,177">
-      <FmEyebrow right={<FmLive>Synced</FmLive>}>Canvas dashboard · from the app</FmEyebrow>
+    <FmCard>
+      <FmEyebrow>Canvas dashboard · from the app</FmEyebrow>
       <div style={{ display: "grid", gap: 10 }}>
         {/* the headliners: streak + projected GPA, floating like the dashboard */}
         <div className="fm-integ" style={{ alignItems: "stretch" }}>
@@ -293,16 +248,17 @@ function IntegrationMock() {
 
 function WarningMock() {
   return (
-    <FmCard accent="43,179,223">
-      <FmEyebrow right={<FmLive>Live</FmLive>}>Early-alert queue</FmEyebrow>
+    <FmCard>
+      <FmEyebrow>Early-alert queue</FmEyebrow>
       <div style={{ display: "grid", gap: 8 }}>
         {[
-          { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "#1", hot: true },
+          { img: "/students/maya.png", n: "Maya Reyes", s: "BIO 201 · missed quiz · sentiment ↓", tag: "New", hot: true },
           { img: "/students/jonas.png", n: "Jonas Kim", s: "GPA dip · 3 weeks", tag: "Draft" },
           { img: "/students/anya.png", n: "Anya Patel", s: "Low engagement · CS 110", tag: "Meeting" },
           { img: "/students/ravi.png", n: "Ravi Shah", s: "Aid form overdue", tag: "Routed" },
-        ].map((r) => (
+        ].map((r, i) => (
           <div key={r.n} className={r.hot ? "fm-glowbob" : undefined} style={{ display: "flex", alignItems: "center", gap: 9, padding: "9px 11px", background: "white", borderRadius: 12, border: r.hot ? "1px solid rgba(217,119,6,0.35)" : "1px solid var(--line)", boxShadow: r.hot ? undefined : "0 6px 16px -10px rgba(11,16,32,0.16)" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 700, color: r.hot ? "#B45309" : "var(--ink-3)", minWidth: 13, textAlign: "center", flexShrink: 0 }}>{i + 1}</span>
             <img src={r.img} alt="" width="24" height="24" style={{ borderRadius: "50%", flexShrink: 0, boxShadow: "0 0 0 1px rgba(15,23,42,0.08)" }}/>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>{r.n}</div>
@@ -318,7 +274,7 @@ function WarningMock() {
 
 function InsightsMock() {
   return (
-    <FmCard accent="124,58,237">
+    <FmCard>
       <FmEyebrow right={<FmLive>3 new</FmLive>}>AI insights</FmEyebrow>
       <div className="fm-bob" style={{ padding: "13px 14px", background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 52%, #eef2ff 100%)", border: "1px solid #c7d2fe", borderRadius: 14, boxShadow: "0 14px 30px -16px rgba(56,65,177,0.4)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
@@ -345,7 +301,7 @@ function InsightsMock() {
 
 function InterventionMock() {
   return (
-    <FmCard accent="43,179,223">
+    <FmCard>
       <FmEyebrow right={<FmLive>Draft ready</FmLive>}>Draft reply · Maya Reyes</FmEyebrow>
       <div style={{ padding: "13px 14px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12 }}>Hi Maya,</div>
@@ -369,8 +325,8 @@ function InterventionMock() {
 
 function PredictiveMock() {
   return (
-    <FmCard accent="217,119,6">
-      <FmEyebrow right={<FmLive>Updating</FmLive>}>Overload forecast · next 14 days</FmEyebrow>
+    <FmCard>
+      <FmEyebrow>Overload forecast · next 14 days</FmEyebrow>
       <div style={{ padding: "13px 14px 10px", background: "white", border: "1px solid var(--line)", borderRadius: 14, boxShadow: "0 10px 26px -14px rgba(11,16,32,0.25)" }}>
         <svg viewBox="0 0 240 110" style={{ width: "100%", height: 132 }} preserveAspectRatio="none">
           <defs>
@@ -414,16 +370,16 @@ const STUDENT_FEATURES = [
     bullets: ["Access to all university resources: handbooks, policies, course catalogs", "Answers drawn from your LMS, SIS, and CRM", "Personalized to your schedule, courses, and goals"], Mock: ChatMock },
   { n: "02", t: "Nudges that land, not noise", b: "Quiet, well-timed reminders that meet you where you are, not another inbox to check.",
     bullets: ["Catches a slipping deadline before it becomes a problem", "Reminders for the assignments and dates that matter this week", "A heads-up when an opportunity actually fits your goals", "Study suggestions shaped by how this term is going"], Mock: NudgesCarousel },
-  { n: "03", t: "Learns how you actually study", b: "Builds a private, FERPA-scoped model of how you study best, and adapts everything to fit.",
+  { n: "03", t: "Learns how you actually study", b: "Builds a private, permission-scoped model of how you study best, and adapts everything to fit.",
     bullets: ["Tracks when and how you study best", "Adapts communication style to your needs", "Builds a profile to deliver smarter support", "Privacy-first by design"], Mock: LearningStyleDemo },
-  { n: "04", t: "One brain, every system", b: "One brain across every campus system, not a stitched-together set of point tools.",
-    bullets: ["Connected to your LMS for assignment tracking", "SIS integration for academic records", "CRM-aware for advising context", "All your university resources in one place"], Mock: IntegrationMock },
+  { n: "04", t: "One coach, not a dozen tools", b: "To you it's one coach that already knows your courses, aid, and calendar, not a stack of disconnected apps to chase.",
+    bullets: ["One coach connected to your LMS, SIS, and CRM", "Knows your assignments, records, and advising context", "Nothing to re-enter, no apps to chase", "Every campus resource, behind one conversation"], Mock: IntegrationMock },
 ];
 
 const STAFF_FEATURES = [
-  { n: "01", t: "Early-warning system", b: "Nia reads tone, attendance, and participation together to surface the students slipping before it shows up in their grades.", bullets: ["Notices a shift in tone before it shows up in grades", "Flags the student whose engagement is quietly slipping", "Watches the early signs you'd want to catch", "Reads assignments, attendance, and participation together"], Mock: WarningMock },
+  { n: "01", t: "Ranked early-alert queue", b: "The same signals that nudge a slipping student surface on your desk as a ranked queue, highest-need first, so you open the morning knowing exactly who to reach, and why.", bullets: ["The students slipping, ranked by who needs you most", "The same student Nia nudged, now at the top of your list", "Why each one surfaced: tone, attendance, participation, in context", "Built and prioritized for you, nothing new to enter"], Mock: WarningMock },
   { n: "02", t: "The cohort at a glance", b: "See where the whole cohort's momentum is heading, and who needs attention first, with nothing new to enter.", bullets: ["How the cohort's momentum is trending, week over week", "Where engagement is rising, and where it's dropping", "Pulled straight from your LMS, no new data entry", "The students who need attention, surfaced first"], Mock: StaffDashboard },
-  { n: "03", t: "The same brain, your side of the desk", b: "The same model the student talks to, working from your side with their full record already in view.", bullets: ["The same model the student sees, from your side of the desk", "Knows your documents, calendars, and policies", "Sees the student's LMS, SIS, and CRM record in context", "Suggests the next step that fits this student"], Mock: InsightsMock },
+  { n: "03", t: "The same coach, your side of the desk", b: "Not a separate staff tool: the very coach your students talk to, turned to face you, with their record and the next step already in view.", bullets: ["The same coach the student sees, working from your side", "Their full LMS, SIS, and CRM record, in your context", "Tuned to your documents, calendars, and policies", "Surfaces the next step that fits this student"], Mock: InsightsMock },
   { n: "04", t: "Step in early, recognize the wins", b: "Reach the struggling student and catch the high performer, then see whether your outreach actually landed.", bullets: ["Reach the struggling student before they fall behind", "Catch the high performer worth recognizing", "See whether your outreach actually landed", "Know what happened after you stepped in"], Mock: InterventionMock },
   { n: "05", t: "Know before they do", b: "Patterns across the cohort surface what students who thrive have in common, so you can act sooner.", bullets: ["Know a student is overwhelmed before they say so", "Patterns across the whole cohort, not just one student", "What the students who thrive tend to share", "Decisions grounded in what's happening on campus"], Mock: PredictiveMock },
 ];
@@ -442,8 +398,9 @@ const FeatureRow = ({ f, flip }) => {
           ))}
         </ul>
       </div>
-      <div style={{ order: flip ? 1 : 2 }}>
-        <Mock/>
+      <div style={{ order: flip ? 1 : 2, position: "relative" }}>
+        <span aria-hidden="true" className={`fm-bloom ${flip ? "fm-bloom-blue" : "fm-bloom-purple"}`}/>
+        <div style={{ position: "relative", zIndex: 1 }}><Mock/></div>
       </div>
     </div>
   );
@@ -452,19 +409,19 @@ const FeatureRow = ({ f, flip }) => {
 const PullQuote = ({ quote, sub }) => (
   <div style={{ margin: "64px auto 0", maxWidth: 760, textAlign: "center", padding: "48px 24px", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
     <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 500, lineHeight: 1.2, letterSpacing: "-0.02em" }}>
-      <em style={{ fontStyle: "normal" }}>"</em>
+      <em style={{ fontStyle: "normal" }}>“</em>
       <span className="mf-grad-text">{quote}</span>
-      <em style={{ fontStyle: "normal" }}>"</em>
+      <em style={{ fontStyle: "normal" }}>”</em>
     </div>
     <div style={{ marginTop: 14, fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--ink-3)" }}>{sub}</div>
   </div>
 );
 
 const ForStudents = () => (
-  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84 }}>
+  <section id="for-students" className="mf-section" style={{ scrollMarginTop: 84, overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 720, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Students</span>
+        <span className="mf-eyebrow">For Students</span><span className="hnw-status hnw-status-live">Available now</span>
         <h2 style={{ marginTop: 14 }}>A <span className="mf-grad-text">success partner</span>, not a search box.</h2>
         <p>One coach for every student, working from your LMS, SIS, and CRM. Real answers, nudges that land, and support that adapts as the term goes on.</p>
       </div>
@@ -476,22 +433,33 @@ const ForStudents = () => (
       <PullQuote quote="One student sees a coach. Every office sees the same student." sub="The same record flows from the student's phone to the staff desk →"/>
     </div>
     <style>{`
+      .hnw-status{ display: inline-flex; align-items: center; margin-left: 10px; vertical-align: middle; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; }
+      .hnw-status-live{ background: rgba(13,138,90,0.1); border: 1px solid rgba(13,138,90,0.36); color: var(--success); box-shadow: 0 0 15px -1px rgba(13,138,90,0.45); }
+      .hnw-status-dev{ background: rgba(154,106,18,0.1); border: 1px solid rgba(154,106,18,0.36); color: var(--inprogress); box-shadow: 0 0 15px -1px rgba(154,106,18,0.42); }
       .fm-card{
         position: relative;
         overflow: hidden;
-        background: #FBFCFE;
-        border: 1px solid var(--line);
+        background: #FFFFFF;
+        border: 1px solid rgba(15,23,42,0.06);
         border-radius: 18px;
-        box-shadow: 0 24px 48px -28px rgba(15,23,42,0.18);
+        box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+        transition: transform 220ms ease, box-shadow 220ms ease;
       }
-      .fm-glow{
+      .fm-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 34px 62px -24px rgba(31,52,128,0.40), 0 10px 20px -8px rgba(31,52,128,0.16);
+      }
+      /* colored bloom behind each mock — left cards blue, right cards purple —
+         sitting under the card's own drop shadow for a splash of brand color */
+      .fm-bloom{
         position: absolute;
-        width: 420px; height: 420px;
-        left: 50%; top: -240px;
-        transform: translateX(-50%);
-        border-radius: 50%;
+        z-index: 0;
+        inset: -10% -16%;
+        filter: blur(50px);
         pointer-events: none;
       }
+      .fm-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+      .fm-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
       .fm-bob{ animation: fm-bob 3.4s ease-in-out infinite; }
       @keyframes fm-bob{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-4px); } }
       .fm-pulse{ animation: fm-pulse 2.4s ease-in-out infinite; }
@@ -560,12 +528,12 @@ const ForStudents = () => (
 );
 
 const ForStaff = () => (
-  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84 }}>
+  <section id="for-staff" className="mf-section alt" style={{ scrollMarginTop: 84, overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ textAlign: "left", maxWidth: 760, marginLeft: 0 }}>
-        <span className="mf-eyebrow">For Staff</span>
+        <span className="mf-eyebrow">For Staff</span><span className="hnw-status hnw-status-dev">Beta · Fall 2026</span>
         <h2 style={{ marginTop: 14 }}>See problems <span className="mf-grad-text">before</span> they happen.</h2>
-        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first.</p>
+        <p>The same coach, from the staff side of the desk. It turns everyday student activity into early signals: who's slipping, who's thriving, and where to step in first. <strong style={{ color: "var(--inprogress)", fontWeight: 600 }}>Shipping next.</strong></p>
       </div>
       <div style={{ display: "grid", gap: 28 }}>
         {STAFF_FEATURES.map((f, i) => (
@@ -578,7 +546,7 @@ const ForStaff = () => (
 );
 
 const CompletePicture = () => (
-  <section className="mf-section">
+  <section className="mf-section" style={{ overflow: "hidden" }}>
     <div className="mf-container">
       <div className="mf-section-head" style={{ marginBottom: 64 }}>
         <span className="mf-eyebrow">The complete picture</span>
@@ -587,13 +555,13 @@ const CompletePicture = () => (
       </div>
       <div className="mf-stack-sm" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28, position: "relative" }}>
         {[
-          { n: "01", t: "Student engages", accent: "43,179,223", color: "var(--brand-cyan)", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
-          { n: "02", t: "Data flows", accent: "56,65,177", color: "var(--brand-blue)", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
-          { n: "03", t: "Staff acts", accent: "124,58,237", color: "#7c3aed", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
+          { n: "01", t: "Student engages", color: "var(--brand-cyan)", items: ["Chats with Nia", "Receives nudges", "Completes (or misses) tasks", "Sentiment is tracked"] },
+          { n: "02", t: "Data flows", color: "var(--brand-blue)", items: ["AI agents analyze patterns", "Sentiment shifts detected", "Engagement metrics calculated", "Alerts generated"] },
+          { n: "03", t: "Staff acts", color: "#7c3aed", items: ["Dashboard shows insights", "Early intervention triggered", "Personalized outreach", "Better outcomes"] },
         ].map((s, i) => (
           <div key={s.n} style={{ position: "relative" }}>
-            <div style={{ position: "relative", overflow: "hidden", height: "100%", padding: 28, background: "#FBFCFE", border: "1px solid var(--line)", borderRadius: 18, boxShadow: "0 24px 48px -28px rgba(15,23,42,0.16)", boxSizing: "border-box" }}>
-              <span style={{ position: "absolute", width: 380, height: 380, left: "50%", top: -210, transform: "translateX(-50%)", borderRadius: "50%", background: `radial-gradient(circle closest-side, rgba(${s.accent},0.13), transparent 100%)`, pointerEvents: "none" }} aria-hidden="true"/>
+            <span aria-hidden="true" className={`fm-bloom ${i === 1 ? "fm-bloom-blue" : "fm-bloom-purple"}`}/>
+            <div className="fm-card" style={{ position: "relative", zIndex: 1, height: "100%", padding: 28, boxSizing: "border-box" }}>
               <div style={{ position: "relative" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                   <span style={{ padding: "5px 11px", background: "var(--brand-gradient)", color: "white", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10.5, letterSpacing: "0.12em", fontWeight: 600 }}>{s.n}</span>
@@ -608,7 +576,7 @@ const CompletePicture = () => (
               </div>
             </div>
             {i < 2 && (
-              <div style={{ position: "absolute", right: -22, top: "50%", transform: "translateY(-50%)", width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--brand-blue)", boxShadow: "var(--shadow-sm)", zIndex: 2 }}>
+              <div className="loop-arrow" style={{ width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--line)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--brand-blue)", boxShadow: "var(--shadow-sm)", zIndex: 2 }}>
                 <ArrowR s={18}/>
               </div>
             )}
@@ -616,6 +584,15 @@ const CompletePicture = () => (
         ))}
       </div>
     </div>
+    <style>{`
+      /* step connectors: point right between the side-by-side cards, and
+         down once the grid stacks into a single column */
+      .loop-arrow{ position: absolute; right: -22px; top: 50%; transform: translateY(-50%); }
+      @media (max-width: 760px){
+        .loop-arrow{ right: auto; left: 50%; top: auto; bottom: -22px; transform: translateX(-50%); }
+        .loop-arrow svg{ transform: rotate(90deg); }
+      }
+    `}</style>
   </section>
 );
 
@@ -652,7 +629,13 @@ export default function HowNiaWorks() {
       <ForStaff/>
       <PilotStrip/>
       <CompletePicture/>
-      <Outcome/>
+      <SecCTA/>
+      <div style={{ background: "var(--ink)", padding: "30px 0 8px", textAlign: "center" }}>
+        <p style={{ fontSize: 14.5, color: "rgba(255,255,255,0.72)", margin: 0 }}>
+          Every answer is governed, encrypted, and yours.{" "}
+          <Link href="/security" style={{ color: "#8fe0f7", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>See how it&apos;s secured →</Link>
+        </p>
+      </div>
       </main>
       <Footer/>
     </div>

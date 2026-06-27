@@ -3,11 +3,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
+import { pageMetadata } from "@/lib/site";
 
 export const metadata = {
-  title: "Investors · Nia by Streaque",
-  description:
-    "The investment case for Nia by Streaque: the institution-governed AI platform for higher-ed student success.",
+  ...pageMetadata({
+    path: "/investors",
+    title: "Investors · Nia by Streaque",
+    description:
+      "The investment case for Nia by Streaque: the institution-governed AI platform for higher-ed student success.",
+  }),
   // Investor material is sensitive and this is still a scaffold — keep it out of
   // search until the real numbers are in and you choose to make it public.
   robots: { index: false, follow: false },
@@ -32,13 +36,22 @@ const IvGlyph = ({ s = 18 }) => (
   </svg>
 );
 
-const Stat = ({ value, label }) => (
-  <div className="iv-stat">
-    <span className="iv-stat-glow" aria-hidden="true"/>
-    <div className="iv-stat-v">{value}</div>
-    <div className="iv-stat-l">{label}</div>
-  </div>
-);
+const Stat = ({ value, label, bloom }) => {
+  const card = (
+    <div className="iv-stat">
+      {!bloom && <span className="iv-stat-glow" aria-hidden="true"/>}
+      <div className="iv-stat-v">{value}</div>
+      <div className="iv-stat-l">{label}</div>
+    </div>
+  );
+  if (!bloom) return card;
+  return (
+    <div className="iv-cell">
+      <span aria-hidden="true" className={`iv-bloom iv-bloom-${bloom}`}/>
+      {card}
+    </div>
+  );
+};
 
 /* shared styles for the investor stat cards (traction + market) */
 const StatStyles = () => (
@@ -58,6 +71,13 @@ const StatStyles = () => (
     .iv-stat-v{ position: relative; font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
     .iv-stat-u{ font-size: 17px; font-weight: 600; color: var(--ink-3); letter-spacing: -0.01em; }
     .iv-stat-l{ position: relative; margin-top: 11px; font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+    /* small ambient bloom behind a card (market stats + why-we-win moats):
+       the color lives behind the card and its shadow, not on the card */
+    .iv-cell{ position: relative; display: flex; }
+    .iv-cell > :not(.iv-bloom){ position: relative; z-index: 1; width: 100%; background: #fff; }
+    .iv-bloom{ position: absolute; z-index: 0; inset: -10% -14%; filter: blur(44px); pointer-events: none; }
+    .iv-bloom-blue{ background: radial-gradient(60% 62% at 50% 50%, rgba(84,201,255,0.69), transparent 74%); }
+    .iv-bloom-purple{ background: radial-gradient(60% 62% at 50% 50%, rgba(123,103,241,0.63), transparent 74%); }
     @media (max-width: 860px){
       .iv-statgrid.four, .iv-statgrid.three{ grid-template-columns: repeat(2, 1fr); }
     }
@@ -82,7 +102,7 @@ export default function InvestorsPage() {
           <div className="iv-hero-grid">
             <div className="iv-hero-copy">
               <span className="mf-eyebrow">For investors</span>
-              <h1 style={{ marginTop: 18, fontSize: 50, letterSpacing: "-0.03em", lineHeight: 1.06 }}>
+              <h1 style={{ marginTop: 18, fontSize: "clamp(32px, 6vw, 50px)", letterSpacing: "-0.03em", lineHeight: 1.06 }}>
                 Invest in the <span className="mf-grad-text">AI layer</span> for higher education.
               </h1>
               <p className="mf-hero-sub" style={{ marginTop: 20, maxWidth: 520 }}>
@@ -94,8 +114,8 @@ export default function InvestorsPage() {
                 <Link href="/contact#form-investor" className="mf-btn mf-btn-primary mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
                   Request the full brief <ArrowRight/>
                 </Link>
-                <Link href="/nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none" }}>
-                  See the product depth →
+                <Link href="/why-nia" className="mf-btn mf-btn-ghost mf-btn-lg" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+                  See why Nia wins <ArrowRight/>
                 </Link>
               </div>
             </div>
@@ -350,7 +370,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* traction */}
-      <section className="mf-section">
+      <section className="mf-section" style={{ overflow: "hidden" }}>
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Traction</span>
@@ -358,10 +378,10 @@ export default function InvestorsPage() {
             <p>A top-tier R1 university is piloting Nia now, before a public launch.</p>
           </div>
           <div className="iv-statgrid four">
-            <Stat value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, a top-tier R1"/>
-            <Stat value={<span className="mf-grad-text">16</span>} label="Students in the active pilot cohort"/>
-            <Stat value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Weeks of continuous student use, pilot to date"/>
-            <Stat value={<>Canvas<span className="iv-stat-u"> partner</span></>} label="Official LMS-layer distribution, before a dollar of spend"/>
+            <Stat bloom="purple" value={<>1<span className="iv-stat-u"> · R1</span></>} label="Live university pilot, a top-tier R1"/>
+            <Stat bloom="blue" value={<span className="mf-grad-text">Cohort</span>} label="A summer cohort, engaged weekly through the pilot"/>
+            <Stat bloom="purple" value={<>6–8<span className="iv-stat-u"> wks</span></>} label="Weeks of continuous student use, pilot to date"/>
+            <Stat bloom="blue" value={<>Canvas<span className="iv-stat-u"> partner</span></>} label="Official LMS-layer distribution, before a dollar of spend"/>
           </div>
           <p style={{ marginTop: 18, fontSize: 13.5, color: "var(--ink-3)", maxWidth: 760 }}>
             Early, but real: a governed deployment running in production at a research university. Not a prototype, not a waitlist.
@@ -379,13 +399,13 @@ export default function InvestorsPage() {
             <p>Big enough to matter, fragmented enough to win, and finally ready to buy.</p>
           </div>
           <div className="iv-statgrid three">
-            <Stat value={<><span className="mf-grad-text">$52B</span><span className="iv-stat-u"> est.</span></>} label="US higher-ed student-success and advising software: the market Nia sells into."/>
-            <Stat value={<span className="mf-grad-text">5,819</span>} label="Title IV institutions in the US, from degree to certificate to online. Each one an enterprise buyer."/>
-            <Stat value={<><span className="mf-grad-text">$26B</span><span className="iv-stat-u"> est.</span></>} label="Tuition revenue lost to attrition each year, roughly early departures times one year of tuition: the budget Nia is built to protect."/>
+            <Stat bloom="blue" value={<><span className="mf-grad-text">$52B</span><span className="iv-stat-u"> est.</span></>} label="US higher-ed student-success and advising software: the market Nia sells into."/>
+            <Stat bloom="purple" value={<span className="mf-grad-text">5,819</span>} label="Title IV institutions in the US, from degree to certificate to online. Each one an enterprise buyer."/>
+            <Stat bloom="blue" value={<><span className="mf-grad-text">$26B</span><span className="iv-stat-u"> est.</span></>} label="Tuition revenue lost to attrition each year, roughly early departures times one year of tuition: the budget Nia is built to protect."/>
           </div>
           <p style={{ marginTop: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.7, maxWidth: 760 }}>
             Why now: institutions face real enrollment and retention pressure, AI is finally good
-            enough to coach, and FERPA-grade governance is the gate generic tools can&apos;t pass.
+            enough to coach, and FERPA-aligned governance is the gate generic tools can&apos;t pass.
           </p>
           <p style={{ marginTop: 12, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.02em", color: "var(--ink-3)", lineHeight: 1.6 }}>
             Institution count: 5,819 Title IV postsecondary institutions, NCES / IPEDS, 2023–24. Market and retention-loss figures are internal estimates.
@@ -394,7 +414,7 @@ export default function InvestorsPage() {
       </section>
 
       {/* why we win */}
-      <section className="mf-section">
+      <section className="mf-section" style={{ overflow: "hidden" }}>
         <div className="mf-container">
           <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 720 }}>
             <span className="mf-eyebrow">Why we win</span>
@@ -410,16 +430,18 @@ export default function InvestorsPage() {
               ["Official Canvas Partner", "Distribution and integration advantage at the LMS layer."],
               ["Compounding switching cost", "The longer Nia runs, the more institutional context it owns."],
             ].map(([t, d], i) => (
-              <div key={t} className="iv-moat-card">
-                <span className="iv-moat-glow" aria-hidden="true"/>
-                <span className="iv-moat-n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                <strong className="iv-moat-t">{t}</strong>
-                <span className="iv-moat-d">{d}</span>
+              <div key={t} className="iv-cell">
+                <span aria-hidden="true" className={`iv-bloom iv-bloom-${i % 2 === 0 ? "blue" : "purple"}`}/>
+                <div className="iv-moat-card">
+                  <span className="iv-moat-n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                  <strong className="iv-moat-t">{t}</strong>
+                  <span className="iv-moat-d">{d}</span>
+                </div>
               </div>
             ))}
           </div>
-          <Link href="/nia" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 28, color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
-            See the full moat breakdown on the product page <ArrowRight s={15}/>
+          <Link href="/why-nia" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 28, color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}>
+            See the full moat breakdown on Why Nia <ArrowRight s={15}/>
           </Link>
         </div>
         <style>{`
@@ -432,8 +454,6 @@ export default function InvestorsPage() {
             transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
           }
           .iv-moat-card:hover{ transform: translateY(-4px); box-shadow: 0 24px 48px -22px rgba(15,23,42,0.16); border-color: #D8DEF0; }
-          .iv-moat-glow{ position: absolute; width: 260px; height: 260px; right: -80px; top: -160px; border-radius: 50%; background: radial-gradient(circle closest-side, rgba(56,65,177,0.12), transparent 100%); opacity: 0; transition: opacity 240ms ease; pointer-events: none; }
-          .iv-moat-card:hover .iv-moat-glow{ opacity: 1; }
           .iv-moat-n{ font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.03em; line-height: 1; background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
           .iv-moat-t{ margin-top: 12px; font-family: var(--font-display); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); }
           .iv-moat-d{ margin-top: 7px; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
@@ -447,8 +467,8 @@ export default function InvestorsPage() {
         <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
         <div className="mf-container" style={{ position: "relative", maxWidth: 760, textAlign: "center" }}>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>The ask</span>
-          <h2 style={{ color: "white", margin: "18px 0 0", fontSize: 42, lineHeight: 1.12, letterSpacing: "-0.02em" }}>
-            We&apos;re raising <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>$250K</span> to build out the staff tool.
+          <h2 style={{ color: "white", margin: "18px 0 0", fontSize: "clamp(28px, 5.2vw, 42px)", lineHeight: 1.12, letterSpacing: "-0.02em" }}>
+            We&apos;re raising to build out the <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>staff tool</span>.
           </h2>
           <p style={{ color: "rgba(255,255,255,0.82)", maxWidth: 600, margin: "18px auto 0", fontSize: 16, lineHeight: 1.6 }}>
             The student experience is live and in production. This round funds the advisor-facing co-pilot, the institution&apos;s side of the platform, and the runway to turn an active pilot into signed campuses.

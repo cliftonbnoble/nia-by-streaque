@@ -10,11 +10,12 @@ import { CONSENT_KEY } from "@/lib/consent";
 /* ── 4. Procurement FAQ ───────────────────────────────────────── */
 const FAQ_ITEMS = [
   { q: "Where does our student data live?", a: "Inside your tenant. Nia orchestrates models and signals from your VPC; PII never leaves your perimeter, and we never train foundation models on your data." },
-  { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance. Most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant." },
-  { q: "How long does integration take?", a: "A typical Canvas + SIS pilot goes live within 4–6 weeks of kickoff. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
-  { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console. Audit logs reflect the change immediately." },
+  { q: "Which model does Nia use?", a: "Whichever your campus has authorized. We are model-agnostic and route through your existing AI governance — most pilots run on a campus-approved Anthropic, OpenAI, or Azure tenant. Student data is sent to the provider under no-training terms, so neither we nor the model provider trains on it." },
+  { q: "Do you complete a HECVAT?", a: "Not yet — we're early, and we don't have a published HECVAT today. We'll complete your institution's security questionnaire, HECVAT or your own, on request, and we're glad to walk through our current controls and roadmap." },
   { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway. We're glad to share our current controls and the plan." },
-  { q: "How is pricing structured?", a: "Per-FTE annual licensing with pilot-pricing for the first year. Implementation, SSO, and three integrations are included. Talk to us for a quote tied to your enrollment band." },
+  { q: "How long does integration take?", a: "A typical Canvas + SIS pilot goes live within 4–6 weeks of kickoff. We are an Official Canvas Partner and ship pre-built connectors for Banner, Workday, Anthology, and Salesforce." },
+  { q: "Can a student opt out?", a: "Yes. Opt-out is a first-class control surfaced in both the student app and the staff console, and audit logs reflect the change immediately. At the end of an engagement, or on request, we return or delete your data per your institution's instructions and our agreement." },
+  { q: "What's your accessibility posture?", a: "We aim to meet WCAG 2.1 AA across the Nia website and product, and we treat accessibility as part of how we build rather than a one-time certification. See our accessibility statement for the details, and we're glad to discuss specific requirements." },
 ];
 
 export const FAQ = ({ alt = true }) => {
@@ -26,10 +27,9 @@ export const FAQ = ({ alt = true }) => {
           <div style={{ position: "sticky", top: 24 }}>
             <span className="mf-eyebrow">Procurement-ready</span>
             <h2 style={{ marginTop: 14 }}>The questions <em style={{ fontStyle: "normal", color: "var(--ink-3)" }}>your CIO will ask.</em></h2>
-            <p style={{ marginTop: 16, fontSize: 15 }}>Short answers here. Long answers (security white paper, DPA, vendor questionnaire) are one email away.</p>
+            <p style={{ marginTop: 16, fontSize: 15 }}>Short answers here. Long answers (security white paper, DPA, vendor questionnaire) are one request away.</p>
             <div style={{ display: "flex", gap: 10, marginTop: 24, flexWrap: "wrap" }}>
-              <a href="mailto:info@streaque.com?subject=Security%20packet" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
-              <a href="mailto:info@streaque.com?subject=DPA" className="mf-btn mf-btn-ghost mf-btn-sm" style={{ textDecoration: "none" }}>Request DPA</a>
+              <a href="/contact#form-security" className="mf-btn mf-btn-primary mf-btn-sm" style={{ textDecoration: "none" }}>Request security packet</a>
             </div>
           </div>
           <div>
@@ -80,7 +80,7 @@ export const CookieBanner = () => {
     setShow(false);
   };
   return (
-    <div style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
+    <div role="region" aria-label="Cookie consent" style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
       <div style={{ flex: 1, minWidth: 220, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
         We use only the essential cookies needed to run this site and remember this choice. No tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
         <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Privacy &amp; cookies</a>

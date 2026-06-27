@@ -8,6 +8,7 @@ import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FeatureCards from "@/components/home/FeatureCards";
 import RoiCalculator from "@/components/RoiCalculator";
+import VideoSection from "@/components/home/VideoEmbed";
 
 const Hero = () => (
   <section className="mf-hero">
@@ -22,12 +23,11 @@ const Hero = () => (
             <span className="mf-grad-text">every student,</span><br/>
             answered.
           </h1>
-          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 500, color: "var(--ink-2)", maxWidth: 540 }}>
+          <p style={{ marginTop: 16, fontSize: 20, lineHeight: 1.5, fontWeight: 600, color: "var(--ink)", maxWidth: 540 }}>
             Student success, governed by your institution. Built on your LMS, SIS, and CRM.
           </p>
           <p className="mf-hero-sub">
-            Nia spots the student who&apos;s quietly slipping and opens the conversation first: warm,
-            evidence-based, grounded in the data you already trust.
+            Nia spots the student quietly slipping and reaches out first, grounded in data you already trust.
           </p>
           <div className="mf-hero-actions">
             <Link href="/contact#form" className="mf-btn mf-btn-primary mf-btn-lg mf-cta-fx" style={{ textDecoration: "none" }}>
@@ -43,22 +43,19 @@ const Hero = () => (
           </div>
           {/* ownership lockup — the governance differentiator, set apart from the pilot proof */}
           <div className="mf-hero-own">
-            <span className="mf-hero-own-ic" aria-hidden="true">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
+            <img className="mf-hero-own-ic" src="/key-for-institutions.png" alt="" aria-hidden="true" width="34" height="34"/>
             <span className="mf-hero-own-txt">
               <span className="mf-hero-own-top"><span className="mf-grad-text">100%</span> institution-owned</span>
               <span className="mf-hero-own-sub">Your tenant, your keys. We never train on your data.</span>
             </span>
           </div>
           <div className="mf-hero-meta">
-            <div className="mf-hero-meta-stat"><span className="num">16</span><span className="lbl">students in the pilot</span></div>
+            <div className="mf-hero-meta-stat"><span className="num">100%</span><span className="lbl">pilot demand consensus</span></div>
             <div className="mf-hero-meta-divider"/>
-            <div className="mf-hero-meta-stat"><span className="num">6–8</span><span className="lbl">weeks of engagement</span></div>
+            <div className="mf-hero-meta-stat"><span className="num num-live">Live</span><span className="lbl">pilot running now</span></div>
           </div>
           <p className="mf-hero-note" style={{ marginTop: 13, fontSize: 12.5, lineHeight: 1.5, color: "var(--ink-3)", maxWidth: 430 }}>
-            Engagement is the early signal.{" "}
-            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>Hear the results first →</Link>
+            <Link href="/contact#form" style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}>See the full pilot results →</Link>
           </p>
         </div>
 
@@ -66,12 +63,6 @@ const Hero = () => (
           {/* === TWO FANNED LIVE PHONES (active) ===
                left: agent thinking process · right: iOS push → in-app reminder */}
           <HeroPhones/>
-
-          {/* === REAL PHONE PNG + DESKTOP MOCK (kept commented for easy revert) ===
-          <div className="mf-mock-phone-real">
-            <img src="/agent-interaction-hero.png" alt="Nia mobile chat"/>
-          </div>
-          === END COMMENTED MOCKS === */}
 
           {/* label above the left phone, arrow dropping to its top edge */}
           <div className="mf-anno" style={{ top: -64, left: 0, width: 110, whiteSpace: "normal", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 2 }}>
@@ -89,6 +80,11 @@ const Hero = () => (
               <path d="M9 28 L 15.5 24.5 M 9 28 L 9.5 20.5"/>
             </svg>
           </div>
+          {/* pilot validation quote, overlaid in the gradient band below the phones */}
+          <figure className="mf-hero-quote">
+            <blockquote>&ldquo;It&rsquo;s like having an advisor who&rsquo;s already read my file.&rdquo;</blockquote>
+            <figcaption>Pilot evaluator, Summer 2026 cohort</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -107,6 +103,7 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-students" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/students.jpg)", backgroundPosition: "center 34%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-status tfd-status-live">Available now</span>
           <span className="tfd-body">
             <span className="tfd-aud">For students</span>
             <span className="tfd-h">A coach in the pocket</span>
@@ -117,10 +114,11 @@ const TwoExperiences = () => (
         <Link href="/how-nia-works#for-staff" className="tfd-card">
           <span className="tfd-photo" style={{ backgroundImage: "url(/two-doors/staff.jpg)", backgroundPosition: "center 30%" }} aria-hidden="true"/>
           <span className="tfd-veil" aria-hidden="true"/>
+          <span className="tfd-status tfd-status-dev">Beta · Fall 2026</span>
           <span className="tfd-body">
             <span className="tfd-aud">For staff</span>
             <span className="tfd-h">A co-pilot at the desk</span>
-            <span className="tfd-p">An early-alert queue, live cohort signals, and outreach drafted in your advisor&apos;s voice.</span>
+            <span className="tfd-p">An early-alert queue, live cohort signals, and outreach drafted in your voice.</span>
           </span>
           <span className="tfd-arrow" aria-hidden="true"><ArrowRight/></span>
         </Link>
@@ -146,7 +144,13 @@ const TwoExperiences = () => (
       .tfd-p{ display: block; margin-top: 9px; max-width: 380px; font-size: 14.5px; line-height: 1.5; color: rgba(255,255,255,0.86); }
       .tfd-arrow{ position: absolute; right: 28px; bottom: 30px; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.55); display: inline-flex; align-items: center; justify-content: center; color: #fff; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; }
       .tfd-card:hover .tfd-arrow{ background: rgba(255,255,255,0.18); border-color: #fff; transform: translateX(2px); }
-      @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } }
+      .tfd-status{ position: absolute; top: 16px; right: 16px; z-index: 2; display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: rgba(8,11,26,0.6); border: 1px solid transparent; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+      .tfd-status-live{ color: #6fecb8; border-color: rgba(61,220,151,0.5); box-shadow: 0 0 16px -1px rgba(61,220,151,0.6); }
+      .tfd-status-dev{ color: #f7c873; border-color: rgba(240,181,74,0.5); box-shadow: 0 0 16px -1px rgba(240,181,74,0.55); }
+      /* 2-up cards stay narrow from 761px up to the grid cap — reserve room so the
+         paragraph never runs under the bottom-right arrow (the bug was unprotected here). */
+      @media (min-width: 761px) and (max-width: 1080px){ .tfd-p{ padding-right: 62px; } }
+      @media (max-width: 760px){ .tfd-grid{ grid-template-columns: 1fr; gap: 18px; } .tfd-card{ min-height: 280px; } .tfd-h{ font-size: 24px; } .tfd-p{ padding-right: 54px; } .tfd-status{ top: 14px; right: 14px; } }
     `}</style>
   </section>
 );
@@ -242,20 +246,18 @@ const ComplianceArt = () => (
 
 const TechPrivacy = () => {
   const cards = [
-    { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", accent: "43,179,223", color: "var(--brand-cyan)", Art: PromiseArt },
-    { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", accent: "220,38,38", color: "#B91C1C", Art: NeverArt },
-    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "FERPA and GDPR aligned by default. SOC 2 and external penetration testing are on our security roadmap.", cta: "See the full posture", accent: "124,58,237", color: "#7c3aed", Art: ComplianceArt },
+    { eyebrow: "The promise", title: "Your data, your tenant.", body: "Encryption everywhere, role-based access, and an audit log behind every model call. The institution owns it all.", cta: "Explore the architecture", color: "var(--brand-cyan)", Art: PromiseArt },
+    { eyebrow: "The hard lines", title: "What we never do.", body: "Never train on your students' data, never move PII off your tenant, never hide a recommendation from review.", cta: "Read the hard lines", color: "#B91C1C", Art: NeverArt },
+    { eyebrow: "For your CIO", title: "Compliance, in writing.", body: "Per-tenant encryption, federated login, and SAM.gov registration today. FERPA and GDPR by default; SOC 2 and pen testing on the roadmap.", cta: "See the full posture", color: "#7c3aed", Art: ComplianceArt },
   ];
   return (
-    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FCFBF6 0%, #EFE7D4 100%)" }}>
-      {/* the hard rule (kept) + a soft cream vignette: white bleeds in from the top
-          (brightest toward the top-right), deepening to a richer, darker cream in
-          the bottom-left and bottom-right corners */}
+    <section className="mf-section" style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #FFFFFF 0%, #F3F6FF 100%)" }}>
+      {/* the hard rule (kept) + the hero's cyan/violet glow, pulled in and focused
+          behind the middle card: the two colors overlap at center (blending to the
+          brand indigo) and bloom outward to frame all three cards. The white cards
+          now float on top of it instead of carrying their own per-card glow. */}
       <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(72,67,193,0.32) 26%, rgba(72,67,193,0.32) 74%, transparent)" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 920, height: 540, top: -250, right: -170, background: "radial-gradient(ellipse at 72% 28%, rgba(255,255,255,0.82), transparent 62%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 760, height: 460, top: -230, left: -130, background: "radial-gradient(ellipse, rgba(255,255,255,0.5), transparent 64%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 640, height: 540, bottom: -240, left: -190, background: "radial-gradient(ellipse, rgba(182,156,100,0.32), transparent 62%)", pointerEvents: "none" }}/>
-      <div aria-hidden="true" style={{ position: "absolute", width: 670, height: 540, bottom: -240, right: -180, background: "radial-gradient(ellipse, rgba(188,162,112,0.30), transparent 62%)", pointerEvents: "none" }}/>
+      <div aria-hidden="true" style={{ position: "absolute", left: "50%", top: 210, transform: "translateX(-50%)", width: "min(1320px, 102%)", height: 540, zIndex: 0, pointerEvents: "none", background: "radial-gradient(46% 60% at 44% 48%, rgba(84,201,255,0.55), transparent 70%), radial-gradient(46% 60% at 57% 56%, rgba(123,103,241,0.53), transparent 70%)", filter: "blur(60px)", opacity: 0.95 }}/>
       <div className="mf-container" style={{ position: "relative" }}>
         <div className="mf-section-head" style={{ textAlign: "left", marginLeft: 0, maxWidth: 580 }}>
           <span className="mf-eyebrow">Tech & Privacy</span>
@@ -264,9 +266,8 @@ const TechPrivacy = () => {
         </div>
 
         <div className="tp-grid">
-          {cards.map(({ eyebrow, title, body, cta, accent, color, Art }) => (
+          {cards.map(({ eyebrow, title, body, cta, color, Art }) => (
             <Link key={title} href="/security" className="tp-card">
-              <span className="tp-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
               <div className="tp-art"><Art/></div>
               <div className="tp-meta">
                 <span className="mf-eyebrow" style={{ fontSize: 11, color }}>{eyebrow}</span>
@@ -291,23 +292,15 @@ const TechPrivacy = () => {
           flex-direction: column;
           text-decoration: none;
           color: inherit;
-          background: #FBFCFE;
-          border: 1px solid var(--line);
+          background: #FFFFFF;
+          border: 1px solid rgba(15,23,42,0.06);
           border-radius: 18px;
-          transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+          box-shadow: 0 18px 40px -22px rgba(31,52,128,0.34), 0 4px 12px -6px rgba(31,52,128,0.12);
+          transition: transform 220ms ease, box-shadow 220ms ease;
         }
         .tp-card:hover{
-          transform: translateY(-4px);
-          box-shadow: 0 24px 48px -18px rgba(15,23,42,0.16);
-          border-color: #D8DEF0;
-        }
-        .tp-glow{
-          position: absolute;
-          width: 380px; height: 380px;
-          left: 50%; top: -210px;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          pointer-events: none;
+          transform: translateY(-6px);
+          box-shadow: 0 36px 64px -24px rgba(31,52,128,0.38), 0 10px 20px -8px rgba(31,52,128,0.16);
         }
         .tp-art{ position: relative; height: 150px; }
         .tp-svg{ width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 14px rgba(31,52,128,0.08)); }
@@ -347,6 +340,8 @@ const ClosingCTA = () => (
     <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "56px 56px", maskImage: "radial-gradient(ellipse at center, black, transparent 72%)" }}/>
     <div style={{ position: "absolute", width: 620, height: 620, right: -220, top: -240, background: "radial-gradient(circle, rgba(43,179,223,0.22), transparent 62%)", borderRadius: "50%", pointerEvents: "none" }}/>
     <div className="mf-container" style={{ position: "relative", textAlign: "center", maxWidth: 720 }}>
+      <img src="/character/nia-grad.svg" alt="" width="458" height="356"
+        style={{ width: 132, height: "auto", margin: "0 auto 14px", display: "block" }}/>
       <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>See it on your campus</span>
       <h2 style={{ color: "white", margin: "20px 0 0", fontSize: 48, lineHeight: 1.08 }}>
         Ready to see students <span style={{ background: "linear-gradient(135deg,#8fe0f7,#aab0f2)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>whole?</span>
@@ -374,6 +369,7 @@ export default function Home() {
       <main id="main">
       <Hero/>
       <SecProblem/>
+      <VideoSection/>      {/* "A complete story with Nia" — the 90s story, high up */}
       <SecArchitecture/>      {/* inside-out vs outside-in, merged */}
       <TwoExperiences/>
       <Features/>

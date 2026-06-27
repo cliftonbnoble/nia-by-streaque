@@ -9,13 +9,12 @@ export default function PilotStrip() {
       <div className="mf-container">
         <div className="pilot-strip">
           <span className="pilot-strip-tag">
-            <span aria-hidden="true" className="pilot-strip-dot"/>
-            From the live pilot
+            From the <span className="pilot-strip-live">live</span> pilot
           </span>
           <span className="pilot-strip-facts">
-            <span><strong>16</strong> students using Nia weekly</span>
+            <span>An <strong>undergraduate evaluator</strong> cohort</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
-            <span><strong>6&ndash;8 wks</strong> of sustained engagement</span>
+            <span><strong>100%</strong> pilot demand consensus</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
             <Link href="/contact#form" className="pilot-strip-cta">Hear the results first →</Link>
           </span>
@@ -34,7 +33,14 @@ export default function PilotStrip() {
           font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
           color: var(--primary); font-weight: 600;
         }
-        .pilot-strip-dot{ width: 7px; height: 7px; border-radius: 50%; background: #3ddc97; box-shadow: 0 0 0 3px rgba(61,220,151,0.22); }
+        /* "live" reads green with a soft glow behind it — replaces the old status dot */
+        .pilot-strip-live{ position: relative; isolation: isolate; color: #0a7a48; font-weight: 700; }
+        .pilot-strip-live::before{
+          content: ""; position: absolute; left: 50%; top: 50%;
+          width: 168%; height: 260%; transform: translate(-50%, -50%);
+          background: radial-gradient(ellipse at center, rgba(61,220,151,0.55), rgba(61,220,151,0) 70%);
+          z-index: -1; pointer-events: none;
+        }
         .pilot-strip-facts{
           display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;
           font-size: 14px; color: var(--ink-2);

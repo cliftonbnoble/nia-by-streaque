@@ -9,8 +9,8 @@ const Tick = () => (
   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
 );
 
-const Moat = ({ n, eyebrow, title, grad, body, points, alt, reverse, children }) => (
-  <section className={`mf-section${alt ? " alt" : ""}`}>
+const Moat = ({ eyebrow, title, grad, body, points, alt, reverse, children }) => (
+  <section className={`mf-section${alt ? " alt" : ""}`} style={{ overflow: "hidden" }}>
     <div className="mf-container">
       <div className={`np-moat${reverse ? " np-moat-rev" : ""}`}>
         <div className="np-moat-copy">
@@ -25,7 +25,10 @@ const Moat = ({ n, eyebrow, title, grad, body, points, alt, reverse, children })
             </ul>
           )}
         </div>
-        <div className="np-moat-vis">{children}</div>
+        <div className="np-moat-vis">
+          <span aria-hidden="true" className={`np-bloom ${reverse ? "np-bloom-purple" : "np-bloom-blue"}`}/>
+          {children}
+        </div>
       </div>
     </div>
   </section>
@@ -50,7 +53,7 @@ const ProactiveVisual = () => (
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
                 </span>
               </div>
-              <nav className="np-mac-actions">
+              <div className="np-mac-actions">
                 <span className="np-mac-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.4 2.6a2 2 0 1 1 2.8 2.8L12 14.6 8 16l1.4-4z"/></svg>
                   New Chat
@@ -64,13 +67,13 @@ const ProactiveVisual = () => (
                   Notifications
                   <em className="np-mac-badge">1</em>
                 </span>
-              </nav>
+              </div>
               <span className="np-mac-sec">Today</span>
-              <nav className="np-mac-chats">
+              <div className="np-mac-chats">
                 <span className="np-mac-chat on">Registration hold</span>
                 <span className="np-mac-chat">Spring shortlist</span>
                 <span className="np-mac-chat">Aid &amp; FAFSA timeline</span>
-              </nav>
+              </div>
               <div className="np-mac-foot">
                 <span className="np-mac-item">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
@@ -248,14 +251,14 @@ const EngineVisual = () => (
         <div className="np-eng-good">
           <div className="np-eng-box np-rise" style={{ animationDelay: "1100ms" }}>
             <span className="np-eng-box-h"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg> Institutional Data Engine</span>
-            <code className="np-eng-sql"><span className="np-kw">SELECT</span> remaining<br/><span className="np-kw">FROM</span> aid_awards<br/><span className="np-kw">WHERE</span> student = &lsquo;maya.j&rsquo;</code>
+            <code className="np-eng-sql"><span className="np-kw">SELECT</span> remaining<br/><span className="np-kw">FROM</span> aid_awards<br/><span className="np-kw">WHERE</span> student = &lsquo;maya.r&rsquo;</code>
           </div>
           <span className="np-eng-down np-pop" style={{ animationDelay: "1700ms" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
           </span>
           <div className="np-eng-ans np-rise" style={{ animationDelay: "2000ms" }}>
             <strong>$2,480 remaining</strong>
-            <span className="np-eng-cite"><Tick/> from your SIS · 3 live rows · 1:36 PM</span>
+            <span className="np-eng-cite"><Tick/> from your SIS · 1 live row · 1:36 PM</span>
           </div>
         </div>
       </div>
@@ -317,7 +320,7 @@ export default function Moats() {
         eyebrow="Proactive intervention"
         title="Help arrives"
         grad="before they ask."
-        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask, so Nia goes first, ending the regressive success tax where a stumble quietly compounds into a stall."
+        body="Generic tools wait for a confident student to type the right question. The students who most need help are the ones who never ask, so Nia goes first, before a small stumble quietly compounds into a stall."
         points={["Watches signals across every system, not a single inbox", "Opens the conversation the moment a risk appears", "Turns a silent hold into a two-tap fix"]}
         reverse
       >
@@ -395,12 +398,17 @@ const MoatStyles = () => (
     .np-moat{ display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
     .np-moat-rev .np-moat-copy{ order: 2; }
     .np-moat-copy{ min-width: 0; }
-    .np-moat-n{ font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-4); }
     .np-points{ list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 11px; }
     .np-points li{ display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
     .np-points-t{ flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: rgba(13,138,90,0.1); color: var(--success); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; }
-    .np-moat-vis{ min-width: 0; display: flex; justify-content: center; }
-    .np-vis-wrap{ width: 100%; display: flex; justify-content: center; }
+    .np-moat-vis{ min-width: 0; display: flex; justify-content: center; position: relative; }
+    .np-vis-wrap{ width: 100%; display: flex; justify-content: center; position: relative; z-index: 1; }
+    /* ambient bloom behind each moat visual — purple on the left (reversed
+       rows), blue on the right; mirrors the platform page, flipped, so the
+       brand color stays consistent across the app */
+    .np-bloom{ position: absolute; z-index: 0; inset: -10% -16%; filter: blur(50px); pointer-events: none; }
+    .np-bloom-blue{ background: radial-gradient(62% 64% at 50% 48%, rgba(84,201,255,0.99), transparent 76%); }
+    .np-bloom-purple{ background: radial-gradient(62% 64% at 50% 48%, rgba(123,103,241,0.89), transparent 76%); }
 
     /* moat 1 — the desktop (MacBook Pro) view */
     .np-mac{ width: 100%; max-width: 500px; }
@@ -433,7 +441,7 @@ const MoatStyles = () => (
     .np-mac-user img{ border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.5); }
     .np-mac-main{ flex: 1; min-width: 0; display: flex; flex-direction: column; }
     .np-mac-head{ display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px 11px; border-bottom: 1px solid var(--line); }
-    .np-mac-head > span:first-child{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); }
+    .np-mac-head > span:first-child{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
     .np-mac-thread{ flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 11px; padding: 16px 16px 8px; overflow: hidden; }
     .np-mac-label{ position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); font-size: 6px; letter-spacing: 0.14em; color: #59606E; }
     .np-mac-base{ position: relative; width: 113%; margin-left: -6.5%; height: 14px; background: linear-gradient(180deg,#F4F6F9 0%,#D7DBE2 28%,#B6BDC9 70%,#848D9D 100%); border-radius: 2px 2px 14px 14px; clip-path: polygon(1% 0,99% 0,100% 100%,0 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 2px 3px rgba(11,16,32,0.18); }
@@ -443,16 +451,14 @@ const MoatStyles = () => (
     .np-card-actions{ display: flex; align-items: center; gap: 9px; margin-top: 11px; }
     .np-btn-w{ display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(135deg,#2BB3DF,#3841B1); border-radius: 9px; padding: 8px 12px; box-shadow: 0 6px 14px -6px rgba(56,65,177,0.5); }
     .np-btn-q{ font-size: 11px; font-weight: 600; color: var(--ink-3); }
-    .np-await{ display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 6px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
-    .np-await-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); animation: np-blink 1.6s ease-in-out infinite; }
+    .np-await{ display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 6px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-3); }
+    .np-await-dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); animation: np-blink 1.6s ease-in-out infinite; }
     @keyframes np-blink{ 0%,100%{ opacity: 0.3; } 50%{ opacity: 1; } }
-    .np-inputbar{ margin: 0 14px 14px; padding: 9px 13px; display: flex; align-items: center; justify-content: space-between; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 12px; font-size: 11px; color: var(--ink-4); flex-shrink: 0; }
-    .np-send{ width: 19px; height: 19px; border-radius: 6px; background: linear-gradient(135deg,#695bd7,#424dd3); color: #fff; font-size: 11px; display: inline-flex; align-items: center; justify-content: center; }
 
     /* memory hub */
     .np-memcard{ width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 18px 18px 22px; }
     .np-memhead{ display: flex; flex-direction: column; align-items: center; gap: 10px; padding-bottom: 6px; }
-    .np-src-label{ font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4); }
+    .np-src-label{ font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
     .np-src-row{ display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .np-src{ display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600; color: var(--ink-2); background: var(--bg-alt); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px 5px 6px; }
     .np-src-mk{ display: inline-flex; }
@@ -477,7 +483,7 @@ const MoatStyles = () => (
     .np-blueprint{ width: 100%; max-width: 420px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: 0 30px 60px -28px rgba(31,52,128,0.4), 0 2px 6px rgba(11,16,32,0.05); padding: 20px 22px 24px; }
     .np-bp-head{ display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 18px; }
     .np-bp-head > span:first-child{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); }
-    .np-bp-vs{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-4); background: var(--bg-alt); border-radius: 999px; padding: 4px 9px; }
+    .np-bp-vs{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); background: var(--bg-alt); border-radius: 999px; padding: 4px 9px; }
     .np-bp-line{ position: relative; }
     .np-bp-item{ position: relative; display: flex; gap: 15px; padding-bottom: 18px; }
     .np-bp-item:last-child{ padding-bottom: 0; }
@@ -485,12 +491,12 @@ const MoatStyles = () => (
     .np-bp-item:not(:last-child)::before{ content: ""; position: absolute; left: 5.5px; top: 15px; height: calc(100% - 7px); width: 2px; background: var(--line-2); z-index: 0; }
     .np-bp-node{ position: relative; z-index: 1; flex: 0 0 auto; width: 13px; height: 13px; margin-top: 2px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2.5px currentColor; }
     .np-bp-item.tone-goal{ color: var(--primary); }
-    .np-bp-item.tone-obs{ color: #c98a1a; }
+    .np-bp-item.tone-obs{ color: #9a6a12; }
     .np-bp-item.tone-dec{ color: #7c3aed; }
     .np-bp-card{ flex: 1; min-width: 0; display: grid; gap: 3px; }
     .np-bp-tag{ font-family: var(--font-mono); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: currentColor; }
     .np-bp-t{ font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.4; }
-    .np-bp-meta{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; color: var(--ink-4); }
+    .np-bp-meta{ font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; color: var(--ink-3); }
 
     /* care routing */
     .np-care{ width: 100%; max-width: 420px; }
@@ -501,10 +507,10 @@ const MoatStyles = () => (
     .np-care-who img{ width: 20px; height: 20px; border-radius: 50%; }
     .np-care-bub{ display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
     .np-care-bub b{ color: var(--ink); }
-    .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-4); }
+    .np-care-note{ display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.03em; color: var(--ink-3); }
     .np-care-flow{ display: flex; align-items: center; gap: 8px; margin: 10px 6px; }
     .np-care-line{ flex: 1; height: 0; border-top: 1px dashed var(--line-2); }
-    .np-care-tag{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
+    .np-care-tag{ display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
     .np-care-adv{ border-color: rgba(35,86,201,0.25); box-shadow: 0 16px 36px -18px rgba(35,86,201,0.35); }
     .np-care-live{ display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--success); }
     .np-care-live i{ width: 6px; height: 6px; border-radius: 50%; background: var(--success); animation: np-blink 2s ease-in-out infinite; }
@@ -514,7 +520,7 @@ const MoatStyles = () => (
     .np-care-alert strong{ display: block; font-size: 12.5px; color: var(--ink); }
     .np-care-alert span{ font-size: 10.5px; color: var(--ink-3); }
     .np-care-ctx{ margin-top: 12px; display: grid; gap: 7px; }
-    .np-care-ctx-h{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); }
+    .np-care-ctx-h{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
     .np-care-ctx-row{ display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--ink-2); }
     .np-care-ctx-row svg{ color: var(--success); flex-shrink: 0; }
     .np-care-cap{ display: inline-flex; margin-top: 13px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--success); background: rgba(13,138,90,0.08); border-radius: 999px; padding: 5px 11px; }
@@ -524,7 +530,7 @@ const MoatStyles = () => (
     .np-eng-q{ display: flex; align-items: center; gap: 9px; align-self: stretch; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; font-size: 13px; font-style: italic; color: var(--ink); box-shadow: var(--shadow-card); }
     .np-eng-ava img{ width: 26px; height: 26px; border-radius: 50%; display: block; }
     .np-eng-paths{ display: flex; flex-direction: column; gap: 10px; }
-    .np-eng-bad{ display: inline-flex; align-items: center; gap: 7px; align-self: center; font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-4); text-decoration: line-through; text-decoration-color: rgba(154,160,180,0.6); }
+    .np-eng-bad{ display: inline-flex; align-items: center; gap: 7px; align-self: center; font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-3); text-decoration: line-through; text-decoration-color: rgba(107,113,135,0.55); }
     .np-eng-x{ text-decoration: none; color: #c2410c; font-weight: 700; }
     .np-eng-good{ display: flex; flex-direction: column; align-items: center; gap: 0; }
     .np-eng-box{ width: 100%; background: var(--ink); border-radius: 14px; padding: 13px 15px; box-shadow: 0 18px 40px -18px rgba(11,16,32,0.6); }
@@ -543,7 +549,7 @@ const MoatStyles = () => (
     .np-gov-head > span:first-child{ display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink); }
     .np-gov-tenant{ font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary); background: var(--primary-50); border-radius: 999px; padding: 4px 9px; }
     .np-gov-sec{ margin-top: 16px; }
-    .np-gov-sec-h{ display: block; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); margin-bottom: 10px; }
+    .np-gov-sec-h{ display: block; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
     .np-gov-row{ display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--line); }
     .np-gov-row:first-of-type{ border-top: none; }
     .np-tgl{ flex: 0 0 auto; width: 36px; height: 21px; border-radius: 999px; background: var(--line-2); position: relative; transition: background 260ms ease; }
@@ -574,7 +580,7 @@ const MoatStyles = () => (
       .np-mac-side{ display: none; }
     }
     @media (prefers-reduced-motion: reduce){
-      .np-wire, .np-pop, .np-nodepop, .np-await-dot, .np-hub-halo{ animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
+      .np-wire, .np-pop, .np-nodepop, .np-await-dot, .np-hub-halo, .np-care-live i, .np-tgl.flip, .np-tgl.flip i, .np-gov-knob{ animation-duration: 0.001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; }
     }
   `}</style>
 );

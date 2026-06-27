@@ -15,9 +15,8 @@ export const ConnGlyph = ({ s = 40, gid = "cg" }) => (
   </svg>
 );
 
-export const FmCard = ({ accent, children }) => (
+export const FmCard = ({ children }) => (
   <div className="fm-card">
-    <span className="fm-glow" style={{ background: `radial-gradient(circle closest-side, rgba(${accent},0.13), transparent 100%)` }}/>
     <div style={{ position: "relative", padding: "20px 22px 22px" }}>{children}</div>
   </div>
 );
@@ -29,9 +28,13 @@ export const FmEyebrow = ({ children, right }) => (
   </div>
 );
 
-export const FmLive = ({ children = "Live" }) => (
-  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 9, fontWeight: 600, color: "#15803D", background: "#EAF7EF", padding: "3px 9px", borderRadius: 999 }}>
-    <span className="fm-pulse" style={{ width: 5, height: 5, borderRadius: "50%", background: "#16A34A" }}/>
-    {children}
-  </span>
-);
+export const FmLive = ({ children = "Live", tone = "live" }) => {
+  const c = tone === "dev"
+    ? { fg: "#B45309", bg: "#FFF4DE", bd: "rgba(180,83,9,0.32)", glow: "rgba(217,119,6,0.45)" }
+    : { fg: "#15803D", bg: "#EAF7EF", bd: "rgba(22,163,74,0.30)", glow: "rgba(22,163,74,0.5)" };
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", fontSize: 9, fontWeight: 600, color: c.fg, background: c.bg, padding: "3px 10px", borderRadius: 999, border: `1px solid ${c.bd}`, boxShadow: `0 0 12px -1px ${c.glow}` }}>
+      {children}
+    </span>
+  );
+};

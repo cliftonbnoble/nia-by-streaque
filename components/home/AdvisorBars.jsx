@@ -9,22 +9,22 @@ const GRAY_LIGHT = "#D7DBE2";
 
 const CARDS = [
   {
-    title: "An advisor's week · today",
+    title: "An advisor's week · today · Illustrative",
     chip: { t: "before", cls: "mf-chip-neutral" },
-    fillPct: 20,
-    notches: [20, 66],
+    fillPct: 40,
+    notches: [40, 75],
     segs: [
-      { from: 20, to: 66, c: GRAY_MID },
-      { from: 66, to: 100, c: GRAY_LIGHT },
+      { from: 40, to: 75, c: GRAY_MID },
+      { from: 75, to: 100, c: GRAY_LIGHT },
     ],
     rows: [
-      { label: "Actual mentoring", pct: 20, brand: true },
-      { label: "Retrieving fragmented data", pct: 46, c: GRAY_MID },
-      { label: "Triaging avoidable crises", pct: 34, c: GRAY_LIGHT },
+      { label: "Actual mentoring", pct: 40, brand: true },
+      { label: "Retrieving fragmented data", pct: 35, c: GRAY_MID },
+      { label: "Triaging avoidable crises", pct: 25, c: GRAY_LIGHT },
     ],
   },
   {
-    title: "An advisor's week · with Nia",
+    title: "An advisor's week · with Nia · Illustrative",
     chip: { t: "after", cls: "mf-chip-success" },
     fillPct: 62,
     notches: [62, 80],
