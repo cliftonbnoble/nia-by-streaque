@@ -1,7 +1,7 @@
 import TrustBar from "@/components/TrustBar";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { ArrowRight, Dot } from "@/components/icons";
+import { ArrowRight } from "@/components/icons";
 import ContactForm from "./ContactForm";
 import { pageMetadata } from "@/lib/site";
 
@@ -11,6 +11,19 @@ export const metadata = pageMetadata({
   description:
     "Start a pilot conversation or request the investor brief. Real responses from real people, within one business day.",
 });
+
+/* minimal line-icons replacing the status dots — inherit the muted ink color */
+const ChatIcon = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.7L3 21l1.8-5.8A8.5 8.5 0 1 1 21 11.5z"/>
+  </svg>
+);
+const AnswerIcon = ({ s = 14 }) => (
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    <path d="m9 10.5 2 2 4-4.5"/>
+  </svg>
+);
 
 const Hero = () => (
   <section className="mf-hero" style={{ paddingBottom: 80 }}>
@@ -33,10 +46,10 @@ const Hero = () => (
           </div>
           <div style={{ marginTop: 32, display: "flex", gap: 24, flexWrap: "wrap", fontSize: 13, color: "var(--ink-3)" }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-              <Dot color="var(--success)"/> Replies within 1 business day
+              <ChatIcon/> Replies within 1 business day
             </span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-              <Dot color="var(--brand-cyan)"/> No sales scripts, just answers
+              <AnswerIcon/> No sales scripts, just answers
             </span>
           </div>
         </div>
@@ -71,8 +84,8 @@ const Hero = () => (
             position: "absolute", bottom: 32, right: -28, background: "white", borderRadius: 12, padding: "14px 18px",
             boxShadow: "0 16px 36px -8px rgba(15, 23, 42, 0.2)", minWidth: 240,
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              <Dot color="var(--success)"/> Replied · 4:08 PM
+            <div style={{ display: "flex", alignItems: "center", fontSize: 11, color: "var(--ink-3)", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              Replied · 4:08 PM
             </div>
             <div style={{ fontSize: 14, marginTop: 6, lineHeight: 1.4 }}>"Got it. A founder will be in touch tomorrow with a Calendar invite."</div>
           </div>
@@ -90,6 +103,7 @@ const PilotArt = () => (
       <linearGradient id="cp-py" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#2BB3DF"/><stop offset="1" stopColor="#3841B1"/></linearGradient>
       <linearGradient id="cpn0" x1="12.6894" y1="15.3877" x2="14.8792" y2="22.7101" gradientUnits="userSpaceOnUse"><stop stopColor="#4167C0"/><stop offset="0.447" stopColor="#5680D7"/></linearGradient>
       <linearGradient id="cpn1" x1="21.6878" y1="9.7793" x2="21.6878" y2="31.5017" gradientUnits="userSpaceOnUse"><stop stopColor="#35B2E7"/><stop offset="1" stopColor="#4296EE"/></linearGradient>
+      <filter id="cp-glow-green" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.3"/></filter>
     </defs>
     {[["LMS", 68], ["SIS", 138], ["CRM", 208]].map(([t, x]) => (
       <g key={t}>
@@ -109,7 +123,8 @@ const PilotArt = () => (
     </g>
     <g className="cp-bob">
       <rect x="198" y="106" width="100" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="212" cy="118" r="3.5" fill="#2fb380"/>
+      <circle cx="212" cy="118" r="4" fill="#2fb380" opacity="0.55" filter="url(#cp-glow-green)"/>
+      <circle cx="212" cy="118" r="3.2" fill="#2fb380"/>
       <text x="222" y="121.5" fontSize="9.5" fontFamily="var(--font-mono)" fill="var(--ink-2)">Cohort A live</text>
     </g>
   </svg>
@@ -153,9 +168,8 @@ const InvestorArt = () => (
     <path d="M106 116 C 124 112, 134 100, 150 98 S 180 86, 196 72 L 214 62" fill="none" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round"/>
     <circle cx="214" cy="62" r="4" fill="#7c3aed" stroke="white" strokeWidth="1.8"/>
     <g className="cp-bob">
-      <rect x="196" y="128" width="96" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
-      <circle cx="210" cy="140" r="3.5" fill="#7c3aed"/>
-      <text x="220" y="144" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-2)">Sent Fridays</text>
+      <rect x="182" y="128" width="110" height="24" rx="12" fill="white" stroke="#E3E8F4"/>
+      <text x="237" y="144" textAnchor="middle" fontSize="10" fontFamily="var(--font-mono)" fill="var(--ink-2)">Sent on demand</text>
     </g>
   </svg>
 );
@@ -260,10 +274,10 @@ const Paths = () => {
 const TEAM = [
   { first: "Luke", last: "Jubb", role: "CEO", img: "/team/luke.jpg", linkedin: "https://www.linkedin.com/in/lukejubb/" },
   { first: "Clifton", last: "Noble", role: "CTO", img: "/team/clifton.jpg", linkedin: "https://www.linkedin.com/in/clifton-noble/" },
-  { first: "Amit", last: "Kumar Singh", role: "AI Lead", img: "/team/amit.jpg" },
+  { first: "Amit", last: "Kumar Singh", role: "AI Engineer", img: "/team/amit.jpg" },
   { first: "Bhavadeep", last: "Magham", role: "Sr. Software Engineer", img: "/team/bhavadeep.jpg" },
-  { first: "Sunil", last: "Prakash", role: "Engineering", img: "/team/sunil.jpg" },
-  { first: "Pundlik", last: "Rathod", role: "DBA", img: "/team/pundlik.jpg" },
+  { first: "Sunil", last: "Prakash", role: "ENG Lead", img: "/team/sunil.jpg" },
+  { first: "Pundlik", last: "Rathod", role: "Back-end Ninja", img: "/team/pundlik.jpg" },
 ];
 
 const LinkedInGlyph = ({ s = 14 }) => (
@@ -290,17 +304,15 @@ const Team = () => (
             <div className="mf-team-overlay">
               <div className="mf-team-name">
                 <span className="mf-team-fn">{m.first}</span>
-                <span className="mf-team-ln">
-                  {m.last}
-                  {m.linkedin && (
-                    <a className="mf-team-li" href={m.linkedin} target="_blank" rel="noopener noreferrer"
-                       aria-label={`${m.first} ${m.last} on LinkedIn`}>
-                      <LinkedInGlyph/>
-                    </a>
-                  )}
-                </span>
+                <span className="mf-team-ln">{m.last}</span>
               </div>
               <div className="mf-team-role">{m.role}</div>
+              {m.linkedin && (
+                <a className="mf-team-li" href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                   aria-label={`${m.first} ${m.last} on LinkedIn`}>
+                  <LinkedInGlyph/>
+                </a>
+              )}
             </div>
           </div>
         ))}
