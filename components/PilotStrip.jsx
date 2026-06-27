@@ -13,9 +13,9 @@ export default function PilotStrip() {
             From the live pilot
           </span>
           <span className="pilot-strip-facts">
-            <span><strong>A full cohort</strong> using Nia weekly</span>
+            <span>An <strong>undergraduate evaluator</strong> cohort</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
-            <span><strong>6&ndash;8 wks</strong> of sustained engagement</span>
+            <span><strong>100%</strong> pilot demand consensus</span>
             <span className="pilot-strip-div" aria-hidden="true"/>
             <Link href="/contact#form" className="pilot-strip-cta">Hear the results first →</Link>
           </span>
