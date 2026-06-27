@@ -405,7 +405,7 @@ export default function InvestorsPage() {
           </div>
           <p style={{ marginTop: 22, fontSize: 14.5, color: "var(--ink-2)", lineHeight: 1.7, maxWidth: 760 }}>
             Why now: institutions face real enrollment and retention pressure, AI is finally good
-            enough to coach, and FERPA-grade governance is the gate generic tools can&apos;t pass.
+            enough to coach, and FERPA-aligned governance is the gate generic tools can&apos;t pass.
           </p>
           <p style={{ marginTop: 12, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.02em", color: "var(--ink-3)", lineHeight: 1.6 }}>
             Institution count: 5,819 Title IV postsecondary institutions, NCES / IPEDS, 2023–24. Market and retention-loss figures are internal estimates.

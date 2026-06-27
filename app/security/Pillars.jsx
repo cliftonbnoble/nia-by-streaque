@@ -243,7 +243,7 @@ const PILLARS = [
       { l: "CORS policy", v: "Explicit allowlist · no wildcards" }, { l: "Validation", v: "Context-aware SQLi + XSS" },
     ],
     Visual: DefenseVisual },
-  { id: "ferpa", n: "04", t: "FERPA from the foundation", sub: "Architected for student-data law on day one",
+  { id: "ferpa", n: "04", t: "FERPA-aligned", sub: "Architected for student-data law on day one",
     accent: "#2FB380", icon: "audit",
     headline: "Compliance, by architecture.",
     body: [

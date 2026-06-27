@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
   path: "/security",
   title: "Security · Nia by Streaque",
   description:
-    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA from the foundation. The security architecture behind Nia.",
+    "Encryption in transit and at rest, Zero Trust access, defense-in-depth, and FERPA-aligned by design. The security architecture behind Nia.",
 });
 
 /* Hero animation — the story in one loop:
