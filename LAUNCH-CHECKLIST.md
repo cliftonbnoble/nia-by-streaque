@@ -78,6 +78,15 @@ These are the security/compliance answers reworded conservatively in the FAQ —
 
 ---
 
+## 🎨 Optional / editorial — non-blocking (carried from the audits)
+
+- [ ] **Sentiment framing** 🤔🔧🛡️ — `/how-nia-works` staff loop still surfaces sentiment tracking ("sentiment ↓", a drawn sentiment line on the staff dashboard). Audit IV called this the **highest-risk feature for a trust-first site**. Reframe so the **student** sees/benefits (not "student-watching"), and have `/security` (and the security packet) state **how sentiment/behavioral-signal data is governed**. _Recommend addressing before launch._
+- [ ] **Real product screenshots** 🤔 — optional; real screenshots beat polished mocks for "we have a real product." Swap in when available.
+- [ ] **#1 Edit home like a magazine, not a catalog** 🔧🤔 — home runs ~12 sections; the "five coaches, one profile" demo (home) and the "one profile" moat (`/why-nia`) tell the same idea twice. Let home **tease**, let `/why-nia` own the deep telling. Saves ~a screen.
+- [ ] **#3 Spend the motion budget where it earns attention** 🔧 — start each demo **on scroll-into-view** rather than looping from load (calmer/more premium, removes no animation). Off-screen pausing is already done.
+
+---
+
 ## ✅ Final pre-launch QA (smoke tests on the live host)
 
 - [ ] **Contact form end-to-end** ⚙️ — submit a real test inquiry on the live URL → confirm (a) a row appears in the leads Sheet, (b) an email reaches `info@streaque.com`. Then test spam handling: a bad/blank Turnstile token is rejected. _(Self-send Gmail quirk: the sender's own account won't receive the copy — not a bug.)_
