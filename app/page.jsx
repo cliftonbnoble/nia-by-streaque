@@ -4,7 +4,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "@/components/icons";
 import { SecProblem, SecArchitecture, SecAdvisors, SecCoaches, SecProof } from "@/components/home/CampaignSections";
-import { CookieBanner } from "@/components/home/GapSections";
 import HeroPhones from "@/components/home/HeroPhone";
 import FeatureCards from "@/components/home/FeatureCards";
 import PauseOffscreen from "@/components/PauseOffscreen";
@@ -387,7 +386,6 @@ export default function Home() {
       <ClosingCTA/>
       </main>
       <Footer/>
-      <CookieBanner/>
     </div>
   );
 }

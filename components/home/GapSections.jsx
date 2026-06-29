@@ -1,10 +1,9 @@
 "use client";
 /* Streaque — homepage gap-fill sections (additive).
    Ported from the Claude Design bundle (midfi-gaps.jsx).
-   Exports: FAQ (procurement Q&A, mounted on home + /security) and CookieBanner.
+   Exports: FAQ (procurement Q&A, mounted on /security).
    LogoStrip / LeadForm and the placeholder blocks were removed in dead-code cleanup. */
-import { useState, useEffect } from "react";
-import { CONSENT_KEY } from "@/lib/consent";
+import { useState } from "react";
 
 
 /* ── 4. Procurement FAQ ───────────────────────────────────────── */
@@ -60,35 +59,5 @@ export const FAQ = ({ alt = true }) => {
         </div>
       </div>
     </section>
-  );
-};
-
-
-/* ── 7. Cookie consent banner ─────────────────────────────────── */
-export const CookieBanner = () => {
-  // Render nothing until mounted so server and first client render match,
-  // then reveal only if the visitor hasn't already made a choice. The stored
-  // value ("accepted" | "rejected") is read via analyticsAllowed() in
-  // lib/consent.js — the gate any future analytics must check.
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    try { if (!localStorage.getItem(CONSENT_KEY)) setShow(true); } catch { setShow(true); }
-  }, []);
-  if (!show) return null;
-  const choose = (choice) => {
-    try { localStorage.setItem(CONSENT_KEY, choice); } catch {}
-    setShow(false);
-  };
-  return (
-    <div role="region" aria-label="Cookie consent" style={{ position: "fixed", bottom: 16, left: 16, right: 16, maxWidth: 540, marginLeft: "auto", background: "white", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: 18, display: "flex", alignItems: "center", gap: 14, zIndex: 100, flexWrap: "wrap" }}>
-      <div style={{ flex: 1, minWidth: 220, fontSize: 13, color: "var(--ink-2)", lineHeight: 1.5 }}>
-        We use only the essential cookies needed to run this site and remember this choice. No tracking pixels, no ad networks, and no analytics today. If we add privacy-friendly analytics later, your choice here controls it.{" "}
-        <a href="/privacy" style={{ color: "var(--primary)", textDecoration: "underline", cursor: "pointer" }}>Privacy &amp; cookies</a>
-      </div>
-      <div style={{ display: "flex", gap: 8 }}>
-        <button onClick={() => choose("rejected")} className="mf-btn mf-btn-ghost mf-btn-sm">Reject</button>
-        <button onClick={() => choose("accepted")} className="mf-btn mf-btn-primary mf-btn-sm">Accept</button>
-      </div>
-    </div>
   );
 };

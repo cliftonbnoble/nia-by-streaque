@@ -67,8 +67,8 @@ const SECTIONS = [
   {
     h: "Cookies and analytics",
     body: [
-      "Our website uses a small set of essential cookies to operate the site and remember the choice you make in our cookie banner. We do not currently run third-party analytics or advertising trackers.",
-      "If we introduce analytics in the future, we will use a privacy-friendly tool, gate it behind your cookie-banner choice, and update this policy to describe it. You can also control cookies through your browser settings.",
+      "We use privacy-friendly, cookieless analytics (Cloudflare Web Analytics) to understand aggregate traffic. It sets no cookies, does not fingerprint your device, and does not track you across other websites or build a profile of you. We do not use advertising or cross-site tracking cookies.",
+      "Because our analytics is cookieless and we use only the strictly necessary cookies required to run the site and protect our forms from abuse, we do not show a cookie-consent banner. You can still manage or block cookies through your browser settings.",
     ],
   },
   {

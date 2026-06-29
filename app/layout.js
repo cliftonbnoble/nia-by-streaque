@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
    needed). Get it from the dashboard → Web Analytics → your site. Hardcode it
    here like the Turnstile site key, or set NEXT_PUBLIC_CF_ANALYTICS_TOKEN.
    Empty = no beacon rendered (so nothing breaks until it's set). */
-const CF_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN || "";
+const CF_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN || "35eb15954a0b494cbc2875d30a29c07d";
 
 /* self-hosted variable fonts: one file per family covers every weight,
    no render-blocking request to Google */
