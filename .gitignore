@@ -59,6 +59,13 @@ next-env.d.ts
 /agent-process-video/
 # the Nia app source, dropped in for UI reference only
 /NiaCoach-main/
+# old marketing-site copy, superseded by app/ + components/
+/streaque/
+# QA-tooling output (screenshots, reports)
+/.gstack/
+# source hero images — the site serves the resized copies in public/two-doors/
+/student-hero-section.jpg
+/faculty-hero-section.jpg
 
 # editor / OS cruft
 .vscode/
@@ -68,3 +75,10 @@ next-env.d.ts
 *~
 ._*
 Thumbs.db
+
+# ── markdown docs — kept LOCAL, never shipped to the repo ──
+# Working notes, trackers, audits, the launch checklist, the security packet,
+# and the agent-instruction files (CLAUDE.md / AGENTS.md) all stay on disk only.
+# If you ever genuinely need a markdown file in the repo, force it: git add -f <file>
+*.md
+*.markdown
