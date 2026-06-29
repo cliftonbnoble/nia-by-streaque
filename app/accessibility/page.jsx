@@ -49,7 +49,7 @@ export default function AccessibilityStatement() {
   return (
     <LegalPage
       title="Accessibility"
-      updated="Last reviewed June 15, 2026"
+      updated="Last reviewed June 28, 2026"
       intro="This statement describes our approach to digital accessibility for the Nia by Streaque website, the steps we have already taken, and how to reach us if something is not working for you."
       sections={SECTIONS}
     />

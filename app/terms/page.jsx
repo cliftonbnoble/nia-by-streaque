@@ -93,7 +93,7 @@ export default function TermsAndConditions() {
   return (
     <LegalPage
       title="Terms & Conditions"
-      updated="Last updated June 13, 2026"
+      updated="Last updated June 28, 2026"
       intro="These Terms set out the general rules for using the Nia by Streaque website and platform. Institution-specific commitments are governed by the agreement between Streaque and each partner institution."
       sections={SECTIONS}
     />

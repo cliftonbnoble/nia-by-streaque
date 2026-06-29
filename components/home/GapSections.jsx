@@ -9,7 +9,7 @@ import { CONSENT_KEY } from "@/lib/consent";
 
 /* ── 4. Procurement FAQ ───────────────────────────────────────── */
 const FAQ_ITEMS = [
-  { q: "Where does our student data live?", a: "Inside your tenant. Nia orchestrates models and signals from your VPC; PII never leaves your perimeter, and we never train foundation models on your data." },
+  { q: "Where does our student data live?", a: "In Nia's managed cloud environment, isolated per institution. Database row-level security plus per-institution encryption keys keep your campus's data separate from every other institution's; PII is encrypted, and we never train foundation models on it." },
   { q: "Which model does Nia use?", a: "By default, Nia runs on Google Gemini through Vertex AI, chosen for its GDPR-compliant data handling and strong PII protection. But Nia is model-agnostic: if your institution prefers OpenAI, Anthropic, or another provider, we can route through it. Either way, student data is sent under no-training terms, so neither we nor the model provider trains on it." },
   { q: "Do you complete a HECVAT?", a: "Not yet — we're early, and we don't have a published HECVAT today. We'll complete your institution's security questionnaire, HECVAT or your own, on request, and we're glad to walk through our current controls and roadmap." },
   { q: "Is Nia FERPA-aligned?", a: "Yes. We operate as a school official under FERPA §99.31(a)(1), with role-based access, encryption in transit and at rest, and a full audit trail on every model call. SOC 2 is on our security roadmap, not yet underway. We're glad to share our current controls and the plan." },

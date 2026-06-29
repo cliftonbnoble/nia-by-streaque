@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
   return (
     <LegalPage
       title="Privacy Policy"
-      updated="Last updated June 13, 2026"
+      updated="Last updated June 28, 2026"
       intro="This policy describes how Nia by Streaque handles information across our website and platform. It is written to be clear and general; institution-specific terms are governed by the agreement between Streaque and each partner institution."
       sections={SECTIONS}
     />
