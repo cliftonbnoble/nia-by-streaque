@@ -82,3 +82,6 @@ Thumbs.db
 # If you ever genuinely need a markdown file in the repo, force it: git add -f <file>
 *.md
 *.markdown
+
+# staff photo source material (originals + tinified) — kept local
+/staff pics/
